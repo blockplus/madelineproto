@@ -10,7 +10,7 @@ description: pageBlockPreformatted attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |text|[RichText](../types/RichText.md) | Yes|
 |language|[string](../types/string.md) | Yes|
 
@@ -22,14 +22,21 @@ description: pageBlockPreformatted attributes, type and example
 ### Example:
 
 ```
-$pageBlockPreformatted = ['_' => 'pageBlockPreformatted', 'text' => RichText, 'language' => string, ];
+$pageBlockPreformatted = ['_' => 'pageBlockPreformatted', 'text' => RichText, 'language' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "pageBlockPreformatted", "text": RichText, "language": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-pageBlockPreformatted={_='pageBlockPreformatted', text=RichText, language=string, }
+pageBlockPreformatted={_='pageBlockPreformatted', text=RichText, language='string'}
 
 ```
 

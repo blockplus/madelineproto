@@ -6,12 +6,15 @@ description: Returns full information about a group by its identifier
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Returns full information about a group by its identifier
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |group\_id|[int](../types/int.md) | Yes|Group identifier|
 
 
@@ -23,7 +26,7 @@ Returns full information about a group by its identifier
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,6 +40,30 @@ if (isset($number)) { // Login as a user
 
 $GroupFull = $MadelineProto->getGroupFull(['group_id' => int, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - getGroupFull
+* params - `{"group_id": int, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/getGroupFull`
+
+Parameters:
+
+group_id - Json encoded int
+
+
+
 
 Or, if you're into Lua:
 

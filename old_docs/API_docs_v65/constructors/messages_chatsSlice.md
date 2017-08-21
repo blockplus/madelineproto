@@ -10,7 +10,7 @@ description: messages_chatsSlice attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |count|[int](../types/int.md) | Yes|
 |chats|Array of [Chat](../types/Chat.md) | Yes|
 
@@ -22,14 +22,21 @@ description: messages_chatsSlice attributes, type and example
 ### Example:
 
 ```
-$messages_chatsSlice = ['_' => 'messages.chatsSlice', 'count' => int, 'chats' => [Chat], ];
+$messages_chatsSlice = ['_' => 'messages.chatsSlice', 'count' => int, 'chats' => [Chat]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messages.chatsSlice", "count": int, "chats": [Chat]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messages_chatsSlice={_='messages.chatsSlice', count=int, chats={Chat}, }
+messages_chatsSlice={_='messages.chatsSlice', count=int, chats={Chat}}
 
 ```
 

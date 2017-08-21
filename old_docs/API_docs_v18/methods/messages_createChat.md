@@ -9,7 +9,7 @@ description: messages.createChat parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |users|Array of [InputUser](../types/InputUser.md) | Yes|
 |title|[string](../types/string.md) | Yes|
 
@@ -22,7 +22,7 @@ description: messages.createChat parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -34,12 +34,38 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$messages_StatedMessage = $MadelineProto->messages->createChat(['users' => [InputUser], 'title' => string, ]);
+$messages_StatedMessage = $MadelineProto->messages->createChat(['users' => [InputUser], 'title' => 'string', ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - messages.createChat
+* params - `{"users": [InputUser], "title": "string", }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/messages.createChat`
+
+Parameters:
+
+users - Json encoded  array of InputUser
+
+title - Json encoded string
+
+
+
 
 Or, if you're into Lua:
 
 ```
-messages_StatedMessage = messages.createChat({users={InputUser}, title=string, })
+messages_StatedMessage = messages.createChat({users={InputUser}, title='string', })
 ```
 

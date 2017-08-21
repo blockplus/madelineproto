@@ -12,7 +12,7 @@ Code is delievered by voice call to the specified phone number
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |length|[int](../types/int.md) | Yes|Length of the code|
 
 
@@ -23,14 +23,21 @@ Code is delievered by voice call to the specified phone number
 ### Example:
 
 ```
-$authCodeTypeCall = ['_' => 'authCodeTypeCall', 'length' => int, ];
+$authCodeTypeCall = ['_' => 'authCodeTypeCall', 'length' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "authCodeTypeCall", "length": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-authCodeTypeCall={_='authCodeTypeCall', length=int, }
+authCodeTypeCall={_='authCodeTypeCall', length=int}
 
 ```
 

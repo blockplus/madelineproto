@@ -10,7 +10,7 @@ description: messageActionChatMigrateTo attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |channel\_id|[int](../types/int.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: messageActionChatMigrateTo attributes, type and example
 ### Example:
 
 ```
-$messageActionChatMigrateTo = ['_' => 'messageActionChatMigrateTo', 'channel_id' => int, ];
+$messageActionChatMigrateTo = ['_' => 'messageActionChatMigrateTo', 'channel_id' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageActionChatMigrateTo", "channel_id": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageActionChatMigrateTo={_='messageActionChatMigrateTo', channel_id=int, }
+messageActionChatMigrateTo={_='messageActionChatMigrateTo', channel_id=int}
 
 ```
 

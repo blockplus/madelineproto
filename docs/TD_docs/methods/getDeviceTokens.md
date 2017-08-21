@@ -6,12 +6,15 @@ description: Returns list of used device tokens
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Returns list of used device tokens
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 ### Return type: [DeviceTokenSet](../types/DeviceTokenSet.md)
@@ -22,7 +25,7 @@ Returns list of used device tokens
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -36,6 +39,28 @@ if (isset($number)) { // Login as a user
 
 $DeviceTokenSet = $MadelineProto->getDeviceTokens();
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - getDeviceTokens
+* params - `{}`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/getDeviceTokens`
+
+Parameters:
+
+
+
 
 Or, if you're into Lua:
 

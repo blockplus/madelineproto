@@ -10,7 +10,7 @@ description: documentAttributeFilename attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |file\_name|[string](../types/string.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: documentAttributeFilename attributes, type and example
 ### Example:
 
 ```
-$documentAttributeFilename_23 = ['_' => 'documentAttributeFilename', 'file_name' => string, ];
+$documentAttributeFilename_23 = ['_' => 'documentAttributeFilename', 'file_name' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "documentAttributeFilename", "file_name": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-documentAttributeFilename_23={_='documentAttributeFilename', file_name=string, }
+documentAttributeFilename_23={_='documentAttributeFilename', file_name='string'}
 
 ```
 

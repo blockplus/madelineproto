@@ -10,7 +10,7 @@ description: photo attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[long](../types/long.md) | Yes|
 |access\_hash|[long](../types/long.md) | Yes|
 |user\_id|[int](../types/int.md) | Yes|
@@ -27,14 +27,21 @@ description: photo attributes, type and example
 ### Example:
 
 ```
-$photo = ['_' => 'photo', 'id' => long, 'access_hash' => long, 'user_id' => int, 'date' => int, 'caption' => string, 'geo' => GeoPoint, 'sizes' => [PhotoSize], ];
+$photo = ['_' => 'photo', 'id' => long, 'access_hash' => long, 'user_id' => int, 'date' => int, 'caption' => 'string', 'geo' => GeoPoint, 'sizes' => [PhotoSize]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "photo", "id": long, "access_hash": long, "user_id": int, "date": int, "caption": "string", "geo": GeoPoint, "sizes": [PhotoSize]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-photo={_='photo', id=long, access_hash=long, user_id=int, date=int, caption=string, geo=GeoPoint, sizes={PhotoSize}, }
+photo={_='photo', id=long, access_hash=long, user_id=int, date=int, caption='string', geo=GeoPoint, sizes={PhotoSize}}
 
 ```
 

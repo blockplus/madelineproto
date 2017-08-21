@@ -10,7 +10,7 @@ description: decryptedDataBlock attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |voice\_call\_id|[int128](../types/int128.md) | Optional|
 |in\_seq\_no|[int](../types/int.md) | Optional|
 |out\_seq\_no|[int](../types/int.md) | Optional|
@@ -27,14 +27,21 @@ description: decryptedDataBlock attributes, type and example
 ### Example:
 
 ```
-$decryptedDataBlock = ['_' => 'decryptedDataBlock', 'voice_call_id' => int128, 'in_seq_no' => int, 'out_seq_no' => int, 'recent_received_mask' => int, 'proto' => int, 'extra' => string, 'raw_data' => string, ];
+$decryptedDataBlock = ['_' => 'decryptedDataBlock', 'voice_call_id' => int128, 'in_seq_no' => int, 'out_seq_no' => int, 'recent_received_mask' => int, 'proto' => int, 'extra' => 'string', 'raw_data' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "decryptedDataBlock", "voice_call_id": int128, "in_seq_no": int, "out_seq_no": int, "recent_received_mask": int, "proto": int, "extra": "string", "raw_data": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-decryptedDataBlock={_='decryptedDataBlock', voice_call_id=int128, in_seq_no=int, out_seq_no=int, recent_received_mask=int, proto=int, extra=string, raw_data=string, }
+decryptedDataBlock={_='decryptedDataBlock', voice_call_id=int128, in_seq_no=int, out_seq_no=int, recent_received_mask=int, proto=int, extra='string', raw_data='string'}
 
 ```
 

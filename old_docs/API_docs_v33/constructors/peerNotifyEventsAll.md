@@ -16,14 +16,21 @@ description: peerNotifyEventsAll attributes, type and example
 ### Example:
 
 ```
-$peerNotifyEventsAll = ['_' => 'peerNotifyEventsAll', ];
+$peerNotifyEventsAll = ['_' => 'peerNotifyEventsAll'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "peerNotifyEventsAll"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-peerNotifyEventsAll={_='peerNotifyEventsAll', }
+peerNotifyEventsAll={_='peerNotifyEventsAll'}
 
 ```
 

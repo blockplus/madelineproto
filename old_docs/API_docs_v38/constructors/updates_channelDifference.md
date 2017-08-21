@@ -10,7 +10,7 @@ description: updates_channelDifference attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |pts|[int](../types/int.md) | Yes|
 |timeout|[int](../types/int.md) | Optional|
 |new\_messages|Array of [Message](../types/Message.md) | Yes|
@@ -26,14 +26,21 @@ description: updates_channelDifference attributes, type and example
 ### Example:
 
 ```
-$updates_channelDifference = ['_' => 'updates.channelDifference', 'pts' => int, 'timeout' => int, 'new_messages' => [Message], 'other_updates' => [Update], 'chats' => [Chat], 'users' => [User], ];
+$updates_channelDifference = ['_' => 'updates.channelDifference', 'pts' => int, 'timeout' => int, 'new_messages' => [Message], 'other_updates' => [Update], 'chats' => [Chat], 'users' => [User]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updates.channelDifference", "pts": int, "timeout": int, "new_messages": [Message], "other_updates": [Update], "chats": [Chat], "users": [User]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updates_channelDifference={_='updates.channelDifference', pts=int, timeout=int, new_messages={Message}, other_updates={Update}, chats={Chat}, users={User}, }
+updates_channelDifference={_='updates.channelDifference', pts=int, timeout=int, new_messages={Message}, other_updates={Update}, chats={Chat}, users={User}}
 
 ```
 

@@ -9,7 +9,7 @@ description: messages.clearRecentStickers parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |attached|[Bool](../types/Bool.md) | Optional|
 
 
@@ -21,7 +21,7 @@ description: messages.clearRecentStickers parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -35,6 +35,30 @@ if (isset($number)) { // Login as a user
 
 $Bool = $MadelineProto->messages->clearRecentStickers(['attached' => Bool, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - messages.clearRecentStickers
+* params - `{"attached": Bool, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/messages.clearRecentStickers`
+
+Parameters:
+
+attached - Json encoded Bool
+
+
+
 
 Or, if you're into Lua:
 

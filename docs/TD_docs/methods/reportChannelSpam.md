@@ -6,12 +6,15 @@ description: Reports some supergroup channel messages from a user as spam messag
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Reports some supergroup channel messages from a user as spam messages
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |channel\_id|[int](../types/int.md) | Yes|Channel identifier|
 |user\_id|[int](../types/int.md) | Yes|User identifier|
 |message\_ids|Array of [long](../types/long.md) | Yes|Identifiers of messages sent in the supergroup by the user, the list should be non-empty|
@@ -25,7 +28,7 @@ Reports some supergroup channel messages from a user as spam messages
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -39,6 +42,34 @@ if (isset($number)) { // Login as a user
 
 $Ok = $MadelineProto->reportChannelSpam(['channel_id' => int, 'user_id' => int, 'message_ids' => [long], ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - reportChannelSpam
+* params - `{"channel_id": int, "user_id": int, "message_ids": [long], }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/reportChannelSpam`
+
+Parameters:
+
+channel_id - Json encoded int
+
+user_id - Json encoded int
+
+message_ids - Json encoded  array of long
+
+
+
 
 Or, if you're into Lua:
 

@@ -6,6 +6,9 @@ description: test.forceGetDifference parameters, return type and example
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 
 
 ### Return type: [Ok](../types/Ok.md)
@@ -16,7 +19,7 @@ description: test.forceGetDifference parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -30,6 +33,28 @@ if (isset($number)) { // Login as a user
 
 $Ok = $MadelineProto->test->forceGetDifference();
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - test.forceGetDifference
+* params - `{}`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/test.forceGetDifference`
+
+Parameters:
+
+
+
 
 Or, if you're into Lua:
 

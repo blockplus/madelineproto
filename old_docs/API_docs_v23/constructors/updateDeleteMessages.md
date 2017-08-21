@@ -10,7 +10,7 @@ description: updateDeleteMessages attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |messages|Array of [int](../types/int.md) | Yes|
 |pts|[int](../types/int.md) | Yes|
 
@@ -22,14 +22,21 @@ description: updateDeleteMessages attributes, type and example
 ### Example:
 
 ```
-$updateDeleteMessages = ['_' => 'updateDeleteMessages', 'messages' => [int], 'pts' => int, ];
+$updateDeleteMessages = ['_' => 'updateDeleteMessages', 'messages' => [int], 'pts' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateDeleteMessages", "messages": [int], "pts": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateDeleteMessages={_='updateDeleteMessages', messages={int}, pts=int, }
+updateDeleteMessages={_='updateDeleteMessages', messages={int}, pts=int}
 
 ```
 

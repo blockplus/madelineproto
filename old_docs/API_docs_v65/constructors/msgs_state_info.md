@@ -10,7 +10,7 @@ description: msgs_state_info attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |req\_msg\_id|[long](../types/long.md) | Yes|
 |info|[string](../types/string.md) | Yes|
 
@@ -22,14 +22,21 @@ description: msgs_state_info attributes, type and example
 ### Example:
 
 ```
-$msgs_state_info = ['_' => 'msgs_state_info', 'req_msg_id' => long, 'info' => string, ];
+$msgs_state_info = ['_' => 'msgs_state_info', 'req_msg_id' => long, 'info' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "msgs_state_info", "req_msg_id": long, "info": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-msgs_state_info={_='msgs_state_info', req_msg_id=long, info=string, }
+msgs_state_info={_='msgs_state_info', req_msg_id=long, info='string'}
 
 ```
 

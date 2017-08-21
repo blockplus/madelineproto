@@ -25,7 +25,7 @@ class Connection extends \Volatile
     public $ip = null;
     public $port = null;
     public $timeout = null;
-//    public $parsed = [];
+    public $parsed = [];
     public $time_delta = 0;
     public $temp_auth_key;
     public $auth_key;
@@ -37,8 +37,24 @@ class Connection extends \Volatile
     public $outgoing_messages = [];
     public $new_incoming = [];
     public $new_outgoing = [];
+    public $max_incoming_id;
+    public $max_outgoing_id;
+    public $proxy = '\Socket';
+    public $extra = [];
+    public $obfuscated = [];
 
-    public function ___construct($ip, $port, $protocol, $timeout, $ipv6)
+    public $call_queue = [];
+
+    public $i = [];
+    /*    public function __get($name) {
+            echo "GETTING $name\n";
+            if (isset($this->i[$name]) && $this->{$name} === null) var_dump($this->i[$name]);
+            if ($this->{$name} instanceof \Volatile) $this->i[$name] = debug_backtrace(0);
+    var_dump(is_null($this->{$name}));
+            return $this->{$name};
+        }*/
+
+    public function ___construct($proxy, $extra, $ip, $port, $protocol, $timeout, $ipv6)
     {
 
         // Can use:
@@ -55,9 +71,18 @@ class Connection extends \Volatile
         $this->ipv6 = $ipv6;
         $this->ip = $ip;
         $this->port = $port;
+        $this->proxy = $proxy;
+        $this->extra = $extra;
+
+        if (($has_proxy = $proxy !== '\Socket') && !isset(class_implements($proxy)['\danog\MadelineProto\Proxy'])) {
+            throw new \danog\MadelineProto\Exception('Invalid proxy class provided!');
+        }
         switch ($this->protocol) {
             case 'tcp_abridged':
-                $this->sock = new \Socket($ipv6 ? \AF_INET6 : \AF_INET, \SOCK_STREAM, getprotobyname('tcp'));
+                $this->sock = new $proxy($ipv6 ? \AF_INET6 : \AF_INET, \SOCK_STREAM, getprotobyname('tcp'));
+                if ($has_proxy && $this->extra !== []) {
+                    $this->sock->setExtra($this->extra);
+                }
                 if (!\danog\MadelineProto\Logger::$has_thread) {
                     $this->sock->setOption(\SOL_SOCKET, \SO_RCVTIMEO, $timeout);
                     $this->sock->setOption(\SOL_SOCKET, \SO_SNDTIMEO, $timeout);
@@ -69,7 +94,10 @@ class Connection extends \Volatile
                 $this->write(chr(239));
                 break;
             case 'tcp_intermediate':
-                $this->sock = new \Socket($ipv6 ? \AF_INET6 : \AF_INET, \SOCK_STREAM, getprotobyname('tcp'));
+                $this->sock = new $proxy($ipv6 ? \AF_INET6 : \AF_INET, \SOCK_STREAM, getprotobyname('tcp'));
+                if ($has_proxy && $this->extra !== []) {
+                    $this->sock->setExtra($this->extra);
+                }
                 $this->sock->setOption(\SOL_SOCKET, \SO_RCVTIMEO, $timeout);
                 $this->sock->setOption(\SOL_SOCKET, \SO_SNDTIMEO, $timeout);
                 if (!$this->sock->connect($ip, $port)) {
@@ -82,9 +110,12 @@ class Connection extends \Volatile
                 $this->sock->setBlocking(true);
                 $this->write(str_repeat(chr(238), 4));
                 break;
-            case 'tcp_full':
 
-                $this->sock = new \Socket($ipv6 ? \AF_INET6 : \AF_INET, \SOCK_STREAM, getprotobyname('tcp'));
+            case 'tcp_full':
+                $this->sock = new $proxy($ipv6 ? \AF_INET6 : \AF_INET, \SOCK_STREAM, getprotobyname('tcp'));
+                if ($has_proxy && $this->extra !== []) {
+                    $this->sock->setExtra($this->extra);
+                }
                 if (!$this->sock->connect($ip, $port)) {
                     throw new Exception("Connection: couldn't connect to socket.");
                 }
@@ -97,10 +128,57 @@ class Connection extends \Volatile
                 $this->out_seq_no = -1;
                 $this->in_seq_no = -1;
                 break;
+            case 'obfuscated2':
+                $this->sock = new $proxy($ipv6 ? \AF_INET6 : \AF_INET, \SOCK_STREAM, getprotobyname('tcp'));
+                if ($has_proxy && $this->extra !== []) {
+                    $this->sock->setExtra($this->extra);
+                }
+                if (!$this->sock->connect($ip, $port)) {
+                    throw new Exception("Connection: couldn't connect to socket.");
+                }
+                if (!\danog\MadelineProto\Logger::$has_thread) {
+                    $this->sock->setOption(\SOL_SOCKET, \SO_RCVTIMEO, $timeout);
+                    $this->sock->setOption(\SOL_SOCKET, \SO_SNDTIMEO, $timeout);
+                }
+                $this->sock->setBlocking(true);
+                do {
+                    $random = $this->random(64);
+                } while (in_array(substr($random, 0, 4), ['PVrG', 'GET ', 'POST', 'HEAD', str_repeat(chr(238), 4)]) || $random[0] === chr(0xef) || substr($random, 4, 4) === "\0\0\0\0");
+                $random[56] = $random[57] = $random[58] = $random[59] = chr(0xef);
+                $reversed = strrev(substr($random, 8, 48));
+
+                $this->obfuscated = ['encryption' => new \phpseclib\Crypt\AES(\phpseclib\Crypt\AES::MODE_CTR), 'decryption' => new \phpseclib\Crypt\AES(\phpseclib\Crypt\AES::MODE_CTR)];
+                $this->obfuscated['encryption']->enableContinuousBuffer();
+                $this->obfuscated['decryption']->enableContinuousBuffer();
+
+                $this->obfuscated['encryption']->setKey(substr($random, 8, 32));
+                $this->obfuscated['encryption']->setIV(substr($random, 40, 16));
+
+                $this->obfuscated['decryption']->setKey(substr($reversed, 0, 32));
+                $this->obfuscated['decryption']->setIV(substr($reversed, 32, 16));
+                $random = substr_replace(
+                    $random,
+                    substr(
+                        $this->obfuscated['encryption']->encrypt($random),
+                        56,
+                        8
+                    ),
+                    56,
+                    8
+                );
+                $wrote = 0;
+                if (($wrote += $this->sock->write($random)) !== 64) {
+                    while (($wrote += $this->sock->write(substr($what, $wrote))) !== 64);
+                }
+                break;
+
             case 'http':
             case 'https':
                 $this->parsed = parse_url($ip);
-                $this->sock = new \Socket($ipv6 ? \AF_INET6 : \AF_INET, \SOCK_STREAM, getprotobyname($this->protocol === 'https' ? 'tls' : 'tcp'));
+                $this->sock = new $proxy($ipv6 ? \AF_INET6 : \AF_INET, \SOCK_STREAM, getprotobyname($this->protocol === 'https' ? 'tls' : 'tcp'));
+                if ($has_proxy && $this->extra !== []) {
+                    $this->sock->setExtra($this->extra);
+                }
                 if (!$this->sock->connect($this->parsed['host'], $port)) {
                     throw new Exception("Connection: couldn't connect to socket.");
                 }
@@ -129,6 +207,7 @@ class Connection extends \Volatile
             case 'tcp_full':
             case 'http':
             case 'https':
+            case 'obfuscated2':
                 try {
                     unset($this->sock);
                 } catch (\danog\MadelineProto\Exception $e) {
@@ -145,22 +224,12 @@ class Connection extends \Volatile
     public function close_and_reopen()
     {
         $this->__destruct();
-        $this->__construct($this->ip, $this->port, $this->protocol, $this->timeout, $this->ipv6);
+        $this->__construct($this->proxy, $this->extra, $this->ip, $this->port, $this->protocol, $this->timeout, $this->ipv6);
     }
 
     public function __sleep()
     {
-        $t = get_object_vars($this);
-        if (isset($t['sock'])) {
-            unset($t['sock']);
-        }
-
-        $keys = array_keys((array) $t);
-        if (count($keys) !== count(array_unique($keys))) {
-            throw new Bug74586Exception();
-        }
-
-        return $keys;
+        return ['proxy', 'extra', 'protocol', 'ip', 'port', 'timeout', 'parsed', 'time_delta', 'temp_auth_key', 'auth_key', 'session_id', 'session_out_seq_no', 'session_in_seq_no', 'ipv6', 'incoming_messages', 'outgoing_messages', 'new_incoming', 'new_outgoing', 'max_incoming_id', 'max_outgoing_id', 'obfuscated'];
     }
 
     public function __wakeup()
@@ -172,7 +241,7 @@ class Connection extends \Volatile
         if (count($keys) !== count(array_unique($keys))) {
             throw new Bug74586Exception();
         }
-
+        $this->time_delta = 0;
         //$this->__construct($this->ip, $this->port, $this->protocol, $this->timeout, $this->ipv6);
     }
 
@@ -180,17 +249,21 @@ class Connection extends \Volatile
     {
         if ($length !== null) {
             $what = substr($what, 0, $length);
+        } else {
+            $length = strlen($what);
         }
+
         switch ($this->protocol) {
+            case 'obfuscated2':
+                $what = $this->obfuscated['encryption']->encrypt($what);
             case 'tcp_abridged':
             case 'tcp_intermediate':
             case 'tcp_full':
             case 'http':
             case 'https':
                 $wrote = 0;
-                $len = strlen($what);
-                if (($wrote += $this->sock->write($what)) !== $len) {
-                    while (($wrote += $this->sock->write(substr($what, $wrote))) !== $len);
+                if (($wrote += $this->sock->write($what)) !== $length) {
+                    while (($wrote += $this->sock->write(substr($what, $wrote))) !== $length);
                 }
 
                 return $wrote;
@@ -207,6 +280,22 @@ class Connection extends \Volatile
     public function read($length)
     {
         switch ($this->protocol) {
+            case 'obfuscated2':
+                $packet = '';
+                while (strlen($packet) < $length) {
+                    $packet .= $this->sock->read($length - strlen($packet));
+                    if ($packet === false || strlen($packet) === 0) {
+                        throw new \danog\MadelineProto\NothingInTheSocketException('Nothing in the socket!');
+                    }
+                }
+                if (strlen($packet) !== $length) {
+                    $this->close_and_reopen();
+
+                    throw new Exception("WARNING: Wrong length was read (should've read ".($length).', read '.strlen($packet).')!');
+                }
+
+                return $this->obfuscated['decryption']->encrypt($packet);
+
             case 'tcp_abridged':
             case 'tcp_intermediate':
             case 'tcp_full':
@@ -221,6 +310,7 @@ class Connection extends \Volatile
                 }
                 if (strlen($packet) !== $length) {
                     $this->close_and_reopen();
+
                     throw new Exception("WARNING: Wrong length was read (should've read ".($length).', read '.strlen($packet).')!');
                 }
 
@@ -252,21 +342,14 @@ class Connection extends \Volatile
 
                 return substr($packet, 4, $packet_length - 12);
             case 'tcp_intermediate':
-                $packet_length_data = $this->read(4);
-                $packet_length = unpack('V', $packet_length_data)[1];
+                return $this->read(unpack('V', $this->read(4))[1]);
 
-                return $this->read($packet_length);
+            case 'obfuscated2':
             case 'tcp_abridged':
-                $packet_length_data = $this->read(1);
-                $packet_length = ord($packet_length_data);
-                if ($packet_length < 127) {
-                    $packet_length <<= 2;
-                } else {
-                    $packet_length_data = $this->read(3);
-                    $packet_length = unpack('V', $packet_length_data."\0")[1] << 2;
-                }
+                $packet_length = ord($this->read(1));
 
-                return $this->read($packet_length);
+                return $this->read($packet_length < 127 ? $packet_length << 2 : unpack('V', $this->read(3)."\0")[1] << 2);
+
             case 'http':
             case 'https':
                 $headers = [];
@@ -317,14 +400,15 @@ class Connection extends \Volatile
             case 'tcp_intermediate':
                 $this->write(pack('V', strlen($message)).$message);
                 break;
+            case 'obfuscated2':
             case 'tcp_abridged':
                 $len = strlen($message) / 4;
                 if ($len < 127) {
-                    $step1 = chr($len).$message;
+                    $message = chr($len).$message;
                 } else {
-                    $step1 = chr(127).substr(pack('V', $len), 0, 3).$message;
+                    $message = chr(127).substr(pack('V', $len), 0, 3).$message;
                 }
-                $this->write($step1);
+                $this->write($message);
                 break;
             case 'http':
             case 'https':

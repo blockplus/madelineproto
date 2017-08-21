@@ -6,12 +6,15 @@ description: Searches public chat by its username. Currently only private and ch
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Searches public chat by its username. Currently only private and channel chats can be public. Returns chat if found, otherwise some error is returned
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |username|[string](../types/string.md) | Yes|Username to be resolved|
 
 
@@ -23,7 +26,7 @@ Searches public chat by its username. Currently only private and channel chats c
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -35,12 +38,36 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$Chat = $MadelineProto->searchPublicChat(['username' => string, ]);
+$Chat = $MadelineProto->searchPublicChat(['username' => 'string', ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - searchPublicChat
+* params - `{"username": "string", }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/searchPublicChat`
+
+Parameters:
+
+username - Json encoded string
+
+
+
 
 Or, if you're into Lua:
 
 ```
-Chat = searchPublicChat({username=string, })
+Chat = searchPublicChat({username='string', })
 ```
 

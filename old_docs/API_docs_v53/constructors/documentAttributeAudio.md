@@ -10,7 +10,7 @@ description: documentAttributeAudio attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |voice|[Bool](../types/Bool.md) | Optional|
 |duration|[int](../types/int.md) | Yes|
 |title|[string](../types/string.md) | Optional|
@@ -25,14 +25,21 @@ description: documentAttributeAudio attributes, type and example
 ### Example:
 
 ```
-$documentAttributeAudio = ['_' => 'documentAttributeAudio', 'voice' => Bool, 'duration' => int, 'title' => string, 'performer' => string, 'waveform' => bytes, ];
+$documentAttributeAudio = ['_' => 'documentAttributeAudio', 'voice' => Bool, 'duration' => int, 'title' => 'string', 'performer' => 'string', 'waveform' => 'bytes'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "documentAttributeAudio", "voice": Bool, "duration": int, "title": "string", "performer": "string", "waveform": "bytes"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-documentAttributeAudio={_='documentAttributeAudio', voice=Bool, duration=int, title=string, performer=string, waveform=bytes, }
+documentAttributeAudio={_='documentAttributeAudio', voice=Bool, duration=int, title='string', performer='string', waveform='bytes'}
 
 ```
 

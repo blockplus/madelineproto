@@ -10,7 +10,7 @@ description: messageActionChatAddUser attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |users|Array of [int](../types/int.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: messageActionChatAddUser attributes, type and example
 ### Example:
 
 ```
-$messageActionChatAddUser = ['_' => 'messageActionChatAddUser', 'users' => [int], ];
+$messageActionChatAddUser = ['_' => 'messageActionChatAddUser', 'users' => [int]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageActionChatAddUser", "users": [int]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageActionChatAddUser={_='messageActionChatAddUser', users={int}, }
+messageActionChatAddUser={_='messageActionChatAddUser', users={int}}
 
 ```
 

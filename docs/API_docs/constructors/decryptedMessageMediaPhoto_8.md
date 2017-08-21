@@ -10,7 +10,7 @@ description: decryptedMessageMediaPhoto attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |thumb|[bytes](../types/bytes.md) | Yes|
 |thumb\_w|[int](../types/int.md) | Yes|
 |thumb\_h|[int](../types/int.md) | Yes|
@@ -28,14 +28,21 @@ description: decryptedMessageMediaPhoto attributes, type and example
 ### Example:
 
 ```
-$decryptedMessageMediaPhoto_8 = ['_' => 'decryptedMessageMediaPhoto', 'thumb' => bytes, 'thumb_w' => int, 'thumb_h' => int, 'w' => int, 'h' => int, 'size' => int, 'key' => bytes, 'iv' => bytes, ];
+$decryptedMessageMediaPhoto_8 = ['_' => 'decryptedMessageMediaPhoto', 'thumb' => 'bytes', 'thumb_w' => int, 'thumb_h' => int, 'w' => int, 'h' => int, 'size' => int, 'key' => 'bytes', 'iv' => 'bytes'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "decryptedMessageMediaPhoto", "thumb": "bytes", "thumb_w": int, "thumb_h": int, "w": int, "h": int, "size": int, "key": "bytes", "iv": "bytes"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-decryptedMessageMediaPhoto_8={_='decryptedMessageMediaPhoto', thumb=bytes, thumb_w=int, thumb_h=int, w=int, h=int, size=int, key=bytes, iv=bytes, }
+decryptedMessageMediaPhoto_8={_='decryptedMessageMediaPhoto', thumb='bytes', thumb_w=int, thumb_h=int, w=int, h=int, size=int, key='bytes', iv='bytes'}
 
 ```
 

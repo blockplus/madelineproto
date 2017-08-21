@@ -10,7 +10,7 @@ description: messageMediaWebPage attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |webpage|[WebPage](../types/WebPage.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: messageMediaWebPage attributes, type and example
 ### Example:
 
 ```
-$messageMediaWebPage = ['_' => 'messageMediaWebPage', 'webpage' => WebPage, ];
+$messageMediaWebPage = ['_' => 'messageMediaWebPage', 'webpage' => WebPage];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageMediaWebPage", "webpage": WebPage}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageMediaWebPage={_='messageMediaWebPage', webpage=WebPage, }
+messageMediaWebPage={_='messageMediaWebPage', webpage=WebPage}
 
 ```
 

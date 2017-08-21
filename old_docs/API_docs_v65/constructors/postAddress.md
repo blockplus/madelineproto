@@ -10,7 +10,7 @@ description: postAddress attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |street\_line1|[string](../types/string.md) | Yes|
 |street\_line2|[string](../types/string.md) | Yes|
 |city|[string](../types/string.md) | Yes|
@@ -26,14 +26,21 @@ description: postAddress attributes, type and example
 ### Example:
 
 ```
-$postAddress = ['_' => 'postAddress', 'street_line1' => string, 'street_line2' => string, 'city' => string, 'state' => string, 'country_iso2' => string, 'post_code' => string, ];
+$postAddress = ['_' => 'postAddress', 'street_line1' => 'string', 'street_line2' => 'string', 'city' => 'string', 'state' => 'string', 'country_iso2' => 'string', 'post_code' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "postAddress", "street_line1": "string", "street_line2": "string", "city": "string", "state": "string", "country_iso2": "string", "post_code": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-postAddress={_='postAddress', street_line1=string, street_line2=string, city=string, state=string, country_iso2=string, post_code=string, }
+postAddress={_='postAddress', street_line1='string', street_line2='string', city='string', state='string', country_iso2='string', post_code='string'}
 
 ```
 

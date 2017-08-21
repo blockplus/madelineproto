@@ -10,7 +10,7 @@ description: peerSettings attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |report\_spam|[Bool](../types/Bool.md) | Optional|
 
 
@@ -21,14 +21,21 @@ description: peerSettings attributes, type and example
 ### Example:
 
 ```
-$peerSettings = ['_' => 'peerSettings', 'report_spam' => Bool, ];
+$peerSettings = ['_' => 'peerSettings', 'report_spam' => Bool];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "peerSettings", "report_spam": Bool}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-peerSettings={_='peerSettings', report_spam=Bool, }
+peerSettings={_='peerSettings', report_spam=Bool}
 
 ```
 

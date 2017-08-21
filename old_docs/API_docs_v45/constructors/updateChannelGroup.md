@@ -10,7 +10,7 @@ description: updateChannelGroup attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |channel\_id|[int](../types/int.md) | Yes|
 |group|[MessageGroup](../types/MessageGroup.md) | Yes|
 
@@ -22,14 +22,21 @@ description: updateChannelGroup attributes, type and example
 ### Example:
 
 ```
-$updateChannelGroup = ['_' => 'updateChannelGroup', 'channel_id' => int, 'group' => MessageGroup, ];
+$updateChannelGroup = ['_' => 'updateChannelGroup', 'channel_id' => int, 'group' => MessageGroup];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateChannelGroup", "channel_id": int, "group": MessageGroup}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateChannelGroup={_='updateChannelGroup', channel_id=int, group=MessageGroup, }
+updateChannelGroup={_='updateChannelGroup', channel_id=int, group=MessageGroup}
 
 ```
 

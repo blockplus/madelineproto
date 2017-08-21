@@ -16,7 +16,7 @@ trait BotAPI
 {
     public function html_entity_decode($stuff)
     {
-        return html_entity_decode(str_replace('<br />', "\n", $stuff));
+        return html_entity_decode(preg_replace('#< *br */? *>#', "\n", $stuff));
     }
 
     public function parse_buttons($rows)
@@ -232,7 +232,9 @@ trait BotAPI
             return $data;
 
             case 'messageMediaPhoto':
-            $res['caption'] = $data['caption'];
+            if (isset($data['caption'])) {
+                $res['caption'] = $data['caption'];
+            }
             $res['photo'] = [];
             foreach ($data['photo']['sizes'] as $key => $photo) {
                 $res['photo'][$key] = $this->photosize_to_botapi($photo, $data['photo']);
@@ -275,7 +277,7 @@ trait BotAPI
                     break;
 
                     case 'documentAttributeVideo':
-                    $type_name = 'video';
+                    $type_name = $attribute['round_message'] ? 'video_note' : 'video';
                     $res['width'] = $attribute['w'];
                     $res['height'] = $attribute['h'];
                     $res['duration'] = $attribute['duration'];
@@ -326,9 +328,9 @@ trait BotAPI
             $data['document']['_'] = 'bot_'.$type_name;
             $res['file_size'] = $data['document']['size'];
             $res['mime_type'] = $data['document']['mime_type'];
-            $res['file_id'] = $this->base64url_encode($this->rle_encode($this->serialize_object(['type' => 'File'], $data['document']).chr(2)));
+            $res['file_id'] = $this->base64url_encode($this->rle_encode($this->serialize_object(['type' => 'File'], $data['document'], 'File').chr(2)));
 
-            return [$type_name => $res, 'caption' => $data['caption']];
+            return [$type_name => $res, 'caption' => isset($data['caption']) ? $data['caption'] : ''];
             default:
             throw new Exception("Can't convert ".$data['_'].' to a bot API object');
         }
@@ -406,7 +408,20 @@ trait BotAPI
             $text = $this->html_entity_decode($node->textContent);
             $href = $node->getAttribute('href');
             if (preg_match('|mention:|', $href)) {
-                $entities[] = ['_' => 'inputMessageEntityMentionName', 'offset' => mb_strlen($nmessage), 'length' => mb_strlen($text), 'user_id' => $this->get_info(str_replace('mention:', '', $href))['InputUser']];
+                if (!isset(($mention = $this->get_info(str_replace('mention:', '', $href)))['InputUser'])) {
+                    throw new \danog\MadelineProto\Exception('This peer is not present in the internal peer database');
+                }
+                $entities[] = ['_' => 'inputMessageEntityMentionName', 'offset' => mb_strlen($nmessage), 'length' => mb_strlen($text), 'user_id' => $mention['InputUser']];
+            } elseif (preg_match('|buttonurl:|', $href)) {
+                if (!isset($entities['buttons'])) {
+                    $entities['buttons'] = [];
+                }
+                if (preg_match('|:new|', substr($href, -4))) {
+                    $entities['buttons'][] = ['_' => 'keyboardButtonUrl', 'text' => $text, 'url' => str_replace('buttonurl:', '', str_replace(':new', '', $href)), 'new' => true];
+                } else {
+                    $entities['buttons'][] = ['_' => 'keyboardButtonUrl', 'text' => $text, 'url' => str_replace('buttonurl:', '', $href)];
+                }
+                break;
             } else {
                 $entities[] = ['_' => 'messageEntityTextUrl', 'offset' => mb_strlen($nmessage), 'length' => mb_strlen($text), 'url' => $href];
             }
@@ -430,6 +445,7 @@ trait BotAPI
         }
         if (preg_match('/html/i', $arguments['parse_mode'])) {
             $nmessage = '';
+
             try {
                 $arguments['message'] = $this->html_fixtags($arguments['message']);
                 $dom = new \DOMDocument();
@@ -439,6 +455,10 @@ trait BotAPI
                 }
                 foreach ($dom->getElementsByTagName('body')->item(0)->childNodes as $node) {
                     $this->parse_node($node, $arguments['entities'], $nmessage);
+                }
+                if (isset($arguments['entities']['buttons'])) {
+                    $arguments['reply_markup'] = $this->build_rows($arguments['entities']['buttons']);
+                    unset($arguments['entities']['buttons']);
                 }
                 unset($arguments['parse_mode']);
             } catch (\DOMException $e) {
@@ -453,7 +473,16 @@ trait BotAPI
     public function split_to_chunks($text)
     {
         $total_length = 4096;
-        $text_arr = $this->multipleExplodeKeepDelimiters(["\n"], $text);
+        $text_arr = [];
+        foreach ($this->multipleExplodeKeepDelimiters(["\n"], $text) as $word) {
+            if (strlen($word) > 4096) {
+                foreach (str_split($word, 4096) as $vv) {
+                    $text_arr[] = $vv;
+                }
+            } else {
+                $text_arr[] = $word;
+            }
+        }
         $i = 0;
         $message[0] = '';
         foreach ($text_arr as $word) {
@@ -482,7 +511,7 @@ trait BotAPI
         $finalArray = [];
         foreach ($initialArray as $item) {
             if (strlen($item) > 0) {
-                array_push($finalArray, $item.$string[strpos($string, $item) + strlen($item)]);
+                $finalArray[] = $item.$string[strpos($string, $item) + strlen($item)];
             }
         }
 
@@ -491,7 +520,7 @@ trait BotAPI
 
     public function html_fixtags($text)
     {
-        preg_match_all("#(.*?)(<(a|b|strong|em|i|code|pre)[^>]*>)(.*?)(<\/\\3>)(.*)?#is", $text, $matches, PREG_SET_ORDER);
+        preg_match_all("#(.*?)(<(a|b|strong|em|i|code|pre)[^>]*>)([^<]*?)(<\/\\3>)(.*)?#is", $text, $matches, PREG_SET_ORDER);
         if ($matches) {
             $last = count($matches) - 1;
             foreach ($matches as $val) {
@@ -512,5 +541,34 @@ trait BotAPI
         } else {
             return htmlentities($text);
         }
+    }
+
+    public function build_rows($button_list)
+    {
+        $end = false;
+        $rows = [];
+        $buttons = [];
+        $cols = 0;
+        foreach ($button_list as $button) {
+            if (isset($button['new'])) {
+                if (count($buttons) == 0) {
+                    $buttons[] = $button;
+                } else {
+                    $row = ['_' => 'keyboardButtonRow', 'buttons' => $buttons];
+                    $rows[] = $row;
+                    $buttons = [$button];
+                }
+            } else {
+                $buttons[] = $button;
+                $end = true;
+            }
+        }
+
+        if ($end) {
+            $row = ['_' => 'keyboardButtonRow', 'buttons' => $buttons];
+            $rows[] = $row;
+        }
+
+        return ['_' => 'replyInlineMarkup', 'rows' => $rows];
     }
 }

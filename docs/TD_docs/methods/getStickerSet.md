@@ -6,12 +6,15 @@ description: Returns information about sticker set by its identifier
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Returns information about sticker set by its identifier
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |set\_id|[long](../types/long.md) | Yes|Identifier of the sticker set|
 
 
@@ -23,7 +26,7 @@ Returns information about sticker set by its identifier
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,6 +40,30 @@ if (isset($number)) { // Login as a user
 
 $StickerSet = $MadelineProto->getStickerSet(['set_id' => long, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - getStickerSet
+* params - `{"set_id": long, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/getStickerSet`
+
+Parameters:
+
+set_id - Json encoded long
+
+
+
 
 Or, if you're into Lua:
 

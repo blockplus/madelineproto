@@ -12,7 +12,7 @@ Chat with zero or more other users
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |group|[group](../types/group.md) | Yes|Information about the chat|
 
 
@@ -23,14 +23,21 @@ Chat with zero or more other users
 ### Example:
 
 ```
-$groupChatInfo = ['_' => 'groupChatInfo', 'group' => group, ];
+$groupChatInfo = ['_' => 'groupChatInfo', 'group' => group];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "groupChatInfo", "group": group}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-groupChatInfo={_='groupChatInfo', group=group, }
+groupChatInfo={_='groupChatInfo', group=group}
 
 ```
 

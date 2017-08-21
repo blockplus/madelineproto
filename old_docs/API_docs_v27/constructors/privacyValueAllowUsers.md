@@ -10,7 +10,7 @@ description: privacyValueAllowUsers attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |users|Array of [int](../types/int.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: privacyValueAllowUsers attributes, type and example
 ### Example:
 
 ```
-$privacyValueAllowUsers = ['_' => 'privacyValueAllowUsers', 'users' => [int], ];
+$privacyValueAllowUsers = ['_' => 'privacyValueAllowUsers', 'users' => [int]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "privacyValueAllowUsers", "users": [int]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-privacyValueAllowUsers={_='privacyValueAllowUsers', users={int}, }
+privacyValueAllowUsers={_='privacyValueAllowUsers', users={int}}
 
 ```
 

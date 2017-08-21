@@ -9,7 +9,7 @@ description: upload.getWebFile parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |location|[InputWebFileLocation](../types/InputWebFileLocation.md) | Yes|
 |offset|[int](../types/int.md) | Yes|
 |limit|[int](../types/int.md) | Yes|
@@ -23,7 +23,7 @@ description: upload.getWebFile parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,6 +37,34 @@ if (isset($number)) { // Login as a user
 
 $upload_WebFile = $MadelineProto->upload->getWebFile(['location' => InputWebFileLocation, 'offset' => int, 'limit' => int, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - upload.getWebFile
+* params - `{"location": InputWebFileLocation, "offset": int, "limit": int, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/upload.getWebFile`
+
+Parameters:
+
+location - Json encoded InputWebFileLocation
+
+offset - Json encoded int
+
+limit - Json encoded int
+
+
+
 
 Or, if you're into Lua:
 

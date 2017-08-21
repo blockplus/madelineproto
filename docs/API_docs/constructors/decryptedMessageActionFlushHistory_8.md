@@ -16,14 +16,21 @@ description: decryptedMessageActionFlushHistory attributes, type and example
 ### Example:
 
 ```
-$decryptedMessageActionFlushHistory_8 = ['_' => 'decryptedMessageActionFlushHistory', ];
+$decryptedMessageActionFlushHistory_8 = ['_' => 'decryptedMessageActionFlushHistory'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "decryptedMessageActionFlushHistory"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-decryptedMessageActionFlushHistory_8={_='decryptedMessageActionFlushHistory', }
+decryptedMessageActionFlushHistory_8={_='decryptedMessageActionFlushHistory'}
 
 ```
 

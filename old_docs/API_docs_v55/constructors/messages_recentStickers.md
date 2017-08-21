@@ -10,7 +10,7 @@ description: messages_recentStickers attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |hash|[int](../types/int.md) | Yes|
 |stickers|Array of [Document](../types/Document.md) | Yes|
 
@@ -22,14 +22,21 @@ description: messages_recentStickers attributes, type and example
 ### Example:
 
 ```
-$messages_recentStickers = ['_' => 'messages.recentStickers', 'hash' => int, 'stickers' => [Document], ];
+$messages_recentStickers = ['_' => 'messages.recentStickers', 'hash' => int, 'stickers' => [Document]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messages.recentStickers", "hash": int, "stickers": [Document]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messages_recentStickers={_='messages.recentStickers', hash=int, stickers={Document}, }
+messages_recentStickers={_='messages.recentStickers', hash=int, stickers={Document}}
 
 ```
 

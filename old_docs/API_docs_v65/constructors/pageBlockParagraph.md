@@ -10,7 +10,7 @@ description: pageBlockParagraph attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |text|[RichText](../types/RichText.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: pageBlockParagraph attributes, type and example
 ### Example:
 
 ```
-$pageBlockParagraph = ['_' => 'pageBlockParagraph', 'text' => RichText, ];
+$pageBlockParagraph = ['_' => 'pageBlockParagraph', 'text' => RichText];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "pageBlockParagraph", "text": RichText}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-pageBlockParagraph={_='pageBlockParagraph', text=RichText, }
+pageBlockParagraph={_='pageBlockParagraph', text=RichText}
 
 ```
 

@@ -16,14 +16,21 @@ description: contacts_contactsNotModified attributes, type and example
 ### Example:
 
 ```
-$contacts_contactsNotModified = ['_' => 'contacts.contactsNotModified', ];
+$contacts_contactsNotModified = ['_' => 'contacts.contactsNotModified'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "contacts.contactsNotModified"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-contacts_contactsNotModified={_='contacts.contactsNotModified', }
+contacts_contactsNotModified={_='contacts.contactsNotModified'}
 
 ```
 

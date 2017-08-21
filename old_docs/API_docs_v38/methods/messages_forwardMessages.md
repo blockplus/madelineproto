@@ -9,7 +9,7 @@ description: messages.forwardMessages parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |from\_peer|[InputPeer](../types/InputPeer.md) | Yes|
 |id|Array of [int](../types/int.md) | Yes|
 |to\_peer|[InputPeer](../types/InputPeer.md) | Yes|
@@ -23,7 +23,7 @@ description: messages.forwardMessages parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,6 +37,34 @@ if (isset($number)) { // Login as a user
 
 $Updates = $MadelineProto->messages->forwardMessages(['from_peer' => InputPeer, 'id' => [int], 'to_peer' => InputPeer, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - messages.forwardMessages
+* params - `{"from_peer": InputPeer, "id": [int], "to_peer": InputPeer, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/messages.forwardMessages`
+
+Parameters:
+
+from_peer - Json encoded InputPeer
+
+id - Json encoded  array of int
+
+to_peer - Json encoded InputPeer
+
+
+
 
 Or, if you're into Lua:
 

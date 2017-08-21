@@ -16,7 +16,7 @@ description: contacts.getStatuses parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -30,6 +30,28 @@ if (isset($number)) { // Login as a user
 
 $Vector_of_ContactStatus = $MadelineProto->contacts->getStatuses();
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - contacts.getStatuses
+* params - `{}`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/contacts.getStatuses`
+
+Parameters:
+
+
+
 
 Or, if you're into Lua:
 

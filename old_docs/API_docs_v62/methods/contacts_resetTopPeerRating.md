@@ -9,7 +9,7 @@ description: contacts.resetTopPeerRating parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |category|[TopPeerCategory](../types/TopPeerCategory.md) | Yes|
 |peer|[InputPeer](../types/InputPeer.md) | Yes|
 
@@ -22,7 +22,7 @@ description: contacts.resetTopPeerRating parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -36,6 +36,32 @@ if (isset($number)) { // Login as a user
 
 $Bool = $MadelineProto->contacts->resetTopPeerRating(['category' => TopPeerCategory, 'peer' => InputPeer, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - contacts.resetTopPeerRating
+* params - `{"category": TopPeerCategory, "peer": InputPeer, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/contacts.resetTopPeerRating`
+
+Parameters:
+
+category - Json encoded TopPeerCategory
+
+peer - Json encoded InputPeer
+
+
+
 
 Or, if you're into Lua:
 

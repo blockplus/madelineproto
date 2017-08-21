@@ -16,14 +16,21 @@ description: inputUserEmpty attributes, type and example
 ### Example:
 
 ```
-$inputUserEmpty = ['_' => 'inputUserEmpty', ];
+$inputUserEmpty = ['_' => 'inputUserEmpty'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputUserEmpty"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputUserEmpty={_='inputUserEmpty', }
+inputUserEmpty={_='inputUserEmpty'}
 
 ```
 

@@ -10,7 +10,7 @@ description: userStatusOffline attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |was\_online|[int](../types/int.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: userStatusOffline attributes, type and example
 ### Example:
 
 ```
-$userStatusOffline = ['_' => 'userStatusOffline', 'was_online' => int, ];
+$userStatusOffline = ['_' => 'userStatusOffline', 'was_online' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "userStatusOffline", "was_online": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-userStatusOffline={_='userStatusOffline', was_online=int, }
+userStatusOffline={_='userStatusOffline', was_online=int}
 
 ```
 

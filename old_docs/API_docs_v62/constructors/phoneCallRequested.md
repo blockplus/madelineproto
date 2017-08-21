@@ -10,7 +10,7 @@ description: phoneCallRequested attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[long](../types/long.md) | Yes|
 |access\_hash|[long](../types/long.md) | Yes|
 |date|[int](../types/int.md) | Yes|
@@ -27,14 +27,21 @@ description: phoneCallRequested attributes, type and example
 ### Example:
 
 ```
-$phoneCallRequested = ['_' => 'phoneCallRequested', 'id' => long, 'access_hash' => long, 'date' => int, 'admin_id' => int, 'participant_id' => int, 'g_a' => bytes, 'protocol' => PhoneCallProtocol, ];
+$phoneCallRequested = ['_' => 'phoneCallRequested', 'id' => long, 'access_hash' => long, 'date' => int, 'admin_id' => int, 'participant_id' => int, 'g_a' => 'bytes', 'protocol' => PhoneCallProtocol];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "phoneCallRequested", "id": long, "access_hash": long, "date": int, "admin_id": int, "participant_id": int, "g_a": "bytes", "protocol": PhoneCallProtocol}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-phoneCallRequested={_='phoneCallRequested', id=long, access_hash=long, date=int, admin_id=int, participant_id=int, g_a=bytes, protocol=PhoneCallProtocol, }
+phoneCallRequested={_='phoneCallRequested', id=long, access_hash=long, date=int, admin_id=int, participant_id=int, g_a='bytes', protocol=PhoneCallProtocol}
 
 ```
 

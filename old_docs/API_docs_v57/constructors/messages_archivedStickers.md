@@ -10,7 +10,7 @@ description: messages_archivedStickers attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |count|[int](../types/int.md) | Yes|
 |sets|Array of [StickerSetCovered](../types/StickerSetCovered.md) | Yes|
 
@@ -22,14 +22,21 @@ description: messages_archivedStickers attributes, type and example
 ### Example:
 
 ```
-$messages_archivedStickers = ['_' => 'messages.archivedStickers', 'count' => int, 'sets' => [StickerSetCovered], ];
+$messages_archivedStickers = ['_' => 'messages.archivedStickers', 'count' => int, 'sets' => [StickerSetCovered]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messages.archivedStickers", "count": int, "sets": [StickerSetCovered]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messages_archivedStickers={_='messages.archivedStickers', count=int, sets={StickerSetCovered}, }
+messages_archivedStickers={_='messages.archivedStickers', count=int, sets={StickerSetCovered}}
 
 ```
 

@@ -10,7 +10,7 @@ description: documentAttributeSticker attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |alt|[string](../types/string.md) | Yes|
 |stickerset|[InputStickerSet](../types/InputStickerSet.md) | Yes|
 
@@ -22,14 +22,21 @@ description: documentAttributeSticker attributes, type and example
 ### Example:
 
 ```
-$documentAttributeSticker = ['_' => 'documentAttributeSticker', 'alt' => string, 'stickerset' => InputStickerSet, ];
+$documentAttributeSticker = ['_' => 'documentAttributeSticker', 'alt' => 'string', 'stickerset' => InputStickerSet];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "documentAttributeSticker", "alt": "string", "stickerset": InputStickerSet}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-documentAttributeSticker={_='documentAttributeSticker', alt=string, stickerset=InputStickerSet, }
+documentAttributeSticker={_='documentAttributeSticker', alt='string', stickerset=InputStickerSet}
 
 ```
 

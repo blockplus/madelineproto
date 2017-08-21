@@ -10,7 +10,7 @@ description: account_authorizations attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |authorizations|Array of [Authorization](../types/Authorization.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: account_authorizations attributes, type and example
 ### Example:
 
 ```
-$account_authorizations = ['_' => 'account.authorizations', 'authorizations' => [Authorization], ];
+$account_authorizations = ['_' => 'account.authorizations', 'authorizations' => [Authorization]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "account.authorizations", "authorizations": [Authorization]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-account_authorizations={_='account.authorizations', authorizations={Authorization}, }
+account_authorizations={_='account.authorizations', authorizations={Authorization}}
 
 ```
 

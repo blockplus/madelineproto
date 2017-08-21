@@ -9,7 +9,7 @@ description: geochats.getRecents parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |offset|[int](../types/int.md) | Yes|
 |limit|[int](../types/int.md) | Yes|
 
@@ -22,7 +22,7 @@ description: geochats.getRecents parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -36,6 +36,32 @@ if (isset($number)) { // Login as a user
 
 $geochats_Messages = $MadelineProto->geochats->getRecents(['offset' => int, 'limit' => int, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - geochats.getRecents
+* params - `{"offset": int, "limit": int, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/geochats.getRecents`
+
+Parameters:
+
+offset - Json encoded int
+
+limit - Json encoded int
+
+
+
 
 Or, if you're into Lua:
 

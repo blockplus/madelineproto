@@ -10,7 +10,7 @@ description: stickerSetMultiCovered attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |set|[StickerSet](../types/StickerSet.md) | Yes|
 |covers|Array of [Document](../types/Document.md) | Yes|
 
@@ -22,14 +22,21 @@ description: stickerSetMultiCovered attributes, type and example
 ### Example:
 
 ```
-$stickerSetMultiCovered = ['_' => 'stickerSetMultiCovered', 'set' => StickerSet, 'covers' => [Document], ];
+$stickerSetMultiCovered = ['_' => 'stickerSetMultiCovered', 'set' => StickerSet, 'covers' => [Document]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "stickerSetMultiCovered", "set": StickerSet, "covers": [Document]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-stickerSetMultiCovered={_='stickerSetMultiCovered', set=StickerSet, covers={Document}, }
+stickerSetMultiCovered={_='stickerSetMultiCovered', set=StickerSet, covers={Document}}
 
 ```
 

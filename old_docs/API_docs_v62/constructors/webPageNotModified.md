@@ -16,14 +16,21 @@ description: webPageNotModified attributes, type and example
 ### Example:
 
 ```
-$webPageNotModified = ['_' => 'webPageNotModified', ];
+$webPageNotModified = ['_' => 'webPageNotModified'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "webPageNotModified"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-webPageNotModified={_='webPageNotModified', }
+webPageNotModified={_='webPageNotModified'}
 
 ```
 

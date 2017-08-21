@@ -16,14 +16,21 @@ description: notifyAll attributes, type and example
 ### Example:
 
 ```
-$notifyAll = ['_' => 'notifyAll', ];
+$notifyAll = ['_' => 'notifyAll'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "notifyAll"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-notifyAll={_='notifyAll', }
+notifyAll={_='notifyAll'}
 
 ```
 

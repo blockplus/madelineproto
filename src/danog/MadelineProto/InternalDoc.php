@@ -458,7 +458,7 @@ interface contacts
 
     /**
      * @param array params [
-     *               string hash,
+     *               int hash,
      *              ]
      *
      * @return contacts_Contacts
@@ -468,7 +468,6 @@ interface contacts
     /**
      * @param array params [
      *               InputContact contacts,
-     *               Bool replace,
      *              ]
      *
      * @return contacts_ImportedContacts
@@ -559,6 +558,7 @@ interface contacts
      *               boolean correspondents,
      *               boolean bots_pm,
      *               boolean bots_inline,
+     *               boolean phone_calls,
      *               boolean groups,
      *               boolean channels,
      *               int offset,
@@ -579,6 +579,11 @@ interface contacts
      * @return bool
      */
     public function resetTopPeerRating(array $params);
+
+    /**
+     * @return bool
+     */
+    public function resetSaved();
 }
 
 interface messages
@@ -624,12 +629,15 @@ interface messages
      * @param array params [
      *               InputPeer peer,
      *               string q,
+     *               InputUser from_id,
      *               MessagesFilter filter,
      *               int min_date,
      *               int max_date,
-     *               int offset,
-     *               int max_id,
+     *               int offset_id,
+     *               int add_offset,
      *               int limit,
+     *               int max_id,
+     *               int min_id,
      *              ]
      *
      * @return messages_Messages
@@ -1477,6 +1485,59 @@ interface messages
      * @return bool
      */
     public function setBotPrecheckoutResults(array $params);
+
+    /**
+     * @param array params [
+     *               InputPeer peer,
+     *               InputMedia media,
+     *              ]
+     *
+     * @return MessageMedia
+     */
+    public function uploadMedia(array $params);
+
+    /**
+     * @param array params [
+     *               InputPeer peer,
+     *               int reply_to_msg_id,
+     *              ]
+     *
+     * @return Updates
+     */
+    public function sendScreenshotNotification(array $params);
+
+    /**
+     * @param array params [
+     *               int hash,
+     *              ]
+     *
+     * @return messages_FavedStickers
+     */
+    public function getFavedStickers(array $params);
+
+    /**
+     * @param array params [
+     *               InputDocument id,
+     *               Bool unfave,
+     *              ]
+     *
+     * @return bool
+     */
+    public function faveSticker(array $params);
+
+    /**
+     * @param array params [
+     *               InputPeer peer,
+     *               int offset_id,
+     *               int add_offset,
+     *               int limit,
+     *               int max_id,
+     *               int min_id,
+     *              ]
+     *
+     * @return messages_Messages
+     */
+    public function getUnreadMentions(array $params);
 }
 
 interface updates
@@ -1618,9 +1679,19 @@ interface upload
      *               bytes request_token,
      *              ]
      *
-     * @return bool
+     * @return Vector_of_CdnFileHash
      */
     public function reuploadCdnFile(array $params);
+
+    /**
+     * @param array params [
+     *               bytes file_token,
+     *               int offset,
+     *              ]
+     *
+     * @return Vector_of_CdnFileHash
+     */
+    public function getCdnFileHashes(array $params);
 }
 
 interface help
@@ -1808,7 +1879,7 @@ interface channels
      * @param array params [
      *               InputChannel channel,
      *               InputUser user_id,
-     *               ChannelParticipantRole role,
+     *               ChannelAdminRights admin_rights,
      *              ]
      *
      * @return Updates
@@ -1886,17 +1957,6 @@ interface channels
     /**
      * @param array params [
      *               InputChannel channel,
-     *               InputUser user_id,
-     *               Bool kicked,
-     *              ]
-     *
-     * @return Updates
-     */
-    public function kickFromChannel(array $params);
-
-    /**
-     * @param array params [
-     *               InputChannel channel,
      *              ]
      *
      * @return ExportedChatInvite
@@ -1957,6 +2017,52 @@ interface channels
      * @return messages_Chats
      */
     public function getAdminedPublicChannels();
+
+    /**
+     * @param array params [
+     *               InputChannel channel,
+     *               InputUser user_id,
+     *               ChannelBannedRights banned_rights,
+     *              ]
+     *
+     * @return Updates
+     */
+    public function editBanned(array $params);
+
+    /**
+     * @param array params [
+     *               InputChannel channel,
+     *               string q,
+     *               ChannelAdminLogEventsFilter events_filter,
+     *               InputUser admins,
+     *               long max_id,
+     *               long min_id,
+     *               int limit,
+     *              ]
+     *
+     * @return channels_AdminLogResults
+     */
+    public function getAdminLog(array $params);
+
+    /**
+     * @param array params [
+     *               InputChannel channel,
+     *               InputStickerSet stickerset,
+     *              ]
+     *
+     * @return bool
+     */
+    public function setStickers(array $params);
+
+    /**
+     * @param array params [
+     *               InputChannel channel,
+     *               int id,
+     *              ]
+     *
+     * @return bool
+     */
+    public function readMessageContents(array $params);
 }
 
 interface bots
@@ -2041,6 +2147,51 @@ interface payments
     public function clearSavedInfo(array $params);
 }
 
+interface stickers
+{
+    /**
+     * @param array params [
+     *               boolean masks,
+     *               InputUser user_id,
+     *               string title,
+     *               string short_name,
+     *               InputStickerSetItem stickers,
+     *              ]
+     *
+     * @return messages_StickerSet
+     */
+    public function createStickerSet(array $params);
+
+    /**
+     * @param array params [
+     *               InputDocument sticker,
+     *              ]
+     *
+     * @return messages_StickerSet
+     */
+    public function removeStickerFromSet(array $params);
+
+    /**
+     * @param array params [
+     *               InputDocument sticker,
+     *               int position,
+     *              ]
+     *
+     * @return messages_StickerSet
+     */
+    public function changeStickerPosition(array $params);
+
+    /**
+     * @param array params [
+     *               InputStickerSet stickerset,
+     *               InputStickerSetItem sticker,
+     *              ]
+     *
+     * @return messages_StickerSet
+     */
+    public function addStickerToSet(array $params);
+}
+
 interface phone
 {
     /**
@@ -2123,4 +2274,40 @@ interface phone
      * @return bool
      */
     public function saveCallDebug(array $params);
+}
+
+interface langpack
+{
+    /**
+     * @param array params [
+     *               string lang_code,
+     *              ]
+     *
+     * @return LangPackDifference
+     */
+    public function getLangPack(array $params);
+
+    /**
+     * @param array params [
+     *               string lang_code,
+     *               string keys,
+     *              ]
+     *
+     * @return Vector_of_LangPackString
+     */
+    public function getStrings(array $params);
+
+    /**
+     * @param array params [
+     *               int from_version,
+     *              ]
+     *
+     * @return LangPackDifference
+     */
+    public function getDifference(array $params);
+
+    /**
+     * @return Vector_of_LangPackLanguage
+     */
+    public function getLanguages();
 }

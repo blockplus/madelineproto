@@ -12,7 +12,7 @@ User cancels typing
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ User cancels typing
 ### Example:
 
 ```
-$sendMessageCancelAction_17 = ['_' => 'sendMessageCancelAction', ];
+$sendMessageCancelAction_17 = ['_' => 'sendMessageCancelAction'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "sendMessageCancelAction"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-sendMessageCancelAction_17={_='sendMessageCancelAction', }
+sendMessageCancelAction_17={_='sendMessageCancelAction'}
 
 ```
 

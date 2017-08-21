@@ -10,7 +10,7 @@ description: updatePinnedDialogs attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |order|Array of [Peer](../types/Peer.md) | Optional|
 
 
@@ -21,14 +21,21 @@ description: updatePinnedDialogs attributes, type and example
 ### Example:
 
 ```
-$updatePinnedDialogs = ['_' => 'updatePinnedDialogs', 'order' => [Peer], ];
+$updatePinnedDialogs = ['_' => 'updatePinnedDialogs', 'order' => [Peer]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updatePinnedDialogs", "order": [Peer]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updatePinnedDialogs={_='updatePinnedDialogs', order={Peer}, }
+updatePinnedDialogs={_='updatePinnedDialogs', order={Peer}}
 
 ```
 

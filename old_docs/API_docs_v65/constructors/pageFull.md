@@ -10,7 +10,7 @@ description: pageFull attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |blocks|Array of [PageBlock](../types/PageBlock.md) | Yes|
 |photos|Array of [Photo](../types/Photo.md) | Yes|
 |videos|Array of [Document](../types/Document.md) | Yes|
@@ -23,14 +23,21 @@ description: pageFull attributes, type and example
 ### Example:
 
 ```
-$pageFull = ['_' => 'pageFull', 'blocks' => [PageBlock], 'photos' => [Photo], 'videos' => [Document], ];
+$pageFull = ['_' => 'pageFull', 'blocks' => [PageBlock], 'photos' => [Photo], 'videos' => [Document]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "pageFull", "blocks": [PageBlock], "photos": [Photo], "videos": [Document]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-pageFull={_='pageFull', blocks={PageBlock}, photos={Photo}, videos={Document}, }
+pageFull={_='pageFull', blocks={PageBlock}, photos={Photo}, videos={Document}}
 
 ```
 

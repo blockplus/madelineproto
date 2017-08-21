@@ -9,7 +9,7 @@ description: auth.dropTempAuthKeys parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |except\_auth\_keys|Array of [long](../types/long.md) | Yes|
 
 
@@ -21,7 +21,7 @@ description: auth.dropTempAuthKeys parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -35,6 +35,30 @@ if (isset($number)) { // Login as a user
 
 $Bool = $MadelineProto->auth->dropTempAuthKeys(['except_auth_keys' => [long], ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - auth.dropTempAuthKeys
+* params - `{"except_auth_keys": [long], }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/auth.dropTempAuthKeys`
+
+Parameters:
+
+except_auth_keys - Json encoded  array of long
+
+
+
 
 Or, if you're into Lua:
 

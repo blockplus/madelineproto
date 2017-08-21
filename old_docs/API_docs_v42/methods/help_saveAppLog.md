@@ -9,7 +9,7 @@ description: help.saveAppLog parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |events|Array of [InputAppEvent](../types/InputAppEvent.md) | Yes|
 
 
@@ -21,7 +21,7 @@ description: help.saveAppLog parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -35,6 +35,30 @@ if (isset($number)) { // Login as a user
 
 $Bool = $MadelineProto->help->saveAppLog(['events' => [InputAppEvent], ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - help.saveAppLog
+* params - `{"events": [InputAppEvent], }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/help.saveAppLog`
+
+Parameters:
+
+events - Json encoded  array of InputAppEvent
+
+
+
 
 Or, if you're into Lua:
 

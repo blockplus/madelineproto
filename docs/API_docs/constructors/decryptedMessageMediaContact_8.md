@@ -10,7 +10,7 @@ description: decryptedMessageMediaContact attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |phone\_number|[string](../types/string.md) | Yes|
 |first\_name|[string](../types/string.md) | Yes|
 |last\_name|[string](../types/string.md) | Yes|
@@ -24,14 +24,21 @@ description: decryptedMessageMediaContact attributes, type and example
 ### Example:
 
 ```
-$decryptedMessageMediaContact_8 = ['_' => 'decryptedMessageMediaContact', 'phone_number' => string, 'first_name' => string, 'last_name' => string, 'user_id' => int, ];
+$decryptedMessageMediaContact_8 = ['_' => 'decryptedMessageMediaContact', 'phone_number' => 'string', 'first_name' => 'string', 'last_name' => 'string', 'user_id' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "decryptedMessageMediaContact", "phone_number": "string", "first_name": "string", "last_name": "string", "user_id": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-decryptedMessageMediaContact_8={_='decryptedMessageMediaContact', phone_number=string, first_name=string, last_name=string, user_id=int, }
+decryptedMessageMediaContact_8={_='decryptedMessageMediaContact', phone_number='string', first_name='string', last_name='string', user_id=int}
 
 ```
 

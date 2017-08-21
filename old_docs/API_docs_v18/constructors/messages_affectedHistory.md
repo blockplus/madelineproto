@@ -10,7 +10,7 @@ description: messages_affectedHistory attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |pts|[int](../types/int.md) | Yes|
 |seq|[int](../types/int.md) | Yes|
 |offset|[int](../types/int.md) | Yes|
@@ -23,14 +23,21 @@ description: messages_affectedHistory attributes, type and example
 ### Example:
 
 ```
-$messages_affectedHistory = ['_' => 'messages.affectedHistory', 'pts' => int, 'seq' => int, 'offset' => int, ];
+$messages_affectedHistory = ['_' => 'messages.affectedHistory', 'pts' => int, 'seq' => int, 'offset' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messages.affectedHistory", "pts": int, "seq": int, "offset": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messages_affectedHistory={_='messages.affectedHistory', pts=int, seq=int, offset=int, }
+messages_affectedHistory={_='messages.affectedHistory', pts=int, seq=int, offset=int}
 
 ```
 

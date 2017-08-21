@@ -12,7 +12,7 @@ Other user is in contacts list, particularly its phone number is known
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ Other user is in contacts list, particularly its phone number is known
 ### Example:
 
 ```
-$linkStateContact = ['_' => 'linkStateContact', ];
+$linkStateContact = ['_' => 'linkStateContact'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "linkStateContact"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-linkStateContact={_='linkStateContact', }
+linkStateContact={_='linkStateContact'}
 
 ```
 

@@ -10,7 +10,7 @@ description: documentAttributeVideo attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |duration|[int](../types/int.md) | Yes|
 |w|[int](../types/int.md) | Yes|
 |h|[int](../types/int.md) | Yes|
@@ -23,14 +23,21 @@ description: documentAttributeVideo attributes, type and example
 ### Example:
 
 ```
-$documentAttributeVideo_23 = ['_' => 'documentAttributeVideo', 'duration' => int, 'w' => int, 'h' => int, ];
+$documentAttributeVideo_23 = ['_' => 'documentAttributeVideo', 'duration' => int, 'w' => int, 'h' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "documentAttributeVideo", "duration": int, "w": int, "h": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-documentAttributeVideo_23={_='documentAttributeVideo', duration=int, w=int, h=int, }
+documentAttributeVideo_23={_='documentAttributeVideo', duration=int, w=int, h=int}
 
 ```
 

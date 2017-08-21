@@ -10,7 +10,7 @@ description: foundGif attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |webpage|[WebPage](../types/WebPage.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: foundGif attributes, type and example
 ### Example:
 
 ```
-$foundGif = ['_' => 'foundGif', 'webpage' => WebPage, ];
+$foundGif = ['_' => 'foundGif', 'webpage' => WebPage];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "foundGif", "webpage": WebPage}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-foundGif={_='foundGif', webpage=WebPage, }
+foundGif={_='foundGif', webpage=WebPage}
 
 ```
 

@@ -10,7 +10,7 @@ description: dcOption attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |ipv6|[Bool](../types/Bool.md) | Optional|
 |media\_only|[Bool](../types/Bool.md) | Optional|
 |id|[int](../types/int.md) | Yes|
@@ -25,14 +25,21 @@ description: dcOption attributes, type and example
 ### Example:
 
 ```
-$dcOption = ['_' => 'dcOption', 'ipv6' => Bool, 'media_only' => Bool, 'id' => int, 'ip_address' => string, 'port' => int, ];
+$dcOption = ['_' => 'dcOption', 'ipv6' => Bool, 'media_only' => Bool, 'id' => int, 'ip_address' => 'string', 'port' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "dcOption", "ipv6": Bool, "media_only": Bool, "id": int, "ip_address": "string", "port": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-dcOption={_='dcOption', ipv6=Bool, media_only=Bool, id=int, ip_address=string, port=int, }
+dcOption={_='dcOption', ipv6=Bool, media_only=Bool, id=int, ip_address='string', port=int}
 
 ```
 

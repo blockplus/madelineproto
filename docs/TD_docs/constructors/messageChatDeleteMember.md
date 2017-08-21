@@ -12,7 +12,7 @@ Chat member deleted
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |user|[user](../types/user.md) | Yes|Left or kicked chat member|
 
 
@@ -23,14 +23,21 @@ Chat member deleted
 ### Example:
 
 ```
-$messageChatDeleteMember = ['_' => 'messageChatDeleteMember', 'user' => user, ];
+$messageChatDeleteMember = ['_' => 'messageChatDeleteMember', 'user' => user];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageChatDeleteMember", "user": user}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageChatDeleteMember={_='messageChatDeleteMember', user=user, }
+messageChatDeleteMember={_='messageChatDeleteMember', user=user}
 
 ```
 

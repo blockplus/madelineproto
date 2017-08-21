@@ -10,7 +10,7 @@ description: paymentSavedCredentialsCard attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[string](../types/string.md) | Yes|
 |title|[string](../types/string.md) | Yes|
 
@@ -22,14 +22,21 @@ description: paymentSavedCredentialsCard attributes, type and example
 ### Example:
 
 ```
-$paymentSavedCredentialsCard = ['_' => 'paymentSavedCredentialsCard', 'id' => string, 'title' => string, ];
+$paymentSavedCredentialsCard = ['_' => 'paymentSavedCredentialsCard', 'id' => 'string', 'title' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "paymentSavedCredentialsCard", "id": "string", "title": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-paymentSavedCredentialsCard={_='paymentSavedCredentialsCard', id=string, title=string, }
+paymentSavedCredentialsCard={_='paymentSavedCredentialsCard', id='string', title='string'}
 
 ```
 

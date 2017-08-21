@@ -10,7 +10,7 @@ description: userContact attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[int](../types/int.md) | Yes|
 |first\_name|[string](../types/string.md) | Yes|
 |last\_name|[string](../types/string.md) | Yes|
@@ -28,14 +28,21 @@ description: userContact attributes, type and example
 ### Example:
 
 ```
-$userContact = ['_' => 'userContact', 'id' => int, 'first_name' => string, 'last_name' => string, 'username' => string, 'access_hash' => long, 'phone' => string, 'photo' => UserProfilePhoto, 'status' => UserStatus, ];
+$userContact = ['_' => 'userContact', 'id' => int, 'first_name' => 'string', 'last_name' => 'string', 'username' => 'string', 'access_hash' => long, 'phone' => 'string', 'photo' => UserProfilePhoto, 'status' => UserStatus];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "userContact", "id": int, "first_name": "string", "last_name": "string", "username": "string", "access_hash": long, "phone": "string", "photo": UserProfilePhoto, "status": UserStatus}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-userContact={_='userContact', id=int, first_name=string, last_name=string, username=string, access_hash=long, phone=string, photo=UserProfilePhoto, status=UserStatus, }
+userContact={_='userContact', id=int, first_name='string', last_name='string', username='string', access_hash=long, phone='string', photo=UserProfilePhoto, status=UserStatus}
 
 ```
 

@@ -10,7 +10,7 @@ description: messages_botCallbackAnswer attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |alert|[Bool](../types/Bool.md) | Optional|
 |has\_url|[Bool](../types/Bool.md) | Optional|
 |message|[string](../types/string.md) | Optional|
@@ -25,14 +25,21 @@ description: messages_botCallbackAnswer attributes, type and example
 ### Example:
 
 ```
-$messages_botCallbackAnswer = ['_' => 'messages.botCallbackAnswer', 'alert' => Bool, 'has_url' => Bool, 'message' => string, 'url' => string, 'cache_time' => int, ];
+$messages_botCallbackAnswer = ['_' => 'messages.botCallbackAnswer', 'alert' => Bool, 'has_url' => Bool, 'message' => 'string', 'url' => 'string', 'cache_time' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messages.botCallbackAnswer", "alert": Bool, "has_url": Bool, "message": "string", "url": "string", "cache_time": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messages_botCallbackAnswer={_='messages.botCallbackAnswer', alert=Bool, has_url=Bool, message=string, url=string, cache_time=int, }
+messages_botCallbackAnswer={_='messages.botCallbackAnswer', alert=Bool, has_url=Bool, message='string', url='string', cache_time=int}
 
 ```
 

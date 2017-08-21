@@ -6,12 +6,15 @@ description: Returns list of archived sticker sets
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Returns list of archived sticker sets
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |is\_masks|[Bool](../types/Bool.md) | Yes|Pass true to return masks, pass false to return stickers|
 |offset\_sticker\_set\_id|[long](../types/long.md) | Yes|Identifier of the sticker set from which return the result|
 |limit|[int](../types/int.md) | Yes|Maximum number of sticker sets to return|
@@ -25,7 +28,7 @@ Returns list of archived sticker sets
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -39,6 +42,34 @@ if (isset($number)) { // Login as a user
 
 $StickerSets = $MadelineProto->getArchivedStickerSets(['is_masks' => Bool, 'offset_sticker_set_id' => long, 'limit' => int, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - getArchivedStickerSets
+* params - `{"is_masks": Bool, "offset_sticker_set_id": long, "limit": int, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/getArchivedStickerSets`
+
+Parameters:
+
+is_masks - Json encoded Bool
+
+offset_sticker_set_id - Json encoded long
+
+limit - Json encoded int
+
+
+
 
 Or, if you're into Lua:
 

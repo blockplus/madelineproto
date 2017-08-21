@@ -10,7 +10,7 @@ description: pong attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |msg\_id|[long](../types/long.md) | Yes|
 |ping\_id|[long](../types/long.md) | Yes|
 
@@ -22,14 +22,21 @@ description: pong attributes, type and example
 ### Example:
 
 ```
-$pong = ['_' => 'pong', 'msg_id' => long, 'ping_id' => long, ];
+$pong = ['_' => 'pong', 'msg_id' => long, 'ping_id' => long];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "pong", "msg_id": long, "ping_id": long}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-pong={_='pong', msg_id=long, ping_id=long, }
+pong={_='pong', msg_id=long, ping_id=long}
 
 ```
 

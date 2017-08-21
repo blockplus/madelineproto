@@ -12,7 +12,7 @@ Unsupported message content
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ Unsupported message content
 ### Example:
 
 ```
-$messageUnsupported = ['_' => 'messageUnsupported', ];
+$messageUnsupported = ['_' => 'messageUnsupported'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageUnsupported"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageUnsupported={_='messageUnsupported', }
+messageUnsupported={_='messageUnsupported'}
 
 ```
 

@@ -10,7 +10,7 @@ description: bad_server_salt attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |bad\_msg\_id|[long](../types/long.md) | Yes|
 |bad\_msg\_seqno|[int](../types/int.md) | Yes|
 |error\_code|[int](../types/int.md) | Yes|
@@ -24,14 +24,21 @@ description: bad_server_salt attributes, type and example
 ### Example:
 
 ```
-$bad_server_salt = ['_' => 'bad_server_salt', 'bad_msg_id' => long, 'bad_msg_seqno' => int, 'error_code' => int, 'new_server_salt' => long, ];
+$bad_server_salt = ['_' => 'bad_server_salt', 'bad_msg_id' => long, 'bad_msg_seqno' => int, 'error_code' => int, 'new_server_salt' => long];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "bad_server_salt", "bad_msg_id": long, "bad_msg_seqno": int, "error_code": int, "new_server_salt": long}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-bad_server_salt={_='bad_server_salt', bad_msg_id=long, bad_msg_seqno=int, error_code=int, new_server_salt=long, }
+bad_server_salt={_='bad_server_salt', bad_msg_id=long, bad_msg_seqno=int, error_code=int, new_server_salt=long}
 
 ```
 

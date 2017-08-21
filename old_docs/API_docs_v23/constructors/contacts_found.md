@@ -10,7 +10,7 @@ description: contacts_found attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |results|Array of [ContactFound](../types/ContactFound.md) | Yes|
 |users|Array of [User](../types/User.md) | Yes|
 
@@ -22,14 +22,21 @@ description: contacts_found attributes, type and example
 ### Example:
 
 ```
-$contacts_found = ['_' => 'contacts.found', 'results' => [ContactFound], 'users' => [User], ];
+$contacts_found = ['_' => 'contacts.found', 'results' => [ContactFound], 'users' => [User]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "contacts.found", "results": [ContactFound], "users": [User]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-contacts_found={_='contacts.found', results={ContactFound}, users={User}, }
+contacts_found={_='contacts.found', results={ContactFound}, users={User}}
 
 ```
 

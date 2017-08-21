@@ -16,14 +16,21 @@ description: messageActionHistoryClear attributes, type and example
 ### Example:
 
 ```
-$messageActionHistoryClear = ['_' => 'messageActionHistoryClear', ];
+$messageActionHistoryClear = ['_' => 'messageActionHistoryClear'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageActionHistoryClear"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageActionHistoryClear={_='messageActionHistoryClear', }
+messageActionHistoryClear={_='messageActionHistoryClear'}
 
 ```
 

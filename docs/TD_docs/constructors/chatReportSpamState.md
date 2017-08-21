@@ -12,7 +12,7 @@ Contains information about chat report spam state
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |can\_report\_spam|[Bool](../types/Bool.md) | Yes|If true, prompt with "Report spam" action should be shown to the user|
 
 
@@ -23,14 +23,21 @@ Contains information about chat report spam state
 ### Example:
 
 ```
-$chatReportSpamState = ['_' => 'chatReportSpamState', 'can_report_spam' => Bool, ];
+$chatReportSpamState = ['_' => 'chatReportSpamState', 'can_report_spam' => Bool];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "chatReportSpamState", "can_report_spam": Bool}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-chatReportSpamState={_='chatReportSpamState', can_report_spam=Bool, }
+chatReportSpamState={_='chatReportSpamState', can_report_spam=Bool}
 
 ```
 

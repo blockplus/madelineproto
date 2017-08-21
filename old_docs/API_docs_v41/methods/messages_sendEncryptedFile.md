@@ -9,7 +9,7 @@ description: messages.sendEncryptedFile parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |peer|[InputEncryptedChat](../types/InputEncryptedChat.md) | Yes|
 |message|[DecryptedMessage](../types/DecryptedMessage.md) | Yes|
 |file|[InputEncryptedFile](../types/InputEncryptedFile.md) | Yes|
@@ -23,7 +23,7 @@ description: messages.sendEncryptedFile parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,6 +37,34 @@ if (isset($number)) { // Login as a user
 
 $messages_SentEncryptedMessage = $MadelineProto->messages->sendEncryptedFile(['peer' => InputEncryptedChat, 'message' => DecryptedMessage, 'file' => InputEncryptedFile, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - messages.sendEncryptedFile
+* params - `{"peer": InputEncryptedChat, "message": DecryptedMessage, "file": InputEncryptedFile, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/messages.sendEncryptedFile`
+
+Parameters:
+
+peer - Json encoded InputEncryptedChat
+
+message - Json encoded DecryptedMessage
+
+file - Json encoded InputEncryptedFile
+
+
+
 
 Or, if you're into Lua:
 

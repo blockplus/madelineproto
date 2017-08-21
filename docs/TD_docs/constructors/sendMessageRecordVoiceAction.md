@@ -12,7 +12,7 @@ User records voice message
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ User records voice message
 ### Example:
 
 ```
-$sendMessageRecordVoiceAction = ['_' => 'sendMessageRecordVoiceAction', ];
+$sendMessageRecordVoiceAction = ['_' => 'sendMessageRecordVoiceAction'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "sendMessageRecordVoiceAction"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-sendMessageRecordVoiceAction={_='sendMessageRecordVoiceAction', }
+sendMessageRecordVoiceAction={_='sendMessageRecordVoiceAction'}
 
 ```
 

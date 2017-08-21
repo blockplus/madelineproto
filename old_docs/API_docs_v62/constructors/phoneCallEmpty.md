@@ -10,7 +10,7 @@ description: phoneCallEmpty attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[long](../types/long.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: phoneCallEmpty attributes, type and example
 ### Example:
 
 ```
-$phoneCallEmpty = ['_' => 'phoneCallEmpty', 'id' => long, ];
+$phoneCallEmpty = ['_' => 'phoneCallEmpty', 'id' => long];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "phoneCallEmpty", "id": long}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-phoneCallEmpty={_='phoneCallEmpty', id=long, }
+phoneCallEmpty={_='phoneCallEmpty', id=long}
 
 ```
 

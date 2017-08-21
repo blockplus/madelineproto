@@ -10,7 +10,7 @@ description: documentAttributeSticker attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |mask|[Bool](../types/Bool.md) | Optional|
 |alt|[string](../types/string.md) | Yes|
 |stickerset|[InputStickerSet](../types/InputStickerSet.md) | Yes|
@@ -24,14 +24,21 @@ description: documentAttributeSticker attributes, type and example
 ### Example:
 
 ```
-$documentAttributeSticker = ['_' => 'documentAttributeSticker', 'mask' => Bool, 'alt' => string, 'stickerset' => InputStickerSet, 'mask_coords' => MaskCoords, ];
+$documentAttributeSticker = ['_' => 'documentAttributeSticker', 'mask' => Bool, 'alt' => 'string', 'stickerset' => InputStickerSet, 'mask_coords' => MaskCoords];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "documentAttributeSticker", "mask": Bool, "alt": "string", "stickerset": InputStickerSet, "mask_coords": MaskCoords}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-documentAttributeSticker={_='documentAttributeSticker', mask=Bool, alt=string, stickerset=InputStickerSet, mask_coords=MaskCoords, }
+documentAttributeSticker={_='documentAttributeSticker', mask=Bool, alt='string', stickerset=InputStickerSet, mask_coords=MaskCoords}
 
 ```
 

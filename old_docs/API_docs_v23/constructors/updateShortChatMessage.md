@@ -10,7 +10,7 @@ description: updateShortChatMessage attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[int](../types/int.md) | Yes|
 |from\_id|[int](../types/int.md) | Yes|
 |chat\_id|[int](../types/int.md) | Yes|
@@ -27,14 +27,21 @@ description: updateShortChatMessage attributes, type and example
 ### Example:
 
 ```
-$updateShortChatMessage = ['_' => 'updateShortChatMessage', 'id' => int, 'from_id' => int, 'chat_id' => int, 'message' => string, 'pts' => int, 'date' => int, 'seq' => int, ];
+$updateShortChatMessage = ['_' => 'updateShortChatMessage', 'id' => int, 'from_id' => int, 'chat_id' => int, 'message' => 'string', 'pts' => int, 'date' => int, 'seq' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateShortChatMessage", "id": int, "from_id": int, "chat_id": int, "message": "string", "pts": int, "date": int, "seq": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateShortChatMessage={_='updateShortChatMessage', id=int, from_id=int, chat_id=int, message=string, pts=int, date=int, seq=int, }
+updateShortChatMessage={_='updateShortChatMessage', id=int, from_id=int, chat_id=int, message='string', pts=int, date=int, seq=int}
 
 ```
 

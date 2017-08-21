@@ -16,14 +16,21 @@ description: updateRecentStickers attributes, type and example
 ### Example:
 
 ```
-$updateRecentStickers = ['_' => 'updateRecentStickers', ];
+$updateRecentStickers = ['_' => 'updateRecentStickers'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateRecentStickers"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateRecentStickers={_='updateRecentStickers', }
+updateRecentStickers={_='updateRecentStickers'}
 
 ```
 

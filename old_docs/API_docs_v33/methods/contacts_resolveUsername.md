@@ -6,39 +6,8 @@ description: contacts.resolveUsername parameters, return type and example
 [Back to methods index](index.md)
 
 
-### Parameters:
-
-| Name     |    Type       | Required |
-|----------|:-------------:|---------:|
-|username|[string](../types/string.md) | Yes|
+**You cannot use this method directly, use the resolve_username, get_pwr_chat, get_info, get_full_info methods instead (see https://daniil.it/MadelineProto for more info)**
 
 
-### Return type: [User](../types/User.md)
 
-### Example:
-
-
-```
-$MadelineProto = new \danog\MadelineProto\API();
-if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
-}
-if (isset($number)) { // Login as a user
-    $sentCode = $MadelineProto->phone_login($number);
-    echo 'Enter the code you received: ';
-    $code = '';
-    for ($x = 0; $x < $sentCode['type']['length']; $x++) {
-        $code .= fgetc(STDIN);
-    }
-    $MadelineProto->complete_phone_login($code);
-}
-
-$User = $MadelineProto->contacts->resolveUsername(['username' => string, ]);
-```
-
-Or, if you're into Lua:
-
-```
-User = contacts.resolveUsername({username=string, })
-```
 

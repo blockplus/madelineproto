@@ -6,12 +6,15 @@ description: Changes chat draft message
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Changes chat draft message
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |chat\_id|[InputPeer](../types/InputPeer.md) | Yes|Chat identifier|
 |draft\_message|[draftMessage](../types/draftMessage.md) | Yes|New draft message, nullable|
 
@@ -24,7 +27,7 @@ Changes chat draft message
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -38,6 +41,32 @@ if (isset($number)) { // Login as a user
 
 $Ok = $MadelineProto->changeChatDraftMessage(['chat_id' => InputPeer, 'draft_message' => draftMessage, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - changeChatDraftMessage
+* params - `{"chat_id": InputPeer, "draft_message": draftMessage, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/changeChatDraftMessage`
+
+Parameters:
+
+chat_id - Json encoded InputPeer
+
+draft_message - Json encoded draftMessage
+
+
+
 
 Or, if you're into Lua:
 

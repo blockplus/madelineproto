@@ -6,12 +6,15 @@ description: Deletes users from contacts list
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Deletes users from contacts list
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |user\_ids|Array of [int](../types/int.md) | Yes|Identifiers of users to be deleted|
 
 
@@ -23,7 +26,7 @@ Deletes users from contacts list
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,6 +40,30 @@ if (isset($number)) { // Login as a user
 
 $Ok = $MadelineProto->deleteContacts(['user_ids' => [int], ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - deleteContacts
+* params - `{"user_ids": [int], }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/deleteContacts`
+
+Parameters:
+
+user_ids - Json encoded  array of int
+
+
+
 
 Or, if you're into Lua:
 

@@ -12,7 +12,7 @@ Message with a game
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |game|[game](../types/game.md) | Yes|The game|
 
 
@@ -23,14 +23,21 @@ Message with a game
 ### Example:
 
 ```
-$messageGame = ['_' => 'messageGame', 'game' => game, ];
+$messageGame = ['_' => 'messageGame', 'game' => game];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageGame", "game": game}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageGame={_='messageGame', game=game, }
+messageGame={_='messageGame', game=game}
 
 ```
 

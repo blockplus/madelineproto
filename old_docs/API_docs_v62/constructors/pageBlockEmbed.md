@@ -10,7 +10,7 @@ description: pageBlockEmbed attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |full\_width|[Bool](../types/Bool.md) | Optional|
 |allow\_scrolling|[Bool](../types/Bool.md) | Optional|
 |url|[string](../types/string.md) | Optional|
@@ -28,14 +28,21 @@ description: pageBlockEmbed attributes, type and example
 ### Example:
 
 ```
-$pageBlockEmbed = ['_' => 'pageBlockEmbed', 'full_width' => Bool, 'allow_scrolling' => Bool, 'url' => string, 'html' => string, 'poster_photo_id' => long, 'w' => int, 'h' => int, 'caption' => RichText, ];
+$pageBlockEmbed = ['_' => 'pageBlockEmbed', 'full_width' => Bool, 'allow_scrolling' => Bool, 'url' => 'string', 'html' => 'string', 'poster_photo_id' => long, 'w' => int, 'h' => int, 'caption' => RichText];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "pageBlockEmbed", "full_width": Bool, "allow_scrolling": Bool, "url": "string", "html": "string", "poster_photo_id": long, "w": int, "h": int, "caption": RichText}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-pageBlockEmbed={_='pageBlockEmbed', full_width=Bool, allow_scrolling=Bool, url=string, html=string, poster_photo_id=long, w=int, h=int, caption=RichText, }
+pageBlockEmbed={_='pageBlockEmbed', full_width=Bool, allow_scrolling=Bool, url='string', html='string', poster_photo_id=long, w=int, h=int, caption=RichText}
 
 ```
 

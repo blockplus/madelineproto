@@ -12,7 +12,7 @@ Contains list of sessions
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |sessions|Array of [session](../constructors/session.md) | Yes|List of sessions|
 
 
@@ -23,14 +23,21 @@ Contains list of sessions
 ### Example:
 
 ```
-$sessions = ['_' => 'sessions', 'sessions' => [session], ];
+$sessions = ['_' => 'sessions', 'sessions' => [session]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "sessions", "sessions": [session]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-sessions={_='sessions', sessions={session}, }
+sessions={_='sessions', sessions={session}}
 
 ```
 

@@ -12,7 +12,7 @@ Text should be parsed in markdown-style way
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ Text should be parsed in markdown-style way
 ### Example:
 
 ```
-$textParseModeMarkdown = ['_' => 'textParseModeMarkdown', ];
+$textParseModeMarkdown = ['_' => 'textParseModeMarkdown'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "textParseModeMarkdown"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-textParseModeMarkdown={_='textParseModeMarkdown', }
+textParseModeMarkdown={_='textParseModeMarkdown'}
 
 ```
 

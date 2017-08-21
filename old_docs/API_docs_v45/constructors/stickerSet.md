@@ -10,7 +10,7 @@ description: stickerSet attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |installed|[Bool](../types/Bool.md) | Optional|
 |disabled|[Bool](../types/Bool.md) | Optional|
 |official|[Bool](../types/Bool.md) | Optional|
@@ -29,14 +29,21 @@ description: stickerSet attributes, type and example
 ### Example:
 
 ```
-$stickerSet = ['_' => 'stickerSet', 'installed' => Bool, 'disabled' => Bool, 'official' => Bool, 'id' => long, 'access_hash' => long, 'title' => string, 'short_name' => string, 'count' => int, 'hash' => int, ];
+$stickerSet = ['_' => 'stickerSet', 'installed' => Bool, 'disabled' => Bool, 'official' => Bool, 'id' => long, 'access_hash' => long, 'title' => 'string', 'short_name' => 'string', 'count' => int, 'hash' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "stickerSet", "installed": Bool, "disabled": Bool, "official": Bool, "id": long, "access_hash": long, "title": "string", "short_name": "string", "count": int, "hash": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-stickerSet={_='stickerSet', installed=Bool, disabled=Bool, official=Bool, id=long, access_hash=long, title=string, short_name=string, count=int, hash=int, }
+stickerSet={_='stickerSet', installed=Bool, disabled=Bool, official=Bool, id=long, access_hash=long, title='string', short_name='string', count=int, hash=int}
 
 ```
 

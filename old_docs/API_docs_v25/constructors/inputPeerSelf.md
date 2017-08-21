@@ -16,14 +16,21 @@ description: inputPeerSelf attributes, type and example
 ### Example:
 
 ```
-$inputPeerSelf = ['_' => 'inputPeerSelf', ];
+$inputPeerSelf = ['_' => 'inputPeerSelf'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputPeerSelf"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputPeerSelf={_='inputPeerSelf', }
+inputPeerSelf={_='inputPeerSelf'}
 
 ```
 

@@ -12,7 +12,7 @@ Represents link to a page containing an embedded video player or a video file
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |id|[string](../types/string.md) | Yes|Unique identifier of this result|
 |title|[string](../types/string.md) | Yes|Title of the result|
 |description|[string](../types/string.md) | Yes|Short description of the result, if known|
@@ -33,14 +33,21 @@ Represents link to a page containing an embedded video player or a video file
 ### Example:
 
 ```
-$inputInlineQueryResultVideo = ['_' => 'inputInlineQueryResultVideo', 'id' => string, 'title' => string, 'description' => string, 'thumb_url' => string, 'video_url' => string, 'mime_type' => string, 'video_width' => int, 'video_height' => int, 'video_duration' => int, 'reply_markup' => ReplyMarkup, 'input_message_content' => InputMessageContent, ];
+$inputInlineQueryResultVideo = ['_' => 'inputInlineQueryResultVideo', 'id' => 'string', 'title' => 'string', 'description' => 'string', 'thumb_url' => 'string', 'video_url' => 'string', 'mime_type' => 'string', 'video_width' => int, 'video_height' => int, 'video_duration' => int, 'reply_markup' => ReplyMarkup, 'input_message_content' => InputMessageContent];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputInlineQueryResultVideo", "id": "string", "title": "string", "description": "string", "thumb_url": "string", "video_url": "string", "mime_type": "string", "video_width": int, "video_height": int, "video_duration": int, "reply_markup": ReplyMarkup, "input_message_content": InputMessageContent}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputInlineQueryResultVideo={_='inputInlineQueryResultVideo', id=string, title=string, description=string, thumb_url=string, video_url=string, mime_type=string, video_width=int, video_height=int, video_duration=int, reply_markup=ReplyMarkup, input_message_content=InputMessageContent, }
+inputInlineQueryResultVideo={_='inputInlineQueryResultVideo', id='string', title='string', description='string', thumb_url='string', video_url='string', mime_type='string', video_width=int, video_height=int, video_duration=int, reply_markup=ReplyMarkup, input_message_content=InputMessageContent}
 
 ```
 

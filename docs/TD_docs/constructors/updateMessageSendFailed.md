@@ -12,7 +12,7 @@ Message fails to send. Be aware that some being sent messages can be irrecoverab
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |chat\_id|[long](../types/long.md) | Yes|Chat identifier|
 |message\_id|[long](../types/long.md) | Yes|Message identifier|
 |error\_code|[int](../types/int.md) | Yes|Error code|
@@ -26,14 +26,21 @@ Message fails to send. Be aware that some being sent messages can be irrecoverab
 ### Example:
 
 ```
-$updateMessageSendFailed = ['_' => 'updateMessageSendFailed', 'chat_id' => long, 'message_id' => long, 'error_code' => int, 'error_message' => string, ];
+$updateMessageSendFailed = ['_' => 'updateMessageSendFailed', 'chat_id' => long, 'message_id' => long, 'error_code' => int, 'error_message' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateMessageSendFailed", "chat_id": long, "message_id": long, "error_code": int, "error_message": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateMessageSendFailed={_='updateMessageSendFailed', chat_id=long, message_id=long, error_code=int, error_message=string, }
+updateMessageSendFailed={_='updateMessageSendFailed', chat_id=long, message_id=long, error_code=int, error_message='string'}
 
 ```
 

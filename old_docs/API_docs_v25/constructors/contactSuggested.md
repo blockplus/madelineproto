@@ -10,7 +10,7 @@ description: contactSuggested attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |user\_id|[int](../types/int.md) | Yes|
 |mutual\_contacts|[int](../types/int.md) | Yes|
 
@@ -22,14 +22,21 @@ description: contactSuggested attributes, type and example
 ### Example:
 
 ```
-$contactSuggested = ['_' => 'contactSuggested', 'user_id' => int, 'mutual_contacts' => int, ];
+$contactSuggested = ['_' => 'contactSuggested', 'user_id' => int, 'mutual_contacts' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "contactSuggested", "user_id": int, "mutual_contacts": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-contactSuggested={_='contactSuggested', user_id=int, mutual_contacts=int, }
+contactSuggested={_='contactSuggested', user_id=int, mutual_contacts=int}
 
 ```
 

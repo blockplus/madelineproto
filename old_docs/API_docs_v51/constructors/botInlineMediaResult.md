@@ -10,7 +10,7 @@ description: botInlineMediaResult attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[string](../types/string.md) | Yes|
 |type|[string](../types/string.md) | Yes|
 |photo|[Photo](../types/Photo.md) | Optional|
@@ -27,14 +27,21 @@ description: botInlineMediaResult attributes, type and example
 ### Example:
 
 ```
-$botInlineMediaResult = ['_' => 'botInlineMediaResult', 'id' => string, 'type' => string, 'photo' => Photo, 'document' => Document, 'title' => string, 'description' => string, 'send_message' => BotInlineMessage, ];
+$botInlineMediaResult = ['_' => 'botInlineMediaResult', 'id' => 'string', 'type' => 'string', 'photo' => Photo, 'document' => Document, 'title' => 'string', 'description' => 'string', 'send_message' => BotInlineMessage];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "botInlineMediaResult", "id": "string", "type": "string", "photo": Photo, "document": Document, "title": "string", "description": "string", "send_message": BotInlineMessage}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-botInlineMediaResult={_='botInlineMediaResult', id=string, type=string, photo=Photo, document=Document, title=string, description=string, send_message=BotInlineMessage, }
+botInlineMediaResult={_='botInlineMediaResult', id='string', type='string', photo=Photo, document=Document, title='string', description='string', send_message=BotInlineMessage}
 
 ```
 

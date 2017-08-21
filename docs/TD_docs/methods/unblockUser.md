@@ -6,12 +6,15 @@ description: Removes user from black list
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Removes user from black list
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |user\_id|[int](../types/int.md) | Yes|User identifier|
 
 
@@ -23,7 +26,7 @@ Removes user from black list
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,6 +40,30 @@ if (isset($number)) { // Login as a user
 
 $Ok = $MadelineProto->unblockUser(['user_id' => int, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - unblockUser
+* params - `{"user_id": int, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/unblockUser`
+
+Parameters:
+
+user_id - Json encoded int
+
+
+
 
 Or, if you're into Lua:
 

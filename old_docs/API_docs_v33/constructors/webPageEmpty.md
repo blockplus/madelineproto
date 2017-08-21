@@ -10,7 +10,7 @@ description: webPageEmpty attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[long](../types/long.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: webPageEmpty attributes, type and example
 ### Example:
 
 ```
-$webPageEmpty = ['_' => 'webPageEmpty', 'id' => long, ];
+$webPageEmpty = ['_' => 'webPageEmpty', 'id' => long];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "webPageEmpty", "id": long}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-webPageEmpty={_='webPageEmpty', id=long, }
+webPageEmpty={_='webPageEmpty', id=long}
 
 ```
 

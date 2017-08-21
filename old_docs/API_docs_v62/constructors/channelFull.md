@@ -10,7 +10,7 @@ description: channelFull attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |can\_view\_participants|[Bool](../types/Bool.md) | Optional|
 |can\_set\_username|[Bool](../types/Bool.md) | Optional|
 |id|[int](../types/int.md) | Yes|
@@ -37,14 +37,21 @@ description: channelFull attributes, type and example
 ### Example:
 
 ```
-$channelFull = ['_' => 'channelFull', 'can_view_participants' => Bool, 'can_set_username' => Bool, 'id' => int, 'about' => string, 'participants_count' => int, 'admins_count' => int, 'kicked_count' => int, 'read_inbox_max_id' => int, 'read_outbox_max_id' => int, 'unread_count' => int, 'chat_photo' => Photo, 'notify_settings' => PeerNotifySettings, 'exported_invite' => ExportedChatInvite, 'bot_info' => [BotInfo], 'migrated_from_chat_id' => int, 'migrated_from_max_id' => int, 'pinned_msg_id' => int, ];
+$channelFull = ['_' => 'channelFull', 'can_view_participants' => Bool, 'can_set_username' => Bool, 'id' => int, 'about' => 'string', 'participants_count' => int, 'admins_count' => int, 'kicked_count' => int, 'read_inbox_max_id' => int, 'read_outbox_max_id' => int, 'unread_count' => int, 'chat_photo' => Photo, 'notify_settings' => PeerNotifySettings, 'exported_invite' => ExportedChatInvite, 'bot_info' => [BotInfo], 'migrated_from_chat_id' => int, 'migrated_from_max_id' => int, 'pinned_msg_id' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "channelFull", "can_view_participants": Bool, "can_set_username": Bool, "id": int, "about": "string", "participants_count": int, "admins_count": int, "kicked_count": int, "read_inbox_max_id": int, "read_outbox_max_id": int, "unread_count": int, "chat_photo": Photo, "notify_settings": PeerNotifySettings, "exported_invite": ExportedChatInvite, "bot_info": [BotInfo], "migrated_from_chat_id": int, "migrated_from_max_id": int, "pinned_msg_id": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-channelFull={_='channelFull', can_view_participants=Bool, can_set_username=Bool, id=int, about=string, participants_count=int, admins_count=int, kicked_count=int, read_inbox_max_id=int, read_outbox_max_id=int, unread_count=int, chat_photo=Photo, notify_settings=PeerNotifySettings, exported_invite=ExportedChatInvite, bot_info={BotInfo}, migrated_from_chat_id=int, migrated_from_max_id=int, pinned_msg_id=int, }
+channelFull={_='channelFull', can_view_participants=Bool, can_set_username=Bool, id=int, about='string', participants_count=int, admins_count=int, kicked_count=int, read_inbox_max_id=int, read_outbox_max_id=int, unread_count=int, chat_photo=Photo, notify_settings=PeerNotifySettings, exported_invite=ExportedChatInvite, bot_info={BotInfo}, migrated_from_chat_id=int, migrated_from_max_id=int, pinned_msg_id=int}
 
 ```
 

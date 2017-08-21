@@ -10,7 +10,7 @@ description: updateStickerSetsOrder attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |order|Array of [long](../types/long.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: updateStickerSetsOrder attributes, type and example
 ### Example:
 
 ```
-$updateStickerSetsOrder = ['_' => 'updateStickerSetsOrder', 'order' => [long], ];
+$updateStickerSetsOrder = ['_' => 'updateStickerSetsOrder', 'order' => [long]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateStickerSetsOrder", "order": [long]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateStickerSetsOrder={_='updateStickerSetsOrder', order={long}, }
+updateStickerSetsOrder={_='updateStickerSetsOrder', order={long}}
 
 ```
 

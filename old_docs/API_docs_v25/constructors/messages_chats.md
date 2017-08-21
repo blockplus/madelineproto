@@ -10,7 +10,7 @@ description: messages_chats attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |chats|Array of [Chat](../types/Chat.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: messages_chats attributes, type and example
 ### Example:
 
 ```
-$messages_chats = ['_' => 'messages.chats', 'chats' => [Chat], ];
+$messages_chats = ['_' => 'messages.chats', 'chats' => [Chat]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messages.chats", "chats": [Chat]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messages_chats={_='messages.chats', chats={Chat}, }
+messages_chats={_='messages.chats', chats={Chat}}
 
 ```
 

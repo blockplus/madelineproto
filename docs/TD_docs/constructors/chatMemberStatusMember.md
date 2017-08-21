@@ -12,7 +12,7 @@ User is a member of the chat, but have no any additional privileges
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ User is a member of the chat, but have no any additional privileges
 ### Example:
 
 ```
-$chatMemberStatusMember = ['_' => 'chatMemberStatusMember', ];
+$chatMemberStatusMember = ['_' => 'chatMemberStatusMember'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "chatMemberStatusMember"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-chatMemberStatusMember={_='chatMemberStatusMember', }
+chatMemberStatusMember={_='chatMemberStatusMember'}
 
 ```
 

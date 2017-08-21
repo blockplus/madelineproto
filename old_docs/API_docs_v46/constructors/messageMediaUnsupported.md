@@ -16,14 +16,21 @@ description: messageMediaUnsupported attributes, type and example
 ### Example:
 
 ```
-$messageMediaUnsupported = ['_' => 'messageMediaUnsupported', ];
+$messageMediaUnsupported = ['_' => 'messageMediaUnsupported'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageMediaUnsupported"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageMediaUnsupported={_='messageMediaUnsupported', }
+messageMediaUnsupported={_='messageMediaUnsupported'}
 
 ```
 

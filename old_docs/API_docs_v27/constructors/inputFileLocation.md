@@ -10,7 +10,7 @@ description: inputFileLocation attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |volume\_id|[long](../types/long.md) | Yes|
 |local\_id|[int](../types/int.md) | Yes|
 |secret|[long](../types/long.md) | Yes|
@@ -23,14 +23,21 @@ description: inputFileLocation attributes, type and example
 ### Example:
 
 ```
-$inputFileLocation = ['_' => 'inputFileLocation', 'volume_id' => long, 'local_id' => int, 'secret' => long, ];
+$inputFileLocation = ['_' => 'inputFileLocation', 'volume_id' => long, 'local_id' => int, 'secret' => long];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputFileLocation", "volume_id": long, "local_id": int, "secret": long}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputFileLocation={_='inputFileLocation', volume_id=long, local_id=int, secret=long, }
+inputFileLocation={_='inputFileLocation', volume_id=long, local_id=int, secret=long}
 
 ```
 

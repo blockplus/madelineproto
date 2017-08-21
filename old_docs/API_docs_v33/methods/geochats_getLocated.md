@@ -9,7 +9,7 @@ description: geochats.getLocated parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |geo\_point|[InputGeoPoint](../types/InputGeoPoint.md) | Yes|
 |radius|[int](../types/int.md) | Yes|
 |limit|[int](../types/int.md) | Yes|
@@ -23,7 +23,7 @@ description: geochats.getLocated parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,6 +37,34 @@ if (isset($number)) { // Login as a user
 
 $geochats_Located = $MadelineProto->geochats->getLocated(['geo_point' => InputGeoPoint, 'radius' => int, 'limit' => int, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - geochats.getLocated
+* params - `{"geo_point": InputGeoPoint, "radius": int, "limit": int, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/geochats.getLocated`
+
+Parameters:
+
+geo_point - Json encoded InputGeoPoint
+
+radius - Json encoded int
+
+limit - Json encoded int
+
+
+
 
 Or, if you're into Lua:
 

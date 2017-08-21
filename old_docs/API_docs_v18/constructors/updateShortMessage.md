@@ -10,7 +10,7 @@ description: updateShortMessage attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[int](../types/int.md) | Yes|
 |from\_id|[int](../types/int.md) | Yes|
 |message|[string](../types/string.md) | Yes|
@@ -26,14 +26,21 @@ description: updateShortMessage attributes, type and example
 ### Example:
 
 ```
-$updateShortMessage = ['_' => 'updateShortMessage', 'id' => int, 'from_id' => int, 'message' => string, 'pts' => int, 'date' => int, 'seq' => int, ];
+$updateShortMessage = ['_' => 'updateShortMessage', 'id' => int, 'from_id' => int, 'message' => 'string', 'pts' => int, 'date' => int, 'seq' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateShortMessage", "id": int, "from_id": int, "message": "string", "pts": int, "date": int, "seq": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateShortMessage={_='updateShortMessage', id=int, from_id=int, message=string, pts=int, date=int, seq=int, }
+updateShortMessage={_='updateShortMessage', id=int, from_id=int, message='string', pts=int, date=int, seq=int}
 
 ```
 

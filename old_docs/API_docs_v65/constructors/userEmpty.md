@@ -10,7 +10,7 @@ description: userEmpty attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[int](../types/int.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: userEmpty attributes, type and example
 ### Example:
 
 ```
-$userEmpty = ['_' => 'userEmpty', 'id' => int, ];
+$userEmpty = ['_' => 'userEmpty', 'id' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "userEmpty", "id": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-userEmpty={_='userEmpty', id=int, }
+userEmpty={_='userEmpty', id=int}
 
 ```
 

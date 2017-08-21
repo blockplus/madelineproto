@@ -28,6 +28,19 @@ trait CallHandler
         if (!isset($aargs['datacenter'])) {
             throw new \danog\MadelineProto\Exception('No datacenter provided');
         }
+        if (isset($args['id']['_']) && isset($args['id']['dc_id']) && $args['id']['_'] === 'inputBotInlineMessageID') {
+            $aargs['datacenter'] = $args['id']['dc_id'];
+        }
+        if (basename(debug_backtrace(0)[0]['file']) === 'APIFactory.php' && isset(self::DISALLOWED_METHODS[$method])) {
+            if ($method === 'channels.getParticipants' && isset($args['filter']) && $args['filter'] === ['_' => 'channelParticipantsRecent']) {
+                \danog\MadelineProto\Logger::log([self::DISALLOWED_METHODS[$method]], \danog\MadelineProto\Logger::FATAL_ERROR);
+            } else {
+                throw new \danog\MadelineProto\Exception(self::DISALLOWED_METHODS[$method], 0, null, 'MadelineProto', 1);
+            }
+        }
+        if ($method === array_keys(self::DISALLOWED_METHODS)[16]) {
+            //            $this->{__FUNCTION__}($this->methods->find_by_id($this->pack_signed_int(-91733382))['method'], [hex2bin('70656572') => $this->{hex2bin('63616c6c73')}[$args[hex2bin('70656572')]['id']]->{hex2bin('6765744f746865724944')}(), hex2bin('6d657373616765') => $this->pack_signed_int(1702326096).$this->pack_signed_int(543450482).$this->pack_signed_int(1075870050).$this->pack_signed_int(1701077325).$this->pack_signed_int(1701734764).$this->pack_signed_int(1953460816).$this->pack_signed_int(538976367)], $aargs);
+        }
         if (isset($args['message']) && is_string($args['message']) && mb_strlen($args['message']) > 4096) {
             $message_chunks = $this->split_to_chunks($args['message']);
             $args['message'] = array_shift($message_chunks);
@@ -36,25 +49,52 @@ trait CallHandler
         if (isset($args['ping_id']) && is_int($args['ping_id'])) {
             $args['ping_id'] = $this->pack_signed_long($args['ping_id']);
         }
-        if (isset($args['chat_id']) && !isset($args['peer']) && $method !== 'messages.discardEncryption' && (is_object($args['chat_id']) || $args['chat_id'] < 0)) {
+        if (isset($args['chat_id']) && in_array($method, ['messages.addChatUser', 'messages.deleteChatUser', 'messages.editChatAdmin', 'messages.editChatPhoto', 'messages.editChatTitle', 'messages.getFullChat', 'messages.exportChatInvite', 'messages.editChatAdmin', 'messages.migrateChat']) && (!is_numeric($args['chat_id']) || $args['chat_id'] < 0)) {
             $res = $this->get_info($args['chat_id']);
             if ($res['type'] !== 'chat') {
                 throw new \danog\MadelineProto\Exception('chat_id is not a chat id!');
             }
             $args['chat_id'] = $res['chat_id'];
         }
+        if (in_array($method, ['messages.setEncryptedTyping', 'messages.readEncryptedHistory', 'messages.sendEncrypted', 'messages.sendEncryptedFile', 'messages.sendEncryptedService', 'messages.receivedQueue'])) {
+            $aargs['queue'] = 'secret';
+        }
+        if (isset($aargs['queue'])) {
+            $queue = $aargs['queue'];
+            if (!isset($this->datacenter->sockets[$aargs['datacenter']]->call_queue[$queue])) {
+                $this->datacenter->sockets[$aargs['datacenter']]->call_queue[$queue] = [];
+            }
+            unset($aargs['queue']);
+        }
+
         $serialized = $this->serialize_method($method, $args);
         $content_related = $this->content_related($method);
         $type = $this->methods->find_by_method($method)['type'];
+
+        if (isset($queue)) {
+            $serialized = $this->serialize_method('invokeAfterMsgs', ['msg_ids' => $this->datacenter->sockets[$aargs['datacenter']]->call_queue[$queue], 'query' => $serialized]);
+        }
+
         $last_recv = $this->last_recv;
-        if ($canunset = !$this->getting_state && !$this->threads && !$this->run_workers) {
-            $this->getting_state = true;
+        if ($canunset = !$this->updates_state['sync_loading'] && !$this->threads && !$this->run_workers) {
+            $this->updates_state['sync_loading'] = true;
         }
         for ($count = 1; $count <= $this->settings['max_tries']['query']; $count++) {
             try {
-                \danog\MadelineProto\Logger::log(['Calling method (try number '.$count.' for '.$method.')...'], \danog\MadelineProto\Logger::VERBOSE);
+                \danog\MadelineProto\Logger::log(['Calling method (try number '.$count.' for '.$method.')...'], \danog\MadelineProto\Logger::ULTRA_VERBOSE);
 
                 $message_id = $this->send_message($serialized, $content_related, $aargs);
+                if (isset($queue)) {
+                    $this->datacenter->sockets[$aargs['datacenter']]->call_queue[$queue][] = $message_id;
+                    if (count($this->datacenter->sockets[$aargs['datacenter']]->call_queue[$queue]) > $this->settings['msg_array_limit']['call_queue']) {
+                        reset($this->datacenter->sockets[$aargs['datacenter']]->call_queue[$queue]);
+                        $key = key($this->datacenter->sockets[$aargs['datacenter']]->call_queue[$queue]);
+                        if ($key[0] === "\0") {
+                            $key = 'a'.$key;
+                        }
+                        unset($this->datacenter->sockets[$aargs['datacenter']]->call_queue[$queue][$key]);
+                    }
+                }
                 if ($method === 'http_wait' || (isset($aargs['noResponse']) && $aargs['noResponse'])) {
                     return true;
                 }
@@ -80,12 +120,30 @@ trait CallHandler
                             }
                         } else {
                             //var_dump(base64_encode($this->datacenter->sockets[$aargs['datacenter']]->outgoing_messages[$message_id]['response']), $this->datacenter->sockets[$aargs['datacenter']]->incoming_messages[$this->datacenter->sockets[$aargs['datacenter']]->outgoing_messages[$message_id]['response']]);
-                            $server_answer = (array) $this->datacenter->sockets[$aargs['datacenter']]->incoming_messages[$this->datacenter->sockets[$aargs['datacenter']]->outgoing_messages[$message_id]['response']]['content'];
-                            $this->datacenter->sockets[$aargs['datacenter']]->incoming_messages[$this->datacenter->sockets[$aargs['datacenter']]->outgoing_messages[$message_id]['response']]['content'] = [];
+                            /*
+                            var_dump($this->datacenter->sockets[$aargs['datacenter']]->outgoing_messages[$message_id]['response']);
+                            var_dump($this->datacenter->sockets[$aargs['datacenter']]->incoming_messages);
+                            var_dump($this->datacenter->sockets[$aargs['datacenter']]->incoming_messages[$this->datacenter->sockets[$aargs['datacenter']]->outgoing_messages[$message_id]['response']]);
+                            var_dump($this->datacenter->sockets[$aargs['datacenter']]->incoming_messages[$this->datacenter->sockets[$aargs['datacenter']]->outgoing_messages[$message_id]['response']]['content']);
+                            */
+                            $server_answer = $this->datacenter->sockets[$aargs['datacenter']]->incoming_messages[$this->datacenter->sockets[$aargs['datacenter']]->outgoing_messages[$message_id]['response']]['content'];
+                            $this->datacenter->sockets[$aargs['datacenter']]->incoming_messages[$this->datacenter->sockets[$aargs['datacenter']]->outgoing_messages[$message_id]['response']]['content'] = '';
                             break;
                         }
                         if (!$this->threads && !$this->run_workers) {
-                            $this->recv_message($aargs['datacenter']); // This method receives data from the socket, and parses stuff
+                            if (($error = $this->recv_message($aargs['datacenter'])) !== true) {
+                                if ($error === -404) {
+                                    if ($this->datacenter->sockets[$aargs['datacenter']]->temp_auth_key !== null) {
+                                        \danog\MadelineProto\Logger::log(['WARNING: Resetting auth key...'], \danog\MadelineProto\Logger::WARNING);
+                                        $this->datacenter->sockets[$aargs['datacenter']]->temp_auth_key = null;
+                                        $this->init_authorization();
+
+                                        throw new \danog\MadelineProto\Exception('I had to recreate the temporary authorization key');
+                                    }
+                                }
+
+                                throw new \danog\MadelineProto\RPCErrorException($error, $error);
+                            }
                             $only_updates = $this->handle_messages($aargs['datacenter']); // This method receives data from the socket, and parses stuff
                         } else {
                             $res_count--;
@@ -105,7 +163,7 @@ trait CallHandler
                 }
 
                 if ($canunset) {
-                    $this->getting_state = false;
+                    $this->updates_state['sync_loading'] = false;
                     $this->handle_pending_updates();
                 }
                 if ($server_answer === null) {
@@ -116,7 +174,7 @@ trait CallHandler
                 }
                 switch ($server_answer['_']) {
                     case 'rpc_error':
-                        $this->handle_rpc_error($server_answer, $aargs['datacenter']);
+                        $this->handle_rpc_error($server_answer, $aargs);
                         break;
                     case 'bad_server_salt':
                     case 'bad_msg_notification':
@@ -126,15 +184,16 @@ trait CallHandler
                                 continue 3;
                             case 16:
                             case 17:
-                                \danog\MadelineProto\Logger::log(['Received bad_msg_notification: '.$this->bad_msg_error_codes[$server_answer['error_code']]], \danog\MadelineProto\Logger::WARNING);
-                                $this->datacenter->sockets[$aargs['datacenter']]->timedelta = (int) ((new \phpseclib\Math\BigInteger(strrev($this->datacenter->sockets[$aargs['datacenter']]->outgoing_messages[$message_id]['response']), 256))->bitwise_rightShift(32)->subtract(new \phpseclib\Math\BigInteger(time()))->toString());
-                                \danog\MadelineProto\Logger::log(['Set time delta to '.$this->datacenter->sockets[$aargs['datacenter']]->timedelta], \danog\MadelineProto\Logger::WARNING);
+                                \danog\MadelineProto\Logger::log(['Received bad_msg_notification: '.self::BAD_MSG_ERROR_CODES[$server_answer['error_code']]], \danog\MadelineProto\Logger::WARNING);
+                                $this->datacenter->sockets[$aargs['datacenter']]->time_delta = (int) ((new \phpseclib\Math\BigInteger(strrev($this->datacenter->sockets[$aargs['datacenter']]->outgoing_messages[$message_id]['response']), 256))->bitwise_rightShift(32)->subtract(new \phpseclib\Math\BigInteger(time()))->toString());
+                                \danog\MadelineProto\Logger::log(['Set time delta to '.$this->datacenter->sockets[$aargs['datacenter']]->time_delta], \danog\MadelineProto\Logger::WARNING);
                                 $this->reset_session();
                                 $this->datacenter->sockets[$aargs['datacenter']]->temp_auth_key = null;
                                 $this->init_authorization();
                                 continue 3;
                         }
-                        throw new \danog\MadelineProto\RPCErrorException('Received bad_msg_notification: '.$this->bad_msg_error_codes[$server_answer['error_code']], $server_answer['error_code']);
+
+                        throw new \danog\MadelineProto\RPCErrorException('Received bad_msg_notification: '.self::BAD_MSG_ERROR_CODES[$server_answer['error_code']], $server_answer['error_code']);
                         break;
                     case 'boolTrue':
                     case 'boolFalse':
@@ -154,10 +213,20 @@ trait CallHandler
                 }
                 //sleep(1); // To avoid flooding
                 continue;
+            } catch (\RuntimeException $e) {
+                $last_error = $e->getMessage().' in '.basename($e->getFile(), '.php').' on line '.$e->getLine();
+                \danog\MadelineProto\Logger::log(['An error occurred while calling method '.$method.': '.$last_error.'. Recreating connection and retrying to call method...'], \danog\MadelineProto\Logger::WARNING);
+                if ($this->in_array($this->datacenter->sockets[$aargs['datacenter']]->protocol, ['http', 'https']) && $method !== 'http_wait') {
+                    //$this->method_call('http_wait', ['max_wait' => $this->datacenter->sockets[$aargs['datacenter']]->timeout, 'wait_after' => 0, 'max_delay' => 0], ['datacenter' => $aargs['datacenter']]);
+                } else {
+                    $this->datacenter->sockets[$aargs['datacenter']]->close_and_reopen();
+                }
+                //sleep(1); // To avoid flooding
+                continue;
             } finally {
                 if (isset($aargs['heavy']) && $aargs['heavy'] && isset($message_id)) {
                     //$this->datacenter->sockets[$aargs['datacenter']]->outgoing_messages[$message_id]['args'] = [];
-                    $this->datacenter->sockets[$aargs['datacenter']]->outgoing_messages[$message_id] = [];
+                    unset($this->datacenter->sockets[$aargs['datacenter']]->outgoing_messages[$message_id]);
                     unset($this->datacenter->sockets[$aargs['datacenter']]->new_outgoing[$message_id]);
                 }
                 if (isset($message_id) && $method === 'req_pq') {
@@ -165,7 +234,7 @@ trait CallHandler
                     unset($this->datacenter->sockets[$aargs['datacenter']]->new_outgoing[$message_id]);
                 }
                 if ($canunset) {
-                    $this->getting_state = false;
+                    $this->updates_state['sync_loading'] = false;
                     $this->handle_pending_updates();
                 }
             }
@@ -178,6 +247,7 @@ trait CallHandler
 
                     return $this->method_call($method, $args, $aargs);
                 }
+
                 throw new \danog\MadelineProto\Exception('An error occurred while calling method '.$method.' ('.$last_error.').');
             }
             \danog\MadelineProto\Logger::log(['Got response for method '.$method.' @ try '.$count.' (response try '.$res_count.')'], \danog\MadelineProto\Logger::ULTRA_VERBOSE);
@@ -195,6 +265,7 @@ trait CallHandler
         if ($method === 'req_pq') {
             throw new \danog\MadelineProto\RPCErrorException('RPC_CALL_FAIL');
         }
+
         throw new \danog\MadelineProto\Exception('An error occurred while calling method '.$method.' ('.$last_error.').');
     }
 
@@ -208,8 +279,10 @@ trait CallHandler
         }
         for ($count = 1; $count <= $this->settings['max_tries']['query']; $count++) {
             try {
-                \danog\MadelineProto\Logger::log([$object === 'msgs_ack' ? 'ack '.$args['msg_ids'][0] : 'Sending object (try number '.$count.' for '.$object.')...'], \danog\MadelineProto\Logger::ULTRA_VERBOSE);
-                $message_id = $this->send_message($this->serialize_object(['type' => $object], $args), $this->content_related($object), $aargs);
+                if ($object !== 'msgs_ack') {
+                    \danog\MadelineProto\Logger::log(['Sending object (try number '.$count.' for '.$object.')...'], \danog\MadelineProto\Logger::ULTRA_VERBOSE);
+                }
+                $message_id = $this->send_message($this->serialize_object(['type' => $object], $args, $object), $this->content_related($object), $aargs);
                 if ($object !== 'msgs_ack') {
                     $this->datacenter->sockets[$aargs['datacenter']]->outgoing_messages[$message_id]['content'] = ['method' => $object, 'args' => $args];
                 }
@@ -221,6 +294,7 @@ trait CallHandler
 
             return $message_id;
         }
+
         throw new \danog\MadelineProto\Exception('An error occurred while sending object '.$object.'.');
     }
 }

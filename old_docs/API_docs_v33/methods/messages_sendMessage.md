@@ -9,7 +9,7 @@ description: messages.sendMessage parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |peer|[InputPeer](../types/InputPeer.md) | Yes|
 |reply\_to\_msg\_id|[int](../types/int.md) | Optional|
 |message|[string](../types/string.md) | Yes|
@@ -24,7 +24,7 @@ description: messages.sendMessage parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -36,13 +36,43 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$messages_SentMessage = $MadelineProto->messages->sendMessage(['peer' => InputPeer, 'reply_to_msg_id' => int, 'message' => string, 'reply_markup' => ReplyMarkup, ]);
+$messages_SentMessage = $MadelineProto->messages->sendMessage(['peer' => InputPeer, 'reply_to_msg_id' => int, 'message' => 'string', 'reply_markup' => ReplyMarkup, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - messages.sendMessage
+* params - `{"peer": InputPeer, "reply_to_msg_id": int, "message": "string", "reply_markup": ReplyMarkup, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/messages.sendMessage`
+
+Parameters:
+
+peer - Json encoded InputPeer
+
+reply_to_msg_id - Json encoded int
+
+message - Json encoded string
+
+reply_markup - Json encoded ReplyMarkup
+
+
+
 
 Or, if you're into Lua:
 
 ```
-messages_SentMessage = messages.sendMessage({peer=InputPeer, reply_to_msg_id=int, message=string, reply_markup=ReplyMarkup, })
+messages_SentMessage = messages.sendMessage({peer=InputPeer, reply_to_msg_id=int, message='string', reply_markup=ReplyMarkup, })
 ```
 
 

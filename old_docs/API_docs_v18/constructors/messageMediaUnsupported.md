@@ -10,7 +10,7 @@ description: messageMediaUnsupported attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |bytes|[bytes](../types/bytes.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: messageMediaUnsupported attributes, type and example
 ### Example:
 
 ```
-$messageMediaUnsupported = ['_' => 'messageMediaUnsupported', 'bytes' => bytes, ];
+$messageMediaUnsupported = ['_' => 'messageMediaUnsupported', 'bytes' => 'bytes'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageMediaUnsupported", "bytes": "bytes"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageMediaUnsupported={_='messageMediaUnsupported', bytes=bytes, }
+messageMediaUnsupported={_='messageMediaUnsupported', bytes='bytes'}
 
 ```
 

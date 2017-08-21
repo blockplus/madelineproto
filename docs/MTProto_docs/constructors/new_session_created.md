@@ -10,7 +10,7 @@ description: new_session_created attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |first\_msg\_id|[long](../types/long.md) | Yes|
 |unique\_id|[long](../types/long.md) | Yes|
 |server\_salt|[long](../types/long.md) | Yes|
@@ -23,14 +23,21 @@ description: new_session_created attributes, type and example
 ### Example:
 
 ```
-$new_session_created = ['_' => 'new_session_created', 'first_msg_id' => long, 'unique_id' => long, 'server_salt' => long, ];
+$new_session_created = ['_' => 'new_session_created', 'first_msg_id' => long, 'unique_id' => long, 'server_salt' => long];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "new_session_created", "first_msg_id": long, "unique_id": long, "server_salt": long}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-new_session_created={_='new_session_created', first_msg_id=long, unique_id=long, server_salt=long, }
+new_session_created={_='new_session_created', first_msg_id=long, unique_id=long, server_salt=long}
 
 ```
 

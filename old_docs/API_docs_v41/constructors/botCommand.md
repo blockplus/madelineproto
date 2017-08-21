@@ -10,7 +10,7 @@ description: botCommand attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |command|[string](../types/string.md) | Yes|
 |description|[string](../types/string.md) | Yes|
 
@@ -22,14 +22,21 @@ description: botCommand attributes, type and example
 ### Example:
 
 ```
-$botCommand = ['_' => 'botCommand', 'command' => string, 'description' => string, ];
+$botCommand = ['_' => 'botCommand', 'command' => 'string', 'description' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "botCommand", "command": "string", "description": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-botCommand={_='botCommand', command=string, description=string, }
+botCommand={_='botCommand', command='string', description='string'}
 
 ```
 

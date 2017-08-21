@@ -12,7 +12,7 @@ Contains infotmation about period of inactivity, after which the account of curr
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |days|[int](../types/int.md) | Yes|Number of days of inactivity before account deletion, should be from 30 up to 366|
 
 
@@ -23,14 +23,21 @@ Contains infotmation about period of inactivity, after which the account of curr
 ### Example:
 
 ```
-$accountTtl = ['_' => 'accountTtl', 'days' => int, ];
+$accountTtl = ['_' => 'accountTtl', 'days' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "accountTtl", "days": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-accountTtl={_='accountTtl', days=int, }
+accountTtl={_='accountTtl', days=int}
 
 ```
 

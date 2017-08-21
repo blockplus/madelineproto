@@ -10,7 +10,7 @@ description: updateBotInlineQuery attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |query\_id|[long](../types/long.md) | Yes|
 |user\_id|[int](../types/int.md) | Yes|
 |query|[string](../types/string.md) | Yes|
@@ -25,14 +25,21 @@ description: updateBotInlineQuery attributes, type and example
 ### Example:
 
 ```
-$updateBotInlineQuery = ['_' => 'updateBotInlineQuery', 'query_id' => long, 'user_id' => int, 'query' => string, 'geo' => GeoPoint, 'offset' => string, ];
+$updateBotInlineQuery = ['_' => 'updateBotInlineQuery', 'query_id' => long, 'user_id' => int, 'query' => 'string', 'geo' => GeoPoint, 'offset' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateBotInlineQuery", "query_id": long, "user_id": int, "query": "string", "geo": GeoPoint, "offset": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateBotInlineQuery={_='updateBotInlineQuery', query_id=long, user_id=int, query=string, geo=GeoPoint, offset=string, }
+updateBotInlineQuery={_='updateBotInlineQuery', query_id=long, user_id=int, query='string', geo=GeoPoint, offset='string'}
 
 ```
 

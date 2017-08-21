@@ -10,7 +10,7 @@ description: channelParticipantEditor attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |user\_id|[int](../types/int.md) | Yes|
 |inviter\_id|[int](../types/int.md) | Yes|
 |date|[int](../types/int.md) | Yes|
@@ -23,14 +23,21 @@ description: channelParticipantEditor attributes, type and example
 ### Example:
 
 ```
-$channelParticipantEditor = ['_' => 'channelParticipantEditor', 'user_id' => int, 'inviter_id' => int, 'date' => int, ];
+$channelParticipantEditor = ['_' => 'channelParticipantEditor', 'user_id' => int, 'inviter_id' => int, 'date' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "channelParticipantEditor", "user_id": int, "inviter_id": int, "date": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-channelParticipantEditor={_='channelParticipantEditor', user_id=int, inviter_id=int, date=int, }
+channelParticipantEditor={_='channelParticipantEditor', user_id=int, inviter_id=int, date=int}
 
 ```
 

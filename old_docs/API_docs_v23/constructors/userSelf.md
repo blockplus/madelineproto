@@ -10,7 +10,7 @@ description: userSelf attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[int](../types/int.md) | Yes|
 |first\_name|[string](../types/string.md) | Yes|
 |last\_name|[string](../types/string.md) | Yes|
@@ -28,14 +28,21 @@ description: userSelf attributes, type and example
 ### Example:
 
 ```
-$userSelf = ['_' => 'userSelf', 'id' => int, 'first_name' => string, 'last_name' => string, 'username' => string, 'phone' => string, 'photo' => UserProfilePhoto, 'status' => UserStatus, 'inactive' => Bool, ];
+$userSelf = ['_' => 'userSelf', 'id' => int, 'first_name' => 'string', 'last_name' => 'string', 'username' => 'string', 'phone' => 'string', 'photo' => UserProfilePhoto, 'status' => UserStatus, 'inactive' => Bool];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "userSelf", "id": int, "first_name": "string", "last_name": "string", "username": "string", "phone": "string", "photo": UserProfilePhoto, "status": UserStatus, "inactive": Bool}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-userSelf={_='userSelf', id=int, first_name=string, last_name=string, username=string, phone=string, photo=UserProfilePhoto, status=UserStatus, inactive=Bool, }
+userSelf={_='userSelf', id=int, first_name='string', last_name='string', username='string', phone='string', photo=UserProfilePhoto, status=UserStatus, inactive=Bool}
 
 ```
 

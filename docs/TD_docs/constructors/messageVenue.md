@@ -12,7 +12,7 @@ Message with information about venue
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |venue|[venue](../types/venue.md) | Yes|Message content|
 
 
@@ -23,14 +23,21 @@ Message with information about venue
 ### Example:
 
 ```
-$messageVenue = ['_' => 'messageVenue', 'venue' => venue, ];
+$messageVenue = ['_' => 'messageVenue', 'venue' => venue];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageVenue", "venue": venue}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageVenue={_='messageVenue', venue=venue, }
+messageVenue={_='messageVenue', venue=venue}
 
 ```
 

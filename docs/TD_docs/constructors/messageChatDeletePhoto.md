@@ -12,7 +12,7 @@ Chat photo deleted
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ Chat photo deleted
 ### Example:
 
 ```
-$messageChatDeletePhoto = ['_' => 'messageChatDeletePhoto', ];
+$messageChatDeletePhoto = ['_' => 'messageChatDeletePhoto'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageChatDeletePhoto"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageChatDeletePhoto={_='messageChatDeletePhoto', }
+messageChatDeletePhoto={_='messageChatDeletePhoto'}
 
 ```
 

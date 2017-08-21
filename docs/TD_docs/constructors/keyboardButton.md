@@ -12,7 +12,7 @@ Represents one button of the bot keyboard
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |text|[string](../types/string.md) | Yes|Text of the button|
 |type|[KeyboardButtonType](../types/KeyboardButtonType.md) | Yes|Type of the button|
 
@@ -24,14 +24,21 @@ Represents one button of the bot keyboard
 ### Example:
 
 ```
-$keyboardButton = ['_' => 'keyboardButton', 'text' => string, 'type' => KeyboardButtonType, ];
+$keyboardButton = ['_' => 'keyboardButton', 'text' => 'string', 'type' => KeyboardButtonType];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "keyboardButton", "text": "string", "type": KeyboardButtonType}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-keyboardButton={_='keyboardButton', text=string, type=KeyboardButtonType, }
+keyboardButton={_='keyboardButton', text='string', type=KeyboardButtonType}
 
 ```
 

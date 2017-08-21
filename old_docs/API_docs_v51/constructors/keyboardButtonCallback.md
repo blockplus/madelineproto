@@ -10,7 +10,7 @@ description: keyboardButtonCallback attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |text|[string](../types/string.md) | Yes|
 |data|[bytes](../types/bytes.md) | Yes|
 
@@ -22,14 +22,21 @@ description: keyboardButtonCallback attributes, type and example
 ### Example:
 
 ```
-$keyboardButtonCallback = ['_' => 'keyboardButtonCallback', 'text' => string, 'data' => bytes, ];
+$keyboardButtonCallback = ['_' => 'keyboardButtonCallback', 'text' => 'string', 'data' => 'bytes'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "keyboardButtonCallback", "text": "string", "data": "bytes"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-keyboardButtonCallback={_='keyboardButtonCallback', text=string, data=bytes, }
+keyboardButtonCallback={_='keyboardButtonCallback', text='string', data='bytes'}
 
 ```
 

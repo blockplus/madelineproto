@@ -6,12 +6,15 @@ description: Returns information about channel members or kicked from channel us
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Returns information about channel members or kicked from channel users. Can be used only if channel_full->can_get_members == true
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |channel\_id|[int](../types/int.md) | Yes|Identifier of the channel|
 |filter|[ChannelMembersFilter](../types/ChannelMembersFilter.md) | Yes|Kind of channel users to return, defaults to channelMembersRecent|
 |offset|[int](../types/int.md) | Yes|Number of channel users to skip|
@@ -26,7 +29,7 @@ Returns information about channel members or kicked from channel users. Can be u
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -40,6 +43,36 @@ if (isset($number)) { // Login as a user
 
 $ChatMembers = $MadelineProto->getChannelMembers(['channel_id' => int, 'filter' => ChannelMembersFilter, 'offset' => int, 'limit' => int, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - getChannelMembers
+* params - `{"channel_id": int, "filter": ChannelMembersFilter, "offset": int, "limit": int, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/getChannelMembers`
+
+Parameters:
+
+channel_id - Json encoded int
+
+filter - Json encoded ChannelMembersFilter
+
+offset - Json encoded int
+
+limit - Json encoded int
+
+
+
 
 Or, if you're into Lua:
 

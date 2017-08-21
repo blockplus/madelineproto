@@ -12,7 +12,7 @@ Return all found messages
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ Return all found messages
 ### Example:
 
 ```
-$searchMessagesFilterEmpty = ['_' => 'searchMessagesFilterEmpty', ];
+$searchMessagesFilterEmpty = ['_' => 'searchMessagesFilterEmpty'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "searchMessagesFilterEmpty"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-searchMessagesFilterEmpty={_='searchMessagesFilterEmpty', }
+searchMessagesFilterEmpty={_='searchMessagesFilterEmpty'}
 
 ```
 

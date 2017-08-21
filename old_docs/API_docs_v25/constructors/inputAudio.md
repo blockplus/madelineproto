@@ -10,7 +10,7 @@ description: inputAudio attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[long](../types/long.md) | Yes|
 |access\_hash|[long](../types/long.md) | Yes|
 
@@ -22,14 +22,21 @@ description: inputAudio attributes, type and example
 ### Example:
 
 ```
-$inputAudio = ['_' => 'inputAudio', 'id' => long, 'access_hash' => long, ];
+$inputAudio = ['_' => 'inputAudio', 'id' => long, 'access_hash' => long];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputAudio", "id": long, "access_hash": long}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputAudio={_='inputAudio', id=long, access_hash=long, }
+inputAudio={_='inputAudio', id=long, access_hash=long}
 
 ```
 

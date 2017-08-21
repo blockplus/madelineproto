@@ -16,14 +16,21 @@ description: messages_savedGifsNotModified attributes, type and example
 ### Example:
 
 ```
-$messages_savedGifsNotModified = ['_' => 'messages.savedGifsNotModified', ];
+$messages_savedGifsNotModified = ['_' => 'messages.savedGifsNotModified'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messages.savedGifsNotModified"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messages_savedGifsNotModified={_='messages.savedGifsNotModified', }
+messages_savedGifsNotModified={_='messages.savedGifsNotModified'}
 
 ```
 

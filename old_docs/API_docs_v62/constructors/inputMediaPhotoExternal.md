@@ -10,7 +10,7 @@ description: inputMediaPhotoExternal attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |url|[string](../types/string.md) | Yes|
 |caption|[string](../types/string.md) | Yes|
 
@@ -22,14 +22,21 @@ description: inputMediaPhotoExternal attributes, type and example
 ### Example:
 
 ```
-$inputMediaPhotoExternal = ['_' => 'inputMediaPhotoExternal', 'url' => string, 'caption' => string, ];
+$inputMediaPhotoExternal = ['_' => 'inputMediaPhotoExternal', 'url' => 'string', 'caption' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputMediaPhotoExternal", "url": "string", "caption": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputMediaPhotoExternal={_='inputMediaPhotoExternal', url=string, caption=string, }
+inputMediaPhotoExternal={_='inputMediaPhotoExternal', url='string', caption='string'}
 
 ```
 

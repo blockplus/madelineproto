@@ -6,12 +6,15 @@ description: Bots only. Updates game score of the specified user in the game
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Bots only. Updates game score of the specified user in the game
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |chat\_id|[InputPeer](../types/InputPeer.md) | Yes|Chat a message with the game belongs to|
 |message\_id|[long](../types/long.md) | Yes|Identifier of the message|
 |edit\_message|[Bool](../types/Bool.md) | Yes|True, if message should be edited|
@@ -28,7 +31,7 @@ Bots only. Updates game score of the specified user in the game
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -42,6 +45,40 @@ if (isset($number)) { // Login as a user
 
 $Message = $MadelineProto->setGameScore(['chat_id' => InputPeer, 'message_id' => long, 'edit_message' => Bool, 'user_id' => int, 'score' => int, 'force' => Bool, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - setGameScore
+* params - `{"chat_id": InputPeer, "message_id": long, "edit_message": Bool, "user_id": int, "score": int, "force": Bool, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/setGameScore`
+
+Parameters:
+
+chat_id - Json encoded InputPeer
+
+message_id - Json encoded long
+
+edit_message - Json encoded Bool
+
+user_id - Json encoded int
+
+score - Json encoded int
+
+force - Json encoded Bool
+
+
+
 
 Or, if you're into Lua:
 

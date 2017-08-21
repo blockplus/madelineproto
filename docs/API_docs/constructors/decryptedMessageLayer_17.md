@@ -10,7 +10,7 @@ description: decryptedMessageLayer attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |layer|[int](../types/int.md) | Yes|
 |in\_seq\_no|[int](../types/int.md) | Yes|
 |out\_seq\_no|[int](../types/int.md) | Yes|
@@ -24,14 +24,21 @@ description: decryptedMessageLayer attributes, type and example
 ### Example:
 
 ```
-$decryptedMessageLayer_17 = ['_' => 'decryptedMessageLayer', 'layer' => int, 'in_seq_no' => int, 'out_seq_no' => int, 'message' => DecryptedMessage, ];
+$decryptedMessageLayer_17 = ['_' => 'decryptedMessageLayer', 'layer' => int, 'in_seq_no' => int, 'out_seq_no' => int, 'message' => DecryptedMessage];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "decryptedMessageLayer", "layer": int, "in_seq_no": int, "out_seq_no": int, "message": DecryptedMessage}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-decryptedMessageLayer_17={_='decryptedMessageLayer', layer=int, in_seq_no=int, out_seq_no=int, message=DecryptedMessage, }
+decryptedMessageLayer_17={_='decryptedMessageLayer', layer=int, in_seq_no=int, out_seq_no=int, message=DecryptedMessage}
 
 ```
 

@@ -10,7 +10,7 @@ description: updateDeleteChannelMessages attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |channel\_id|[int](../types/int.md) | Yes|
 |messages|Array of [int](../types/int.md) | Yes|
 |channel\_pts|[int](../types/int.md) | Yes|
@@ -24,14 +24,21 @@ description: updateDeleteChannelMessages attributes, type and example
 ### Example:
 
 ```
-$updateDeleteChannelMessages = ['_' => 'updateDeleteChannelMessages', 'channel_id' => int, 'messages' => [int], 'channel_pts' => int, 'channel_pts_count' => int, ];
+$updateDeleteChannelMessages = ['_' => 'updateDeleteChannelMessages', 'channel_id' => int, 'messages' => [int], 'channel_pts' => int, 'channel_pts_count' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateDeleteChannelMessages", "channel_id": int, "messages": [int], "channel_pts": int, "channel_pts_count": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateDeleteChannelMessages={_='updateDeleteChannelMessages', channel_id=int, messages={int}, channel_pts=int, channel_pts_count=int, }
+updateDeleteChannelMessages={_='updateDeleteChannelMessages', channel_id=int, messages={int}, channel_pts=int, channel_pts_count=int}
 
 ```
 

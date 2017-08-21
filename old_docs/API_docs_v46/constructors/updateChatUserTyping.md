@@ -10,7 +10,7 @@ description: updateChatUserTyping attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |chat\_id|[int](../types/int.md) | Yes|
 |user\_id|[int](../types/int.md) | Yes|
 |action|[SendMessageAction](../types/SendMessageAction.md) | Yes|
@@ -23,14 +23,21 @@ description: updateChatUserTyping attributes, type and example
 ### Example:
 
 ```
-$updateChatUserTyping = ['_' => 'updateChatUserTyping', 'chat_id' => int, 'user_id' => int, 'action' => SendMessageAction, ];
+$updateChatUserTyping = ['_' => 'updateChatUserTyping', 'chat_id' => int, 'user_id' => int, 'action' => SendMessageAction];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateChatUserTyping", "chat_id": int, "user_id": int, "action": SendMessageAction}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateChatUserTyping={_='updateChatUserTyping', chat_id=int, user_id=int, action=SendMessageAction, }
+updateChatUserTyping={_='updateChatUserTyping', chat_id=int, user_id=int, action=SendMessageAction}
 
 ```
 

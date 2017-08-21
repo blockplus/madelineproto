@@ -10,7 +10,7 @@ description: inputBotInlineResultPhoto attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[string](../types/string.md) | Yes|
 |type|[string](../types/string.md) | Yes|
 |photo|[InputPhoto](../types/InputPhoto.md) | Yes|
@@ -24,14 +24,21 @@ description: inputBotInlineResultPhoto attributes, type and example
 ### Example:
 
 ```
-$inputBotInlineResultPhoto = ['_' => 'inputBotInlineResultPhoto', 'id' => string, 'type' => string, 'photo' => InputPhoto, 'send_message' => InputBotInlineMessage, ];
+$inputBotInlineResultPhoto = ['_' => 'inputBotInlineResultPhoto', 'id' => 'string', 'type' => 'string', 'photo' => InputPhoto, 'send_message' => InputBotInlineMessage];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputBotInlineResultPhoto", "id": "string", "type": "string", "photo": InputPhoto, "send_message": InputBotInlineMessage}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputBotInlineResultPhoto={_='inputBotInlineResultPhoto', id=string, type=string, photo=InputPhoto, send_message=InputBotInlineMessage, }
+inputBotInlineResultPhoto={_='inputBotInlineResultPhoto', id='string', type='string', photo=InputPhoto, send_message=InputBotInlineMessage}
 
 ```
 

@@ -10,7 +10,7 @@ description: photos_photo attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |photo|[Photo](../types/Photo.md) | Yes|
 |users|Array of [User](../types/User.md) | Yes|
 
@@ -22,14 +22,21 @@ description: photos_photo attributes, type and example
 ### Example:
 
 ```
-$photos_photo = ['_' => 'photos.photo', 'photo' => Photo, 'users' => [User], ];
+$photos_photo = ['_' => 'photos.photo', 'photo' => Photo, 'users' => [User]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "photos.photo", "photo": Photo, "users": [User]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-photos_photo={_='photos.photo', photo=Photo, users={User}, }
+photos_photo={_='photos.photo', photo=Photo, users={User}}
 
 ```
 

@@ -16,14 +16,21 @@ description: botInfoEmpty attributes, type and example
 ### Example:
 
 ```
-$botInfoEmpty = ['_' => 'botInfoEmpty', ];
+$botInfoEmpty = ['_' => 'botInfoEmpty'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "botInfoEmpty"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-botInfoEmpty={_='botInfoEmpty', }
+botInfoEmpty={_='botInfoEmpty'}
 
 ```
 

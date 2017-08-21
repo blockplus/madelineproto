@@ -10,7 +10,7 @@ description: foundGif attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |url|[string](../types/string.md) | Yes|
 |thumb\_url|[string](../types/string.md) | Yes|
 |content\_url|[string](../types/string.md) | Yes|
@@ -26,14 +26,21 @@ description: foundGif attributes, type and example
 ### Example:
 
 ```
-$foundGif = ['_' => 'foundGif', 'url' => string, 'thumb_url' => string, 'content_url' => string, 'content_type' => string, 'w' => int, 'h' => int, ];
+$foundGif = ['_' => 'foundGif', 'url' => 'string', 'thumb_url' => 'string', 'content_url' => 'string', 'content_type' => 'string', 'w' => int, 'h' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "foundGif", "url": "string", "thumb_url": "string", "content_url": "string", "content_type": "string", "w": int, "h": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-foundGif={_='foundGif', url=string, thumb_url=string, content_url=string, content_type=string, w=int, h=int, }
+foundGif={_='foundGif', url='string', thumb_url='string', content_url='string', content_type='string', w=int, h=int}
 
 ```
 

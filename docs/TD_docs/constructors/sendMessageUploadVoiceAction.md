@@ -12,7 +12,7 @@ User uploads voice message
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |progress|[int](../types/int.md) | Yes|Upload progress in percents|
 
 
@@ -23,14 +23,21 @@ User uploads voice message
 ### Example:
 
 ```
-$sendMessageUploadVoiceAction = ['_' => 'sendMessageUploadVoiceAction', 'progress' => int, ];
+$sendMessageUploadVoiceAction = ['_' => 'sendMessageUploadVoiceAction', 'progress' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "sendMessageUploadVoiceAction", "progress": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-sendMessageUploadVoiceAction={_='sendMessageUploadVoiceAction', progress=int, }
+sendMessageUploadVoiceAction={_='sendMessageUploadVoiceAction', progress=int}
 
 ```
 

@@ -10,7 +10,7 @@ description: updateDraftMessage attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |peer|[Peer](../types/Peer.md) | Yes|
 |draft|[DraftMessage](../types/DraftMessage.md) | Yes|
 
@@ -22,14 +22,21 @@ description: updateDraftMessage attributes, type and example
 ### Example:
 
 ```
-$updateDraftMessage = ['_' => 'updateDraftMessage', 'peer' => Peer, 'draft' => DraftMessage, ];
+$updateDraftMessage = ['_' => 'updateDraftMessage', 'peer' => Peer, 'draft' => DraftMessage];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateDraftMessage", "peer": Peer, "draft": DraftMessage}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateDraftMessage={_='updateDraftMessage', peer=Peer, draft=DraftMessage, }
+updateDraftMessage={_='updateDraftMessage', peer=Peer, draft=DraftMessage}
 
 ```
 

@@ -12,7 +12,7 @@ Notification settings applied to all private chats
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ Notification settings applied to all private chats
 ### Example:
 
 ```
-$notificationSettingsForPrivateChats = ['_' => 'notificationSettingsForPrivateChats', ];
+$notificationSettingsForPrivateChats = ['_' => 'notificationSettingsForPrivateChats'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "notificationSettingsForPrivateChats"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-notificationSettingsForPrivateChats={_='notificationSettingsForPrivateChats', }
+notificationSettingsForPrivateChats={_='notificationSettingsForPrivateChats'}
 
 ```
 

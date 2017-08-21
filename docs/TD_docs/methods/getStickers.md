@@ -6,12 +6,15 @@ description: Returns stickers corresponding to given emoji
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Returns stickers corresponding to given emoji
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |emoji|[string](../types/string.md) | Yes|String representation of emoji. If empty, returns all known stickers|
 
 
@@ -23,7 +26,7 @@ Returns stickers corresponding to given emoji
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -35,12 +38,36 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$Stickers = $MadelineProto->getStickers(['emoji' => string, ]);
+$Stickers = $MadelineProto->getStickers(['emoji' => 'string', ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - getStickers
+* params - `{"emoji": "string", }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/getStickers`
+
+Parameters:
+
+emoji - Json encoded string
+
+
+
 
 Or, if you're into Lua:
 
 ```
-Stickers = getStickers({emoji=string, })
+Stickers = getStickers({emoji='string', })
 ```
 

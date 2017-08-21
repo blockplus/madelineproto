@@ -12,7 +12,7 @@ Rule to disallow all users
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ Rule to disallow all users
 ### Example:
 
 ```
-$privacyRuleDisallowAll = ['_' => 'privacyRuleDisallowAll', ];
+$privacyRuleDisallowAll = ['_' => 'privacyRuleDisallowAll'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "privacyRuleDisallowAll"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-privacyRuleDisallowAll={_='privacyRuleDisallowAll', }
+privacyRuleDisallowAll={_='privacyRuleDisallowAll'}
 
 ```
 

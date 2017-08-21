@@ -9,7 +9,7 @@ description: bots.answerWebhookJSONQuery parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |query\_id|[long](../types/long.md) | Yes|
 |data|[DataJSON](../types/DataJSON.md) | Yes|
 
@@ -22,7 +22,7 @@ description: bots.answerWebhookJSONQuery parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -36,6 +36,32 @@ if (isset($number)) { // Login as a user
 
 $Bool = $MadelineProto->bots->answerWebhookJSONQuery(['query_id' => long, 'data' => DataJSON, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - bots.answerWebhookJSONQuery
+* params - `{"query_id": long, "data": DataJSON, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/bots.answerWebhookJSONQuery`
+
+Parameters:
+
+query_id - Json encoded long
+
+data - Json encoded DataJSON
+
+
+
 
 Or, if you're into Lua:
 

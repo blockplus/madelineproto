@@ -10,7 +10,7 @@ description: payments_validatedRequestedInfo attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[string](../types/string.md) | Optional|
 |shipping\_options|Array of [ShippingOption](../types/ShippingOption.md) | Optional|
 
@@ -22,14 +22,21 @@ description: payments_validatedRequestedInfo attributes, type and example
 ### Example:
 
 ```
-$payments_validatedRequestedInfo = ['_' => 'payments.validatedRequestedInfo', 'id' => string, 'shipping_options' => [ShippingOption], ];
+$payments_validatedRequestedInfo = ['_' => 'payments.validatedRequestedInfo', 'id' => 'string', 'shipping_options' => [ShippingOption]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "payments.validatedRequestedInfo", "id": "string", "shipping_options": [ShippingOption]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-payments_validatedRequestedInfo={_='payments.validatedRequestedInfo', id=string, shipping_options={ShippingOption}, }
+payments_validatedRequestedInfo={_='payments.validatedRequestedInfo', id='string', shipping_options={ShippingOption}}
 
 ```
 

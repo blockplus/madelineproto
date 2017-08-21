@@ -10,7 +10,7 @@ description: channelMessagesFilter attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |exclude\_new\_messages|[Bool](../types/Bool.md) | Optional|
 |ranges|Array of [MessageRange](../types/MessageRange.md) | Yes|
 
@@ -22,14 +22,21 @@ description: channelMessagesFilter attributes, type and example
 ### Example:
 
 ```
-$channelMessagesFilter = ['_' => 'channelMessagesFilter', 'exclude_new_messages' => Bool, 'ranges' => [MessageRange], ];
+$channelMessagesFilter = ['_' => 'channelMessagesFilter', 'exclude_new_messages' => Bool, 'ranges' => [MessageRange]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "channelMessagesFilter", "exclude_new_messages": Bool, "ranges": [MessageRange]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-channelMessagesFilter={_='channelMessagesFilter', exclude_new_messages=Bool, ranges={MessageRange}, }
+channelMessagesFilter={_='channelMessagesFilter', exclude_new_messages=Bool, ranges={MessageRange}}
 
 ```
 

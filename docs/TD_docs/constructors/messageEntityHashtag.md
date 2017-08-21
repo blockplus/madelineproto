@@ -12,7 +12,7 @@ Hashtag beginning with #
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |offset|[int](../types/int.md) | Yes|Offset of the entity in UTF-16 code points|
 |length|[int](../types/int.md) | Yes|Length of the entity in UTF-16 code points|
 
@@ -24,14 +24,21 @@ Hashtag beginning with #
 ### Example:
 
 ```
-$messageEntityHashtag = ['_' => 'messageEntityHashtag', 'offset' => int, 'length' => int, ];
+$messageEntityHashtag = ['_' => 'messageEntityHashtag', 'offset' => int, 'length' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageEntityHashtag", "offset": int, "length": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageEntityHashtag={_='messageEntityHashtag', offset=int, length=int, }
+messageEntityHashtag={_='messageEntityHashtag', offset=int, length=int}
 
 ```
 

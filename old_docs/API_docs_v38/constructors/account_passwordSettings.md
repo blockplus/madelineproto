@@ -10,7 +10,7 @@ description: account_passwordSettings attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |email|[string](../types/string.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: account_passwordSettings attributes, type and example
 ### Example:
 
 ```
-$account_passwordSettings = ['_' => 'account.passwordSettings', 'email' => string, ];
+$account_passwordSettings = ['_' => 'account.passwordSettings', 'email' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "account.passwordSettings", "email": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-account_passwordSettings={_='account.passwordSettings', email=string, }
+account_passwordSettings={_='account.passwordSettings', email='string'}
 
 ```
 

@@ -12,7 +12,7 @@ List of trending sticker sets was updated or some of them was viewed
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |sticker\_sets|[stickerSets](../types/stickerSets.md) | Yes|New list of trending sticker sets|
 
 
@@ -23,14 +23,21 @@ List of trending sticker sets was updated or some of them was viewed
 ### Example:
 
 ```
-$updateTrendingStickerSets = ['_' => 'updateTrendingStickerSets', 'sticker_sets' => stickerSets, ];
+$updateTrendingStickerSets = ['_' => 'updateTrendingStickerSets', 'sticker_sets' => stickerSets];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateTrendingStickerSets", "sticker_sets": stickerSets}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateTrendingStickerSets={_='updateTrendingStickerSets', sticker_sets=stickerSets, }
+updateTrendingStickerSets={_='updateTrendingStickerSets', sticker_sets=stickerSets}
 
 ```
 

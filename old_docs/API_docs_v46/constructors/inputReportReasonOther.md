@@ -10,7 +10,7 @@ description: inputReportReasonOther attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |text|[string](../types/string.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: inputReportReasonOther attributes, type and example
 ### Example:
 
 ```
-$inputReportReasonOther = ['_' => 'inputReportReasonOther', 'text' => string, ];
+$inputReportReasonOther = ['_' => 'inputReportReasonOther', 'text' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputReportReasonOther", "text": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputReportReasonOther={_='inputReportReasonOther', text=string, }
+inputReportReasonOther={_='inputReportReasonOther', text='string'}
 
 ```
 

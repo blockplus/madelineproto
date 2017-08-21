@@ -10,7 +10,7 @@ description: photoCachedSize attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |type|[string](../types/string.md) | Yes|
 |location|[FileLocation](../types/FileLocation.md) | Yes|
 |w|[int](../types/int.md) | Yes|
@@ -25,14 +25,21 @@ description: photoCachedSize attributes, type and example
 ### Example:
 
 ```
-$photoCachedSize_23 = ['_' => 'photoCachedSize', 'type' => string, 'location' => FileLocation, 'w' => int, 'h' => int, 'bytes' => bytes, ];
+$photoCachedSize_23 = ['_' => 'photoCachedSize', 'type' => 'string', 'location' => FileLocation, 'w' => int, 'h' => int, 'bytes' => 'bytes'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "photoCachedSize", "type": "string", "location": FileLocation, "w": int, "h": int, "bytes": "bytes"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-photoCachedSize_23={_='photoCachedSize', type=string, location=FileLocation, w=int, h=int, bytes=bytes, }
+photoCachedSize_23={_='photoCachedSize', type='string', location=FileLocation, w=int, h=int, bytes='bytes'}
 
 ```
 

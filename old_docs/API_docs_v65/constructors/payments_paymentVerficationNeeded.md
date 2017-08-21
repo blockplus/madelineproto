@@ -10,7 +10,7 @@ description: payments_paymentVerficationNeeded attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |url|[string](../types/string.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: payments_paymentVerficationNeeded attributes, type and example
 ### Example:
 
 ```
-$payments_paymentVerficationNeeded = ['_' => 'payments.paymentVerficationNeeded', 'url' => string, ];
+$payments_paymentVerficationNeeded = ['_' => 'payments.paymentVerficationNeeded', 'url' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "payments.paymentVerficationNeeded", "url": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-payments_paymentVerficationNeeded={_='payments.paymentVerficationNeeded', url=string, }
+payments_paymentVerficationNeeded={_='payments.paymentVerficationNeeded', url='string'}
 
 ```
 

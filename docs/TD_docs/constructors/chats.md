@@ -12,7 +12,7 @@ Contains list of chats
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |chats|Array of [chat](../constructors/chat.md) | Yes|List of chats|
 
 
@@ -23,14 +23,21 @@ Contains list of chats
 ### Example:
 
 ```
-$chats = ['_' => 'chats', 'chats' => [chat], ];
+$chats = ['_' => 'chats', 'chats' => [chat]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "chats", "chats": [chat]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-chats={_='chats', chats={chat}, }
+chats={_='chats', chats={chat}}
 
 ```
 

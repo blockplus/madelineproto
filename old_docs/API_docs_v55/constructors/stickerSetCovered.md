@@ -10,7 +10,7 @@ description: stickerSetCovered attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |set|[StickerSet](../types/StickerSet.md) | Yes|
 |cover|[Document](../types/Document.md) | Yes|
 
@@ -22,14 +22,21 @@ description: stickerSetCovered attributes, type and example
 ### Example:
 
 ```
-$stickerSetCovered = ['_' => 'stickerSetCovered', 'set' => StickerSet, 'cover' => Document, ];
+$stickerSetCovered = ['_' => 'stickerSetCovered', 'set' => StickerSet, 'cover' => Document];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "stickerSetCovered", "set": StickerSet, "cover": Document}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-stickerSetCovered={_='stickerSetCovered', set=StickerSet, cover=Document, }
+stickerSetCovered={_='stickerSetCovered', set=StickerSet, cover=Document}
 
 ```
 

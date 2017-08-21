@@ -10,7 +10,7 @@ description: messages_statedMessage attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |message|[Message](../types/Message.md) | Yes|
 |chats|Array of [Chat](../types/Chat.md) | Yes|
 |users|Array of [User](../types/User.md) | Yes|
@@ -25,14 +25,21 @@ description: messages_statedMessage attributes, type and example
 ### Example:
 
 ```
-$messages_statedMessage = ['_' => 'messages.statedMessage', 'message' => Message, 'chats' => [Chat], 'users' => [User], 'pts' => int, 'seq' => int, ];
+$messages_statedMessage = ['_' => 'messages.statedMessage', 'message' => Message, 'chats' => [Chat], 'users' => [User], 'pts' => int, 'seq' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messages.statedMessage", "message": Message, "chats": [Chat], "users": [User], "pts": int, "seq": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messages_statedMessage={_='messages.statedMessage', message=Message, chats={Chat}, users={User}, pts=int, seq=int, }
+messages_statedMessage={_='messages.statedMessage', message=Message, chats={Chat}, users={User}, pts=int, seq=int}
 
 ```
 

@@ -10,7 +10,7 @@ description: botInlineMessageMediaGeo attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |geo|[GeoPoint](../types/GeoPoint.md) | Yes|
 |reply\_markup|[ReplyMarkup](../types/ReplyMarkup.md) | Optional|
 
@@ -22,14 +22,21 @@ description: botInlineMessageMediaGeo attributes, type and example
 ### Example:
 
 ```
-$botInlineMessageMediaGeo = ['_' => 'botInlineMessageMediaGeo', 'geo' => GeoPoint, 'reply_markup' => ReplyMarkup, ];
+$botInlineMessageMediaGeo = ['_' => 'botInlineMessageMediaGeo', 'geo' => GeoPoint, 'reply_markup' => ReplyMarkup];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "botInlineMessageMediaGeo", "geo": GeoPoint, "reply_markup": ReplyMarkup}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-botInlineMessageMediaGeo={_='botInlineMessageMediaGeo', geo=GeoPoint, reply_markup=ReplyMarkup, }
+botInlineMessageMediaGeo={_='botInlineMessageMediaGeo', geo=GeoPoint, reply_markup=ReplyMarkup}
 
 ```
 

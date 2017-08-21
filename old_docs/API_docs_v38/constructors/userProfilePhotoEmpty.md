@@ -16,14 +16,21 @@ description: userProfilePhotoEmpty attributes, type and example
 ### Example:
 
 ```
-$userProfilePhotoEmpty = ['_' => 'userProfilePhotoEmpty', ];
+$userProfilePhotoEmpty = ['_' => 'userProfilePhotoEmpty'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "userProfilePhotoEmpty"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-userProfilePhotoEmpty={_='userProfilePhotoEmpty', }
+userProfilePhotoEmpty={_='userProfilePhotoEmpty'}
 
 ```
 

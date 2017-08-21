@@ -12,7 +12,7 @@ Video message
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |video|[InputFile](../types/InputFile.md) | Yes|Video to send|
 |thumb|[InputThumb](../types/InputThumb.md) | Yes|Video thumb, if available|
 |added\_sticker\_file\_ids|Array of [int](../constructors/int.md) | Yes|File identifiers of stickers added onto the video|
@@ -29,14 +29,21 @@ Video message
 ### Example:
 
 ```
-$inputMessageVideo = ['_' => 'inputMessageVideo', 'video' => InputFile, 'thumb' => InputThumb, 'added_sticker_file_ids' => [int], 'duration' => int, 'width' => int, 'height' => int, 'caption' => string, ];
+$inputMessageVideo = ['_' => 'inputMessageVideo', 'video' => InputFile, 'thumb' => InputThumb, 'added_sticker_file_ids' => [int], 'duration' => int, 'width' => int, 'height' => int, 'caption' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputMessageVideo", "video": InputFile, "thumb": InputThumb, "added_sticker_file_ids": [int], "duration": int, "width": int, "height": int, "caption": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputMessageVideo={_='inputMessageVideo', video=InputFile, thumb=InputThumb, added_sticker_file_ids={int}, duration=int, width=int, height=int, caption=string, }
+inputMessageVideo={_='inputMessageVideo', video=InputFile, thumb=InputThumb, added_sticker_file_ids={int}, duration=int, width=int, height=int, caption='string'}
 
 ```
 

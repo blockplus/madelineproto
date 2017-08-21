@@ -16,14 +16,21 @@ description: sendMessageUploadAudioAction attributes, type and example
 ### Example:
 
 ```
-$sendMessageUploadAudioAction = ['_' => 'sendMessageUploadAudioAction', ];
+$sendMessageUploadAudioAction = ['_' => 'sendMessageUploadAudioAction'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "sendMessageUploadAudioAction"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-sendMessageUploadAudioAction={_='sendMessageUploadAudioAction', }
+sendMessageUploadAudioAction={_='sendMessageUploadAudioAction'}
 
 ```
 

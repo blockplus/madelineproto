@@ -10,7 +10,7 @@ description: authorization attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |hash|[long](../types/long.md) | Yes|
 |device\_model|[string](../types/string.md) | Yes|
 |platform|[string](../types/string.md) | Yes|
@@ -32,14 +32,21 @@ description: authorization attributes, type and example
 ### Example:
 
 ```
-$authorization = ['_' => 'authorization', 'hash' => long, 'device_model' => string, 'platform' => string, 'system_version' => string, 'api_id' => int, 'app_name' => string, 'app_version' => string, 'date_created' => int, 'date_active' => int, 'ip' => string, 'country' => string, 'region' => string, ];
+$authorization = ['_' => 'authorization', 'hash' => long, 'device_model' => 'string', 'platform' => 'string', 'system_version' => 'string', 'api_id' => int, 'app_name' => 'string', 'app_version' => 'string', 'date_created' => int, 'date_active' => int, 'ip' => 'string', 'country' => 'string', 'region' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "authorization", "hash": long, "device_model": "string", "platform": "string", "system_version": "string", "api_id": int, "app_name": "string", "app_version": "string", "date_created": int, "date_active": int, "ip": "string", "country": "string", "region": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-authorization={_='authorization', hash=long, device_model=string, platform=string, system_version=string, api_id=int, app_name=string, app_version=string, date_created=int, date_active=int, ip=string, country=string, region=string, }
+authorization={_='authorization', hash=long, device_model='string', platform='string', system_version='string', api_id=int, app_name='string', app_version='string', date_created=int, date_active=int, ip='string', country='string', region='string'}
 
 ```
 

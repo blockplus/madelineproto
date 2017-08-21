@@ -12,7 +12,7 @@ Describes location on Earth
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |latitude|[double](../types/double.md) | Yes|Latitude of location in degrees as defined by sender|
 |longitude|[double](../types/double.md) | Yes|Longitude of location in degrees as defined by sender|
 
@@ -24,14 +24,21 @@ Describes location on Earth
 ### Example:
 
 ```
-$location = ['_' => 'location', 'latitude' => double, 'longitude' => double, ];
+$location = ['_' => 'location', 'latitude' => double, 'longitude' => double];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "location", "latitude": double, "longitude": double}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-location={_='location', latitude=double, longitude=double, }
+location={_='location', latitude=double, longitude=double}
 
 ```
 

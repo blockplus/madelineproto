@@ -10,7 +10,7 @@ description: photo attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |has\_stickers|[Bool](../types/Bool.md) | Optional|
 |id|[long](../types/long.md) | Yes|
 |access\_hash|[long](../types/long.md) | Yes|
@@ -25,14 +25,21 @@ description: photo attributes, type and example
 ### Example:
 
 ```
-$photo = ['_' => 'photo', 'has_stickers' => Bool, 'id' => long, 'access_hash' => long, 'date' => int, 'sizes' => [PhotoSize], ];
+$photo = ['_' => 'photo', 'has_stickers' => Bool, 'id' => long, 'access_hash' => long, 'date' => int, 'sizes' => [PhotoSize]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "photo", "has_stickers": Bool, "id": long, "access_hash": long, "date": int, "sizes": [PhotoSize]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-photo={_='photo', has_stickers=Bool, id=long, access_hash=long, date=int, sizes={PhotoSize}, }
+photo={_='photo', has_stickers=Bool, id=long, access_hash=long, date=int, sizes={PhotoSize}}
 
 ```
 

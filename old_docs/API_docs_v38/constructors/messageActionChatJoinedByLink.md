@@ -10,7 +10,7 @@ description: messageActionChatJoinedByLink attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |inviter\_id|[int](../types/int.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: messageActionChatJoinedByLink attributes, type and example
 ### Example:
 
 ```
-$messageActionChatJoinedByLink = ['_' => 'messageActionChatJoinedByLink', 'inviter_id' => int, ];
+$messageActionChatJoinedByLink = ['_' => 'messageActionChatJoinedByLink', 'inviter_id' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageActionChatJoinedByLink", "inviter_id": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageActionChatJoinedByLink={_='messageActionChatJoinedByLink', inviter_id=int, }
+messageActionChatJoinedByLink={_='messageActionChatJoinedByLink', inviter_id=int}
 
 ```
 

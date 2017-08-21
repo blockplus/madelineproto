@@ -16,14 +16,21 @@ description: topPeerCategoryChannels attributes, type and example
 ### Example:
 
 ```
-$topPeerCategoryChannels = ['_' => 'topPeerCategoryChannels', ];
+$topPeerCategoryChannels = ['_' => 'topPeerCategoryChannels'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "topPeerCategoryChannels"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-topPeerCategoryChannels={_='topPeerCategoryChannels', }
+topPeerCategoryChannels={_='topPeerCategoryChannels'}
 
 ```
 

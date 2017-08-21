@@ -10,7 +10,7 @@ description: inputNotifyGeoChatPeer attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |peer|[InputGeoChat](../types/InputGeoChat.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: inputNotifyGeoChatPeer attributes, type and example
 ### Example:
 
 ```
-$inputNotifyGeoChatPeer = ['_' => 'inputNotifyGeoChatPeer', 'peer' => InputGeoChat, ];
+$inputNotifyGeoChatPeer = ['_' => 'inputNotifyGeoChatPeer', 'peer' => InputGeoChat];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputNotifyGeoChatPeer", "peer": InputGeoChat}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputNotifyGeoChatPeer={_='inputNotifyGeoChatPeer', peer=InputGeoChat, }
+inputNotifyGeoChatPeer={_='inputNotifyGeoChatPeer', peer=InputGeoChat}
 
 ```
 

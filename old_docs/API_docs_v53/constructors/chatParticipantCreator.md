@@ -10,7 +10,7 @@ description: chatParticipantCreator attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |user\_id|[int](../types/int.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: chatParticipantCreator attributes, type and example
 ### Example:
 
 ```
-$chatParticipantCreator = ['_' => 'chatParticipantCreator', 'user_id' => int, ];
+$chatParticipantCreator = ['_' => 'chatParticipantCreator', 'user_id' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "chatParticipantCreator", "user_id": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-chatParticipantCreator={_='chatParticipantCreator', user_id=int, }
+chatParticipantCreator={_='chatParticipantCreator', user_id=int}
 
 ```
 

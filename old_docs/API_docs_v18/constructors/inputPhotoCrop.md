@@ -10,7 +10,7 @@ description: inputPhotoCrop attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |crop\_left|[double](../types/double.md) | Yes|
 |crop\_top|[double](../types/double.md) | Yes|
 |crop\_width|[double](../types/double.md) | Yes|
@@ -23,14 +23,21 @@ description: inputPhotoCrop attributes, type and example
 ### Example:
 
 ```
-$inputPhotoCrop = ['_' => 'inputPhotoCrop', 'crop_left' => double, 'crop_top' => double, 'crop_width' => double, ];
+$inputPhotoCrop = ['_' => 'inputPhotoCrop', 'crop_left' => double, 'crop_top' => double, 'crop_width' => double];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputPhotoCrop", "crop_left": double, "crop_top": double, "crop_width": double}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputPhotoCrop={_='inputPhotoCrop', crop_left=double, crop_top=double, crop_width=double, }
+inputPhotoCrop={_='inputPhotoCrop', crop_left=double, crop_top=double, crop_width=double}
 
 ```
 

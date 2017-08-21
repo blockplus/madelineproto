@@ -12,7 +12,7 @@ Represents short information about sticker set
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |id|[long](../types/long.md) | Yes|Sticker set identifier|
 |title|[string](../types/string.md) | Yes|Title of the sticker set|
 |name|[string](../types/string.md) | Yes|Name of the sticker set|
@@ -32,14 +32,21 @@ Represents short information about sticker set
 ### Example:
 
 ```
-$stickerSetInfo = ['_' => 'stickerSetInfo', 'id' => long, 'title' => string, 'name' => string, 'is_installed' => Bool, 'is_archived' => Bool, 'is_official' => Bool, 'is_masks' => Bool, 'is_viewed' => Bool, 'size' => int, 'covers' => [sticker], ];
+$stickerSetInfo = ['_' => 'stickerSetInfo', 'id' => long, 'title' => 'string', 'name' => 'string', 'is_installed' => Bool, 'is_archived' => Bool, 'is_official' => Bool, 'is_masks' => Bool, 'is_viewed' => Bool, 'size' => int, 'covers' => [sticker]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "stickerSetInfo", "id": long, "title": "string", "name": "string", "is_installed": Bool, "is_archived": Bool, "is_official": Bool, "is_masks": Bool, "is_viewed": Bool, "size": int, "covers": [sticker]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-stickerSetInfo={_='stickerSetInfo', id=long, title=string, name=string, is_installed=Bool, is_archived=Bool, is_official=Bool, is_masks=Bool, is_viewed=Bool, size=int, covers={sticker}, }
+stickerSetInfo={_='stickerSetInfo', id=long, title='string', name='string', is_installed=Bool, is_archived=Bool, is_official=Bool, is_masks=Bool, is_viewed=Bool, size=int, covers={sticker}}
 
 ```
 

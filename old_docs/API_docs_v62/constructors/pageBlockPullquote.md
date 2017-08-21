@@ -10,7 +10,7 @@ description: pageBlockPullquote attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |text|[RichText](../types/RichText.md) | Yes|
 |caption|[RichText](../types/RichText.md) | Yes|
 
@@ -22,14 +22,21 @@ description: pageBlockPullquote attributes, type and example
 ### Example:
 
 ```
-$pageBlockPullquote = ['_' => 'pageBlockPullquote', 'text' => RichText, 'caption' => RichText, ];
+$pageBlockPullquote = ['_' => 'pageBlockPullquote', 'text' => RichText, 'caption' => RichText];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "pageBlockPullquote", "text": RichText, "caption": RichText}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-pageBlockPullquote={_='pageBlockPullquote', text=RichText, caption=RichText, }
+pageBlockPullquote={_='pageBlockPullquote', text=RichText, caption=RichText}
 
 ```
 

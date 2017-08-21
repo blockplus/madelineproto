@@ -10,7 +10,7 @@ description: messages_featuredStickers attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |hash|[int](../types/int.md) | Yes|
 |sets|Array of [StickerSetCovered](../types/StickerSetCovered.md) | Yes|
 |unread|Array of [long](../types/long.md) | Yes|
@@ -23,14 +23,21 @@ description: messages_featuredStickers attributes, type and example
 ### Example:
 
 ```
-$messages_featuredStickers = ['_' => 'messages.featuredStickers', 'hash' => int, 'sets' => [StickerSetCovered], 'unread' => [long], ];
+$messages_featuredStickers = ['_' => 'messages.featuredStickers', 'hash' => int, 'sets' => [StickerSetCovered], 'unread' => [long]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messages.featuredStickers", "hash": int, "sets": [StickerSetCovered], "unread": [long]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messages_featuredStickers={_='messages.featuredStickers', hash=int, sets={StickerSetCovered}, unread={long}, }
+messages_featuredStickers={_='messages.featuredStickers', hash=int, sets={StickerSetCovered}, unread={long}}
 
 ```
 

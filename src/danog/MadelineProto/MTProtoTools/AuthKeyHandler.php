@@ -20,8 +20,6 @@ namespace danog\MadelineProto\MTProtoTools;
  */
 trait AuthKeyHandler
 {
-    public $dh_config = ['version' => 0];
-
     public function create_auth_key($expires_in, $datacenter)
     {
         for ($retry_id_total = 1; $retry_id_total <= $this->settings['max_tries']['authorization']; $retry_id_total++) {
@@ -63,23 +61,11 @@ trait AuthKeyHandler
 
                 /*
                 * ***********************************************************************
-                * Fetch RSA keys for CDN datacenters
-                */
-                if (strpos($datacenter, 'cdn') !== false) {
-                    foreach ($this->method_call('help.getCdnConfig', [], ['datacenter' => $datacenter])['public_keys'] as $curkey) {
-                        $tempkey = new \danog\MadelineProto\RSA($curkey['public_key']);
-                        $this->rsa_keys[$tempkey->fp] = $tempkey;
-                        $this->should_serialize = true;
-                    }
-                }
-
-                /*
-                * ***********************************************************************
                 * Find our key in the server_public_key_fingerprints vector
                 */
 
-                foreach ($this->rsa_keys as $fp => $curkey) {
-                    if ($this->in_array($fp, $ResPQ['server_public_key_fingerprints'])) {
+                foreach ($this->rsa_keys as $curkey) {
+                    if ($this->in_array($curkey->fp, $ResPQ['server_public_key_fingerprints'])) {
                         $key = $curkey;
                     }
                 }
@@ -102,7 +88,7 @@ trait AuthKeyHandler
                 }
 
                 if (!$pq->equals($p->multiply($q))) {
-                    throw new \danog\MadelineProto\SecurityException("couldn't compute p and q.");
+                    throw new \danog\MadelineProto\SecurityException("couldn't compute p and q. Original pq: $pq, computed p: $p, computed q: $q, computed pq: ".$p->multiply($q));
                 }
 
                 \danog\MadelineProto\Logger::log(['Factorization '.$pq.' = '.$p.' * '.$q], \danog\MadelineProto\Logger::VERBOSE);
@@ -125,7 +111,7 @@ trait AuthKeyHandler
                     'new_nonce'       => $new_nonce,
                     'expires_in'      => $expires_in,
                 ];
-                $p_q_inner_data = $this->serialize_object(['type' => 'p_q_inner_data'.(($expires_in < 0) ? '' : '_temp')], $data_unserialized);
+                $p_q_inner_data = $this->serialize_object(['type' => 'p_q_inner_data'.($expires_in < 0 ? '' : '_temp')], $data_unserialized, 'p_q_inner_data');
 
                 /*
                 * ***********************************************************************
@@ -300,7 +286,7 @@ trait AuthKeyHandler
                             'server_nonce'    => $server_nonce,
                             'retry_id'        => $retry_id,
                             'g_b'             => $g_b_str,
-                        ]
+                        ], 'client_DH_inner_data'
                     );
 
                     /*
@@ -384,11 +370,11 @@ trait AuthKeyHandler
                             $res_authorization['server_salt'] = substr($new_nonce, 0, 8 - 0) ^ substr($server_nonce, 0, 8 - 0);
                             $res_authorization['auth_key'] = $auth_key_str;
                             $res_authorization['id'] = substr($auth_key_sha, -8);
-
+                            /*
                             if ($expires_in >= 0) { //check if permanent authorization
                                 $res_authorization['expires_in'] = $expires_in;
                                 $res_authorization['p_q_inner_data_temp'] = $p_q_inner_data;
-                            }
+                            }*/
 
                             \danog\MadelineProto\Logger::log(['Auth key generated'], \danog\MadelineProto\Logger::NOTICE);
 
@@ -418,6 +404,9 @@ trait AuthKeyHandler
             } catch (\danog\MadelineProto\Exception $e) {
                 \danog\MadelineProto\Logger::log(['An exception occurred while generating the authorization key: '.$e->getMessage().' in '.basename($e->getFile(), '.php').' on line '.$e->getLine().'. Retrying...'], \danog\MadelineProto\Logger::WARNING);
             } catch (\danog\MadelineProto\RPCErrorException $e) {
+                if ($e->rpc === 'RPC_CALL_FAIL') {
+                    throw $e;
+                }
                 \danog\MadelineProto\Logger::log(['An RPCErrorException occurred while generating the authorization key: '.$e->getMessage().' Retrying (try number '.$retry_id_total.')...'], \danog\MadelineProto\Logger::WARNING);
             } finally {
                 $this->datacenter->sockets[$datacenter]->new_outgoing = [];
@@ -425,7 +414,9 @@ trait AuthKeyHandler
             }
         }
 
-        throw new \danog\MadelineProto\SecurityException('Auth Failed');
+        if (strpos($datacenter, 'cdn') === false) {
+            throw new \danog\MadelineProto\SecurityException('Auth Failed');
+        }
     }
 
     public function check_G($g_a, $p)
@@ -465,42 +456,42 @@ trait AuthKeyHandler
             throw new \danog\MadelineProto\SecurityException("p isn't a safe 2048-bit prime (p isn't a prime).");
         }
 
-       /*
-                * ***********************************************************************
-                * Check validity of p
-                * Is (p - 1) / 2 a prime?
-                *
-                * Almost always fails
-                */
-                /*
-                \danog\MadelineProto\Logger::log(['Executing p/g checks (2/3)...'], \danog\MadelineProto\Logger::VERBOSE);
-                if (!$p->subtract($this->one)->divide($this->two)[0]->isPrime()) {
-                    throw new \danog\MadelineProto\SecurityException("p isn't a safe 2048-bit prime ((p - 1) / 2 isn't a prime).");
-                }
-                */
+        /*
+                 * ***********************************************************************
+                 * Check validity of p
+                 * Is (p - 1) / 2 a prime?
+                 *
+                 * Almost always fails
+                 */
+        /*
+        \danog\MadelineProto\Logger::log(['Executing p/g checks (2/3)...'], \danog\MadelineProto\Logger::VERBOSE);
+        if (!$p->subtract($this->one)->divide($this->two)[0]->isPrime()) {
+            throw new \danog\MadelineProto\SecurityException("p isn't a safe 2048-bit prime ((p - 1) / 2 isn't a prime).");
+        }
+        */
 
-                /*
-                * ***********************************************************************
-                * Check validity of p
-                * 2^2047 < p < 2^2048
-                */
-                \danog\MadelineProto\Logger::log(['Executing p/g checks (2/2)...'], \danog\MadelineProto\Logger::VERBOSE);
+        /*
+        * ***********************************************************************
+        * Check validity of p
+        * 2^2047 < p < 2^2048
+        */
+        \danog\MadelineProto\Logger::log(['Executing p/g checks (2/2)...'], \danog\MadelineProto\Logger::VERBOSE);
         if ($p->compare($this->twoe2047) <= 0 // 2^2047 < p or p > 2^2047 or ! p <= 2^2047
-                    || $p->compare($this->twoe2048) >= 0 // p < 2^2048 or ! p >= 2^2048
-                ) {
+         || $p->compare($this->twoe2048) >= 0 // p < 2^2048 or ! p >= 2^2048
+        ) {
             throw new \danog\MadelineProto\SecurityException("g isn't a safe 2048-bit prime (2^2047 < p < 2^2048 is false).");
         }
 
-                /*
-                * ***********************************************************************
-                * Check validity of g
-                * 1 < g < p - 1
-                */
-                \danog\MadelineProto\Logger::log(['Executing g check...'], \danog\MadelineProto\Logger::VERBOSE);
+        /*
+        * ***********************************************************************
+        * Check validity of g
+        * 1 < g < p - 1
+        */
+        \danog\MadelineProto\Logger::log(['Executing g check...'], \danog\MadelineProto\Logger::VERBOSE);
 
         if ($g->compare($this->one) <= 0 // 1 < g or g > 1 or ! g <= 1
-                    || $g->compare($p->subtract($this->one)) >= 0 // g < p - 1 or ! g >= p - 1
-                ) {
+         || $g->compare($p->subtract($this->one)) >= 0 // g < p - 1 or ! g >= p - 1
+        ) {
             throw new \danog\MadelineProto\SecurityException('g is invalid (1 < g < p - 1 is false).');
         }
 
@@ -509,9 +500,9 @@ trait AuthKeyHandler
 
     public function get_dh_config()
     {
-        $this->getting_state = true;
+        $this->updates_state['sync_loading'] = true;
         $dh_config = $this->method_call('messages.getDhConfig', ['version' => $this->dh_config['version'], 'random_length' => 0], ['datacenter' => $this->datacenter->curdc]);
-        $this->getting_state = false;
+        $this->updates_state['sync_loading'] = false;
         if ($dh_config['_'] === 'messages.dhConfigNotModified') {
             \danog\MadelineProto\Logger::log(\danog\MadelineProto\Logger::VERBOSE, ['DH configuration not modified']);
 
@@ -535,14 +526,14 @@ trait AuthKeyHandler
                 $perm_auth_key_id = $this->datacenter->sockets[$datacenter]->auth_key['id'];
                 $temp_session_id = $this->datacenter->sockets[$datacenter]->session_id;
                 $message_data = $this->serialize_object(['type' => 'bind_auth_key_inner'],
-            [
-                'nonce'                       => $nonce,
-                'temp_auth_key_id'            => $temp_auth_key_id,
-                'perm_auth_key_id'            => $perm_auth_key_id,
-                'temp_session_id'             => $temp_session_id,
-                'expires_at'                  => $expires_at,
-            ]
-        );
+                    [
+                        'nonce'                       => $nonce,
+                        'temp_auth_key_id'            => $temp_auth_key_id,
+                        'perm_auth_key_id'            => $perm_auth_key_id,
+                        'temp_session_id'             => $temp_session_id,
+                        'expires_at'                  => $expires_at,
+                    ], 'bind_temp_auth_key_inner'
+                );
                 $message_id = $this->generate_message_id($datacenter);
 
                 $seq_no = 0;
@@ -568,6 +559,7 @@ trait AuthKeyHandler
                 $this->datacenter->sockets[$datacenter]->new_incoming = [];
             }
         }
+
         throw new \danog\MadelineProto\SecurityException('An error occurred while binding temporary and permanent authorization keys.');
     }
 }

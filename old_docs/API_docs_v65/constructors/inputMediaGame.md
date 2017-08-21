@@ -10,7 +10,7 @@ description: inputMediaGame attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[InputGame](../types/InputGame.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: inputMediaGame attributes, type and example
 ### Example:
 
 ```
-$inputMediaGame = ['_' => 'inputMediaGame', 'id' => InputGame, ];
+$inputMediaGame = ['_' => 'inputMediaGame', 'id' => InputGame];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputMediaGame", "id": InputGame}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputMediaGame={_='inputMediaGame', id=InputGame, }
+inputMediaGame={_='inputMediaGame', id=InputGame}
 
 ```
 

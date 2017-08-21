@@ -16,14 +16,21 @@ description: inputMediaEmpty attributes, type and example
 ### Example:
 
 ```
-$inputMediaEmpty = ['_' => 'inputMediaEmpty', ];
+$inputMediaEmpty = ['_' => 'inputMediaEmpty'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputMediaEmpty"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputMediaEmpty={_='inputMediaEmpty', }
+inputMediaEmpty={_='inputMediaEmpty'}
 
 ```
 

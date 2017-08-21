@@ -16,14 +16,21 @@ description: test_empty attributes, type and example
 ### Example:
 
 ```
-$test_empty = ['_' => 'test.empty', ];
+$test_empty = ['_' => 'test.empty'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "test.empty"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-test_empty={_='test.empty', }
+test_empty={_='test.empty'}
 
 ```
 

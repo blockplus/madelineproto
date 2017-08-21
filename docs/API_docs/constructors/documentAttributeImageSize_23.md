@@ -10,7 +10,7 @@ description: documentAttributeImageSize attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |w|[int](../types/int.md) | Yes|
 |h|[int](../types/int.md) | Yes|
 
@@ -22,14 +22,21 @@ description: documentAttributeImageSize attributes, type and example
 ### Example:
 
 ```
-$documentAttributeImageSize_23 = ['_' => 'documentAttributeImageSize', 'w' => int, 'h' => int, ];
+$documentAttributeImageSize_23 = ['_' => 'documentAttributeImageSize', 'w' => int, 'h' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "documentAttributeImageSize", "w": int, "h": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-documentAttributeImageSize_23={_='documentAttributeImageSize', w=int, h=int, }
+documentAttributeImageSize_23={_='documentAttributeImageSize', w=int, h=int}
 
 ```
 

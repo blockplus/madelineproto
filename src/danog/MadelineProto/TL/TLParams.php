@@ -16,10 +16,8 @@ trait TLParams
 {
     public function parse_params($key, $mtproto = false)
     {
-        foreach ($this->params[$key] as $kkey => $param) {
-            $param['flag'] = false;
+        foreach ($this->by_id[$key]['params'] as $kkey => $param) {
             if (preg_match('/^flags\.\d*\?/', $param['type'])) {
-                $param['flag'] = true;
                 $flag = explode('?', explode('flags.', $param['type'])[1]);
                 $param['pow'] = pow(2, $flag[0]);
                 $param['type'] = $flag[1];
@@ -38,7 +36,7 @@ trait TLParams
             }
             $param['type'] = (($mtproto && $param['type'] === 'Message') ? 'MT' : '').$param['type'];
             $param['type'] = (($mtproto && $param['type'] === '%Message') ? '%MTMessage' : $param['type']);
-            $this->params[$key][$kkey] = $param;
+            $this->by_id[$key]['params'][$kkey] = $param;
         }
     }
 }

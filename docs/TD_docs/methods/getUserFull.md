@@ -6,12 +6,15 @@ description: Returns full information about a user by its identifier
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Returns full information about a user by its identifier
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |user\_id|[int](../types/int.md) | Yes|User identifier|
 
 
@@ -23,7 +26,7 @@ Returns full information about a user by its identifier
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,6 +40,30 @@ if (isset($number)) { // Login as a user
 
 $UserFull = $MadelineProto->getUserFull(['user_id' => int, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - getUserFull
+* params - `{"user_id": int, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/getUserFull`
+
+Parameters:
+
+user_id - Json encoded int
+
+
+
 
 Or, if you're into Lua:
 

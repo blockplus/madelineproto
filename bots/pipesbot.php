@@ -15,15 +15,17 @@ require '../vendor/autoload.php';
 $settings = ['app_info'=>['api_id'=>6, 'api_hash'=>'eb06d4abfb49dc3eeb1aeb98ae0f581e']];
 $MadelineProto = false;
 $uMadelineProto = false;
+
 try {
     $MadelineProto = \danog\MadelineProto\Serialization::deserialize('pipesbot.madeline');
 } catch (\danog\MadelineProto\Exception $e) {
-    \danog\MadelineProto\Logger::log([$e->getMessage()]);
+    var_dump($e->getMessage());
 }
+
 try {
     $uMadelineProto = \danog\MadelineProto\Serialization::deserialize('pwr.madeline');
 } catch (\danog\MadelineProto\Exception $e) {
-    \danog\MadelineProto\Logger::log([$e->getMessage()]);
+    var_dump($e->getMessage());
 }
 if (file_exists('token.php') && $MadelineProto === false) {
     include_once 'token.php';
@@ -108,11 +110,13 @@ while (true) {
     $updates = $MadelineProto->API->get_updates(['offset' => $offset, 'limit' => 50, 'timeout' => 0]); // Just like in the bot API, you can specify an offset, a limit and a timeout
     foreach ($updates as $update) {
         $offset = $update['update_id'] + 1; // Just like in the bot API, the offset must be set to the last update_id
-        switch ($update['update']['_']) {
+        try {
+            switch ($update['update']['_']) {
             case 'updateNewMessage':
                 if (isset($update['update']['message']['out']) && $update['update']['message']['out']) {
                     continue;
                 }
+
                 try {
                     if (preg_match('|/start|', $update['update']['message']['message'])) {
                         $MadelineProto->messages->sendMessage(['peer' => $update['update']['message']['from_id'], 'message' => $start, 'reply_to_msg_id' => $update['update']['message']['id']]);
@@ -125,6 +129,7 @@ while (true) {
                 if (isset($update['update']['message']['out']) && $update['update']['message']['out']) {
                     continue;
                 }
+
                 try {
                     if (preg_match('|/start|', $update['update']['message']['message'])) {
                         $MadelineProto->messages->sendMessage(['peer' => $update['update']['message']['to_id'], 'message' => $start, 'reply_to_msg_id' => $update['update']['message']['id']]);
@@ -194,28 +199,40 @@ while (true) {
                         $MadelineProto->messages->sendMessage(['peer' => '@danogentili', 'message' => $e->getCode().': '.$e->getMessage().PHP_EOL.$e->getTraceAsString()]);
                         $MadelineProto->messages->sendMessage(['peer' => $update['update']['user_id'], 'message' => $e->getCode().': '.$e->getMessage().PHP_EOL.$e->getTraceAsString()]);
                     } catch (\danog\MadelineProto\RPCErrorException $e) {
+                        var_dump($e->getMessage());
                     } catch (\danog\MadelineProto\Exception $e) {
+                        var_dump($e->getMessage());
                     }
+
                     try {
                         $toset['switch_pm'] = $sswitch;
                         $MadelineProto->messages->setInlineBotResults($toset);
                     } catch (\danog\MadelineProto\RPCErrorException $e) {
+                        var_dump($e->getMessage());
                     } catch (\danog\MadelineProto\Exception $e) {
+                        var_dump($e->getMessage());
                     }
                 } catch (\danog\MadelineProto\Exception $e) {
                     try {
                         $MadelineProto->messages->sendMessage(['peer' => '@danogentili', 'message' => $e->getCode().': '.$e->getMessage().PHP_EOL.$e->getTraceAsString()]);
                         $MadelineProto->messages->sendMessage(['peer' => $update['update']['user_id'], 'message' => $e->getCode().': '.$e->getMessage().PHP_EOL.$e->getTraceAsString()]);
                     } catch (\danog\MadelineProto\RPCErrorException $e) {
+                        var_dump($e->getMessage());
                     } catch (\danog\MadelineProto\Exception $e) {
+                        var_dump($e->getMessage());
                     }
+
                     try {
                         $toset['switch_pm'] = $sswitch;
                         $MadelineProto->messages->setInlineBotResults($toset);
                     } catch (\danog\MadelineProto\RPCErrorException $e) {
+                        var_dump($e->getMessage());
                     } catch (\danog\MadelineProto\Exception $e) {
+                        var_dump($e->getMessage());
                     }
                 }
+        }
+        } catch (\danog\MadelineProto\RPCErrorException $e) {
         }
     }
     \danog\MadelineProto\Serialization::serialize('pipesbot.madeline', $MadelineProto);

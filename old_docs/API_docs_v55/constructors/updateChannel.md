@@ -10,7 +10,7 @@ description: updateChannel attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |channel\_id|[int](../types/int.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: updateChannel attributes, type and example
 ### Example:
 
 ```
-$updateChannel = ['_' => 'updateChannel', 'channel_id' => int, ];
+$updateChannel = ['_' => 'updateChannel', 'channel_id' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateChannel", "channel_id": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateChannel={_='updateChannel', channel_id=int, }
+updateChannel={_='updateChannel', channel_id=int}
 
 ```
 

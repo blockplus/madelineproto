@@ -9,7 +9,7 @@ description: account.updateNotifySettings parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |peer|[InputNotifyPeer](../types/InputNotifyPeer.md) | Yes|
 |settings|[InputPeerNotifySettings](../types/InputPeerNotifySettings.md) | Yes|
 
@@ -22,7 +22,7 @@ description: account.updateNotifySettings parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -36,6 +36,32 @@ if (isset($number)) { // Login as a user
 
 $Bool = $MadelineProto->account->updateNotifySettings(['peer' => InputNotifyPeer, 'settings' => InputPeerNotifySettings, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - account.updateNotifySettings
+* params - `{"peer": InputNotifyPeer, "settings": InputPeerNotifySettings, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/account.updateNotifySettings`
+
+Parameters:
+
+peer - Json encoded InputNotifyPeer
+
+settings - Json encoded InputPeerNotifySettings
+
+
+
 
 Or, if you're into Lua:
 

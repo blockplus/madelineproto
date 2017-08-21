@@ -10,7 +10,7 @@ description: updateChannelTooLong attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |channel\_id|[int](../types/int.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: updateChannelTooLong attributes, type and example
 ### Example:
 
 ```
-$updateChannelTooLong = ['_' => 'updateChannelTooLong', 'channel_id' => int, ];
+$updateChannelTooLong = ['_' => 'updateChannelTooLong', 'channel_id' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateChannelTooLong", "channel_id": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateChannelTooLong={_='updateChannelTooLong', channel_id=int, }
+updateChannelTooLong={_='updateChannelTooLong', channel_id=int}
 
 ```
 

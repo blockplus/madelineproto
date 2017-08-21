@@ -9,7 +9,7 @@ description: messages.startBot parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |bot|[InputUser](../types/InputUser.md) | Yes|
 |peer|[InputPeer](../types/InputPeer.md) | Yes|
 |start\_param|[string](../types/string.md) | Yes|
@@ -23,7 +23,7 @@ description: messages.startBot parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -35,12 +35,40 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$Updates = $MadelineProto->messages->startBot(['bot' => InputUser, 'peer' => InputPeer, 'start_param' => string, ]);
+$Updates = $MadelineProto->messages->startBot(['bot' => InputUser, 'peer' => InputPeer, 'start_param' => 'string', ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - messages.startBot
+* params - `{"bot": InputUser, "peer": InputPeer, "start_param": "string", }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/messages.startBot`
+
+Parameters:
+
+bot - Json encoded InputUser
+
+peer - Json encoded InputPeer
+
+start_param - Json encoded string
+
+
+
 
 Or, if you're into Lua:
 
 ```
-Updates = messages.startBot({bot=InputUser, peer=InputPeer, start_param=string, })
+Updates = messages.startBot({bot=InputUser, peer=InputPeer, start_param='string', })
 ```
 

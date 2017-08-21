@@ -9,7 +9,7 @@ description: phone.saveCallDebug parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |peer|[InputPhoneCall](../types/InputPhoneCall.md) | Yes|
 |debug|[DataJSON](../types/DataJSON.md) | Yes|
 
@@ -22,7 +22,7 @@ description: phone.saveCallDebug parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -36,6 +36,32 @@ if (isset($number)) { // Login as a user
 
 $Bool = $MadelineProto->phone->saveCallDebug(['peer' => InputPhoneCall, 'debug' => DataJSON, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - phone.saveCallDebug
+* params - `{"peer": InputPhoneCall, "debug": DataJSON, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/phone.saveCallDebug`
+
+Parameters:
+
+peer - Json encoded InputPhoneCall
+
+debug - Json encoded DataJSON
+
+
+
 
 Or, if you're into Lua:
 

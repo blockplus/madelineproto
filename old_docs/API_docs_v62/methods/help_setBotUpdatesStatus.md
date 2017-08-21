@@ -9,7 +9,7 @@ description: help.setBotUpdatesStatus parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |pending\_updates\_count|[int](../types/int.md) | Yes|
 |message|[string](../types/string.md) | Yes|
 
@@ -22,7 +22,7 @@ description: help.setBotUpdatesStatus parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -34,13 +34,39 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$Bool = $MadelineProto->help->setBotUpdatesStatus(['pending_updates_count' => int, 'message' => string, ]);
+$Bool = $MadelineProto->help->setBotUpdatesStatus(['pending_updates_count' => int, 'message' => 'string', ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - help.setBotUpdatesStatus
+* params - `{"pending_updates_count": int, "message": "string", }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/help.setBotUpdatesStatus`
+
+Parameters:
+
+pending_updates_count - Json encoded int
+
+message - Json encoded string
+
+
+
 
 Or, if you're into Lua:
 
 ```
-Bool = help.setBotUpdatesStatus({pending_updates_count=int, message=string, })
+Bool = help.setBotUpdatesStatus({pending_updates_count=int, message='string', })
 ```
 
 

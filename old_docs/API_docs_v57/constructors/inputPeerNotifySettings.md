@@ -10,7 +10,7 @@ description: inputPeerNotifySettings attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |show\_previews|[Bool](../types/Bool.md) | Optional|
 |silent|[Bool](../types/Bool.md) | Optional|
 |mute\_until|[int](../types/int.md) | Yes|
@@ -24,14 +24,21 @@ description: inputPeerNotifySettings attributes, type and example
 ### Example:
 
 ```
-$inputPeerNotifySettings = ['_' => 'inputPeerNotifySettings', 'show_previews' => Bool, 'silent' => Bool, 'mute_until' => int, 'sound' => string, ];
+$inputPeerNotifySettings = ['_' => 'inputPeerNotifySettings', 'show_previews' => Bool, 'silent' => Bool, 'mute_until' => int, 'sound' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputPeerNotifySettings", "show_previews": Bool, "silent": Bool, "mute_until": int, "sound": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputPeerNotifySettings={_='inputPeerNotifySettings', show_previews=Bool, silent=Bool, mute_until=int, sound=string, }
+inputPeerNotifySettings={_='inputPeerNotifySettings', show_previews=Bool, silent=Bool, mute_until=int, sound='string'}
 
 ```
 

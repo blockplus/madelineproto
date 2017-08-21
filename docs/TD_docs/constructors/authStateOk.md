@@ -12,7 +12,7 @@ User is successfully authorized. TDLib can answer queries
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ User is successfully authorized. TDLib can answer queries
 ### Example:
 
 ```
-$authStateOk = ['_' => 'authStateOk', ];
+$authStateOk = ['_' => 'authStateOk'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "authStateOk"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-authStateOk={_='authStateOk', }
+authStateOk={_='authStateOk'}
 
 ```
 

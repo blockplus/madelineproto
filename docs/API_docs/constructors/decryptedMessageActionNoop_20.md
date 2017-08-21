@@ -16,14 +16,21 @@ description: decryptedMessageActionNoop attributes, type and example
 ### Example:
 
 ```
-$decryptedMessageActionNoop_20 = ['_' => 'decryptedMessageActionNoop', ];
+$decryptedMessageActionNoop_20 = ['_' => 'decryptedMessageActionNoop'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "decryptedMessageActionNoop"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-decryptedMessageActionNoop_20={_='decryptedMessageActionNoop', }
+decryptedMessageActionNoop_20={_='decryptedMessageActionNoop'}
 
 ```
 

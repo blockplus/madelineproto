@@ -12,7 +12,7 @@ Some messages was deleted
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |chat\_id|[long](../types/long.md) | Yes|Chat identifier|
 |message\_ids|Array of [long](../constructors/long.md) | Yes|Identifiers of deleted message|
 
@@ -24,14 +24,21 @@ Some messages was deleted
 ### Example:
 
 ```
-$updateDeleteMessages = ['_' => 'updateDeleteMessages', 'chat_id' => long, 'message_ids' => [long], ];
+$updateDeleteMessages = ['_' => 'updateDeleteMessages', 'chat_id' => long, 'message_ids' => [long]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateDeleteMessages", "chat_id": long, "message_ids": [long]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateDeleteMessages={_='updateDeleteMessages', chat_id=long, message_ids={long}, }
+updateDeleteMessages={_='updateDeleteMessages', chat_id=long, message_ids={long}}
 
 ```
 

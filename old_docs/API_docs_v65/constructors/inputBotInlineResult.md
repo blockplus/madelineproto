@@ -10,7 +10,7 @@ description: inputBotInlineResult attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[string](../types/string.md) | Yes|
 |type|[string](../types/string.md) | Yes|
 |title|[string](../types/string.md) | Optional|
@@ -32,14 +32,21 @@ description: inputBotInlineResult attributes, type and example
 ### Example:
 
 ```
-$inputBotInlineResult = ['_' => 'inputBotInlineResult', 'id' => string, 'type' => string, 'title' => string, 'description' => string, 'url' => string, 'thumb_url' => string, 'content_url' => string, 'content_type' => string, 'w' => int, 'h' => int, 'duration' => int, 'send_message' => InputBotInlineMessage, ];
+$inputBotInlineResult = ['_' => 'inputBotInlineResult', 'id' => 'string', 'type' => 'string', 'title' => 'string', 'description' => 'string', 'url' => 'string', 'thumb_url' => 'string', 'content_url' => 'string', 'content_type' => 'string', 'w' => int, 'h' => int, 'duration' => int, 'send_message' => InputBotInlineMessage];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputBotInlineResult", "id": "string", "type": "string", "title": "string", "description": "string", "url": "string", "thumb_url": "string", "content_url": "string", "content_type": "string", "w": int, "h": int, "duration": int, "send_message": InputBotInlineMessage}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputBotInlineResult={_='inputBotInlineResult', id=string, type=string, title=string, description=string, url=string, thumb_url=string, content_url=string, content_type=string, w=int, h=int, duration=int, send_message=InputBotInlineMessage, }
+inputBotInlineResult={_='inputBotInlineResult', id='string', type='string', title='string', description='string', url='string', thumb_url='string', content_url='string', content_type='string', w=int, h=int, duration=int, send_message=InputBotInlineMessage}
 
 ```
 

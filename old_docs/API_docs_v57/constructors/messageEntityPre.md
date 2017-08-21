@@ -10,7 +10,7 @@ description: messageEntityPre attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |offset|[int](../types/int.md) | Yes|
 |length|[int](../types/int.md) | Yes|
 |language|[string](../types/string.md) | Yes|
@@ -23,14 +23,21 @@ description: messageEntityPre attributes, type and example
 ### Example:
 
 ```
-$messageEntityPre = ['_' => 'messageEntityPre', 'offset' => int, 'length' => int, 'language' => string, ];
+$messageEntityPre = ['_' => 'messageEntityPre', 'offset' => int, 'length' => int, 'language' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageEntityPre", "offset": int, "length": int, "language": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageEntityPre={_='messageEntityPre', offset=int, length=int, language=string, }
+messageEntityPre={_='messageEntityPre', offset=int, length=int, language='string'}
 
 ```
 

@@ -9,7 +9,7 @@ description: messages.getDocumentByHash parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |sha256|[bytes](../types/bytes.md) | Yes|
 |size|[int](../types/int.md) | Yes|
 |mime\_type|[string](../types/string.md) | Yes|
@@ -23,7 +23,7 @@ description: messages.getDocumentByHash parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -35,12 +35,40 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$Document = $MadelineProto->messages->getDocumentByHash(['sha256' => bytes, 'size' => int, 'mime_type' => string, ]);
+$Document = $MadelineProto->messages->getDocumentByHash(['sha256' => 'bytes', 'size' => int, 'mime_type' => 'string', ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - messages.getDocumentByHash
+* params - `{"sha256": "bytes", "size": int, "mime_type": "string", }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/messages.getDocumentByHash`
+
+Parameters:
+
+sha256 - Json encoded bytes
+
+size - Json encoded int
+
+mime_type - Json encoded string
+
+
+
 
 Or, if you're into Lua:
 
 ```
-Document = messages.getDocumentByHash({sha256=bytes, size=int, mime_type=string, })
+Document = messages.getDocumentByHash({sha256='bytes', size=int, mime_type='string', })
 ```
 

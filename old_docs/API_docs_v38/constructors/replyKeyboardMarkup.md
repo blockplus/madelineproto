@@ -10,7 +10,7 @@ description: replyKeyboardMarkup attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |rows|Array of [KeyboardButtonRow](../types/KeyboardButtonRow.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: replyKeyboardMarkup attributes, type and example
 ### Example:
 
 ```
-$replyKeyboardMarkup = ['_' => 'replyKeyboardMarkup', 'rows' => [KeyboardButtonRow], ];
+$replyKeyboardMarkup = ['_' => 'replyKeyboardMarkup', 'rows' => [KeyboardButtonRow]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "replyKeyboardMarkup", "rows": [KeyboardButtonRow]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-replyKeyboardMarkup={_='replyKeyboardMarkup', rows={KeyboardButtonRow}, }
+replyKeyboardMarkup={_='replyKeyboardMarkup', rows={KeyboardButtonRow}}
 
 ```
 

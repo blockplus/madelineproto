@@ -12,7 +12,7 @@ Simple button with a text, which should be sent when the button is pressed
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ Simple button with a text, which should be sent when the button is pressed
 ### Example:
 
 ```
-$keyboardButtonTypeText = ['_' => 'keyboardButtonTypeText', ];
+$keyboardButtonTypeText = ['_' => 'keyboardButtonTypeText'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "keyboardButtonTypeText"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-keyboardButtonTypeText={_='keyboardButtonTypeText', }
+keyboardButtonTypeText={_='keyboardButtonTypeText'}
 
 ```
 

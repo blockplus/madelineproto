@@ -10,7 +10,7 @@ description: updates_differenceSlice attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |new\_messages|Array of [Message](../types/Message.md) | Yes|
 |new\_encrypted\_messages|Array of [EncryptedMessage](../types/EncryptedMessage.md) | Yes|
 |other\_updates|Array of [Update](../types/Update.md) | Yes|
@@ -26,14 +26,21 @@ description: updates_differenceSlice attributes, type and example
 ### Example:
 
 ```
-$updates_differenceSlice = ['_' => 'updates.differenceSlice', 'new_messages' => [Message], 'new_encrypted_messages' => [EncryptedMessage], 'other_updates' => [Update], 'chats' => [Chat], 'users' => [User], 'intermediate_state' => updates_State, ];
+$updates_differenceSlice = ['_' => 'updates.differenceSlice', 'new_messages' => [Message], 'new_encrypted_messages' => [EncryptedMessage], 'other_updates' => [Update], 'chats' => [Chat], 'users' => [User], 'intermediate_state' => updates_State];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updates.differenceSlice", "new_messages": [Message], "new_encrypted_messages": [EncryptedMessage], "other_updates": [Update], "chats": [Chat], "users": [User], "intermediate_state": updates_State}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updates_differenceSlice={_='updates.differenceSlice', new_messages={Message}, new_encrypted_messages={EncryptedMessage}, other_updates={Update}, chats={Chat}, users={User}, intermediate_state=updates_State, }
+updates_differenceSlice={_='updates.differenceSlice', new_messages={Message}, new_encrypted_messages={EncryptedMessage}, other_updates={Update}, chats={Chat}, users={User}, intermediate_state=updates_State}
 
 ```
 

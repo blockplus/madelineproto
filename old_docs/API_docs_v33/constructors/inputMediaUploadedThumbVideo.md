@@ -10,7 +10,7 @@ description: inputMediaUploadedThumbVideo attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |file|[InputFile](../types/InputFile.md) | Yes|
 |thumb|[InputFile](../types/InputFile.md) | Yes|
 |duration|[int](../types/int.md) | Yes|
@@ -26,14 +26,21 @@ description: inputMediaUploadedThumbVideo attributes, type and example
 ### Example:
 
 ```
-$inputMediaUploadedThumbVideo = ['_' => 'inputMediaUploadedThumbVideo', 'file' => InputFile, 'thumb' => InputFile, 'duration' => int, 'w' => int, 'h' => int, 'caption' => string, ];
+$inputMediaUploadedThumbVideo = ['_' => 'inputMediaUploadedThumbVideo', 'file' => InputFile, 'thumb' => InputFile, 'duration' => int, 'w' => int, 'h' => int, 'caption' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputMediaUploadedThumbVideo", "file": InputFile, "thumb": InputFile, "duration": int, "w": int, "h": int, "caption": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputMediaUploadedThumbVideo={_='inputMediaUploadedThumbVideo', file=InputFile, thumb=InputFile, duration=int, w=int, h=int, caption=string, }
+inputMediaUploadedThumbVideo={_='inputMediaUploadedThumbVideo', file=InputFile, thumb=InputFile, duration=int, w=int, h=int, caption='string'}
 
 ```
 

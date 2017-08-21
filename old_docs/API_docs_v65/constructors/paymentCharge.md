@@ -10,7 +10,7 @@ description: paymentCharge attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[string](../types/string.md) | Yes|
 |provider\_charge\_id|[string](../types/string.md) | Yes|
 
@@ -22,14 +22,21 @@ description: paymentCharge attributes, type and example
 ### Example:
 
 ```
-$paymentCharge = ['_' => 'paymentCharge', 'id' => string, 'provider_charge_id' => string, ];
+$paymentCharge = ['_' => 'paymentCharge', 'id' => 'string', 'provider_charge_id' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "paymentCharge", "id": "string", "provider_charge_id": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-paymentCharge={_='paymentCharge', id=string, provider_charge_id=string, }
+paymentCharge={_='paymentCharge', id='string', provider_charge_id='string'}
 
 ```
 

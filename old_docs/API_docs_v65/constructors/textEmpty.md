@@ -16,14 +16,21 @@ description: textEmpty attributes, type and example
 ### Example:
 
 ```
-$textEmpty = ['_' => 'textEmpty', ];
+$textEmpty = ['_' => 'textEmpty'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "textEmpty"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-textEmpty={_='textEmpty', }
+textEmpty={_='textEmpty'}
 
 ```
 

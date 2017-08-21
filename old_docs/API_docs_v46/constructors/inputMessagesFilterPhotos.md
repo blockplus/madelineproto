@@ -16,14 +16,21 @@ description: inputMessagesFilterPhotos attributes, type and example
 ### Example:
 
 ```
-$inputMessagesFilterPhotos = ['_' => 'inputMessagesFilterPhotos', ];
+$inputMessagesFilterPhotos = ['_' => 'inputMessagesFilterPhotos'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputMessagesFilterPhotos"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputMessagesFilterPhotos={_='inputMessagesFilterPhotos', }
+inputMessagesFilterPhotos={_='inputMessagesFilterPhotos'}
 
 ```
 

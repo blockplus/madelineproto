@@ -10,7 +10,7 @@ description: botInlineMessageMediaVenue attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |geo|[GeoPoint](../types/GeoPoint.md) | Yes|
 |title|[string](../types/string.md) | Yes|
 |address|[string](../types/string.md) | Yes|
@@ -26,14 +26,21 @@ description: botInlineMessageMediaVenue attributes, type and example
 ### Example:
 
 ```
-$botInlineMessageMediaVenue = ['_' => 'botInlineMessageMediaVenue', 'geo' => GeoPoint, 'title' => string, 'address' => string, 'provider' => string, 'venue_id' => string, 'reply_markup' => ReplyMarkup, ];
+$botInlineMessageMediaVenue = ['_' => 'botInlineMessageMediaVenue', 'geo' => GeoPoint, 'title' => 'string', 'address' => 'string', 'provider' => 'string', 'venue_id' => 'string', 'reply_markup' => ReplyMarkup];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "botInlineMessageMediaVenue", "geo": GeoPoint, "title": "string", "address": "string", "provider": "string", "venue_id": "string", "reply_markup": ReplyMarkup}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-botInlineMessageMediaVenue={_='botInlineMessageMediaVenue', geo=GeoPoint, title=string, address=string, provider=string, venue_id=string, reply_markup=ReplyMarkup, }
+botInlineMessageMediaVenue={_='botInlineMessageMediaVenue', geo=GeoPoint, title='string', address='string', provider='string', venue_id='string', reply_markup=ReplyMarkup}
 
 ```
 

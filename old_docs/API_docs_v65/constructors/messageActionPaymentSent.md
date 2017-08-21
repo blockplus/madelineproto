@@ -10,7 +10,7 @@ description: messageActionPaymentSent attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |currency|[string](../types/string.md) | Yes|
 |total\_amount|[long](../types/long.md) | Yes|
 
@@ -22,14 +22,21 @@ description: messageActionPaymentSent attributes, type and example
 ### Example:
 
 ```
-$messageActionPaymentSent = ['_' => 'messageActionPaymentSent', 'currency' => string, 'total_amount' => long, ];
+$messageActionPaymentSent = ['_' => 'messageActionPaymentSent', 'currency' => 'string', 'total_amount' => long];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageActionPaymentSent", "currency": "string", "total_amount": long}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageActionPaymentSent={_='messageActionPaymentSent', currency=string, total_amount=long, }
+messageActionPaymentSent={_='messageActionPaymentSent', currency='string', total_amount=long}
 
 ```
 

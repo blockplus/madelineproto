@@ -10,7 +10,7 @@ description: updateUserPhone attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |user\_id|[int](../types/int.md) | Yes|
 |phone|[string](../types/string.md) | Yes|
 
@@ -22,14 +22,21 @@ description: updateUserPhone attributes, type and example
 ### Example:
 
 ```
-$updateUserPhone = ['_' => 'updateUserPhone', 'user_id' => int, 'phone' => string, ];
+$updateUserPhone = ['_' => 'updateUserPhone', 'user_id' => int, 'phone' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateUserPhone", "user_id": int, "phone": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateUserPhone={_='updateUserPhone', user_id=int, phone=string, }
+updateUserPhone={_='updateUserPhone', user_id=int, phone='string'}
 
 ```
 

@@ -10,7 +10,7 @@ description: inputGameShortName attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |bot\_id|[InputUser](../types/InputUser.md) | Yes|
 |short\_name|[string](../types/string.md) | Yes|
 
@@ -22,14 +22,21 @@ description: inputGameShortName attributes, type and example
 ### Example:
 
 ```
-$inputGameShortName = ['_' => 'inputGameShortName', 'bot_id' => InputUser, 'short_name' => string, ];
+$inputGameShortName = ['_' => 'inputGameShortName', 'bot_id' => InputUser, 'short_name' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputGameShortName", "bot_id": InputUser, "short_name": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputGameShortName={_='inputGameShortName', bot_id=InputUser, short_name=string, }
+inputGameShortName={_='inputGameShortName', bot_id=InputUser, short_name='string'}
 
 ```
 

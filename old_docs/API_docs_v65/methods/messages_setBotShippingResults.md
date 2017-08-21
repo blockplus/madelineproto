@@ -9,7 +9,7 @@ description: messages.setBotShippingResults parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |query\_id|[long](../types/long.md) | Yes|
 |error|[string](../types/string.md) | Optional|
 |shipping\_options|Array of [ShippingOption](../types/ShippingOption.md) | Optional|
@@ -23,7 +23,7 @@ description: messages.setBotShippingResults parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -35,12 +35,40 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$Bool = $MadelineProto->messages->setBotShippingResults(['query_id' => long, 'error' => string, 'shipping_options' => [ShippingOption], ]);
+$Bool = $MadelineProto->messages->setBotShippingResults(['query_id' => long, 'error' => 'string', 'shipping_options' => [ShippingOption], ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - messages.setBotShippingResults
+* params - `{"query_id": long, "error": "string", "shipping_options": [ShippingOption], }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/messages.setBotShippingResults`
+
+Parameters:
+
+query_id - Json encoded long
+
+error - Json encoded string
+
+shipping_options - Json encoded  array of ShippingOption
+
+
+
 
 Or, if you're into Lua:
 
 ```
-Bool = messages.setBotShippingResults({query_id=long, error=string, shipping_options={ShippingOption}, })
+Bool = messages.setBotShippingResults({query_id=long, error='string', shipping_options={ShippingOption}, })
 ```
 

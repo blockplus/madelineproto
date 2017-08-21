@@ -10,7 +10,7 @@ description: updateChatParticipantAdmin attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |chat\_id|[int](../types/int.md) | Yes|
 |user\_id|[int](../types/int.md) | Yes|
 |is\_admin|[Bool](../types/Bool.md) | Yes|
@@ -24,14 +24,21 @@ description: updateChatParticipantAdmin attributes, type and example
 ### Example:
 
 ```
-$updateChatParticipantAdmin = ['_' => 'updateChatParticipantAdmin', 'chat_id' => int, 'user_id' => int, 'is_admin' => Bool, 'version' => int, ];
+$updateChatParticipantAdmin = ['_' => 'updateChatParticipantAdmin', 'chat_id' => int, 'user_id' => int, 'is_admin' => Bool, 'version' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateChatParticipantAdmin", "chat_id": int, "user_id": int, "is_admin": Bool, "version": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateChatParticipantAdmin={_='updateChatParticipantAdmin', chat_id=int, user_id=int, is_admin=Bool, version=int, }
+updateChatParticipantAdmin={_='updateChatParticipantAdmin', chat_id=int, user_id=int, is_admin=Bool, version=int}
 
 ```
 

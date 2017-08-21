@@ -10,7 +10,7 @@ description: updateServiceNotification attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |popup|[Bool](../types/Bool.md) | Optional|
 |inbox\_date|[int](../types/int.md) | Optional|
 |type|[string](../types/string.md) | Yes|
@@ -26,14 +26,21 @@ description: updateServiceNotification attributes, type and example
 ### Example:
 
 ```
-$updateServiceNotification = ['_' => 'updateServiceNotification', 'popup' => Bool, 'inbox_date' => int, 'type' => string, 'message' => string, 'media' => MessageMedia, 'entities' => [MessageEntity], ];
+$updateServiceNotification = ['_' => 'updateServiceNotification', 'popup' => Bool, 'inbox_date' => int, 'type' => 'string', 'message' => 'string', 'media' => MessageMedia, 'entities' => [MessageEntity]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateServiceNotification", "popup": Bool, "inbox_date": int, "type": "string", "message": "string", "media": MessageMedia, "entities": [MessageEntity]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateServiceNotification={_='updateServiceNotification', popup=Bool, inbox_date=int, type=string, message=string, media=MessageMedia, entities={MessageEntity}, }
+updateServiceNotification={_='updateServiceNotification', popup=Bool, inbox_date=int, type='string', message='string', media=MessageMedia, entities={MessageEntity}}
 
 ```
 

@@ -10,7 +10,7 @@ description: keyboardButtonRequestPhone attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |text|[string](../types/string.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: keyboardButtonRequestPhone attributes, type and example
 ### Example:
 
 ```
-$keyboardButtonRequestPhone = ['_' => 'keyboardButtonRequestPhone', 'text' => string, ];
+$keyboardButtonRequestPhone = ['_' => 'keyboardButtonRequestPhone', 'text' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "keyboardButtonRequestPhone", "text": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-keyboardButtonRequestPhone={_='keyboardButtonRequestPhone', text=string, }
+keyboardButtonRequestPhone={_='keyboardButtonRequestPhone', text='string'}
 
 ```
 

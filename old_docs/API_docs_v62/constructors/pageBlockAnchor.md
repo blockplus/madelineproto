@@ -10,7 +10,7 @@ description: pageBlockAnchor attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |name|[string](../types/string.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: pageBlockAnchor attributes, type and example
 ### Example:
 
 ```
-$pageBlockAnchor = ['_' => 'pageBlockAnchor', 'name' => string, ];
+$pageBlockAnchor = ['_' => 'pageBlockAnchor', 'name' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "pageBlockAnchor", "name": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-pageBlockAnchor={_='pageBlockAnchor', name=string, }
+pageBlockAnchor={_='pageBlockAnchor', name='string'}
 
 ```
 

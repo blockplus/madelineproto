@@ -10,7 +10,7 @@ description: channel attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[int](../types/int.md) | Yes|
 |access\_hash|[long](../types/long.md) | Yes|
 |title|[string](../types/string.md) | Yes|
@@ -27,14 +27,21 @@ description: channel attributes, type and example
 ### Example:
 
 ```
-$channel = ['_' => 'channel', 'id' => int, 'access_hash' => long, 'title' => string, 'username' => string, 'photo' => ChatPhoto, 'date' => int, 'version' => int, ];
+$channel = ['_' => 'channel', 'id' => int, 'access_hash' => long, 'title' => 'string', 'username' => 'string', 'photo' => ChatPhoto, 'date' => int, 'version' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "channel", "id": int, "access_hash": long, "title": "string", "username": "string", "photo": ChatPhoto, "date": int, "version": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-channel={_='channel', id=int, access_hash=long, title=string, username=string, photo=ChatPhoto, date=int, version=int, }
+channel={_='channel', id=int, access_hash=long, title='string', username='string', photo=ChatPhoto, date=int, version=int}
 
 ```
 

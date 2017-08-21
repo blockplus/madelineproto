@@ -16,14 +16,21 @@ description: channelMessagesFilterEmpty attributes, type and example
 ### Example:
 
 ```
-$channelMessagesFilterEmpty = ['_' => 'channelMessagesFilterEmpty', ];
+$channelMessagesFilterEmpty = ['_' => 'channelMessagesFilterEmpty'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "channelMessagesFilterEmpty"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-channelMessagesFilterEmpty={_='channelMessagesFilterEmpty', }
+channelMessagesFilterEmpty={_='channelMessagesFilterEmpty'}
 
 ```
 

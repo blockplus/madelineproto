@@ -10,7 +10,7 @@ description: phoneCallWaiting attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[long](../types/long.md) | Yes|
 |access\_hash|[long](../types/long.md) | Yes|
 |date|[int](../types/int.md) | Yes|
@@ -27,14 +27,21 @@ description: phoneCallWaiting attributes, type and example
 ### Example:
 
 ```
-$phoneCallWaiting = ['_' => 'phoneCallWaiting', 'id' => long, 'access_hash' => long, 'date' => int, 'admin_id' => int, 'participant_id' => int, 'protocol' => PhoneCallProtocol, 'receive_date' => int, ];
+$phoneCallWaiting = ['_' => 'phoneCallWaiting', 'id' => long, 'access_hash' => long, 'date' => int, 'admin_id' => int, 'participant_id' => int, 'protocol' => PhoneCallProtocol, 'receive_date' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "phoneCallWaiting", "id": long, "access_hash": long, "date": int, "admin_id": int, "participant_id": int, "protocol": PhoneCallProtocol, "receive_date": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-phoneCallWaiting={_='phoneCallWaiting', id=long, access_hash=long, date=int, admin_id=int, participant_id=int, protocol=PhoneCallProtocol, receive_date=int, }
+phoneCallWaiting={_='phoneCallWaiting', id=long, access_hash=long, date=int, admin_id=int, participant_id=int, protocol=PhoneCallProtocol, receive_date=int}
 
 ```
 

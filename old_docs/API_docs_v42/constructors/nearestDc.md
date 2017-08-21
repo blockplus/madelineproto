@@ -10,7 +10,7 @@ description: nearestDc attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |country|[string](../types/string.md) | Yes|
 |this\_dc|[int](../types/int.md) | Yes|
 |nearest\_dc|[int](../types/int.md) | Yes|
@@ -23,14 +23,21 @@ description: nearestDc attributes, type and example
 ### Example:
 
 ```
-$nearestDc = ['_' => 'nearestDc', 'country' => string, 'this_dc' => int, 'nearest_dc' => int, ];
+$nearestDc = ['_' => 'nearestDc', 'country' => 'string', 'this_dc' => int, 'nearest_dc' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "nearestDc", "country": "string", "this_dc": int, "nearest_dc": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-nearestDc={_='nearestDc', country=string, this_dc=int, nearest_dc=int, }
+nearestDc={_='nearestDc', country='string', this_dc=int, nearest_dc=int}
 
 ```
 

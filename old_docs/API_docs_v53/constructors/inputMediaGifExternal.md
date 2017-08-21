@@ -10,7 +10,7 @@ description: inputMediaGifExternal attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |url|[string](../types/string.md) | Yes|
 |q|[string](../types/string.md) | Yes|
 
@@ -22,14 +22,21 @@ description: inputMediaGifExternal attributes, type and example
 ### Example:
 
 ```
-$inputMediaGifExternal = ['_' => 'inputMediaGifExternal', 'url' => string, 'q' => string, ];
+$inputMediaGifExternal = ['_' => 'inputMediaGifExternal', 'url' => 'string', 'q' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputMediaGifExternal", "url": "string", "q": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputMediaGifExternal={_='inputMediaGifExternal', url=string, q=string, }
+inputMediaGifExternal={_='inputMediaGifExternal', url='string', q='string'}
 
 ```
 

@@ -12,7 +12,7 @@ Describes audio file. Audio is usually in mp3 format
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |duration|[int](../types/int.md) | Yes|Duration of the audio in seconds as defined by sender|
 |title|[string](../types/string.md) | Yes|Title of the audio as defined by sender|
 |performer|[string](../types/string.md) | Yes|Performer of the audio as defined by sender|
@@ -29,14 +29,21 @@ Describes audio file. Audio is usually in mp3 format
 ### Example:
 
 ```
-$audio = ['_' => 'audio', 'duration' => int, 'title' => string, 'performer' => string, 'file_name' => string, 'mime_type' => string, 'album_cover_thumb' => photoSize, 'audio' => file, ];
+$audio = ['_' => 'audio', 'duration' => int, 'title' => 'string', 'performer' => 'string', 'file_name' => 'string', 'mime_type' => 'string', 'album_cover_thumb' => photoSize, 'audio' => file];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "audio", "duration": int, "title": "string", "performer": "string", "file_name": "string", "mime_type": "string", "album_cover_thumb": photoSize, "audio": file}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-audio={_='audio', duration=int, title=string, performer=string, file_name=string, mime_type=string, album_cover_thumb=photoSize, audio=file, }
+audio={_='audio', duration=int, title='string', performer='string', file_name='string', mime_type='string', album_cover_thumb=photoSize, audio=file}
 
 ```
 

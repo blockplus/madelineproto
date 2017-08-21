@@ -9,7 +9,7 @@ description: messages.saveRecentSticker parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |attached|[Bool](../types/Bool.md) | Optional|
 |id|[InputDocument](../types/InputDocument.md) | Yes|
 |unsave|[Bool](../types/Bool.md) | Yes|
@@ -23,7 +23,7 @@ description: messages.saveRecentSticker parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,6 +37,34 @@ if (isset($number)) { // Login as a user
 
 $Bool = $MadelineProto->messages->saveRecentSticker(['attached' => Bool, 'id' => InputDocument, 'unsave' => Bool, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - messages.saveRecentSticker
+* params - `{"attached": Bool, "id": InputDocument, "unsave": Bool, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/messages.saveRecentSticker`
+
+Parameters:
+
+attached - Json encoded Bool
+
+id - Json encoded InputDocument
+
+unsave - Json encoded Bool
+
+
+
 
 Or, if you're into Lua:
 

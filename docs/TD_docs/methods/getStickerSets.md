@@ -6,12 +6,15 @@ description: Returns list of installed sticker sets without archived sticker set
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Returns list of installed sticker sets without archived sticker sets
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |is\_masks|[Bool](../types/Bool.md) | Yes|Pass true to return masks, pass false to return stickers|
 
 
@@ -23,7 +26,7 @@ Returns list of installed sticker sets without archived sticker sets
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,6 +40,30 @@ if (isset($number)) { // Login as a user
 
 $StickerSets = $MadelineProto->getStickerSets(['is_masks' => Bool, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - getStickerSets
+* params - `{"is_masks": Bool, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/getStickerSets`
+
+Parameters:
+
+is_masks - Json encoded Bool
+
+
+
 
 Or, if you're into Lua:
 

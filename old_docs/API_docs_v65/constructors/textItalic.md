@@ -10,7 +10,7 @@ description: textItalic attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |text|[RichText](../types/RichText.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: textItalic attributes, type and example
 ### Example:
 
 ```
-$textItalic = ['_' => 'textItalic', 'text' => RichText, ];
+$textItalic = ['_' => 'textItalic', 'text' => RichText];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "textItalic", "text": RichText}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-textItalic={_='textItalic', text=RichText, }
+textItalic={_='textItalic', text=RichText}
 
 ```
 

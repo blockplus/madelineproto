@@ -9,7 +9,7 @@ description: messages.searchGifs parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |q|[string](../types/string.md) | Yes|
 |offset|[int](../types/int.md) | Yes|
 
@@ -22,7 +22,7 @@ description: messages.searchGifs parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -34,12 +34,38 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$messages_FoundGifs = $MadelineProto->messages->searchGifs(['q' => string, 'offset' => int, ]);
+$messages_FoundGifs = $MadelineProto->messages->searchGifs(['q' => 'string', 'offset' => int, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - messages.searchGifs
+* params - `{"q": "string", "offset": int, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/messages.searchGifs`
+
+Parameters:
+
+q - Json encoded string
+
+offset - Json encoded int
+
+
+
 
 Or, if you're into Lua:
 
 ```
-messages_FoundGifs = messages.searchGifs({q=string, offset=int, })
+messages_FoundGifs = messages.searchGifs({q='string', offset=int, })
 ```
 

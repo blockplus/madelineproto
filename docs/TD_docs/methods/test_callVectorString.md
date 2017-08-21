@@ -6,10 +6,13 @@ description: test.callVectorString parameters, return type and example
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |x|Array of [string](../types/string.md) | Yes|
 
 
@@ -21,7 +24,7 @@ description: test.callVectorString parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -33,12 +36,36 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$test_VectorString = $MadelineProto->test->callVectorString(['x' => [string], ]);
+$test_VectorString = $MadelineProto->test->callVectorString(['x' => ['string'], ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - test.callVectorString
+* params - `{"x": ["string"], }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/test.callVectorString`
+
+Parameters:
+
+x - Json encoded  array of string
+
+
+
 
 Or, if you're into Lua:
 
 ```
-test_VectorString = test.callVectorString({x={string}, })
+test_VectorString = test.callVectorString({x={'string'}, })
 ```
 

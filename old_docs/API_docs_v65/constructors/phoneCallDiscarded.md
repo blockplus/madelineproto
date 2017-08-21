@@ -10,7 +10,7 @@ description: phoneCallDiscarded attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |need\_rating|[Bool](../types/Bool.md) | Optional|
 |need\_debug|[Bool](../types/Bool.md) | Optional|
 |id|[long](../types/long.md) | Yes|
@@ -25,14 +25,21 @@ description: phoneCallDiscarded attributes, type and example
 ### Example:
 
 ```
-$phoneCallDiscarded = ['_' => 'phoneCallDiscarded', 'need_rating' => Bool, 'need_debug' => Bool, 'id' => long, 'reason' => PhoneCallDiscardReason, 'duration' => int, ];
+$phoneCallDiscarded = ['_' => 'phoneCallDiscarded', 'need_rating' => Bool, 'need_debug' => Bool, 'id' => long, 'reason' => PhoneCallDiscardReason, 'duration' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "phoneCallDiscarded", "need_rating": Bool, "need_debug": Bool, "id": long, "reason": PhoneCallDiscardReason, "duration": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-phoneCallDiscarded={_='phoneCallDiscarded', need_rating=Bool, need_debug=Bool, id=long, reason=PhoneCallDiscardReason, duration=int, }
+phoneCallDiscarded={_='phoneCallDiscarded', need_rating=Bool, need_debug=Bool, id=long, reason=PhoneCallDiscardReason, duration=int}
 
 ```
 

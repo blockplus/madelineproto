@@ -10,7 +10,7 @@ description: peerChat attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |chat\_id|[int](../types/int.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: peerChat attributes, type and example
 ### Example:
 
 ```
-$peerChat = ['_' => 'peerChat', 'chat_id' => int, ];
+$peerChat = ['_' => 'peerChat', 'chat_id' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "peerChat", "chat_id": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-peerChat={_='peerChat', chat_id=int, }
+peerChat={_='peerChat', chat_id=int}
 
 ```
 

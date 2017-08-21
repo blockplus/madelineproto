@@ -16,14 +16,21 @@ description: inputMessagesFilterUrl attributes, type and example
 ### Example:
 
 ```
-$inputMessagesFilterUrl = ['_' => 'inputMessagesFilterUrl', ];
+$inputMessagesFilterUrl = ['_' => 'inputMessagesFilterUrl'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputMessagesFilterUrl"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputMessagesFilterUrl={_='inputMessagesFilterUrl', }
+inputMessagesFilterUrl={_='inputMessagesFilterUrl'}
 
 ```
 

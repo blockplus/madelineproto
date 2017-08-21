@@ -10,7 +10,7 @@ description: updateReadMessages attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |messages|Array of [int](../types/int.md) | Yes|
 |pts|[int](../types/int.md) | Yes|
 
@@ -22,14 +22,21 @@ description: updateReadMessages attributes, type and example
 ### Example:
 
 ```
-$updateReadMessages = ['_' => 'updateReadMessages', 'messages' => [int], 'pts' => int, ];
+$updateReadMessages = ['_' => 'updateReadMessages', 'messages' => [int], 'pts' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateReadMessages", "messages": [int], "pts": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateReadMessages={_='updateReadMessages', messages={int}, pts=int, }
+updateReadMessages={_='updateReadMessages', messages={int}, pts=int}
 
 ```
 

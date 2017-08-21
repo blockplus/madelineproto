@@ -10,7 +10,7 @@ description: p_q_inner_data_temp attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |pq|[bytes](../types/bytes.md) | Yes|
 |p|[bytes](../types/bytes.md) | Yes|
 |q|[bytes](../types/bytes.md) | Yes|
@@ -27,14 +27,21 @@ description: p_q_inner_data_temp attributes, type and example
 ### Example:
 
 ```
-$p_q_inner_data_temp = ['_' => 'p_q_inner_data_temp', 'pq' => bytes, 'p' => bytes, 'q' => bytes, 'nonce' => int128, 'server_nonce' => int128, 'new_nonce' => int256, 'expires_in' => int, ];
+$p_q_inner_data_temp = ['_' => 'p_q_inner_data_temp', 'pq' => 'bytes', 'p' => 'bytes', 'q' => 'bytes', 'nonce' => int128, 'server_nonce' => int128, 'new_nonce' => int256, 'expires_in' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "p_q_inner_data_temp", "pq": "bytes", "p": "bytes", "q": "bytes", "nonce": int128, "server_nonce": int128, "new_nonce": int256, "expires_in": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-p_q_inner_data_temp={_='p_q_inner_data_temp', pq=bytes, p=bytes, q=bytes, nonce=int128, server_nonce=int128, new_nonce=int256, expires_in=int, }
+p_q_inner_data_temp={_='p_q_inner_data_temp', pq='bytes', p='bytes', q='bytes', nonce=int128, server_nonce=int128, new_nonce=int256, expires_in=int}
 
 ```
 

@@ -10,7 +10,7 @@ description: photoSizeEmpty attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |type|[string](../types/string.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: photoSizeEmpty attributes, type and example
 ### Example:
 
 ```
-$photoSizeEmpty = ['_' => 'photoSizeEmpty', 'type' => string, ];
+$photoSizeEmpty = ['_' => 'photoSizeEmpty', 'type' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "photoSizeEmpty", "type": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-photoSizeEmpty={_='photoSizeEmpty', type=string, }
+photoSizeEmpty={_='photoSizeEmpty', type='string'}
 
 ```
 

@@ -10,7 +10,7 @@ description: geoChat attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[int](../types/int.md) | Yes|
 |access\_hash|[long](../types/long.md) | Yes|
 |title|[string](../types/string.md) | Yes|
@@ -31,14 +31,21 @@ description: geoChat attributes, type and example
 ### Example:
 
 ```
-$geoChat = ['_' => 'geoChat', 'id' => int, 'access_hash' => long, 'title' => string, 'address' => string, 'venue' => string, 'geo' => GeoPoint, 'photo' => ChatPhoto, 'participants_count' => int, 'date' => int, 'checked_in' => Bool, 'version' => int, ];
+$geoChat = ['_' => 'geoChat', 'id' => int, 'access_hash' => long, 'title' => 'string', 'address' => 'string', 'venue' => 'string', 'geo' => GeoPoint, 'photo' => ChatPhoto, 'participants_count' => int, 'date' => int, 'checked_in' => Bool, 'version' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "geoChat", "id": int, "access_hash": long, "title": "string", "address": "string", "venue": "string", "geo": GeoPoint, "photo": ChatPhoto, "participants_count": int, "date": int, "checked_in": Bool, "version": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-geoChat={_='geoChat', id=int, access_hash=long, title=string, address=string, venue=string, geo=GeoPoint, photo=ChatPhoto, participants_count=int, date=int, checked_in=Bool, version=int, }
+geoChat={_='geoChat', id=int, access_hash=long, title='string', address='string', venue='string', geo=GeoPoint, photo=ChatPhoto, participants_count=int, date=int, checked_in=Bool, version=int}
 
 ```
 

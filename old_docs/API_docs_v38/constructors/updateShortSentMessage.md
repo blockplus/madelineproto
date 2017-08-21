@@ -10,7 +10,7 @@ description: updateShortSentMessage attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[int](../types/int.md) | Yes|
 |pts|[int](../types/int.md) | Yes|
 |pts\_count|[int](../types/int.md) | Yes|
@@ -26,14 +26,21 @@ description: updateShortSentMessage attributes, type and example
 ### Example:
 
 ```
-$updateShortSentMessage = ['_' => 'updateShortSentMessage', 'id' => int, 'pts' => int, 'pts_count' => int, 'date' => int, 'media' => MessageMedia, 'entities' => [MessageEntity], ];
+$updateShortSentMessage = ['_' => 'updateShortSentMessage', 'id' => int, 'pts' => int, 'pts_count' => int, 'date' => int, 'media' => MessageMedia, 'entities' => [MessageEntity]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateShortSentMessage", "id": int, "pts": int, "pts_count": int, "date": int, "media": MessageMedia, "entities": [MessageEntity]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateShortSentMessage={_='updateShortSentMessage', id=int, pts=int, pts_count=int, date=int, media=MessageMedia, entities={MessageEntity}, }
+updateShortSentMessage={_='updateShortSentMessage', id=int, pts=int, pts_count=int, date=int, media=MessageMedia, entities={MessageEntity}}
 
 ```
 

@@ -10,7 +10,7 @@ description: auth_checkedPhone attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |phone\_registered|[Bool](../types/Bool.md) | Yes|
 |phone\_invited|[Bool](../types/Bool.md) | Yes|
 
@@ -22,14 +22,21 @@ description: auth_checkedPhone attributes, type and example
 ### Example:
 
 ```
-$auth_checkedPhone = ['_' => 'auth.checkedPhone', 'phone_registered' => Bool, 'phone_invited' => Bool, ];
+$auth_checkedPhone = ['_' => 'auth.checkedPhone', 'phone_registered' => Bool, 'phone_invited' => Bool];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "auth.checkedPhone", "phone_registered": Bool, "phone_invited": Bool}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-auth_checkedPhone={_='auth.checkedPhone', phone_registered=Bool, phone_invited=Bool, }
+auth_checkedPhone={_='auth.checkedPhone', phone_registered=Bool, phone_invited=Bool}
 
 ```
 

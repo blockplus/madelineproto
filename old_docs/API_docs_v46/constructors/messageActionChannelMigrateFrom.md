@@ -10,7 +10,7 @@ description: messageActionChannelMigrateFrom attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |title|[string](../types/string.md) | Yes|
 |chat\_id|[int](../types/int.md) | Yes|
 
@@ -22,14 +22,21 @@ description: messageActionChannelMigrateFrom attributes, type and example
 ### Example:
 
 ```
-$messageActionChannelMigrateFrom = ['_' => 'messageActionChannelMigrateFrom', 'title' => string, 'chat_id' => int, ];
+$messageActionChannelMigrateFrom = ['_' => 'messageActionChannelMigrateFrom', 'title' => 'string', 'chat_id' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageActionChannelMigrateFrom", "title": "string", "chat_id": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageActionChannelMigrateFrom={_='messageActionChannelMigrateFrom', title=string, chat_id=int, }
+messageActionChannelMigrateFrom={_='messageActionChannelMigrateFrom', title='string', chat_id=int}
 
 ```
 

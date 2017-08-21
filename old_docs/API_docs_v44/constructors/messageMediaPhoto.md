@@ -10,7 +10,7 @@ description: messageMediaPhoto attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |photo|[Photo](../types/Photo.md) | Yes|
 |caption|[string](../types/string.md) | Yes|
 
@@ -22,14 +22,21 @@ description: messageMediaPhoto attributes, type and example
 ### Example:
 
 ```
-$messageMediaPhoto = ['_' => 'messageMediaPhoto', 'photo' => Photo, 'caption' => string, ];
+$messageMediaPhoto = ['_' => 'messageMediaPhoto', 'photo' => Photo, 'caption' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageMediaPhoto", "photo": Photo, "caption": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageMediaPhoto={_='messageMediaPhoto', photo=Photo, caption=string, }
+messageMediaPhoto={_='messageMediaPhoto', photo=Photo, caption='string'}
 
 ```
 

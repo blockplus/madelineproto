@@ -10,7 +10,7 @@ description: updateChannelMessageViews attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |channel\_id|[int](../types/int.md) | Yes|
 |id|[int](../types/int.md) | Yes|
 |views|[int](../types/int.md) | Yes|
@@ -23,14 +23,21 @@ description: updateChannelMessageViews attributes, type and example
 ### Example:
 
 ```
-$updateChannelMessageViews = ['_' => 'updateChannelMessageViews', 'channel_id' => int, 'id' => int, 'views' => int, ];
+$updateChannelMessageViews = ['_' => 'updateChannelMessageViews', 'channel_id' => int, 'id' => int, 'views' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateChannelMessageViews", "channel_id": int, "id": int, "views": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateChannelMessageViews={_='updateChannelMessageViews', channel_id=int, id=int, views=int, }
+updateChannelMessageViews={_='updateChannelMessageViews', channel_id=int, id=int, views=int}
 
 ```
 

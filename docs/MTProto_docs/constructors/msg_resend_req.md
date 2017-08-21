@@ -10,7 +10,7 @@ description: msg_resend_req attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |msg\_ids|Array of [long](../types/long.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: msg_resend_req attributes, type and example
 ### Example:
 
 ```
-$msg_resend_req = ['_' => 'msg_resend_req', 'msg_ids' => [long], ];
+$msg_resend_req = ['_' => 'msg_resend_req', 'msg_ids' => [long]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "msg_resend_req", "msg_ids": [long]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-msg_resend_req={_='msg_resend_req', msg_ids={long}, }
+msg_resend_req={_='msg_resend_req', msg_ids={long}}
 
 ```
 

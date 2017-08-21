@@ -10,7 +10,7 @@ description: wallPaper attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[int](../types/int.md) | Yes|
 |title|[string](../types/string.md) | Yes|
 |sizes|Array of [PhotoSize](../types/PhotoSize.md) | Yes|
@@ -24,14 +24,21 @@ description: wallPaper attributes, type and example
 ### Example:
 
 ```
-$wallPaper = ['_' => 'wallPaper', 'id' => int, 'title' => string, 'sizes' => [PhotoSize], 'color' => int, ];
+$wallPaper = ['_' => 'wallPaper', 'id' => int, 'title' => 'string', 'sizes' => [PhotoSize], 'color' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "wallPaper", "id": int, "title": "string", "sizes": [PhotoSize], "color": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-wallPaper={_='wallPaper', id=int, title=string, sizes={PhotoSize}, color=int, }
+wallPaper={_='wallPaper', id=int, title='string', sizes={PhotoSize}, color=int}
 
 ```
 

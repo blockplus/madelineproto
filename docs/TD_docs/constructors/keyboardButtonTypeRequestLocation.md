@@ -12,7 +12,7 @@ A button which sends user location when pressed, available only in private chats
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ A button which sends user location when pressed, available only in private chats
 ### Example:
 
 ```
-$keyboardButtonTypeRequestLocation = ['_' => 'keyboardButtonTypeRequestLocation', ];
+$keyboardButtonTypeRequestLocation = ['_' => 'keyboardButtonTypeRequestLocation'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "keyboardButtonTypeRequestLocation"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-keyboardButtonTypeRequestLocation={_='keyboardButtonTypeRequestLocation', }
+keyboardButtonTypeRequestLocation={_='keyboardButtonTypeRequestLocation'}
 
 ```
 

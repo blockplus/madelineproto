@@ -6,12 +6,15 @@ description: Returns value of an option by its name. See list of available optio
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Returns value of an option by its name. See list of available options on https: core.telegram.org/tdlib/options
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |name|[string](../types/string.md) | Yes|Name of the option|
 
 
@@ -23,7 +26,7 @@ Returns value of an option by its name. See list of available options on https: 
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -35,12 +38,36 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$OptionValue = $MadelineProto->getOption(['name' => string, ]);
+$OptionValue = $MadelineProto->getOption(['name' => 'string', ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - getOption
+* params - `{"name": "string", }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/getOption`
+
+Parameters:
+
+name - Json encoded string
+
+
+
 
 Or, if you're into Lua:
 
 ```
-OptionValue = getOption({name=string, })
+OptionValue = getOption({name='string', })
 ```
 

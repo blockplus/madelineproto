@@ -10,7 +10,7 @@ description: contactStatus attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |user\_id|[int](../types/int.md) | Yes|
 |status|[UserStatus](../types/UserStatus.md) | Yes|
 
@@ -22,14 +22,21 @@ description: contactStatus attributes, type and example
 ### Example:
 
 ```
-$contactStatus = ['_' => 'contactStatus', 'user_id' => int, 'status' => UserStatus, ];
+$contactStatus = ['_' => 'contactStatus', 'user_id' => int, 'status' => UserStatus];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "contactStatus", "user_id": int, "status": UserStatus}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-contactStatus={_='contactStatus', user_id=int, status=UserStatus, }
+contactStatus={_='contactStatus', user_id=int, status=UserStatus}
 
 ```
 

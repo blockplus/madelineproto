@@ -6,12 +6,15 @@ description: Terminates another session of logged in user
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Terminates another session of logged in user
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |session\_id|[long](../types/long.md) | Yes|Session identifier|
 
 
@@ -23,7 +26,7 @@ Terminates another session of logged in user
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,6 +40,30 @@ if (isset($number)) { // Login as a user
 
 $Ok = $MadelineProto->terminateSession(['session_id' => long, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - terminateSession
+* params - `{"session_id": long, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/terminateSession`
+
+Parameters:
+
+session_id - Json encoded long
+
+
+
 
 Or, if you're into Lua:
 

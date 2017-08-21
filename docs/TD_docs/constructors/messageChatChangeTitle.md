@@ -12,7 +12,7 @@ Chat title changed
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |title|[string](../types/string.md) | Yes|New chat title|
 
 
@@ -23,14 +23,21 @@ Chat title changed
 ### Example:
 
 ```
-$messageChatChangeTitle = ['_' => 'messageChatChangeTitle', 'title' => string, ];
+$messageChatChangeTitle = ['_' => 'messageChatChangeTitle', 'title' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageChatChangeTitle", "title": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageChatChangeTitle={_='messageChatChangeTitle', title=string, }
+messageChatChangeTitle={_='messageChatChangeTitle', title='string'}
 
 ```
 

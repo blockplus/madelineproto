@@ -25,6 +25,16 @@ class DataCenter extends \Volatile
     public $dclist = [];
     public $settings = [];
 
+    /*
+        public $i = [];
+        public function __get($name) {
+            echo "GETTING $name\n";
+            if (isset($this->i[$name]) && $this->{$name} === null) var_dump($this->i[$name]);
+            if ($this->{$name} instanceof \Volatile) $this->i[$name] = debug_backtrace(0);
+    var_dump(is_null($this->{$name}));
+            return $this->{$name};
+        }
+    */
     public function __sleep()
     {
         return ['sockets', 'curdc', 'dclist', 'settings'];
@@ -34,8 +44,14 @@ class DataCenter extends \Volatile
     {
         $this->dclist = $dclist;
         $this->settings = $settings;
-        foreach ($this->sockets as $socket) {
-            $socket->close_and_reopen();
+        foreach ($this->sockets as $key => $socket) {
+            if ($socket instanceof Connection) {
+                \danog\MadelineProto\Logger::log(['Connecting to DC '.$key.'...'], \danog\MadelineProto\Logger::VERBOSE);
+                $socket->old = true;
+                $socket->close_and_reopen();
+            } else {
+                unset($this->sockets[$key]);
+            }
         }
     }
 
@@ -53,14 +69,14 @@ class DataCenter extends \Volatile
     public function dc_connect($dc_number)
     {
         $this->curdc = $dc_number;
-        if (isset($this->sockets[$dc_number])) {
+        if (isset($this->sockets[$dc_number]) && !isset($this->sockets[$dc_number]->old)) {
             return false;
         }
         $dc_config_number = isset($this->settings[$dc_number]) ? $dc_number : 'all';
         $test = $this->settings[$dc_config_number]['test_mode'] ? 'test' : 'main';
         $ipv6 = $this->settings[$dc_config_number]['ipv6'] ? 'ipv6' : 'ipv4';
         $address = $this->dclist[$test][$ipv6][$dc_number]['ip_address'];
-        $address = $this->settings[$dc_config_number]['ipv6'] ? '['.$address.']' : $address;
+        //$address = $this->settings[$dc_config_number]['ipv6'] ? '['.$address.']' : $address;
         $port = $this->dclist[$test][$ipv6][$dc_number]['port'];
         if ($this->settings[$dc_config_number]['protocol'] === 'https') {
             $subdomain = $this->dclist['ssl_subdomains'][$dc_number];
@@ -74,7 +90,12 @@ class DataCenter extends \Volatile
         }
         \danog\MadelineProto\Logger::log(['Connecting to DC '.$dc_number.' ('.$test.' server, '.$ipv6.', '.$this->settings[$dc_config_number]['protocol'].')...'], \danog\MadelineProto\Logger::VERBOSE);
 
-        $this->sockets[$dc_number] = new Connection($address, $port, $this->settings[$dc_config_number]['protocol'], $this->settings[$dc_config_number]['timeout'], $this->settings[$dc_config_number]['ipv6']);
+        if (isset($this->sockets[$dc_number]->old)) {
+            $this->sockets[$dc_number]->__construct($this->settings[$dc_config_number]['proxy'], $this->settings[$dc_config_number]['proxy_extra'], $address, $port, $this->settings[$dc_config_number]['protocol'], $this->settings[$dc_config_number]['timeout'], $this->settings[$dc_config_number]['ipv6']);
+            unset($this->sockets[$dc_number]->old);
+        } else {
+            $this->sockets[$dc_number] = new Connection($this->settings[$dc_config_number]['proxy'], $this->settings[$dc_config_number]['proxy_extra'], $address, $port, $this->settings[$dc_config_number]['protocol'], $this->settings[$dc_config_number]['timeout'], $this->settings[$dc_config_number]['ipv6']);
+        }
 
         return true;
     }

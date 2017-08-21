@@ -10,7 +10,7 @@ description: messages_savedGifs attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |hash|[int](../types/int.md) | Yes|
 |gifs|Array of [Document](../types/Document.md) | Yes|
 
@@ -22,14 +22,21 @@ description: messages_savedGifs attributes, type and example
 ### Example:
 
 ```
-$messages_savedGifs = ['_' => 'messages.savedGifs', 'hash' => int, 'gifs' => [Document], ];
+$messages_savedGifs = ['_' => 'messages.savedGifs', 'hash' => int, 'gifs' => [Document]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messages.savedGifs", "hash": int, "gifs": [Document]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messages_savedGifs={_='messages.savedGifs', hash=int, gifs={Document}, }
+messages_savedGifs={_='messages.savedGifs', hash=int, gifs={Document}}
 
 ```
 

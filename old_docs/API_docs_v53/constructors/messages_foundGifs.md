@@ -10,7 +10,7 @@ description: messages_foundGifs attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |next\_offset|[int](../types/int.md) | Yes|
 |results|Array of [FoundGif](../types/FoundGif.md) | Yes|
 
@@ -22,14 +22,21 @@ description: messages_foundGifs attributes, type and example
 ### Example:
 
 ```
-$messages_foundGifs = ['_' => 'messages.foundGifs', 'next_offset' => int, 'results' => [FoundGif], ];
+$messages_foundGifs = ['_' => 'messages.foundGifs', 'next_offset' => int, 'results' => [FoundGif]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messages.foundGifs", "next_offset": int, "results": [FoundGif]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messages_foundGifs={_='messages.foundGifs', next_offset=int, results={FoundGif}, }
+messages_foundGifs={_='messages.foundGifs', next_offset=int, results={FoundGif}}
 
 ```
 

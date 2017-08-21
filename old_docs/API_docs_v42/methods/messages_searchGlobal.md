@@ -9,7 +9,7 @@ description: messages.searchGlobal parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |q|[string](../types/string.md) | Yes|
 |offset\_date|[int](../types/int.md) | Yes|
 |offset\_peer|[InputPeer](../types/InputPeer.md) | Yes|
@@ -25,7 +25,7 @@ description: messages.searchGlobal parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,12 +37,44 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$messages_Messages = $MadelineProto->messages->searchGlobal(['q' => string, 'offset_date' => int, 'offset_peer' => InputPeer, 'offset_id' => int, 'limit' => int, ]);
+$messages_Messages = $MadelineProto->messages->searchGlobal(['q' => 'string', 'offset_date' => int, 'offset_peer' => InputPeer, 'offset_id' => int, 'limit' => int, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - messages.searchGlobal
+* params - `{"q": "string", "offset_date": int, "offset_peer": InputPeer, "offset_id": int, "limit": int, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/messages.searchGlobal`
+
+Parameters:
+
+q - Json encoded string
+
+offset_date - Json encoded int
+
+offset_peer - Json encoded InputPeer
+
+offset_id - Json encoded int
+
+limit - Json encoded int
+
+
+
 
 Or, if you're into Lua:
 
 ```
-messages_Messages = messages.searchGlobal({q=string, offset_date=int, offset_peer=InputPeer, offset_id=int, limit=int, })
+messages_Messages = messages.searchGlobal({q='string', offset_date=int, offset_peer=InputPeer, offset_id=int, limit=int, })
 ```
 

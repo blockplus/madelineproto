@@ -6,12 +6,15 @@ description: Returns emojis corresponding to a sticker
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Returns emojis corresponding to a sticker
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |sticker|[InputFile](../types/InputFile.md) | Yes|Sticker file identifier|
 
 
@@ -23,7 +26,7 @@ Returns emojis corresponding to a sticker
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,6 +40,30 @@ if (isset($number)) { // Login as a user
 
 $StickerEmojis = $MadelineProto->getStickerEmojis(['sticker' => InputFile, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - getStickerEmojis
+* params - `{"sticker": InputFile, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/getStickerEmojis`
+
+Parameters:
+
+sticker - Json encoded InputFile
+
+
+
 
 Or, if you're into Lua:
 

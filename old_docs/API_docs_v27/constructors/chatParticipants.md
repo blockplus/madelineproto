@@ -10,7 +10,7 @@ description: chatParticipants attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |chat\_id|[int](../types/int.md) | Yes|
 |admin\_id|[int](../types/int.md) | Yes|
 |participants|Array of [ChatParticipant](../types/ChatParticipant.md) | Yes|
@@ -24,14 +24,21 @@ description: chatParticipants attributes, type and example
 ### Example:
 
 ```
-$chatParticipants = ['_' => 'chatParticipants', 'chat_id' => int, 'admin_id' => int, 'participants' => [ChatParticipant], 'version' => int, ];
+$chatParticipants = ['_' => 'chatParticipants', 'chat_id' => int, 'admin_id' => int, 'participants' => [ChatParticipant], 'version' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "chatParticipants", "chat_id": int, "admin_id": int, "participants": [ChatParticipant], "version": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-chatParticipants={_='chatParticipants', chat_id=int, admin_id=int, participants={ChatParticipant}, version=int, }
+chatParticipants={_='chatParticipants', chat_id=int, admin_id=int, participants={ChatParticipant}, version=int}
 
 ```
 

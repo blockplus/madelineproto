@@ -38,12 +38,12 @@ class RSA extends \Volatile
             sha1(
                 $this->serialize_object(
                     ['type' => 'bytes'],
-                    $this->n->toBytes()
+                    $this->n->toBytes(), 'key'
                 )
                 .
                 $this->serialize_object(
                     ['type' => 'bytes'],
-                    $this->e->toBytes()
+                    $this->e->toBytes(), 'key'
                 ),
                 true
             ),
@@ -51,6 +51,11 @@ class RSA extends \Volatile
         );
 
         return true;
+    }
+
+    public function __sleep()
+    {
+        return ['e', 'n', 'fp'];
     }
 
     public function encrypt($data)

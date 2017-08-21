@@ -16,14 +16,21 @@ description: privacyValueAllowAll attributes, type and example
 ### Example:
 
 ```
-$privacyValueAllowAll = ['_' => 'privacyValueAllowAll', ];
+$privacyValueAllowAll = ['_' => 'privacyValueAllowAll'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "privacyValueAllowAll"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-privacyValueAllowAll={_='privacyValueAllowAll', }
+privacyValueAllowAll={_='privacyValueAllowAll'}
 
 ```
 

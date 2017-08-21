@@ -10,7 +10,7 @@ description: chat attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[int](../types/int.md) | Yes|
 |title|[string](../types/string.md) | Yes|
 |photo|[ChatPhoto](../types/ChatPhoto.md) | Yes|
@@ -27,14 +27,21 @@ description: chat attributes, type and example
 ### Example:
 
 ```
-$chat = ['_' => 'chat', 'id' => int, 'title' => string, 'photo' => ChatPhoto, 'participants_count' => int, 'date' => int, 'left' => Bool, 'version' => int, ];
+$chat = ['_' => 'chat', 'id' => int, 'title' => 'string', 'photo' => ChatPhoto, 'participants_count' => int, 'date' => int, 'left' => Bool, 'version' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "chat", "id": int, "title": "string", "photo": ChatPhoto, "participants_count": int, "date": int, "left": Bool, "version": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-chat={_='chat', id=int, title=string, photo=ChatPhoto, participants_count=int, date=int, left=Bool, version=int, }
+chat={_='chat', id=int, title='string', photo=ChatPhoto, participants_count=int, date=int, left=Bool, version=int}
 
 ```
 

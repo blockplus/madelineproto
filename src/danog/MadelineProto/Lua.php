@@ -25,9 +25,7 @@ class Lua
             throw new Exception('Provided script does not exist');
         }
         $this->MadelineProto = $MadelineProto;
-        $settings = $this->MadelineProto->get_settings();
-        $settings['updates']['handle_updates'] = true;
-        $this->MadelineProto->parse_settings($settings);
+        $this->MadelineProto->settings['updates']['handle_updates'] = true;
         $this->script = $script;
         $this->__wakeup();
     }
@@ -43,16 +41,25 @@ class Lua
         $this->madelineproto_lua = 1;
         $this->Lua->registerCallback('tdcli_function', [$this, 'tdcli_function']);
         $this->Lua->registerCallback('madeline_function', [$this, 'madeline_function']);
-        $this->Lua->registerCallback('var_dump', 'var_dump');
         foreach (get_class_methods($this->MadelineProto->API) as $method) {
             $this->Lua->registerCallback($method, [$this->MadelineProto->API, $method]);
         }
         $methods = [];
-        foreach ($this->MadelineProto->API->methods->method_namespace as $method => $namespace) {
+        foreach ($this->MadelineProto->get_methods_namespaced() as $method => $namespace) {
+            if ($namespace === 'upload') {
+                continue;
+            }
             $methods[$namespace][$method] = [$this->MadelineProto->{$namespace}, $method];
         }
         foreach ($this->MadelineProto->get_method_namespaces() as $namespace) {
+            if ($namespace === 'upload') {
+                continue;
+            }
             $this->{$namespace} = $methods[$namespace];
+        }
+        $this->MadelineProto->lua = true;
+        foreach ($this->MadelineProto->get_methods_namespaced() as $method => $namespace) {
+            $this->MadelineProto->{$namespace}->lua = true;
         }
     }
 
@@ -76,6 +83,7 @@ class Lua
         if (is_callable($cb)) {
             $cb($result, $cb_extra);
         }
+        self::convert_objects($result);
 
         return $result;
     }
@@ -117,11 +125,51 @@ class Lua
 
     public function __call($name, $params)
     {
-        return $this->Lua->{$name}(...$params);
+        self::convert_objects($params);
+
+        try {
+            return $this->Lua->{$name}(...$params);
+        } catch (\danog\MadelineProto\RPCErrorException $e) {
+            return ['error_code' => $e->getCode(), 'error' => $e->getMessage()];
+        } catch (\danog\MadelineProto\Exception $e) {
+            return ['error_code' => $e->getCode(), 'error' => $e->getMessage()];
+        } catch (\danog\MadelineProto\TL\Exception $e) {
+            return ['error_code' => $e->getCode(), 'error' => $e->getMessage()];
+        } catch (\danog\MadelineProto\NothingInTheSocketException $e) {
+            return ['error_code' => $e->getCode(), 'error' => $e->getMessage()];
+        } catch (\danog\MadelineProto\PTSException $e) {
+            return ['error_code' => $e->getCode(), 'error' => $e->getMessage()];
+        } catch (\danog\MadelineProto\SecurityException $e) {
+            return ['error_code' => $e->getCode(), 'error' => $e->getMessage()];
+        } catch (\danog\MadelineProto\TL\Conversion\Exception $e) {
+            return ['error_code' => $e->getCode(), 'error' => $e->getMessage()];
+        }
     }
 
     public function __set($name, $value)
     {
         return $this->Lua->{$name} = $value;
+    }
+
+    public static function convert_objects(&$data)
+    {
+        array_walk_recursive($data, function (&$value, $key) {
+            if (is_object($value)) {
+                $newval = [];
+                foreach (get_class_methods($value) as $name) {
+                    $newval[$name] = [$value, $name];
+                }
+                foreach ($value as $key => $name) {
+                    if ($key === 'madeline') {
+                        continue;
+                    }
+                    $newval[$key] = $name;
+                }
+                if ($newval === []) {
+                    $newval = $value->__toString();
+                }
+                $value = $newval;
+            }
+        });
     }
 }

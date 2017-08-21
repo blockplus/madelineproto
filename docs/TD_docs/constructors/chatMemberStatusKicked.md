@@ -12,7 +12,7 @@ User was kicked from the chat (and obviously is not a chat member)
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ User was kicked from the chat (and obviously is not a chat member)
 ### Example:
 
 ```
-$chatMemberStatusKicked = ['_' => 'chatMemberStatusKicked', ];
+$chatMemberStatusKicked = ['_' => 'chatMemberStatusKicked'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "chatMemberStatusKicked"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-chatMemberStatusKicked={_='chatMemberStatusKicked', }
+chatMemberStatusKicked={_='chatMemberStatusKicked'}
 
 ```
 

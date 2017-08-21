@@ -16,14 +16,21 @@ description: phoneCallDiscardReasonHangup attributes, type and example
 ### Example:
 
 ```
-$phoneCallDiscardReasonHangup = ['_' => 'phoneCallDiscardReasonHangup', ];
+$phoneCallDiscardReasonHangup = ['_' => 'phoneCallDiscardReasonHangup'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "phoneCallDiscardReasonHangup"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-phoneCallDiscardReasonHangup={_='phoneCallDiscardReasonHangup', }
+phoneCallDiscardReasonHangup={_='phoneCallDiscardReasonHangup'}
 
 ```
 

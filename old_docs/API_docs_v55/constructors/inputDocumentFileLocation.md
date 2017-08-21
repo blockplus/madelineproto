@@ -10,7 +10,7 @@ description: inputDocumentFileLocation attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[long](../types/long.md) | Yes|
 |access\_hash|[long](../types/long.md) | Yes|
 |version|[int](../types/int.md) | Yes|
@@ -23,14 +23,21 @@ description: inputDocumentFileLocation attributes, type and example
 ### Example:
 
 ```
-$inputDocumentFileLocation = ['_' => 'inputDocumentFileLocation', 'id' => long, 'access_hash' => long, 'version' => int, ];
+$inputDocumentFileLocation = ['_' => 'inputDocumentFileLocation', 'id' => long, 'access_hash' => long, 'version' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputDocumentFileLocation", "id": long, "access_hash": long, "version": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputDocumentFileLocation={_='inputDocumentFileLocation', id=long, access_hash=long, version=int, }
+inputDocumentFileLocation={_='inputDocumentFileLocation', id=long, access_hash=long, version=int}
 
 ```
 

@@ -10,7 +10,7 @@ description: inputPeerContact attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |user\_id|[int](../types/int.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: inputPeerContact attributes, type and example
 ### Example:
 
 ```
-$inputPeerContact = ['_' => 'inputPeerContact', 'user_id' => int, ];
+$inputPeerContact = ['_' => 'inputPeerContact', 'user_id' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputPeerContact", "user_id": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputPeerContact={_='inputPeerContact', user_id=int, }
+inputPeerContact={_='inputPeerContact', user_id=int}
 
 ```
 

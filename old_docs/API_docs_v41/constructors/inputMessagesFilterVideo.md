@@ -16,14 +16,21 @@ description: inputMessagesFilterVideo attributes, type and example
 ### Example:
 
 ```
-$inputMessagesFilterVideo = ['_' => 'inputMessagesFilterVideo', ];
+$inputMessagesFilterVideo = ['_' => 'inputMessagesFilterVideo'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputMessagesFilterVideo"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputMessagesFilterVideo={_='inputMessagesFilterVideo', }
+inputMessagesFilterVideo={_='inputMessagesFilterVideo'}
 
 ```
 

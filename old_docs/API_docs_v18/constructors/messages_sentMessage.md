@@ -10,7 +10,7 @@ description: messages_sentMessage attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[int](../types/int.md) | Yes|
 |date|[int](../types/int.md) | Yes|
 |pts|[int](../types/int.md) | Yes|
@@ -24,14 +24,21 @@ description: messages_sentMessage attributes, type and example
 ### Example:
 
 ```
-$messages_sentMessage = ['_' => 'messages.sentMessage', 'id' => int, 'date' => int, 'pts' => int, 'seq' => int, ];
+$messages_sentMessage = ['_' => 'messages.sentMessage', 'id' => int, 'date' => int, 'pts' => int, 'seq' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messages.sentMessage", "id": int, "date": int, "pts": int, "seq": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messages_sentMessage={_='messages.sentMessage', id=int, date=int, pts=int, seq=int, }
+messages_sentMessage={_='messages.sentMessage', id=int, date=int, pts=int, seq=int}
 
 ```
 

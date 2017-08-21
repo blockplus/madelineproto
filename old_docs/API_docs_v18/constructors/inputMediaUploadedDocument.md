@@ -10,7 +10,7 @@ description: inputMediaUploadedDocument attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |file|[InputFile](../types/InputFile.md) | Yes|
 |file\_name|[string](../types/string.md) | Yes|
 |mime\_type|[string](../types/string.md) | Yes|
@@ -23,14 +23,21 @@ description: inputMediaUploadedDocument attributes, type and example
 ### Example:
 
 ```
-$inputMediaUploadedDocument = ['_' => 'inputMediaUploadedDocument', 'file' => InputFile, 'file_name' => string, 'mime_type' => string, ];
+$inputMediaUploadedDocument = ['_' => 'inputMediaUploadedDocument', 'file' => InputFile, 'file_name' => 'string', 'mime_type' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputMediaUploadedDocument", "file": InputFile, "file_name": "string", "mime_type": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputMediaUploadedDocument={_='inputMediaUploadedDocument', file=InputFile, file_name=string, mime_type=string, }
+inputMediaUploadedDocument={_='inputMediaUploadedDocument', file=InputFile, file_name='string', mime_type='string'}
 
 ```
 

@@ -6,12 +6,15 @@ description: Stops file downloading. If file already downloaded do nothing.
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Stops file downloading. If file already downloaded do nothing.
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |file\_id|[int](../types/int.md) | Yes|Identifier of file to cancel download|
 
 
@@ -23,7 +26,7 @@ Stops file downloading. If file already downloaded do nothing.
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,6 +40,30 @@ if (isset($number)) { // Login as a user
 
 $Ok = $MadelineProto->cancelDownloadFile(['file_id' => int, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - cancelDownloadFile
+* params - `{"file_id": int, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/cancelDownloadFile`
+
+Parameters:
+
+file_id - Json encoded int
+
+
+
 
 Or, if you're into Lua:
 

@@ -16,14 +16,21 @@ description: userStatusLastMonth attributes, type and example
 ### Example:
 
 ```
-$userStatusLastMonth = ['_' => 'userStatusLastMonth', ];
+$userStatusLastMonth = ['_' => 'userStatusLastMonth'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "userStatusLastMonth"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-userStatusLastMonth={_='userStatusLastMonth', }
+userStatusLastMonth={_='userStatusLastMonth'}
 
 ```
 

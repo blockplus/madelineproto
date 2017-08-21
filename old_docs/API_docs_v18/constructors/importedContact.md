@@ -10,7 +10,7 @@ description: importedContact attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |user\_id|[int](../types/int.md) | Yes|
 |client\_id|[long](../types/long.md) | Yes|
 
@@ -22,14 +22,21 @@ description: importedContact attributes, type and example
 ### Example:
 
 ```
-$importedContact = ['_' => 'importedContact', 'user_id' => int, 'client_id' => long, ];
+$importedContact = ['_' => 'importedContact', 'user_id' => int, 'client_id' => long];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "importedContact", "user_id": int, "client_id": long}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-importedContact={_='importedContact', user_id=int, client_id=long, }
+importedContact={_='importedContact', user_id=int, client_id=long}
 
 ```
 

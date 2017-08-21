@@ -10,7 +10,7 @@ description: inputChat attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |chat\_id|[int](../types/int.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: inputChat attributes, type and example
 ### Example:
 
 ```
-$inputChat = ['_' => 'inputChat', 'chat_id' => int, ];
+$inputChat = ['_' => 'inputChat', 'chat_id' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputChat", "chat_id": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputChat={_='inputChat', chat_id=int, }
+inputChat={_='inputChat', chat_id=int}
 
 ```
 

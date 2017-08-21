@@ -6,12 +6,15 @@ description: Returns list of recently used stickers
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Returns list of recently used stickers
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |is\_attached|[Bool](../types/Bool.md) | Yes|Pass true to return stickers and masks recently attached to photo or video files, pass false to return recently sent stickers|
 
 
@@ -23,7 +26,7 @@ Returns list of recently used stickers
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,6 +40,30 @@ if (isset($number)) { // Login as a user
 
 $Stickers = $MadelineProto->getRecentStickers(['is_attached' => Bool, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - getRecentStickers
+* params - `{"is_attached": Bool, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/getRecentStickers`
+
+Parameters:
+
+is_attached - Json encoded Bool
+
+
+
 
 Or, if you're into Lua:
 

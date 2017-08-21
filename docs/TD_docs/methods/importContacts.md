@@ -6,12 +6,15 @@ description: Adds new contacts/edits existing contacts, contacts user identifier
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Adds new contacts/edits existing contacts, contacts user identifiers are ignored. Returns list of corresponding users in the same order as input contacts. If contact doesn't registered in Telegram, user with id == 0 will be returned
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |contacts|Array of [contact](../types/contact.md) | Yes|List of contacts to import/edit|
 
 
@@ -23,7 +26,7 @@ Adds new contacts/edits existing contacts, contacts user identifiers are ignored
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,6 +40,30 @@ if (isset($number)) { // Login as a user
 
 $Users = $MadelineProto->importContacts(['contacts' => [contact], ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - importContacts
+* params - `{"contacts": [contact], }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/importContacts`
+
+Parameters:
+
+contacts - Json encoded  array of contact
+
+
+
 
 Or, if you're into Lua:
 

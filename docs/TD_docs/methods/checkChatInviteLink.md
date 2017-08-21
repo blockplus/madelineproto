@@ -6,12 +6,15 @@ description: Checks chat invite link for validness and returns information about
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Checks chat invite link for validness and returns information about the corresponding chat
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |invite\_link|[string](../types/string.md) | Yes|Invite link to check. Should begin with "https: telegram.me/joinchat/"|
 
 
@@ -23,7 +26,7 @@ Checks chat invite link for validness and returns information about the correspo
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -35,12 +38,36 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$ChatInviteLinkInfo = $MadelineProto->checkChatInviteLink(['invite_link' => string, ]);
+$ChatInviteLinkInfo = $MadelineProto->checkChatInviteLink(['invite_link' => 'string', ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - checkChatInviteLink
+* params - `{"invite_link": "string", }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/checkChatInviteLink`
+
+Parameters:
+
+invite_link - Json encoded string
+
+
+
 
 Or, if you're into Lua:
 
 ```
-ChatInviteLinkInfo = checkChatInviteLink({invite_link=string, })
+ChatInviteLinkInfo = checkChatInviteLink({invite_link='string', })
 ```
 

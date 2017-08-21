@@ -10,7 +10,7 @@ description: pagePart attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |blocks|Array of [PageBlock](../types/PageBlock.md) | Yes|
 |photos|Array of [Photo](../types/Photo.md) | Yes|
 |videos|Array of [Document](../types/Document.md) | Yes|
@@ -23,14 +23,21 @@ description: pagePart attributes, type and example
 ### Example:
 
 ```
-$pagePart = ['_' => 'pagePart', 'blocks' => [PageBlock], 'photos' => [Photo], 'videos' => [Document], ];
+$pagePart = ['_' => 'pagePart', 'blocks' => [PageBlock], 'photos' => [Photo], 'videos' => [Document]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "pagePart", "blocks": [PageBlock], "photos": [Photo], "videos": [Document]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-pagePart={_='pagePart', blocks={PageBlock}, photos={Photo}, videos={Document}, }
+pagePart={_='pagePart', blocks={PageBlock}, photos={Photo}, videos={Document}}
 
 ```
 

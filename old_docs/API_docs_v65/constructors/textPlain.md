@@ -10,7 +10,7 @@ description: textPlain attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |text|[string](../types/string.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: textPlain attributes, type and example
 ### Example:
 
 ```
-$textPlain = ['_' => 'textPlain', 'text' => string, ];
+$textPlain = ['_' => 'textPlain', 'text' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "textPlain", "text": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-textPlain={_='textPlain', text=string, }
+textPlain={_='textPlain', text='string'}
 
 ```
 

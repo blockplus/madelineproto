@@ -10,7 +10,7 @@ description: auth_authorization attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |tmp\_sessions|[int](../types/int.md) | Optional|
 |user|[User](../types/User.md) | Yes|
 
@@ -22,14 +22,21 @@ description: auth_authorization attributes, type and example
 ### Example:
 
 ```
-$auth_authorization = ['_' => 'auth.authorization', 'tmp_sessions' => int, 'user' => User, ];
+$auth_authorization = ['_' => 'auth.authorization', 'tmp_sessions' => int, 'user' => User];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "auth.authorization", "tmp_sessions": int, "user": User}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-auth_authorization={_='auth.authorization', tmp_sessions=int, user=User, }
+auth_authorization={_='auth.authorization', tmp_sessions=int, user=User}
 
 ```
 

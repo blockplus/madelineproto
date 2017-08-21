@@ -10,7 +10,7 @@ description: replyKeyboardHide attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |selective|[Bool](../types/Bool.md) | Optional|
 
 
@@ -21,14 +21,21 @@ description: replyKeyboardHide attributes, type and example
 ### Example:
 
 ```
-$replyKeyboardHide = ['_' => 'replyKeyboardHide', 'selective' => Bool, ];
+$replyKeyboardHide = ['_' => 'replyKeyboardHide', 'selective' => Bool];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "replyKeyboardHide", "selective": Bool}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-replyKeyboardHide={_='replyKeyboardHide', selective=Bool, }
+replyKeyboardHide={_='replyKeyboardHide', selective=Bool}
 
 ```
 

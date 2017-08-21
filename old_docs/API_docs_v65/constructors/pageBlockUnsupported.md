@@ -16,14 +16,21 @@ description: pageBlockUnsupported attributes, type and example
 ### Example:
 
 ```
-$pageBlockUnsupported = ['_' => 'pageBlockUnsupported', ];
+$pageBlockUnsupported = ['_' => 'pageBlockUnsupported'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "pageBlockUnsupported"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-pageBlockUnsupported={_='pageBlockUnsupported', }
+pageBlockUnsupported={_='pageBlockUnsupported'}
 
 ```
 

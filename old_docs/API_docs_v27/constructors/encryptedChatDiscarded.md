@@ -10,7 +10,7 @@ description: encryptedChatDiscarded attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[int](../types/int.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: encryptedChatDiscarded attributes, type and example
 ### Example:
 
 ```
-$encryptedChatDiscarded = ['_' => 'encryptedChatDiscarded', 'id' => int, ];
+$encryptedChatDiscarded = ['_' => 'encryptedChatDiscarded', 'id' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "encryptedChatDiscarded", "id": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-encryptedChatDiscarded={_='encryptedChatDiscarded', id=int, }
+encryptedChatDiscarded={_='encryptedChatDiscarded', id=int}
 
 ```
 

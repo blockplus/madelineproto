@@ -6,12 +6,15 @@ description: Returns Ok after specified amount of the time passed
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Returns Ok after specified amount of the time passed
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |seconds|[double](../types/double.md) | Yes|Number of seconds before that function returns|
 
 
@@ -23,7 +26,7 @@ Returns Ok after specified amount of the time passed
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,6 +40,30 @@ if (isset($number)) { // Login as a user
 
 $Ok = $MadelineProto->setAlarm(['seconds' => double, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - setAlarm
+* params - `{"seconds": double, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/setAlarm`
+
+Parameters:
+
+seconds - Json encoded double
+
+
+
 
 Or, if you're into Lua:
 

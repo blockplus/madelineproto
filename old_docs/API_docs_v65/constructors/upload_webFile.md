@@ -10,7 +10,7 @@ description: upload_webFile attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |size|[int](../types/int.md) | Yes|
 |mime\_type|[string](../types/string.md) | Yes|
 |file\_type|[storage\_FileType](../types/storage_FileType.md) | Yes|
@@ -25,14 +25,21 @@ description: upload_webFile attributes, type and example
 ### Example:
 
 ```
-$upload_webFile = ['_' => 'upload.webFile', 'size' => int, 'mime_type' => string, 'file_type' => storage_FileType, 'mtime' => int, 'bytes' => bytes, ];
+$upload_webFile = ['_' => 'upload.webFile', 'size' => int, 'mime_type' => 'string', 'file_type' => storage_FileType, 'mtime' => int, 'bytes' => 'bytes'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "upload.webFile", "size": int, "mime_type": "string", "file_type": storage_FileType, "mtime": int, "bytes": "bytes"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-upload_webFile={_='upload.webFile', size=int, mime_type=string, file_type=storage_FileType, mtime=int, bytes=bytes, }
+upload_webFile={_='upload.webFile', size=int, mime_type='string', file_type=storage_FileType, mtime=int, bytes='bytes'}
 
 ```
 

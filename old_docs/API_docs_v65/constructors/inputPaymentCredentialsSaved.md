@@ -10,7 +10,7 @@ description: inputPaymentCredentialsSaved attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[string](../types/string.md) | Yes|
 |tmp\_password|[bytes](../types/bytes.md) | Yes|
 
@@ -22,14 +22,21 @@ description: inputPaymentCredentialsSaved attributes, type and example
 ### Example:
 
 ```
-$inputPaymentCredentialsSaved = ['_' => 'inputPaymentCredentialsSaved', 'id' => string, 'tmp_password' => bytes, ];
+$inputPaymentCredentialsSaved = ['_' => 'inputPaymentCredentialsSaved', 'id' => 'string', 'tmp_password' => 'bytes'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputPaymentCredentialsSaved", "id": "string", "tmp_password": "bytes"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputPaymentCredentialsSaved={_='inputPaymentCredentialsSaved', id=string, tmp_password=bytes, }
+inputPaymentCredentialsSaved={_='inputPaymentCredentialsSaved', id='string', tmp_password='bytes'}
 
 ```
 

@@ -10,7 +10,7 @@ description: channelParticipantKicked attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |user\_id|[int](../types/int.md) | Yes|
 |kicked\_by|[int](../types/int.md) | Yes|
 |date|[int](../types/int.md) | Yes|
@@ -23,14 +23,21 @@ description: channelParticipantKicked attributes, type and example
 ### Example:
 
 ```
-$channelParticipantKicked = ['_' => 'channelParticipantKicked', 'user_id' => int, 'kicked_by' => int, 'date' => int, ];
+$channelParticipantKicked = ['_' => 'channelParticipantKicked', 'user_id' => int, 'kicked_by' => int, 'date' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "channelParticipantKicked", "user_id": int, "kicked_by": int, "date": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-channelParticipantKicked={_='channelParticipantKicked', user_id=int, kicked_by=int, date=int, }
+channelParticipantKicked={_='channelParticipantKicked', user_id=int, kicked_by=int, date=int}
 
 ```
 

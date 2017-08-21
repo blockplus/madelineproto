@@ -10,7 +10,7 @@ description: channelForbidden attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |broadcast|[Bool](../types/Bool.md) | Optional|
 |megagroup|[Bool](../types/Bool.md) | Optional|
 |id|[int](../types/int.md) | Yes|
@@ -25,14 +25,21 @@ description: channelForbidden attributes, type and example
 ### Example:
 
 ```
-$channelForbidden = ['_' => 'channelForbidden', 'broadcast' => Bool, 'megagroup' => Bool, 'id' => int, 'access_hash' => long, 'title' => string, ];
+$channelForbidden = ['_' => 'channelForbidden', 'broadcast' => Bool, 'megagroup' => Bool, 'id' => int, 'access_hash' => long, 'title' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "channelForbidden", "broadcast": Bool, "megagroup": Bool, "id": int, "access_hash": long, "title": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-channelForbidden={_='channelForbidden', broadcast=Bool, megagroup=Bool, id=int, access_hash=long, title=string, }
+channelForbidden={_='channelForbidden', broadcast=Bool, megagroup=Bool, id=int, access_hash=long, title='string'}
 
 ```
 

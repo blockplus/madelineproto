@@ -9,7 +9,7 @@ description: payments.clearSavedInfo parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |credentials|[Bool](../types/Bool.md) | Optional|
 |info|[Bool](../types/Bool.md) | Optional|
 
@@ -22,7 +22,7 @@ description: payments.clearSavedInfo parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -36,6 +36,32 @@ if (isset($number)) { // Login as a user
 
 $Bool = $MadelineProto->payments->clearSavedInfo(['credentials' => Bool, 'info' => Bool, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - payments.clearSavedInfo
+* params - `{"credentials": Bool, "info": Bool, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/payments.clearSavedInfo`
+
+Parameters:
+
+credentials - Json encoded Bool
+
+info - Json encoded Bool
+
+
+
 
 Or, if you're into Lua:
 

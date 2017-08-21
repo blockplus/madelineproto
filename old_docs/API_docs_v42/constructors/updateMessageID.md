@@ -10,7 +10,7 @@ description: updateMessageID attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[int](../types/int.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: updateMessageID attributes, type and example
 ### Example:
 
 ```
-$updateMessageID = ['_' => 'updateMessageID', 'id' => int, ];
+$updateMessageID = ['_' => 'updateMessageID', 'id' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateMessageID", "id": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateMessageID={_='updateMessageID', id=int, }
+updateMessageID={_='updateMessageID', id=int}
 
 ```
 

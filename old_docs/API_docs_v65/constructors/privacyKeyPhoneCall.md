@@ -16,14 +16,21 @@ description: privacyKeyPhoneCall attributes, type and example
 ### Example:
 
 ```
-$privacyKeyPhoneCall = ['_' => 'privacyKeyPhoneCall', ];
+$privacyKeyPhoneCall = ['_' => 'privacyKeyPhoneCall'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "privacyKeyPhoneCall"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-privacyKeyPhoneCall={_='privacyKeyPhoneCall', }
+privacyKeyPhoneCall={_='privacyKeyPhoneCall'}
 
 ```
 

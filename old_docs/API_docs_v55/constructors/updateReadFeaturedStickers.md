@@ -16,14 +16,21 @@ description: updateReadFeaturedStickers attributes, type and example
 ### Example:
 
 ```
-$updateReadFeaturedStickers = ['_' => 'updateReadFeaturedStickers', ];
+$updateReadFeaturedStickers = ['_' => 'updateReadFeaturedStickers'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateReadFeaturedStickers"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateReadFeaturedStickers={_='updateReadFeaturedStickers', }
+updateReadFeaturedStickers={_='updateReadFeaturedStickers'}
 
 ```
 

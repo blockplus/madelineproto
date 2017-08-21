@@ -12,7 +12,7 @@ Animation message
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |animation|[animation](../types/animation.md) | Yes|Message content|
 |caption|[string](../types/string.md) | Yes|Animation caption|
 
@@ -24,14 +24,21 @@ Animation message
 ### Example:
 
 ```
-$messageAnimation = ['_' => 'messageAnimation', 'animation' => animation, 'caption' => string, ];
+$messageAnimation = ['_' => 'messageAnimation', 'animation' => animation, 'caption' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageAnimation", "animation": animation, "caption": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageAnimation={_='messageAnimation', animation=animation, caption=string, }
+messageAnimation={_='messageAnimation', animation=animation, caption='string'}
 
 ```
 

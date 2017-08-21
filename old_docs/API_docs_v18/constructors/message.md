@@ -10,7 +10,7 @@ description: message attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[int](../types/int.md) | Yes|
 |from\_id|[int](../types/int.md) | Yes|
 |to\_id|[Peer](../types/Peer.md) | Yes|
@@ -26,14 +26,21 @@ description: message attributes, type and example
 ### Example:
 
 ```
-$message = ['_' => 'message', 'id' => int, 'from_id' => int, 'to_id' => Peer, 'date' => int, 'message' => string, 'media' => MessageMedia, ];
+$message = ['_' => 'message', 'id' => int, 'from_id' => int, 'to_id' => Peer, 'date' => int, 'message' => 'string', 'media' => MessageMedia];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "message", "id": int, "from_id": int, "to_id": Peer, "date": int, "message": "string", "media": MessageMedia}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-message={_='message', id=int, from_id=int, to_id=Peer, date=int, message=string, media=MessageMedia, }
+message={_='message', id=int, from_id=int, to_id=Peer, date=int, message='string', media=MessageMedia}
 
 ```
 

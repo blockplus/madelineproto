@@ -10,7 +10,7 @@ description: payments_paymentReceipt attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |date|[int](../types/int.md) | Yes|
 |bot\_id|[int](../types/int.md) | Yes|
 |invoice|[Invoice](../types/Invoice.md) | Yes|
@@ -30,14 +30,21 @@ description: payments_paymentReceipt attributes, type and example
 ### Example:
 
 ```
-$payments_paymentReceipt = ['_' => 'payments.paymentReceipt', 'date' => int, 'bot_id' => int, 'invoice' => Invoice, 'provider_id' => int, 'info' => PaymentRequestedInfo, 'shipping' => ShippingOption, 'currency' => string, 'total_amount' => long, 'credentials_title' => string, 'users' => [User], ];
+$payments_paymentReceipt = ['_' => 'payments.paymentReceipt', 'date' => int, 'bot_id' => int, 'invoice' => Invoice, 'provider_id' => int, 'info' => PaymentRequestedInfo, 'shipping' => ShippingOption, 'currency' => 'string', 'total_amount' => long, 'credentials_title' => 'string', 'users' => [User]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "payments.paymentReceipt", "date": int, "bot_id": int, "invoice": Invoice, "provider_id": int, "info": PaymentRequestedInfo, "shipping": ShippingOption, "currency": "string", "total_amount": long, "credentials_title": "string", "users": [User]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-payments_paymentReceipt={_='payments.paymentReceipt', date=int, bot_id=int, invoice=Invoice, provider_id=int, info=PaymentRequestedInfo, shipping=ShippingOption, currency=string, total_amount=long, credentials_title=string, users={User}, }
+payments_paymentReceipt={_='payments.paymentReceipt', date=int, bot_id=int, invoice=Invoice, provider_id=int, info=PaymentRequestedInfo, shipping=ShippingOption, currency='string', total_amount=long, credentials_title='string', users={User}}
 
 ```
 

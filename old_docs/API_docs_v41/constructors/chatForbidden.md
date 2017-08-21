@@ -10,7 +10,7 @@ description: chatForbidden attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[int](../types/int.md) | Yes|
 |title|[string](../types/string.md) | Yes|
 
@@ -22,14 +22,21 @@ description: chatForbidden attributes, type and example
 ### Example:
 
 ```
-$chatForbidden = ['_' => 'chatForbidden', 'id' => int, 'title' => string, ];
+$chatForbidden = ['_' => 'chatForbidden', 'id' => int, 'title' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "chatForbidden", "id": int, "title": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-chatForbidden={_='chatForbidden', id=int, title=string, }
+chatForbidden={_='chatForbidden', id=int, title='string'}
 
 ```
 

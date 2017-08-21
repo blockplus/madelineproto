@@ -12,7 +12,7 @@ Describes web page preview
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |url|[string](../types/string.md) | Yes|Original URL of link|
 |display\_url|[string](../types/string.md) | Yes|URL to display|
 |type|[string](../types/string.md) | Yes|Type of web page: article, photo, audio, video, document, profile, app or something other|
@@ -41,14 +41,21 @@ Describes web page preview
 ### Example:
 
 ```
-$webPage = ['_' => 'webPage', 'url' => string, 'display_url' => string, 'type' => string, 'site_name' => string, 'title' => string, 'description' => string, 'photo' => photo, 'embed_url' => string, 'embed_type' => string, 'embed_width' => int, 'embed_height' => int, 'duration' => int, 'author' => string, 'animation' => animation, 'audio' => audio, 'document' => document, 'sticker' => sticker, 'video' => video, 'voice' => voice, ];
+$webPage = ['_' => 'webPage', 'url' => 'string', 'display_url' => 'string', 'type' => 'string', 'site_name' => 'string', 'title' => 'string', 'description' => 'string', 'photo' => photo, 'embed_url' => 'string', 'embed_type' => 'string', 'embed_width' => int, 'embed_height' => int, 'duration' => int, 'author' => 'string', 'animation' => animation, 'audio' => audio, 'document' => document, 'sticker' => sticker, 'video' => video, 'voice' => voice];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "webPage", "url": "string", "display_url": "string", "type": "string", "site_name": "string", "title": "string", "description": "string", "photo": photo, "embed_url": "string", "embed_type": "string", "embed_width": int, "embed_height": int, "duration": int, "author": "string", "animation": animation, "audio": audio, "document": document, "sticker": sticker, "video": video, "voice": voice}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-webPage={_='webPage', url=string, display_url=string, type=string, site_name=string, title=string, description=string, photo=photo, embed_url=string, embed_type=string, embed_width=int, embed_height=int, duration=int, author=string, animation=animation, audio=audio, document=document, sticker=sticker, video=video, voice=voice, }
+webPage={_='webPage', url='string', display_url='string', type='string', site_name='string', title='string', description='string', photo=photo, embed_url='string', embed_type='string', embed_width=int, embed_height=int, duration=int, author='string', animation=animation, audio=audio, document=document, sticker=sticker, video=video, voice=voice}
 
 ```
 

@@ -10,7 +10,7 @@ description: updateWebPage attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |webpage|[WebPage](../types/WebPage.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: updateWebPage attributes, type and example
 ### Example:
 
 ```
-$updateWebPage = ['_' => 'updateWebPage', 'webpage' => WebPage, ];
+$updateWebPage = ['_' => 'updateWebPage', 'webpage' => WebPage];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateWebPage", "webpage": WebPage}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateWebPage={_='updateWebPage', webpage=WebPage, }
+updateWebPage={_='updateWebPage', webpage=WebPage}
 
 ```
 

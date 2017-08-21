@@ -10,7 +10,7 @@ description: config attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |date|[int](../types/int.md) | Yes|
 |test\_mode|[Bool](../types/Bool.md) | Yes|
 |this\_dc|[int](../types/int.md) | Yes|
@@ -26,14 +26,21 @@ description: config attributes, type and example
 ### Example:
 
 ```
-$config = ['_' => 'config', 'date' => int, 'test_mode' => Bool, 'this_dc' => int, 'dc_options' => [DcOption], 'chat_size_max' => int, 'broadcast_size_max' => int, ];
+$config = ['_' => 'config', 'date' => int, 'test_mode' => Bool, 'this_dc' => int, 'dc_options' => [DcOption], 'chat_size_max' => int, 'broadcast_size_max' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "config", "date": int, "test_mode": Bool, "this_dc": int, "dc_options": [DcOption], "chat_size_max": int, "broadcast_size_max": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-config={_='config', date=int, test_mode=Bool, this_dc=int, dc_options={DcOption}, chat_size_max=int, broadcast_size_max=int, }
+config={_='config', date=int, test_mode=Bool, this_dc=int, dc_options={DcOption}, chat_size_max=int, broadcast_size_max=int}
 
 ```
 

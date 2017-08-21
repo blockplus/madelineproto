@@ -10,7 +10,7 @@ description: inputBotInlineMessageGame attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |reply\_markup|[ReplyMarkup](../types/ReplyMarkup.md) | Optional|
 
 
@@ -21,14 +21,21 @@ description: inputBotInlineMessageGame attributes, type and example
 ### Example:
 
 ```
-$inputBotInlineMessageGame = ['_' => 'inputBotInlineMessageGame', 'reply_markup' => ReplyMarkup, ];
+$inputBotInlineMessageGame = ['_' => 'inputBotInlineMessageGame', 'reply_markup' => ReplyMarkup];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputBotInlineMessageGame", "reply_markup": ReplyMarkup}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputBotInlineMessageGame={_='inputBotInlineMessageGame', reply_markup=ReplyMarkup, }
+inputBotInlineMessageGame={_='inputBotInlineMessageGame', reply_markup=ReplyMarkup}
 
 ```
 

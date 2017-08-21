@@ -10,7 +10,7 @@ description: keyboardButtonSwitchInline attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |text|[string](../types/string.md) | Yes|
 |query|[string](../types/string.md) | Yes|
 
@@ -22,14 +22,21 @@ description: keyboardButtonSwitchInline attributes, type and example
 ### Example:
 
 ```
-$keyboardButtonSwitchInline = ['_' => 'keyboardButtonSwitchInline', 'text' => string, 'query' => string, ];
+$keyboardButtonSwitchInline = ['_' => 'keyboardButtonSwitchInline', 'text' => 'string', 'query' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "keyboardButtonSwitchInline", "text": "string", "query": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-keyboardButtonSwitchInline={_='keyboardButtonSwitchInline', text=string, query=string, }
+keyboardButtonSwitchInline={_='keyboardButtonSwitchInline', text='string', query='string'}
 
 ```
 

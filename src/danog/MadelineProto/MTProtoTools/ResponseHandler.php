@@ -17,32 +17,6 @@ namespace danog\MadelineProto\MTProtoTools;
  */
 trait ResponseHandler
 {
-    protected $pending_updates = [];
-    protected $bad_msg_error_codes = [
-        16 => 'msg_id too low (most likely, client time is wrong; it would be worthwhile to synchronize it using msg_id notifications and re-send the original message with the “correct” msg_id or wrap it in a container with a new msg_id if the original message had waited too long on the client to be transmitted)',
-        17 => 'msg_id too high (similar to the previous case, the client time has to be synchronized, and the message re-sent with the correct msg_id)',
-        18 => 'incorrect two lower order msg_id bits (the server expects client message msg_id to be divisible by 4)',
-        19 => 'container msg_id is the same as msg_id of a previously received message (this must never happen)',
-        20 => 'message too old, and it cannot be verified whether the server has received a message with this msg_id or not',
-        32 => 'msg_seqno too low (the server has already received a message with a lower msg_id but with either a higher or an equal and odd seqno)',
-        33 => 'msg_seqno too high (similarly, there is a message with a higher msg_id but with either a lower or an equal and odd seqno)',
-        34 => 'an even msg_seqno expected (irrelevant message), but odd received',
-        35 => 'odd msg_seqno expected (relevant message), but even received',
-        48 => 'incorrect server salt (in this case, the bad_server_salt response is received with the correct salt, and the message is to be re-sent with it)',
-        64 => 'invalid container.',
-    ];
-    protected $msgs_info_flags = [
-        1   => 'nothing is known about the message (msg_id too low, the other party may have forgotten it)',
-        2   => 'message not received (msg_id falls within the range of stored identifiers; however, the other party has certainly not received a message like that)',
-        3   => 'message not received (msg_id too high; however, the other party has certainly not received it yet)',
-        4   => 'message received (note that this response is also at the same time a receipt acknowledgment)',
-        8   => ' and message already acknowledged',
-        16  => ' and message not requiring acknowledgment',
-        32  => ' and RPC query contained in message being processed or processing already complete',
-        64  => ' and content-related response to message already generated',
-        128 => ' and other party knows for a fact that message is already received',
-    ];
-
     public function send_msgs_state_info($req_msg_id, $msg_ids, $datacenter)
     {
         $info = '';
@@ -68,17 +42,13 @@ trait ResponseHandler
         $this->datacenter->sockets[$datacenter]->outgoing_messages[$this->object_call('msgs_state_info', ['req_msg_id' => $req_msg_id, 'info' => $info], ['datacenter' => $datacenter])]['response'] = $req_msg_id;
     }
 
-    public $stop = false;
-
     public function handle_messages($datacenter)
     {
-        if ($this->stop) {
-            return;
-        }
         $only_updates = true;
         foreach ($this->datacenter->sockets[$datacenter]->new_incoming as $current_msg_id) {
             $unset = false;
             \danog\MadelineProto\Logger::log(['Received '.$this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['_'].'.'], \danog\MadelineProto\Logger::ULTRA_VERBOSE);
+            //\danog\MadelineProto\Logger::log([$this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']], \danog\MadelineProto\Logger::ULTRA_VERBOSE);
             if (\danog\MadelineProto\Logger::$has_thread && is_object(\Thread::getCurrentThread())) {
                 if (!$this->synchronized(function ($zis, $datacenter, $current_msg_id) {
                     if (isset($this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['handling'])) {
@@ -87,7 +57,7 @@ trait ResponseHandler
                     $this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['handling'] = true;
 
                     return true;
-                }, $this, $datacenter, $current_msg_id) || $this->stop) {
+                }, $this, $datacenter, $current_msg_id)) {
                     \danog\MadelineProto\Logger::log([base64_encode($current_msg_id).$this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['_'].' is already being handled'], \danog\MadelineProto\Logger::VERBOSE);
                     continue;
                 }
@@ -95,44 +65,40 @@ trait ResponseHandler
             }
             switch ($this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['_']) {
                 case 'msgs_ack':
+                    unset($this->datacenter->sockets[$datacenter]->new_incoming[$current_msg_id]);
                     $this->check_in_seq_no($datacenter, $current_msg_id);
                     $only_updates = false;
                     foreach ($this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['msg_ids'] as $msg_id) {
                         $this->ack_outgoing_message_id($msg_id, $datacenter); // Acknowledge that the server received my message
                     }
-                    unset($this->datacenter->sockets[$datacenter]->new_incoming[$current_msg_id]);
                     break;
 
                 case 'rpc_result':
-                    $this->ack_incoming_message_id($current_msg_id, $datacenter); // Acknowledge that I received the server's response
-                    $this->ack_outgoing_message_id($this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['req_msg_id'], $datacenter); // Acknowledge that the server received my request
                     unset($this->datacenter->sockets[$datacenter]->new_incoming[$current_msg_id]);
                     unset($this->datacenter->sockets[$datacenter]->new_outgoing[$this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['req_msg_id']]);
+                    $this->ack_incoming_message_id($current_msg_id, $datacenter); // Acknowledge that I received the server's response
+                    $this->ack_outgoing_message_id($this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['req_msg_id'], $datacenter); // Acknowledge that the server received my request
                     $this->datacenter->sockets[$datacenter]->outgoing_messages[$this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['req_msg_id']]['response'] = $current_msg_id;
-                    //var_dump($this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]);
-                    $content = (array) $this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['result'];
-                    $this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content'] = $content;
-                    ///var_dump($this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]);
-                    ///var_dump($this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]);
-                    ///var_dump($this->datacenter->sockets[$datacenter]->incoming_messages[$this->datacenter->sockets[$datacenter]->outgoing_messages[$this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['req_msg_id']]['response']]['content']);
-                    ///$this->stop = true;
-                    //var_dump(base64_encode($current_msg_id), $this->datacenter->sockets[$datacenter]->incoming_messages);
+                    $this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content'] = $this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['result'];
                     $this->check_in_seq_no($datacenter, $current_msg_id);
                     $only_updates = false;
                     break;
                 case 'future_salts':
+                    unset($this->datacenter->sockets[$datacenter]->new_incoming[$current_msg_id]);
+                    unset($this->datacenter->sockets[$datacenter]->new_outgoing[$this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['req_msg_id']]);
                     $this->check_in_seq_no($datacenter, $current_msg_id);
                     $only_updates = false;
                     $this->ack_outgoing_message_id($this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['req_msg_id'], $datacenter); // Acknowledge that the server received my request
                     $this->datacenter->sockets[$datacenter]->outgoing_messages[$this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['req_msg_id']]['response'] = $current_msg_id;
-                    unset($this->datacenter->sockets[$datacenter]->new_incoming[$current_msg_id]);
-                    unset($this->datacenter->sockets[$datacenter]->new_outgoing[$this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['req_msg_id']]);
                     break;
+                /*
                 case 'rpc_error':
                     $this->check_in_seq_no($datacenter, $current_msg_id);
                     $only_updates = false;
-                    $this->handle_rpc_error($this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content'], $datacenter);
-                    break;
+                    $aargs = ['datacenter' => &$datacenter];
+                    $this->handle_rpc_error($this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content'], $aargs);
+                    unset($aargs);
+                    break;*/
 
                 case 'bad_server_salt':
                 case 'bad_msg_notification':
@@ -147,25 +113,21 @@ trait ResponseHandler
                 case 'pong':
                     $this->check_in_seq_no($datacenter, $current_msg_id);
                     $only_updates = false;
-                    foreach ($this->datacenter->sockets[$datacenter]->outgoing_messages as $msg_id => &$omessage) {
-                        if (isset($omessage['content']['args']['ping_id']) && $omessage['content']['args']['ping_id'] === $this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['ping_id']) {
-                            $this->ack_outgoing_message_id($msg_id, $datacenter);
-                            $omessage['response'] = $this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['msg_id'];
-                            $this->datacenter->sockets[$datacenter]->incoming_messages[$this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['msg_id']]['content'] = $this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content'];
-                            unset($this->datacenter->sockets[$datacenter]->new_incoming[$current_msg_id]);
-                            unset($this->datacenter->sockets[$datacenter]->new_outgoing[$msg_id]);
-                        }
-                    }
+                    unset($this->datacenter->sockets[$datacenter]->new_incoming[$current_msg_id]);
+                    unset($this->datacenter->sockets[$datacenter]->new_outgoing[$this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['msg_id']]);
+                    $this->ack_outgoing_message_id($this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['msg_id'], $datacenter); // Acknowledge that the server received my request
+                    $this->datacenter->sockets[$datacenter]->outgoing_messages[$this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['msg_id']]['response'] = $current_msg_id;
                     break;
+
                 case 'new_session_created':
                     $this->check_in_seq_no($datacenter, $current_msg_id);
                     $only_updates = false;
                     $this->datacenter->sockets[$datacenter]->temp_auth_key['server_salt'] = $this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['server_salt'];
-                    $this->ack_incoming_message_id($current_msg_id, $datacenter); // Acknowledge that I received the server's response
-                    if ($this->authorized && !$this->initing_authorization && $this->datacenter->sockets[$this->datacenter->curdc]->temp_auth_key !== null) {
-                        $this->force_get_updates_difference();
-                    }
                     unset($this->datacenter->sockets[$datacenter]->new_incoming[$current_msg_id]);
+                    $this->ack_incoming_message_id($current_msg_id, $datacenter); // Acknowledge that I received the server's response
+                    if ($this->authorized === self::LOGGED_IN && !$this->initing_authorization && $this->datacenter->sockets[$this->datacenter->curdc]->temp_auth_key !== null) {
+                        $this->get_updates_difference();
+                    }
                     $unset = true;
                     break;
                 case 'msg_container':
@@ -230,7 +192,7 @@ trait ResponseHandler
                         if (($this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['info'][$key] & 4) !== 0) {
                             $this->ack_outgoing_message_id($msg_id, $datacenter);
                         }
-                        foreach ($this->msgs_info_flags as $flag => $description) {
+                        foreach (self::MSGS_INFO_FLAGS as $flag => $description) {
                             if (($this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content']['info'][$key] & $flag) !== 0) {
                                 $status .= $description;
                             }
@@ -310,6 +272,7 @@ trait ResponseHandler
                                 }
                                 \danog\MadelineProto\Logger::log(['No'], \danog\MadelineProto\Logger::VERBOSE);
                             }
+
                             throw new \danog\MadelineProto\ResponseException('Dunno how to handle '.PHP_EOL.var_export($this->datacenter->sockets[$datacenter]->incoming_messages[$current_msg_id]['content'], true));
                             break;
                     }
@@ -348,34 +311,40 @@ trait ResponseHandler
     {
     }
 
-    public function handle_rpc_error($server_answer, &$datacenter)
+    public function handle_rpc_error($server_answer, &$aargs)
     {
+        if (in_array($server_answer['error_message'], ['PERSISTENT_TIMESTAMP_EMPTY', 'PERSISTENT_TIMESTAMP_OUTDATED', 'PERSISTENT_TIMESTAMP_INVALID'])) {
+            throw new \danog\MadelineProto\PTSException($server_answer['error_message']);
+        }
         switch ($server_answer['error_code']) {
             case 303:
-                $this->datacenter->curdc = $datacenter = (int) preg_replace('/[^0-9]+/', '', $server_answer['error_message']);
+                $this->datacenter->curdc = $aargs['datacenter'] = (int) preg_replace('/[^0-9]+/', '', $server_answer['error_message']);
+
                 throw new \danog\MadelineProto\Exception('Received request to switch to DC '.$this->datacenter->curdc);
             case 401:
                 switch ($server_answer['error_message']) {
                     case 'USER_DEACTIVATED':
                     case 'SESSION_REVOKED':
                     case 'SESSION_EXPIRED':
-                        $this->datacenter->sockets[$datacenter]->temp_auth_key = null;
-                        $this->datacenter->sockets[$datacenter]->auth_key = null;
-                        $this->authorized = false;
+                        $this->datacenter->sockets[$aargs['datacenter']]->temp_auth_key = null;
+                        $this->datacenter->sockets[$aargs['datacenter']]->auth_key = null;
+                        $this->authorized = self::NOT_LOGGED_IN;
                         $this->authorization = null;
                         $this->init_authorization(); // idk
                         throw new \danog\MadelineProto\RPCErrorException($server_answer['error_message'], $server_answer['error_code']);
                     case 'AUTH_KEY_UNREGISTERED':
                     case 'AUTH_KEY_INVALID':
-                        $this->datacenter->sockets[$datacenter]->temp_auth_key = null;
+                        $this->datacenter->sockets[$aargs['datacenter']]->temp_auth_key = null;
                         $this->init_authorization(); // idk
                         throw new \danog\MadelineProto\RPCErrorException($server_answer['error_message'], $server_answer['error_code']);
                 }
             case 420:
                 $seconds = preg_replace('/[^0-9]+/', '', $server_answer['error_message']);
-                if (is_numeric($seconds) && isset($this->settings['flood_timeout']['wait_if_lt']) && $seconds < $this->settings['flood_timeout']['wait_if_lt']) {
+                $limit = isset($aargs['FloodWaitLimit']) ? $aargs['FloodWaitLimit'] : $this->settings['flood_timeout']['wait_if_lt'];
+                if (is_numeric($seconds) && $seconds < $limit) {
                     \danog\MadelineProto\Logger::log(['Flood, waiting '.$seconds.' seconds...'], \danog\MadelineProto\Logger::NOTICE);
                     sleep($seconds);
+
                     throw new \danog\MadelineProto\Exception('Re-executing query...');
                 }
             default:
@@ -385,6 +354,9 @@ trait ResponseHandler
 
     public function handle_pending_updates()
     {
+        if ($this->updates_state['sync_loading']) {
+            return false;
+        }
         if (count($this->pending_updates)) {
             \danog\MadelineProto\Logger::log(['Parsing pending updates...'], \danog\MadelineProto\Logger::VERBOSE);
             foreach ($this->pending_updates as $key => $updates) {
@@ -398,13 +370,14 @@ trait ResponseHandler
     {
         if (!$this->settings['updates']['handle_updates']) {
             return;
-        }
-        if ($this->getting_state) {
+        }/*
+        if ($this->updates_state["sync_loading"]) {
             \danog\MadelineProto\Logger::log(['Getting state, handle later'], \danog\MadelineProto\Logger::VERBOSE);
+            var_dump($updates);
             $this->pending_updates[] = $updates;
 
             return false;
-        }
+        }*/
         \danog\MadelineProto\Logger::log(['Parsing updates received via the socket...'], \danog\MadelineProto\Logger::VERBOSE);
         $opts = [];
         foreach (['date', 'seq', 'seq_start'] as $key) {
@@ -436,7 +409,7 @@ trait ResponseHandler
                     (isset($updates['fwd_from']) && !$this->fwd_peer_isset($updates['fwd_from']))) {
                     \danog\MadelineProto\Logger::log(['getDifference: good - getting user for updateShortMessage'], \danog\MadelineProto\Logger::VERBOSE);
 
-                    return $this->get_updates_difference();
+                    $this->get_updates_difference();
                 }
 
                 $message = $updates;
@@ -450,7 +423,7 @@ trait ResponseHandler
                 //$this->set_update_state(['date' => $updates['date']]);
                 break;
             case 'updatesTooLong':
-                $this->force_get_updates_difference();
+                $this->get_updates_difference();
                 break;
             default:
                 throw new \danog\MadelineProto\ResponseException('Unrecognized update received: '.var_export($updates, true));

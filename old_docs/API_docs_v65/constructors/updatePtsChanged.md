@@ -16,14 +16,21 @@ description: updatePtsChanged attributes, type and example
 ### Example:
 
 ```
-$updatePtsChanged = ['_' => 'updatePtsChanged', ];
+$updatePtsChanged = ['_' => 'updatePtsChanged'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updatePtsChanged"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updatePtsChanged={_='updatePtsChanged', }
+updatePtsChanged={_='updatePtsChanged'}
 
 ```
 

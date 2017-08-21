@@ -12,7 +12,7 @@ List of privacy rules. Rules are matched in the specified order. First matched r
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |rules|Array of [PrivacyRule](../constructors/PrivacyRule.md) | Yes|List of rules|
 
 
@@ -23,14 +23,21 @@ List of privacy rules. Rules are matched in the specified order. First matched r
 ### Example:
 
 ```
-$privacyRules = ['_' => 'privacyRules', 'rules' => [PrivacyRule], ];
+$privacyRules = ['_' => 'privacyRules', 'rules' => [PrivacyRule]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "privacyRules", "rules": [PrivacyRule]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-privacyRules={_='privacyRules', rules={PrivacyRule}, }
+privacyRules={_='privacyRules', rules={PrivacyRule}}
 
 ```
 

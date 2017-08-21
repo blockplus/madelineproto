@@ -9,7 +9,7 @@ description: req_pq parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |nonce|[int128](../types/int128.md) | Yes|
 
 
@@ -21,7 +21,7 @@ description: req_pq parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -35,6 +35,30 @@ if (isset($number)) { // Login as a user
 
 $ResPQ = $MadelineProto->req_pq(['nonce' => int128, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - req_pq
+* params - `{"nonce": int128, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/req_pq`
+
+Parameters:
+
+nonce - Json encoded int128
+
+
+
 
 Or, if you're into Lua:
 

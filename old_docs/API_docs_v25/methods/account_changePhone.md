@@ -9,7 +9,7 @@ description: account.changePhone parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |phone\_number|[string](../types/string.md) | Yes|
 |phone\_code\_hash|[string](../types/string.md) | Yes|
 |phone\_code|[string](../types/string.md) | Yes|
@@ -23,7 +23,7 @@ description: account.changePhone parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -35,12 +35,40 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$User = $MadelineProto->account->changePhone(['phone_number' => string, 'phone_code_hash' => string, 'phone_code' => string, ]);
+$User = $MadelineProto->account->changePhone(['phone_number' => 'string', 'phone_code_hash' => 'string', 'phone_code' => 'string', ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - account.changePhone
+* params - `{"phone_number": "string", "phone_code_hash": "string", "phone_code": "string", }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/account.changePhone`
+
+Parameters:
+
+phone_number - Json encoded string
+
+phone_code_hash - Json encoded string
+
+phone_code - Json encoded string
+
+
+
 
 Or, if you're into Lua:
 
 ```
-User = account.changePhone({phone_number=string, phone_code_hash=string, phone_code=string, })
+User = account.changePhone({phone_number='string', phone_code_hash='string', phone_code='string', })
 ```
 

@@ -12,7 +12,7 @@ Notification settings applied to particular chat
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |chat\_id|[long](../types/long.md) | Yes|Chat identifier|
 
 
@@ -23,14 +23,21 @@ Notification settings applied to particular chat
 ### Example:
 
 ```
-$notificationSettingsForChat = ['_' => 'notificationSettingsForChat', 'chat_id' => long, ];
+$notificationSettingsForChat = ['_' => 'notificationSettingsForChat', 'chat_id' => long];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "notificationSettingsForChat", "chat_id": long}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-notificationSettingsForChat={_='notificationSettingsForChat', chat_id=long, }
+notificationSettingsForChat={_='notificationSettingsForChat', chat_id=long}
 
 ```
 

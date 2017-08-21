@@ -69,7 +69,7 @@ trait BotAPIFiles
         $photo['location']['access_hash'] = isset($message_media['access_hash']) ? $message_media['access_hash'] : 0;
         $photo['location']['id'] = isset($message_media['id']) ? $message_media['id'] : 0;
         $photo['location']['_'] = $thumbnail ? 'bot_thumbnail' : 'bot_photo';
-        $data = $this->serialize_object(['type' => 'File'], $photo['location']).chr(2);
+        $data = $this->serialize_object(['type' => 'File'], $photo['location'], 'File').chr(2);
 
         return [
             'file_id'   => $this->base64url_encode($this->rle_encode($data)),
@@ -116,7 +116,15 @@ trait BotAPIFiles
 
             case 'bot_video':
             unset($deserialized['_']);
-            $constructor = array_merge($deserialized, ['_' => 'document', 'mime_type' => '', 'attributes' => [['_' => 'documentAttributeVideo']]]);
+            $constructor = array_merge($deserialized, ['_' => 'document', 'mime_type' => '', 'attributes' => [['_' => 'documentAttributeVideo', 'round_message' => false]]]);
+
+            $res['MessageMedia'] = ['_' => 'messageMediaDocument', 'document' => $constructor, 'caption' => ''];
+
+            return $res;
+
+            case 'bot_video_note':
+            unset($deserialized['_']);
+            $constructor = array_merge($deserialized, ['_' => 'document', 'mime_type' => '', 'attributes' => [['_' => 'documentAttributeVideo', 'round_message' => true]]]);
 
             $res['MessageMedia'] = ['_' => 'messageMediaDocument', 'document' => $constructor, 'caption' => ''];
 

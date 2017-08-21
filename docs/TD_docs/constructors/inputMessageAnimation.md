@@ -12,7 +12,7 @@ Animation message
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |animation|[InputFile](../types/InputFile.md) | Yes|Animation file to send|
 |thumb|[InputThumb](../types/InputThumb.md) | Yes|Animation thumb, if available|
 |width|[int](../types/int.md) | Yes|Width of the animation, may be replaced by the server|
@@ -27,14 +27,21 @@ Animation message
 ### Example:
 
 ```
-$inputMessageAnimation = ['_' => 'inputMessageAnimation', 'animation' => InputFile, 'thumb' => InputThumb, 'width' => int, 'height' => int, 'caption' => string, ];
+$inputMessageAnimation = ['_' => 'inputMessageAnimation', 'animation' => InputFile, 'thumb' => InputThumb, 'width' => int, 'height' => int, 'caption' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputMessageAnimation", "animation": InputFile, "thumb": InputThumb, "width": int, "height": int, "caption": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputMessageAnimation={_='inputMessageAnimation', animation=InputFile, thumb=InputThumb, width=int, height=int, caption=string, }
+inputMessageAnimation={_='inputMessageAnimation', animation=InputFile, thumb=InputThumb, width=int, height=int, caption='string'}
 
 ```
 

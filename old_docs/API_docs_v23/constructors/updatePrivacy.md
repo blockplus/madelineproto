@@ -10,7 +10,7 @@ description: updatePrivacy attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |key|[PrivacyKey](../types/PrivacyKey.md) | Yes|
 |rules|Array of [PrivacyRule](../types/PrivacyRule.md) | Yes|
 
@@ -22,14 +22,21 @@ description: updatePrivacy attributes, type and example
 ### Example:
 
 ```
-$updatePrivacy = ['_' => 'updatePrivacy', 'key' => PrivacyKey, 'rules' => [PrivacyRule], ];
+$updatePrivacy = ['_' => 'updatePrivacy', 'key' => PrivacyKey, 'rules' => [PrivacyRule]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updatePrivacy", "key": PrivacyKey, "rules": [PrivacyRule]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updatePrivacy={_='updatePrivacy', key=PrivacyKey, rules={PrivacyRule}, }
+updatePrivacy={_='updatePrivacy', key=PrivacyKey, rules={PrivacyRule}}
 
 ```
 

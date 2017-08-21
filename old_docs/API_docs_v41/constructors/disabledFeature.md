@@ -10,7 +10,7 @@ description: disabledFeature attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |feature|[string](../types/string.md) | Yes|
 |description|[string](../types/string.md) | Yes|
 
@@ -22,14 +22,21 @@ description: disabledFeature attributes, type and example
 ### Example:
 
 ```
-$disabledFeature = ['_' => 'disabledFeature', 'feature' => string, 'description' => string, ];
+$disabledFeature = ['_' => 'disabledFeature', 'feature' => 'string', 'description' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "disabledFeature", "feature": "string", "description": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-disabledFeature={_='disabledFeature', feature=string, description=string, }
+disabledFeature={_='disabledFeature', feature='string', description='string'}
 
 ```
 

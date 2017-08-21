@@ -12,7 +12,7 @@ Return only voice messages
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ Return only voice messages
 ### Example:
 
 ```
-$searchMessagesFilterVoice = ['_' => 'searchMessagesFilterVoice', ];
+$searchMessagesFilterVoice = ['_' => 'searchMessagesFilterVoice'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "searchMessagesFilterVoice"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-searchMessagesFilterVoice={_='searchMessagesFilterVoice', }
+searchMessagesFilterVoice={_='searchMessagesFilterVoice'}
 
 ```
 

@@ -9,7 +9,7 @@ description: messages.deleteMessages parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |revoke|[Bool](../types/Bool.md) | Optional|
 |id|Array of [int](../types/int.md) | Yes|
 
@@ -22,7 +22,7 @@ description: messages.deleteMessages parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -36,6 +36,32 @@ if (isset($number)) { // Login as a user
 
 $messages_AffectedMessages = $MadelineProto->messages->deleteMessages(['revoke' => Bool, 'id' => [int], ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - messages.deleteMessages
+* params - `{"revoke": Bool, "id": [int], }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/messages.deleteMessages`
+
+Parameters:
+
+revoke - Json encoded Bool
+
+id - Json encoded  array of int
+
+
+
 
 Or, if you're into Lua:
 

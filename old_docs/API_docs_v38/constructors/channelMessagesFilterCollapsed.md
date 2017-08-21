@@ -16,14 +16,21 @@ description: channelMessagesFilterCollapsed attributes, type and example
 ### Example:
 
 ```
-$channelMessagesFilterCollapsed = ['_' => 'channelMessagesFilterCollapsed', ];
+$channelMessagesFilterCollapsed = ['_' => 'channelMessagesFilterCollapsed'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "channelMessagesFilterCollapsed"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-channelMessagesFilterCollapsed={_='channelMessagesFilterCollapsed', }
+channelMessagesFilterCollapsed={_='channelMessagesFilterCollapsed'}
 
 ```
 

@@ -10,7 +10,7 @@ description: message attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[int](../types/int.md) | Yes|
 |from\_id|[int](../types/int.md) | Optional|
 |to\_id|[Peer](../types/Peer.md) | Yes|
@@ -32,14 +32,21 @@ description: message attributes, type and example
 ### Example:
 
 ```
-$message = ['_' => 'message', 'id' => int, 'from_id' => int, 'to_id' => Peer, 'fwd_from_id' => Peer, 'fwd_date' => int, 'reply_to_msg_id' => int, 'date' => int, 'message' => string, 'media' => MessageMedia, 'reply_markup' => ReplyMarkup, 'entities' => [MessageEntity], 'views' => int, ];
+$message = ['_' => 'message', 'id' => int, 'from_id' => int, 'to_id' => Peer, 'fwd_from_id' => Peer, 'fwd_date' => int, 'reply_to_msg_id' => int, 'date' => int, 'message' => 'string', 'media' => MessageMedia, 'reply_markup' => ReplyMarkup, 'entities' => [MessageEntity], 'views' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "message", "id": int, "from_id": int, "to_id": Peer, "fwd_from_id": Peer, "fwd_date": int, "reply_to_msg_id": int, "date": int, "message": "string", "media": MessageMedia, "reply_markup": ReplyMarkup, "entities": [MessageEntity], "views": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-message={_='message', id=int, from_id=int, to_id=Peer, fwd_from_id=Peer, fwd_date=int, reply_to_msg_id=int, date=int, message=string, media=MessageMedia, reply_markup=ReplyMarkup, entities={MessageEntity}, views=int, }
+message={_='message', id=int, from_id=int, to_id=Peer, fwd_from_id=Peer, fwd_date=int, reply_to_msg_id=int, date=int, message='string', media=MessageMedia, reply_markup=ReplyMarkup, entities={MessageEntity}, views=int}
 
 ```
 

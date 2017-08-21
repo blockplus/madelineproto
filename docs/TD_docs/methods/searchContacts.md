@@ -6,12 +6,15 @@ description: Searches for specified query in the first name, last name and usern
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Searches for specified query in the first name, last name and username of the known user contacts
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |query|[string](../types/string.md) | Yes|Query to search for, can be empty to return all contacts|
 |limit|[int](../types/int.md) | Yes|Maximum number of users to be returned|
 
@@ -24,7 +27,7 @@ Searches for specified query in the first name, last name and username of the kn
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -36,12 +39,38 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$Users = $MadelineProto->searchContacts(['query' => string, 'limit' => int, ]);
+$Users = $MadelineProto->searchContacts(['query' => 'string', 'limit' => int, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - searchContacts
+* params - `{"query": "string", "limit": int, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/searchContacts`
+
+Parameters:
+
+query - Json encoded string
+
+limit - Json encoded int
+
+
+
 
 Or, if you're into Lua:
 
 ```
-Users = searchContacts({query=string, limit=int, })
+Users = searchContacts({query='string', limit=int, })
 ```
 

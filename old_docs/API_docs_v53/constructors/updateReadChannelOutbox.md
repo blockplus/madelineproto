@@ -10,7 +10,7 @@ description: updateReadChannelOutbox attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |channel\_id|[int](../types/int.md) | Yes|
 |max\_id|[int](../types/int.md) | Yes|
 
@@ -22,14 +22,21 @@ description: updateReadChannelOutbox attributes, type and example
 ### Example:
 
 ```
-$updateReadChannelOutbox = ['_' => 'updateReadChannelOutbox', 'channel_id' => int, 'max_id' => int, ];
+$updateReadChannelOutbox = ['_' => 'updateReadChannelOutbox', 'channel_id' => int, 'max_id' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateReadChannelOutbox", "channel_id": int, "max_id": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateReadChannelOutbox={_='updateReadChannelOutbox', channel_id=int, max_id=int, }
+updateReadChannelOutbox={_='updateReadChannelOutbox', channel_id=int, max_id=int}
 
 ```
 

@@ -10,7 +10,7 @@ description: messages_highScores attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |scores|Array of [HighScore](../types/HighScore.md) | Yes|
 |users|Array of [User](../types/User.md) | Yes|
 
@@ -22,14 +22,21 @@ description: messages_highScores attributes, type and example
 ### Example:
 
 ```
-$messages_highScores = ['_' => 'messages.highScores', 'scores' => [HighScore], 'users' => [User], ];
+$messages_highScores = ['_' => 'messages.highScores', 'scores' => [HighScore], 'users' => [User]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messages.highScores", "scores": [HighScore], "users": [User]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messages_highScores={_='messages.highScores', scores={HighScore}, users={User}, }
+messages_highScores={_='messages.highScores', scores={HighScore}, users={User}}
 
 ```
 

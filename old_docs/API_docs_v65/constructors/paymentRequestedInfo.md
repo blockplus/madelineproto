@@ -10,7 +10,7 @@ description: paymentRequestedInfo attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |name|[string](../types/string.md) | Optional|
 |phone|[string](../types/string.md) | Optional|
 |email|[string](../types/string.md) | Optional|
@@ -24,14 +24,21 @@ description: paymentRequestedInfo attributes, type and example
 ### Example:
 
 ```
-$paymentRequestedInfo = ['_' => 'paymentRequestedInfo', 'name' => string, 'phone' => string, 'email' => string, 'shipping_address' => PostAddress, ];
+$paymentRequestedInfo = ['_' => 'paymentRequestedInfo', 'name' => 'string', 'phone' => 'string', 'email' => 'string', 'shipping_address' => PostAddress];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "paymentRequestedInfo", "name": "string", "phone": "string", "email": "string", "shipping_address": PostAddress}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-paymentRequestedInfo={_='paymentRequestedInfo', name=string, phone=string, email=string, shipping_address=PostAddress, }
+paymentRequestedInfo={_='paymentRequestedInfo', name='string', phone='string', email='string', shipping_address=PostAddress}
 
 ```
 

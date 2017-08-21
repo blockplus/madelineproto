@@ -10,7 +10,7 @@ description: messageEmpty attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[int](../types/int.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: messageEmpty attributes, type and example
 ### Example:
 
 ```
-$messageEmpty = ['_' => 'messageEmpty', 'id' => int, ];
+$messageEmpty = ['_' => 'messageEmpty', 'id' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageEmpty", "id": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageEmpty={_='messageEmpty', id=int, }
+messageEmpty={_='messageEmpty', id=int}
 
 ```
 

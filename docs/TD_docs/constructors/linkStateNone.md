@@ -12,7 +12,7 @@ Other user's phone number doesn't known
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ Other user's phone number doesn't known
 ### Example:
 
 ```
-$linkStateNone = ['_' => 'linkStateNone', ];
+$linkStateNone = ['_' => 'linkStateNone'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "linkStateNone"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-linkStateNone={_='linkStateNone', }
+linkStateNone={_='linkStateNone'}
 
 ```
 

@@ -10,7 +10,7 @@ description: stickerSet attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[long](../types/long.md) | Yes|
 |access\_hash|[long](../types/long.md) | Yes|
 |title|[string](../types/string.md) | Yes|
@@ -26,14 +26,21 @@ description: stickerSet attributes, type and example
 ### Example:
 
 ```
-$stickerSet = ['_' => 'stickerSet', 'id' => long, 'access_hash' => long, 'title' => string, 'short_name' => string, 'count' => int, 'hash' => int, ];
+$stickerSet = ['_' => 'stickerSet', 'id' => long, 'access_hash' => long, 'title' => 'string', 'short_name' => 'string', 'count' => int, 'hash' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "stickerSet", "id": long, "access_hash": long, "title": "string", "short_name": "string", "count": int, "hash": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-stickerSet={_='stickerSet', id=long, access_hash=long, title=string, short_name=string, count=int, hash=int, }
+stickerSet={_='stickerSet', id=long, access_hash=long, title='string', short_name='string', count=int, hash=int}
 
 ```
 

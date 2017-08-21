@@ -10,7 +10,7 @@ description: future_salt attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |valid\_since|[int](../types/int.md) | Yes|
 |valid\_until|[int](../types/int.md) | Yes|
 |salt|[long](../types/long.md) | Yes|
@@ -23,14 +23,21 @@ description: future_salt attributes, type and example
 ### Example:
 
 ```
-$future_salt = ['_' => 'future_salt', 'valid_since' => int, 'valid_until' => int, 'salt' => long, ];
+$future_salt = ['_' => 'future_salt', 'valid_since' => int, 'valid_until' => int, 'salt' => long];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "future_salt", "valid_since": int, "valid_until": int, "salt": long}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-future_salt={_='future_salt', valid_since=int, valid_until=int, salt=long, }
+future_salt={_='future_salt', valid_since=int, valid_until=int, salt=long}
 
 ```
 

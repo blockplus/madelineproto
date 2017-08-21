@@ -16,14 +16,21 @@ description: contactLinkUnknown attributes, type and example
 ### Example:
 
 ```
-$contactLinkUnknown = ['_' => 'contactLinkUnknown', ];
+$contactLinkUnknown = ['_' => 'contactLinkUnknown'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "contactLinkUnknown"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-contactLinkUnknown={_='contactLinkUnknown', }
+contactLinkUnknown={_='contactLinkUnknown'}
 
 ```
 

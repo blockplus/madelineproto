@@ -10,7 +10,7 @@ description: chatInvite attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |channel|[Bool](../types/Bool.md) | Optional|
 |broadcast|[Bool](../types/Bool.md) | Optional|
 |public|[Bool](../types/Bool.md) | Optional|
@@ -28,14 +28,21 @@ description: chatInvite attributes, type and example
 ### Example:
 
 ```
-$chatInvite = ['_' => 'chatInvite', 'channel' => Bool, 'broadcast' => Bool, 'public' => Bool, 'megagroup' => Bool, 'title' => string, 'photo' => ChatPhoto, 'participants_count' => int, 'participants' => [User], ];
+$chatInvite = ['_' => 'chatInvite', 'channel' => Bool, 'broadcast' => Bool, 'public' => Bool, 'megagroup' => Bool, 'title' => 'string', 'photo' => ChatPhoto, 'participants_count' => int, 'participants' => [User]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "chatInvite", "channel": Bool, "broadcast": Bool, "public": Bool, "megagroup": Bool, "title": "string", "photo": ChatPhoto, "participants_count": int, "participants": [User]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-chatInvite={_='chatInvite', channel=Bool, broadcast=Bool, public=Bool, megagroup=Bool, title=string, photo=ChatPhoto, participants_count=int, participants={User}, }
+chatInvite={_='chatInvite', channel=Bool, broadcast=Bool, public=Bool, megagroup=Bool, title='string', photo=ChatPhoto, participants_count=int, participants={User}}
 
 ```
 

@@ -16,14 +16,21 @@ description: storage_fileUnknown attributes, type and example
 ### Example:
 
 ```
-$storage_fileUnknown = ['_' => 'storage.fileUnknown', ];
+$storage_fileUnknown = ['_' => 'storage.fileUnknown'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "storage.fileUnknown"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-storage_fileUnknown={_='storage.fileUnknown', }
+storage_fileUnknown={_='storage.fileUnknown'}
 
 ```
 

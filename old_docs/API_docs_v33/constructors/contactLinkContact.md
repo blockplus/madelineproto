@@ -16,14 +16,21 @@ description: contactLinkContact attributes, type and example
 ### Example:
 
 ```
-$contactLinkContact = ['_' => 'contactLinkContact', ];
+$contactLinkContact = ['_' => 'contactLinkContact'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "contactLinkContact"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-contactLinkContact={_='contactLinkContact', }
+contactLinkContact={_='contactLinkContact'}
 
 ```
 

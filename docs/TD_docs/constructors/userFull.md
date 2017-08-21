@@ -12,7 +12,7 @@ Gives full information about a user (except full list of profile photos)
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |user|[user](../types/user.md) | Yes|General info about the user|
 |is\_blocked|[Bool](../types/Bool.md) | Yes|Is user blacklisted by current user|
 |about|[string](../types/string.md) | Yes|Short user description|
@@ -27,14 +27,21 @@ Gives full information about a user (except full list of profile photos)
 ### Example:
 
 ```
-$userFull = ['_' => 'userFull', 'user' => user, 'is_blocked' => Bool, 'about' => string, 'common_chat_count' => int, 'bot_info' => botInfo, ];
+$userFull = ['_' => 'userFull', 'user' => user, 'is_blocked' => Bool, 'about' => 'string', 'common_chat_count' => int, 'bot_info' => botInfo];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "userFull", "user": user, "is_blocked": Bool, "about": "string", "common_chat_count": int, "bot_info": botInfo}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-userFull={_='userFull', user=user, is_blocked=Bool, about=string, common_chat_count=int, bot_info=botInfo, }
+userFull={_='userFull', user=user, is_blocked=Bool, about='string', common_chat_count=int, bot_info=botInfo}
 
 ```
 

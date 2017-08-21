@@ -16,14 +16,21 @@ description: peerNotifyEventsEmpty attributes, type and example
 ### Example:
 
 ```
-$peerNotifyEventsEmpty = ['_' => 'peerNotifyEventsEmpty', ];
+$peerNotifyEventsEmpty = ['_' => 'peerNotifyEventsEmpty'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "peerNotifyEventsEmpty"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-peerNotifyEventsEmpty={_='peerNotifyEventsEmpty', }
+peerNotifyEventsEmpty={_='peerNotifyEventsEmpty'}
 
 ```
 

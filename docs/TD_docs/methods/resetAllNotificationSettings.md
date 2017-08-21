@@ -6,12 +6,15 @@ description: Resets all notification settings to the default value. By default t
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Resets all notification settings to the default value. By default the only muted chats are supergroups, sound is set to 'default' and message previews are showed
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 ### Return type: [Ok](../types/Ok.md)
@@ -22,7 +25,7 @@ Resets all notification settings to the default value. By default the only muted
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -36,6 +39,28 @@ if (isset($number)) { // Login as a user
 
 $Ok = $MadelineProto->resetAllNotificationSettings();
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - resetAllNotificationSettings
+* params - `{}`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/resetAllNotificationSettings`
+
+Parameters:
+
+
+
 
 Or, if you're into Lua:
 

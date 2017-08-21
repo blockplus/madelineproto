@@ -13,6 +13,7 @@ If not, see <http://www.gnu.org/licenses/>.
 require 'vendor/autoload.php';
 $param = 1;
 \danog\MadelineProto\Logger::constructor($param);
+set_error_handler(['\danog\MadelineProto\Exception', 'ExceptionErrorHandler']);
 
 \danog\MadelineProto\Logger::log(['Copying readme...'], \danog\MadelineProto\Logger::NOTICE);
 
@@ -20,7 +21,7 @@ file_put_contents('docs/index.md', '---
 title: MadelineProto documentation
 description: PHP implementation of telegram\'s MTProto protocol
 ---
-'.file_get_contents('README.md'));
+'.str_replace('<img', '<amp-img', file_get_contents('README.md')));
 
 $docs = [
     [
@@ -38,9 +39,9 @@ $docs = [
         'readme'      => false,
     ],
     [
-        'tl_schema'   => ['telegram' => __DIR__.'/src/danog/MadelineProto/TL_telegram_v66.tl', 'calls' => __DIR__.'/src/danog/MadelineProto/TL_calls.tl', 'secret' => __DIR__.'/src/danog/MadelineProto/TL_secret.tl', 'td' => __DIR__.'/src/danog/MadelineProto/TL_td.tl'],
-        'title'       => 'MadelineProto API documentation (layer 66)',
-        'description' => 'MadelineProto API documentation (layer 66)',
+        'tl_schema'   => ['telegram' => __DIR__.'/src/danog/MadelineProto/TL_telegram_v71.tl', 'calls' => __DIR__.'/src/danog/MadelineProto/TL_calls.tl', 'secret' => __DIR__.'/src/danog/MadelineProto/TL_secret.tl', 'td' => __DIR__.'/src/danog/MadelineProto/TL_td.tl'],
+        'title'       => 'MadelineProto API documentation (layer 71)',
+        'description' => 'MadelineProto API documentation (layer 71)',
         'output_dir'  => __DIR__.'/docs/API_docs',
         'readme'      => false,
     ],

@@ -10,7 +10,7 @@ description: test_vectorString attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |value|Array of [string](../constructors/string.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: test_vectorString attributes, type and example
 ### Example:
 
 ```
-$test_vectorString = ['_' => 'test.vectorString', 'value' => [string], ];
+$test_vectorString = ['_' => 'test.vectorString', 'value' => ['string']];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "test.vectorString", "value": ["string"]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-test_vectorString={_='test.vectorString', value={string}, }
+test_vectorString={_='test.vectorString', value={'string'}}
 
 ```
 

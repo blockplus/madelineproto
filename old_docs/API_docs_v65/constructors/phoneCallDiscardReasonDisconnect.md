@@ -16,14 +16,21 @@ description: phoneCallDiscardReasonDisconnect attributes, type and example
 ### Example:
 
 ```
-$phoneCallDiscardReasonDisconnect = ['_' => 'phoneCallDiscardReasonDisconnect', ];
+$phoneCallDiscardReasonDisconnect = ['_' => 'phoneCallDiscardReasonDisconnect'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "phoneCallDiscardReasonDisconnect"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-phoneCallDiscardReasonDisconnect={_='phoneCallDiscardReasonDisconnect', }
+phoneCallDiscardReasonDisconnect={_='phoneCallDiscardReasonDisconnect'}
 
 ```
 

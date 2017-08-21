@@ -12,7 +12,7 @@ Represents link to a jpeg photo
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |id|[string](../types/string.md) | Yes|Unique identifier of this result|
 |title|[string](../types/string.md) | Yes|Title of the result, if known|
 |description|[string](../types/string.md) | Yes|Short description of the result, if known|
@@ -31,14 +31,21 @@ Represents link to a jpeg photo
 ### Example:
 
 ```
-$inputInlineQueryResultPhoto = ['_' => 'inputInlineQueryResultPhoto', 'id' => string, 'title' => string, 'description' => string, 'thumb_url' => string, 'photo_url' => string, 'photo_width' => int, 'photo_height' => int, 'reply_markup' => ReplyMarkup, 'input_message_content' => InputMessageContent, ];
+$inputInlineQueryResultPhoto = ['_' => 'inputInlineQueryResultPhoto', 'id' => 'string', 'title' => 'string', 'description' => 'string', 'thumb_url' => 'string', 'photo_url' => 'string', 'photo_width' => int, 'photo_height' => int, 'reply_markup' => ReplyMarkup, 'input_message_content' => InputMessageContent];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputInlineQueryResultPhoto", "id": "string", "title": "string", "description": "string", "thumb_url": "string", "photo_url": "string", "photo_width": int, "photo_height": int, "reply_markup": ReplyMarkup, "input_message_content": InputMessageContent}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputInlineQueryResultPhoto={_='inputInlineQueryResultPhoto', id=string, title=string, description=string, thumb_url=string, photo_url=string, photo_width=int, photo_height=int, reply_markup=ReplyMarkup, input_message_content=InputMessageContent, }
+inputInlineQueryResultPhoto={_='inputInlineQueryResultPhoto', id='string', title='string', description='string', thumb_url='string', photo_url='string', photo_width=int, photo_height=int, reply_markup=ReplyMarkup, input_message_content=InputMessageContent}
 
 ```
 

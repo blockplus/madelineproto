@@ -16,14 +16,21 @@ description: help_noAppUpdate attributes, type and example
 ### Example:
 
 ```
-$help_noAppUpdate = ['_' => 'help.noAppUpdate', ];
+$help_noAppUpdate = ['_' => 'help.noAppUpdate'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "help.noAppUpdate"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-help_noAppUpdate={_='help.noAppUpdate', }
+help_noAppUpdate={_='help.noAppUpdate'}
 
 ```
 

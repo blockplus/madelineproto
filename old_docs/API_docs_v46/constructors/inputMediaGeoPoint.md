@@ -10,7 +10,7 @@ description: inputMediaGeoPoint attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |geo\_point|[InputGeoPoint](../types/InputGeoPoint.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: inputMediaGeoPoint attributes, type and example
 ### Example:
 
 ```
-$inputMediaGeoPoint = ['_' => 'inputMediaGeoPoint', 'geo_point' => InputGeoPoint, ];
+$inputMediaGeoPoint = ['_' => 'inputMediaGeoPoint', 'geo_point' => InputGeoPoint];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputMediaGeoPoint", "geo_point": InputGeoPoint}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputMediaGeoPoint={_='inputMediaGeoPoint', geo_point=InputGeoPoint, }
+inputMediaGeoPoint={_='inputMediaGeoPoint', geo_point=InputGeoPoint}
 
 ```
 

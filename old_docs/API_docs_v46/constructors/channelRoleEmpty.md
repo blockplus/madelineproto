@@ -16,14 +16,21 @@ description: channelRoleEmpty attributes, type and example
 ### Example:
 
 ```
-$channelRoleEmpty = ['_' => 'channelRoleEmpty', ];
+$channelRoleEmpty = ['_' => 'channelRoleEmpty'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "channelRoleEmpty"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-channelRoleEmpty={_='channelRoleEmpty', }
+channelRoleEmpty={_='channelRoleEmpty'}
 
 ```
 

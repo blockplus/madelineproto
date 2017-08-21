@@ -9,7 +9,7 @@ description: account.setPassword parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |current\_password\_hash|[bytes](../types/bytes.md) | Yes|
 |new\_salt|[bytes](../types/bytes.md) | Yes|
 |new\_password\_hash|[bytes](../types/bytes.md) | Yes|
@@ -24,7 +24,7 @@ description: account.setPassword parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -36,12 +36,42 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$Bool = $MadelineProto->account->setPassword(['current_password_hash' => bytes, 'new_salt' => bytes, 'new_password_hash' => bytes, 'hint' => string, ]);
+$Bool = $MadelineProto->account->setPassword(['current_password_hash' => 'bytes', 'new_salt' => 'bytes', 'new_password_hash' => 'bytes', 'hint' => 'string', ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - account.setPassword
+* params - `{"current_password_hash": "bytes", "new_salt": "bytes", "new_password_hash": "bytes", "hint": "string", }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/account.setPassword`
+
+Parameters:
+
+current_password_hash - Json encoded bytes
+
+new_salt - Json encoded bytes
+
+new_password_hash - Json encoded bytes
+
+hint - Json encoded string
+
+
+
 
 Or, if you're into Lua:
 
 ```
-Bool = account.setPassword({current_password_hash=bytes, new_salt=bytes, new_password_hash=bytes, hint=string, })
+Bool = account.setPassword({current_password_hash='bytes', new_salt='bytes', new_password_hash='bytes', hint='string', })
 ```
 

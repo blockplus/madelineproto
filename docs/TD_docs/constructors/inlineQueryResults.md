@@ -12,7 +12,7 @@ Represents results of the inline query. Use sendInlineQueryResultMessage to send
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |inline\_query\_id|[long](../types/long.md) | Yes|Unique identifier of the inline query|
 |next\_offset|[string](../types/string.md) | Yes|Offset for the next request. If it is empty, there is no more results|
 |results|Array of [InlineQueryResult](../constructors/InlineQueryResult.md) | Yes|Results of the query|
@@ -27,14 +27,21 @@ Represents results of the inline query. Use sendInlineQueryResultMessage to send
 ### Example:
 
 ```
-$inlineQueryResults = ['_' => 'inlineQueryResults', 'inline_query_id' => long, 'next_offset' => string, 'results' => [InlineQueryResult], 'switch_pm_text' => string, 'switch_pm_parameter' => string, ];
+$inlineQueryResults = ['_' => 'inlineQueryResults', 'inline_query_id' => long, 'next_offset' => 'string', 'results' => [InlineQueryResult], 'switch_pm_text' => 'string', 'switch_pm_parameter' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inlineQueryResults", "inline_query_id": long, "next_offset": "string", "results": [InlineQueryResult], "switch_pm_text": "string", "switch_pm_parameter": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inlineQueryResults={_='inlineQueryResults', inline_query_id=long, next_offset=string, results={InlineQueryResult}, switch_pm_text=string, switch_pm_parameter=string, }
+inlineQueryResults={_='inlineQueryResults', inline_query_id=long, next_offset='string', results={InlineQueryResult}, switch_pm_text='string', switch_pm_parameter='string'}
 
 ```
 

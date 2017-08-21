@@ -16,14 +16,21 @@ description: pageBlockDivider attributes, type and example
 ### Example:
 
 ```
-$pageBlockDivider = ['_' => 'pageBlockDivider', ];
+$pageBlockDivider = ['_' => 'pageBlockDivider'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "pageBlockDivider"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-pageBlockDivider={_='pageBlockDivider', }
+pageBlockDivider={_='pageBlockDivider'}
 
 ```
 

@@ -10,7 +10,7 @@ description: messageService attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[int](../types/int.md) | Yes|
 |from\_id|[int](../types/int.md) | Optional|
 |to\_id|[Peer](../types/Peer.md) | Yes|
@@ -25,14 +25,21 @@ description: messageService attributes, type and example
 ### Example:
 
 ```
-$messageService = ['_' => 'messageService', 'id' => int, 'from_id' => int, 'to_id' => Peer, 'date' => int, 'action' => MessageAction, ];
+$messageService = ['_' => 'messageService', 'id' => int, 'from_id' => int, 'to_id' => Peer, 'date' => int, 'action' => MessageAction];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageService", "id": int, "from_id": int, "to_id": Peer, "date": int, "action": MessageAction}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageService={_='messageService', id=int, from_id=int, to_id=Peer, date=int, action=MessageAction, }
+messageService={_='messageService', id=int, from_id=int, to_id=Peer, date=int, action=MessageAction}
 
 ```
 

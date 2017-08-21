@@ -10,7 +10,7 @@ description: rpc_error attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |error\_code|[int](../types/int.md) | Yes|
 |error\_message|[string](../types/string.md) | Yes|
 
@@ -22,14 +22,21 @@ description: rpc_error attributes, type and example
 ### Example:
 
 ```
-$rpc_error = ['_' => 'rpc_error', 'error_code' => int, 'error_message' => string, ];
+$rpc_error = ['_' => 'rpc_error', 'error_code' => int, 'error_message' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "rpc_error", "error_code": int, "error_message": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-rpc_error={_='rpc_error', error_code=int, error_message=string, }
+rpc_error={_='rpc_error', error_code=int, error_message='string'}
 
 ```
 

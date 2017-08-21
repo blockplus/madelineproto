@@ -10,7 +10,7 @@ description: userDeleted attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[int](../types/int.md) | Yes|
 |first\_name|[string](../types/string.md) | Yes|
 |last\_name|[string](../types/string.md) | Yes|
@@ -24,14 +24,21 @@ description: userDeleted attributes, type and example
 ### Example:
 
 ```
-$userDeleted = ['_' => 'userDeleted', 'id' => int, 'first_name' => string, 'last_name' => string, 'username' => string, ];
+$userDeleted = ['_' => 'userDeleted', 'id' => int, 'first_name' => 'string', 'last_name' => 'string', 'username' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "userDeleted", "id": int, "first_name": "string", "last_name": "string", "username": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-userDeleted={_='userDeleted', id=int, first_name=string, last_name=string, username=string, }
+userDeleted={_='userDeleted', id=int, first_name='string', last_name='string', username='string'}
 
 ```
 

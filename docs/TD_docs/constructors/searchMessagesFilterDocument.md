@@ -12,7 +12,7 @@ Return only document messages
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ Return only document messages
 ### Example:
 
 ```
-$searchMessagesFilterDocument = ['_' => 'searchMessagesFilterDocument', ];
+$searchMessagesFilterDocument = ['_' => 'searchMessagesFilterDocument'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "searchMessagesFilterDocument"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-searchMessagesFilterDocument={_='searchMessagesFilterDocument', }
+searchMessagesFilterDocument={_='searchMessagesFilterDocument'}
 
 ```
 

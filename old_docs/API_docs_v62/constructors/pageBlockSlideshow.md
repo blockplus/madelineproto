@@ -10,7 +10,7 @@ description: pageBlockSlideshow attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |items|Array of [PageBlock](../types/PageBlock.md) | Yes|
 |caption|[RichText](../types/RichText.md) | Yes|
 
@@ -22,14 +22,21 @@ description: pageBlockSlideshow attributes, type and example
 ### Example:
 
 ```
-$pageBlockSlideshow = ['_' => 'pageBlockSlideshow', 'items' => [PageBlock], 'caption' => RichText, ];
+$pageBlockSlideshow = ['_' => 'pageBlockSlideshow', 'items' => [PageBlock], 'caption' => RichText];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "pageBlockSlideshow", "items": [PageBlock], "caption": RichText}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-pageBlockSlideshow={_='pageBlockSlideshow', items={PageBlock}, caption=RichText, }
+pageBlockSlideshow={_='pageBlockSlideshow', items={PageBlock}, caption=RichText}
 
 ```
 

@@ -6,12 +6,15 @@ description: Changes about information of logged in user
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Changes about information of logged in user
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |about|[string](../types/string.md) | Yes|New value of userFull.about, 0-255 characters|
 
 
@@ -23,7 +26,7 @@ Changes about information of logged in user
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -35,12 +38,36 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$Ok = $MadelineProto->changeAbout(['about' => string, ]);
+$Ok = $MadelineProto->changeAbout(['about' => 'string', ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - changeAbout
+* params - `{"about": "string", }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/changeAbout`
+
+Parameters:
+
+about - Json encoded string
+
+
+
 
 Or, if you're into Lua:
 
 ```
-Ok = changeAbout({about=string, })
+Ok = changeAbout({about='string', })
 ```
 

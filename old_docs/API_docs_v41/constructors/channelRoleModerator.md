@@ -16,14 +16,21 @@ description: channelRoleModerator attributes, type and example
 ### Example:
 
 ```
-$channelRoleModerator = ['_' => 'channelRoleModerator', ];
+$channelRoleModerator = ['_' => 'channelRoleModerator'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "channelRoleModerator"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-channelRoleModerator={_='channelRoleModerator', }
+channelRoleModerator={_='channelRoleModerator'}
 
 ```
 

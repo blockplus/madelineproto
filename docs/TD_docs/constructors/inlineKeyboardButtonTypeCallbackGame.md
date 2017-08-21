@@ -12,7 +12,7 @@ A button with a game which sends to the bot special callback query, must be in t
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ A button with a game which sends to the bot special callback query, must be in t
 ### Example:
 
 ```
-$inlineKeyboardButtonTypeCallbackGame = ['_' => 'inlineKeyboardButtonTypeCallbackGame', ];
+$inlineKeyboardButtonTypeCallbackGame = ['_' => 'inlineKeyboardButtonTypeCallbackGame'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inlineKeyboardButtonTypeCallbackGame"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inlineKeyboardButtonTypeCallbackGame={_='inlineKeyboardButtonTypeCallbackGame', }
+inlineKeyboardButtonTypeCallbackGame={_='inlineKeyboardButtonTypeCallbackGame'}
 
 ```
 

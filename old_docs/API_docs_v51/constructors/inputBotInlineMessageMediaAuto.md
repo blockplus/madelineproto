@@ -10,7 +10,7 @@ description: inputBotInlineMessageMediaAuto attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |caption|[string](../types/string.md) | Yes|
 |reply\_markup|[ReplyMarkup](../types/ReplyMarkup.md) | Optional|
 
@@ -22,14 +22,21 @@ description: inputBotInlineMessageMediaAuto attributes, type and example
 ### Example:
 
 ```
-$inputBotInlineMessageMediaAuto = ['_' => 'inputBotInlineMessageMediaAuto', 'caption' => string, 'reply_markup' => ReplyMarkup, ];
+$inputBotInlineMessageMediaAuto = ['_' => 'inputBotInlineMessageMediaAuto', 'caption' => 'string', 'reply_markup' => ReplyMarkup];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputBotInlineMessageMediaAuto", "caption": "string", "reply_markup": ReplyMarkup}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputBotInlineMessageMediaAuto={_='inputBotInlineMessageMediaAuto', caption=string, reply_markup=ReplyMarkup, }
+inputBotInlineMessageMediaAuto={_='inputBotInlineMessageMediaAuto', caption='string', reply_markup=ReplyMarkup}
 
 ```
 

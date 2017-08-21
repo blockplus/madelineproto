@@ -10,7 +10,7 @@ description: inputFile attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[long](../types/long.md) | Yes|
 |parts|[int](../types/int.md) | Yes|
 |name|[string](../types/string.md) | Yes|
@@ -24,14 +24,21 @@ description: inputFile attributes, type and example
 ### Example:
 
 ```
-$inputFile = ['_' => 'inputFile', 'id' => long, 'parts' => int, 'name' => string, 'md5_checksum' => string, ];
+$inputFile = ['_' => 'inputFile', 'id' => long, 'parts' => int, 'name' => 'string', 'md5_checksum' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputFile", "id": long, "parts": int, "name": "string", "md5_checksum": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputFile={_='inputFile', id=long, parts=int, name=string, md5_checksum=string, }
+inputFile={_='inputFile', id=long, parts=int, name='string', md5_checksum='string'}
 
 ```
 

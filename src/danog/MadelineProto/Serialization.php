@@ -24,17 +24,22 @@ class Serialization
      * @param API    $instance
      * @param bool   $force
      *
-     * @return number|bool
+     * @return number
      */
     public static function serialize($filename, $instance, $force = false)
     {
-        if ($instance->API->should_serialize || !(file_exists($filename) && !empty(file_get_contents($filename))) || $force) {
-            $instance->API->should_serialize = false;
-
-            return file_put_contents($filename, \danog\MadelineProto\Logger::$has_thread ? \danog\Serialization::serialize($instance) : serialize($instance), LOCK_EX);
+        if (!file_exists($lock = $filename.'.lock')) {
+            touch($lock);
+            clearstatcache();
         }
+        $lock = fopen($lock, 'r');
+        flock($lock, LOCK_EX);
+        $wrote = file_put_contents($filename.'.temp.session', \danog\Serialization::serialize($instance, true));
+        rename($filename.'.temp.session', $filename);
+        flock($lock, LOCK_UN);
+        fclose($lock);
 
-        return false;
+        return $wrote;
     }
 
     /**
@@ -46,22 +51,34 @@ class Serialization
      *
      * @return API
      */
-    public static function deserialize($filename)
+    public static function deserialize($filename, $no_updates = false)
     {
         set_error_handler(['\danog\MadelineProto\Exception', 'ExceptionErrorHandler']);
-
         if (file_exists($filename)) {
-            $file = fopen($filename, 'r+');
-            flock($file, LOCK_SH);
-            $unserialized = stream_get_contents($file);
-            flock($file, LOCK_UN);
-            fclose($file);
-            foreach (['RSA', 'TL\TLMethod', 'TL\TLConstructor', 'MTProto', 'API', 'DataCenter', 'Connection'] as $class) {
+            if (!file_exists($lock = $filename.'.lock')) {
+                touch($lock);
+                clearstatcache();
+            }
+            $lock = fopen($lock, 'r');
+            flock($lock, LOCK_SH);
+            $unserialized = file_get_contents($filename);
+            flock($lock, LOCK_UN);
+            fclose($lock);
+            $unserialized = str_replace('O:26:"danog\MadelineProto\Button":', 'O:35:"danog\MadelineProto\TL\Types\Button":', $unserialized);
+            foreach (['RSA', 'TL\TLMethod', 'TL\TLConstructor', 'MTProto', 'API', 'DataCenter', 'Connection', 'TL\Types\Button', 'TL\Types\Bytes', 'APIFactory'] as $class) {
                 class_exists('\danog\MadelineProto\\'.$class);
             }
+            class_exists('\Volatile');
+            \danog\MadelineProto\Logger::class_exists();
+
             try {
-                $unserialized = \danog\MadelineProto\Logger::$has_thread ? \danog\Serialization::unserialize($unserialized) : unserialize($unserialized);
+                $unserialized = \danog\Serialization::unserialize($unserialized);
             } catch (Bug74586Exception $e) {
+                $unserialized = \danog\Serialization::unserialize($unserialized);
+                /*} catch (Exception $e) {
+                    $unserialized = \danog\Serialization::unserialize($unserialized);
+                */
+            } catch (\Error $e) {
                 $unserialized = \danog\Serialization::unserialize($unserialized);
             }
         } else {

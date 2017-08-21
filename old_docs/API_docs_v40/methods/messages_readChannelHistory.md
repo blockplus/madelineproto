@@ -9,7 +9,7 @@ description: messages.readChannelHistory parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |peer|[InputPeer](../types/InputPeer.md) | Yes|
 |max\_id|[int](../types/int.md) | Yes|
 
@@ -22,7 +22,7 @@ description: messages.readChannelHistory parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -36,6 +36,32 @@ if (isset($number)) { // Login as a user
 
 $Bool = $MadelineProto->messages->readChannelHistory(['peer' => InputPeer, 'max_id' => int, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - messages.readChannelHistory
+* params - `{"peer": InputPeer, "max_id": int, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/messages.readChannelHistory`
+
+Parameters:
+
+peer - Json encoded InputPeer
+
+max_id - Json encoded int
+
+
+
 
 Or, if you're into Lua:
 

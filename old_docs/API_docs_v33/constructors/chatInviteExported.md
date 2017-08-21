@@ -10,7 +10,7 @@ description: chatInviteExported attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |link|[string](../types/string.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: chatInviteExported attributes, type and example
 ### Example:
 
 ```
-$chatInviteExported = ['_' => 'chatInviteExported', 'link' => string, ];
+$chatInviteExported = ['_' => 'chatInviteExported', 'link' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "chatInviteExported", "link": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-chatInviteExported={_='chatInviteExported', link=string, }
+chatInviteExported={_='chatInviteExported', link='string'}
 
 ```
 

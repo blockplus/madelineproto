@@ -16,14 +16,21 @@ description: sendMessageCancelAction attributes, type and example
 ### Example:
 
 ```
-$sendMessageCancelAction = ['_' => 'sendMessageCancelAction', ];
+$sendMessageCancelAction = ['_' => 'sendMessageCancelAction'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "sendMessageCancelAction"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-sendMessageCancelAction={_='sendMessageCancelAction', }
+sendMessageCancelAction={_='sendMessageCancelAction'}
 
 ```
 

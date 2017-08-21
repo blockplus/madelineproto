@@ -6,12 +6,15 @@ description: Searches for messages in all chats except secret chats. Returns res
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Searches for messages in all chats except secret chats. Returns result in reverse chronological order, i. e. in order of decreasing (date, chat_id, message_id)
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |query|[string](../types/string.md) | Yes|Query to search for|
 |offset\_date|[int](../types/int.md) | Yes|Date of the message to search from, you can use 0 or any date in the future to get results from the beginning|
 |offset\_chat\_id|[long](../types/long.md) | Yes|Chat identifier of the last found message or 0 for the first request|
@@ -27,7 +30,7 @@ Searches for messages in all chats except secret chats. Returns result in revers
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -39,12 +42,44 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$Messages = $MadelineProto->searchMessages(['query' => string, 'offset_date' => int, 'offset_chat_id' => long, 'offset_message_id' => long, 'limit' => int, ]);
+$Messages = $MadelineProto->searchMessages(['query' => 'string', 'offset_date' => int, 'offset_chat_id' => long, 'offset_message_id' => long, 'limit' => int, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - searchMessages
+* params - `{"query": "string", "offset_date": int, "offset_chat_id": long, "offset_message_id": long, "limit": int, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/searchMessages`
+
+Parameters:
+
+query - Json encoded string
+
+offset_date - Json encoded int
+
+offset_chat_id - Json encoded long
+
+offset_message_id - Json encoded long
+
+limit - Json encoded int
+
+
+
 
 Or, if you're into Lua:
 
 ```
-Messages = searchMessages({query=string, offset_date=int, offset_chat_id=long, offset_message_id=long, limit=int, })
+Messages = searchMessages({query='string', offset_date=int, offset_chat_id=long, offset_message_id=long, limit=int, })
 ```
 

@@ -16,14 +16,21 @@ description: inputMessagesFilterVoice attributes, type and example
 ### Example:
 
 ```
-$inputMessagesFilterVoice = ['_' => 'inputMessagesFilterVoice', ];
+$inputMessagesFilterVoice = ['_' => 'inputMessagesFilterVoice'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputMessagesFilterVoice"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputMessagesFilterVoice={_='inputMessagesFilterVoice', }
+inputMessagesFilterVoice={_='inputMessagesFilterVoice'}
 
 ```
 

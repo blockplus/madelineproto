@@ -10,7 +10,7 @@ description: messageEntityMention attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |offset|[int](../types/int.md) | Yes|
 |length|[int](../types/int.md) | Yes|
 
@@ -22,14 +22,21 @@ description: messageEntityMention attributes, type and example
 ### Example:
 
 ```
-$messageEntityMention = ['_' => 'messageEntityMention', 'offset' => int, 'length' => int, ];
+$messageEntityMention = ['_' => 'messageEntityMention', 'offset' => int, 'length' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageEntityMention", "offset": int, "length": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageEntityMention={_='messageEntityMention', offset=int, length=int, }
+messageEntityMention={_='messageEntityMention', offset=int, length=int}
 
 ```
 

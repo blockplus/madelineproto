@@ -10,7 +10,7 @@ description: updatePhoneCall attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |phone\_call|[PhoneCall](../types/PhoneCall.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: updatePhoneCall attributes, type and example
 ### Example:
 
 ```
-$updatePhoneCall = ['_' => 'updatePhoneCall', 'phone_call' => PhoneCall, ];
+$updatePhoneCall = ['_' => 'updatePhoneCall', 'phone_call' => PhoneCall];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updatePhoneCall", "phone_call": PhoneCall}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updatePhoneCall={_='updatePhoneCall', phone_call=PhoneCall, }
+updatePhoneCall={_='updatePhoneCall', phone_call=PhoneCall}
 
 ```
 

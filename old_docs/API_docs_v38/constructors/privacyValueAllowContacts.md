@@ -16,14 +16,21 @@ description: privacyValueAllowContacts attributes, type and example
 ### Example:
 
 ```
-$privacyValueAllowContacts = ['_' => 'privacyValueAllowContacts', ];
+$privacyValueAllowContacts = ['_' => 'privacyValueAllowContacts'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "privacyValueAllowContacts"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-privacyValueAllowContacts={_='privacyValueAllowContacts', }
+privacyValueAllowContacts={_='privacyValueAllowContacts'}
 
 ```
 

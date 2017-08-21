@@ -9,7 +9,7 @@ description: messages.search parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |important\_only|[Bool](../types/Bool.md) | Optional|
 |peer|[InputPeer](../types/InputPeer.md) | Yes|
 |q|[string](../types/string.md) | Yes|
@@ -29,7 +29,7 @@ description: messages.search parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -41,12 +41,52 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$messages_Messages = $MadelineProto->messages->search(['important_only' => Bool, 'peer' => InputPeer, 'q' => string, 'filter' => MessagesFilter, 'min_date' => int, 'max_date' => int, 'offset' => int, 'max_id' => int, 'limit' => int, ]);
+$messages_Messages = $MadelineProto->messages->search(['important_only' => Bool, 'peer' => InputPeer, 'q' => 'string', 'filter' => MessagesFilter, 'min_date' => int, 'max_date' => int, 'offset' => int, 'max_id' => int, 'limit' => int, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - messages.search
+* params - `{"important_only": Bool, "peer": InputPeer, "q": "string", "filter": MessagesFilter, "min_date": int, "max_date": int, "offset": int, "max_id": int, "limit": int, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/messages.search`
+
+Parameters:
+
+important_only - Json encoded Bool
+
+peer - Json encoded InputPeer
+
+q - Json encoded string
+
+filter - Json encoded MessagesFilter
+
+min_date - Json encoded int
+
+max_date - Json encoded int
+
+offset - Json encoded int
+
+max_id - Json encoded int
+
+limit - Json encoded int
+
+
+
 
 Or, if you're into Lua:
 
 ```
-messages_Messages = messages.search({important_only=Bool, peer=InputPeer, q=string, filter=MessagesFilter, min_date=int, max_date=int, offset=int, max_id=int, limit=int, })
+messages_Messages = messages.search({important_only=Bool, peer=InputPeer, q='string', filter=MessagesFilter, min_date=int, max_date=int, offset=int, max_id=int, limit=int, })
 ```
 

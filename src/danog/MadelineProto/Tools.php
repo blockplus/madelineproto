@@ -33,21 +33,6 @@ trait Tools
         return $resto < 0 ? ($resto + abs($b)) : $resto;
     }
 
-    public function utf8ize($d)
-    {
-        if ($this->is_array($d)) {
-            foreach ($d as $k => $v) {
-                if ($k === 'bytes' || $this->is_array($v)) {
-                    $d[$k] = $this->utf8ize($v);
-                }
-            }
-        } elseif (is_string($d)) {
-            return utf8_encode($d);
-        }
-
-        return $d;
-    }
-
     public function is_array($elem)
     {
         return is_array($elem) || ($elem instanceof \Volatile);
@@ -55,12 +40,12 @@ trait Tools
 
     public function __call($method, $params)
     {
-        return \danog\MadelineProto\Logger::$has_thread ? $method(...$this->array_cast_recursive($params)) : $method(...$params);
+        return (is_object($params[0]) || \danog\MadelineProto\Logger::$has_thread) ? $method(...$this->array_cast_recursive($params, true)) : $method(...$params);
     }
 
-    public function array_cast_recursive($array)
+    public function array_cast_recursive($array, $force = false)
     {
-        if (!\danog\MadelineProto\Logger::$has_thread) {
+        if (!\danog\MadelineProto\Logger::$has_thread && !$force) {
             return $array;
         }
         if ($this->is_array($array)) {
@@ -68,7 +53,7 @@ trait Tools
                 $array = (array) $array;
             }
             foreach ($array as $key => $value) {
-                $array[$key] = $this->array_cast_recursive($value);
+                $array[$key] = $this->array_cast_recursive($value, $force);
             }
         }
 

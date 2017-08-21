@@ -6,12 +6,15 @@ description: Gives or revokes all members of the group editor rights. Needs crea
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Gives or revokes all members of the group editor rights. Needs creator privileges in the group
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |group\_id|[int](../types/int.md) | Yes|Identifier of the group|
 |anyone\_can\_edit|[Bool](../types/Bool.md) | Yes|New value of anyone_can_edit|
 
@@ -24,7 +27,7 @@ Gives or revokes all members of the group editor rights. Needs creator privilege
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -38,6 +41,32 @@ if (isset($number)) { // Login as a user
 
 $Ok = $MadelineProto->toggleGroupEditors(['group_id' => int, 'anyone_can_edit' => Bool, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - toggleGroupEditors
+* params - `{"group_id": int, "anyone_can_edit": Bool, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/toggleGroupEditors`
+
+Parameters:
+
+group_id - Json encoded int
+
+anyone_can_edit - Json encoded Bool
+
+
+
 
 Or, if you're into Lua:
 

@@ -10,7 +10,7 @@ description: pageBlockSubtitle attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |text|[RichText](../types/RichText.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: pageBlockSubtitle attributes, type and example
 ### Example:
 
 ```
-$pageBlockSubtitle = ['_' => 'pageBlockSubtitle', 'text' => RichText, ];
+$pageBlockSubtitle = ['_' => 'pageBlockSubtitle', 'text' => RichText];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "pageBlockSubtitle", "text": RichText}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-pageBlockSubtitle={_='pageBlockSubtitle', text=RichText, }
+pageBlockSubtitle={_='pageBlockSubtitle', text=RichText}
 
 ```
 

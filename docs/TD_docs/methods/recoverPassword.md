@@ -6,12 +6,15 @@ description: Recovers password with recovery code sent to email
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Recovers password with recovery code sent to email
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |recovery\_code|[string](../types/string.md) | Yes|Recovery code to check|
 
 
@@ -23,7 +26,7 @@ Recovers password with recovery code sent to email
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -35,12 +38,36 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$PasswordState = $MadelineProto->recoverPassword(['recovery_code' => string, ]);
+$PasswordState = $MadelineProto->recoverPassword(['recovery_code' => 'string', ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - recoverPassword
+* params - `{"recovery_code": "string", }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/recoverPassword`
+
+Parameters:
+
+recovery_code - Json encoded string
+
+
+
 
 Or, if you're into Lua:
 
 ```
-PasswordState = recoverPassword({recovery_code=string, })
+PasswordState = recoverPassword({recovery_code='string', })
 ```
 

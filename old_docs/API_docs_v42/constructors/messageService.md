@@ -10,7 +10,7 @@ description: messageService attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |unread|[Bool](../types/Bool.md) | Optional|
 |out|[Bool](../types/Bool.md) | Optional|
 |mentioned|[Bool](../types/Bool.md) | Optional|
@@ -29,14 +29,21 @@ description: messageService attributes, type and example
 ### Example:
 
 ```
-$messageService = ['_' => 'messageService', 'unread' => Bool, 'out' => Bool, 'mentioned' => Bool, 'media_unread' => Bool, 'id' => int, 'from_id' => int, 'to_id' => Peer, 'date' => int, 'action' => MessageAction, ];
+$messageService = ['_' => 'messageService', 'unread' => Bool, 'out' => Bool, 'mentioned' => Bool, 'media_unread' => Bool, 'id' => int, 'from_id' => int, 'to_id' => Peer, 'date' => int, 'action' => MessageAction];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageService", "unread": Bool, "out": Bool, "mentioned": Bool, "media_unread": Bool, "id": int, "from_id": int, "to_id": Peer, "date": int, "action": MessageAction}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageService={_='messageService', unread=Bool, out=Bool, mentioned=Bool, media_unread=Bool, id=int, from_id=int, to_id=Peer, date=int, action=MessageAction, }
+messageService={_='messageService', unread=Bool, out=Bool, mentioned=Bool, media_unread=Bool, id=int, from_id=int, to_id=Peer, date=int, action=MessageAction}
 
 ```
 

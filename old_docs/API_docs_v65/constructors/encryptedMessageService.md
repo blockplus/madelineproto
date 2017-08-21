@@ -10,7 +10,7 @@ description: encryptedMessageService attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |chat\_id|[int](../types/int.md) | Yes|
 |date|[int](../types/int.md) | Yes|
 |decrypted\_message|[DecryptedMessage](../types/DecryptedMessage.md) | Yes|
@@ -23,14 +23,21 @@ description: encryptedMessageService attributes, type and example
 ### Example:
 
 ```
-$encryptedMessageService = ['_' => 'encryptedMessageService', 'chat_id' => int, 'date' => int, 'decrypted_message' => DecryptedMessage, ];
+$encryptedMessageService = ['_' => 'encryptedMessageService', 'chat_id' => int, 'date' => int, 'decrypted_message' => DecryptedMessage];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "encryptedMessageService", "chat_id": int, "date": int, "decrypted_message": DecryptedMessage}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-encryptedMessageService={_='encryptedMessageService', chat_id=int, date=int, decrypted_message=DecryptedMessage, }
+encryptedMessageService={_='encryptedMessageService', chat_id=int, date=int, decrypted_message=DecryptedMessage}
 
 ```
 

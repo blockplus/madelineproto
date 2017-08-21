@@ -10,7 +10,7 @@ description: decryptedMessageActionResend attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |start\_seq\_no|[int](../types/int.md) | Yes|
 |end\_seq\_no|[int](../types/int.md) | Yes|
 
@@ -22,14 +22,21 @@ description: decryptedMessageActionResend attributes, type and example
 ### Example:
 
 ```
-$decryptedMessageActionResend_17 = ['_' => 'decryptedMessageActionResend', 'start_seq_no' => int, 'end_seq_no' => int, ];
+$decryptedMessageActionResend_17 = ['_' => 'decryptedMessageActionResend', 'start_seq_no' => int, 'end_seq_no' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "decryptedMessageActionResend", "start_seq_no": int, "end_seq_no": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-decryptedMessageActionResend_17={_='decryptedMessageActionResend', start_seq_no=int, end_seq_no=int, }
+decryptedMessageActionResend_17={_='decryptedMessageActionResend', start_seq_no=int, end_seq_no=int}
 
 ```
 

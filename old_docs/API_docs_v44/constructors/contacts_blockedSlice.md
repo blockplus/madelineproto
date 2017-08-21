@@ -10,7 +10,7 @@ description: contacts_blockedSlice attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |count|[int](../types/int.md) | Yes|
 |blocked|Array of [ContactBlocked](../types/ContactBlocked.md) | Yes|
 |users|Array of [User](../types/User.md) | Yes|
@@ -23,14 +23,21 @@ description: contacts_blockedSlice attributes, type and example
 ### Example:
 
 ```
-$contacts_blockedSlice = ['_' => 'contacts.blockedSlice', 'count' => int, 'blocked' => [ContactBlocked], 'users' => [User], ];
+$contacts_blockedSlice = ['_' => 'contacts.blockedSlice', 'count' => int, 'blocked' => [ContactBlocked], 'users' => [User]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "contacts.blockedSlice", "count": int, "blocked": [ContactBlocked], "users": [User]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-contacts_blockedSlice={_='contacts.blockedSlice', count=int, blocked={ContactBlocked}, users={User}, }
+contacts_blockedSlice={_='contacts.blockedSlice', count=int, blocked={ContactBlocked}, users={User}}
 
 ```
 

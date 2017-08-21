@@ -6,12 +6,15 @@ description: Deletes profile photo. If something changes, updateUser will be sen
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Deletes profile photo. If something changes, updateUser will be sent
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |profile\_photo\_id|[long](../types/long.md) | Yes|Identifier of profile photo to delete|
 
 
@@ -23,7 +26,7 @@ Deletes profile photo. If something changes, updateUser will be sent
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,6 +40,30 @@ if (isset($number)) { // Login as a user
 
 $Ok = $MadelineProto->deleteProfilePhoto(['profile_photo_id' => long, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - deleteProfilePhoto
+* params - `{"profile_photo_id": long, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/deleteProfilePhoto`
+
+Parameters:
+
+profile_photo_id - Json encoded long
+
+
+
 
 Or, if you're into Lua:
 

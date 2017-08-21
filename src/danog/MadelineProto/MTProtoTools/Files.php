@@ -27,7 +27,7 @@ trait Files
         }
         $datacenter = is_null($datacenter) ? $this->datacenter->curdc : $datacenter;
         $file_size = filesize($file);
-        if ($file_size > 1610612736) {
+        if ($file_size > 512 * 1024 * 3000) {
             throw new \danog\MadelineProto\Exception('Given file is too big!');
         }
         if ($cb === null) {
@@ -73,7 +73,7 @@ trait Files
             $constructor['key_fingerprint'] = $fingerprint;
             $constructor['key'] = $key;
             $constructor['iv'] = $iv;
-//            $constructor['md5_checksum'] = '';
+            //            $constructor['md5_checksum'] = '';
         }
 
         return $constructor;
@@ -95,6 +95,9 @@ trait Files
         $res = [];
         switch ($message_media['_']) {
             case 'encryptedMessage':
+            if ($message_media['decrypted_message']['media']['_'] === 'decryptedMessageMediaExternalDocument') {
+                return $this->get_download_info($message_media['decrypted_message']['media']);
+            }
             $res['InputFileLocation'] = ['_' => 'inputEncryptedFileLocation', 'id' => $message_media['file']['id'], 'access_hash' => $message_media['file']['access_hash'], 'dc_id' => $message_media['file']['dc_id']];
             $res['size'] = $message_media['decrypted_message']['media']['size'];
             $res['key_fingerprint'] = $message_media['file']['key_fingerprint'];
@@ -109,7 +112,10 @@ trait Files
             }
             if (isset($message_media['decrypted_message']['media']['mime_type'])) {
                 $res['mime'] = $message_media['decrypted_message']['media']['mime_type'];
+            } elseif ($message_media['decrypted_message']['media']['_'] === 'decryptedMessageMediaPhoto') {
+                $res['mime'] = 'image/jpeg';
             }
+
             if (isset($message_media['decrypted_message']['media']['attributes'])) {
                 foreach ($message_media['decrypted_message']['media']['attributes'] as $attribute) {
                     switch ($attribute['_']) {
@@ -140,8 +146,13 @@ trait Files
             }
 
             return $res;
+            case 'photo':
             case 'messageMediaPhoto':
-            $photo = end($message_media['photo']['sizes']);
+            if ($message_media['_'] == 'photo') {
+                $photo = end($message_media['sizes']);
+            } else {
+                $photo = end($message_media['photo']['sizes']);
+            }
             $res['name'] = $photo['location']['volume_id'].'_'.$photo['location']['local_id'];
             $res['InputFileLocation'] = ['_' => 'inputFileLocation', 'volume_id' => $photo['location']['volume_id'], 'local_id' => $photo['location']['local_id'], 'secret' => $photo['location']['secret'], 'dc_id' => $photo['location']['dc_id']];
 
@@ -248,8 +259,11 @@ trait Files
             fseek($stream, $offset);
         }
         $downloaded_size = 0;
+        if ($end === -1 && isset($message_media['size'])) {
+            $end = $message_media['size'];
+        }
         $size = $end - $offset;
-        $part_size = 512 * 1024;
+        $part_size = 128 * 1024;
         $percent = 0;
         $datacenter = isset($message_media['InputFileLocation']['dc_id']) ? $message_media['InputFileLocation']['dc_id'] : $this->datacenter->curdc;
         if (isset($message_media['key'])) {
@@ -269,43 +283,72 @@ trait Files
             if ($start_at = $offset % $part_size) {
                 $offset -= $start_at;
             }
+
             try {
                 $res = $cdn ? $this->method_call('upload.getCdnFile', ['file_token' => $message_media['file_token'], 'offset' => $offset, 'limit' => $part_size], ['heavy' => true, 'datacenter' => $datacenter]) : $this->method_call('upload.getFile', ['location' => $message_media['InputFileLocation'], 'offset' => $offset, 'limit' => $part_size], ['heavy' => true, 'datacenter' => &$datacenter]);
             } catch (\danog\MadelineProto\RPCErrorException $e) {
-                if ($e->rpc === 'OFFSET_INVALID') {
+                switch ($e->rpc) {
+                    case 'OFFSET_INVALID':
                     \Rollbar\Rollbar::log(\Rollbar\Payload\Level::error(), $e->rpc, ['info' => $message_media, 'offset' => $offset]);
                     break;
-                } else {
+                    case 'FILE_TOKEN_INVALID':
+                    $cdn = false;
+                    continue 2;
+
+                    default:
                     throw $e;
                 }
             }
             if ($res['_'] === 'upload.fileCdnRedirect') {
                 $cdn = true;
                 $message_media['file_token'] = $res['file_token'];
-                $message_media['cdn_key'] = $res['key'];
-                $message_media['cdn_iv'] = $res['iv'];
+                $message_media['cdn_key'] = $res['encryption_key'];
+                $message_media['cdn_iv'] = $res['encryption_iv'];
+                $old_dc = $datacenter;
                 $datacenter = $res['dc_id'].'_cdn';
+                if (!isset($this->datacenter->sockets[$datacenter])) {
+                    $this->config['expires'] = -1;
+                    $this->get_config([], ['datacenter' => $this->datacenter->curdc]);
+                }
                 \danog\MadelineProto\Logger::log(['File is stored on CDN!'], \danog\MadelineProto\Logger::NOTICE);
                 continue;
             }
-            if ($res['type']['_'] === 'upload.cdnFileReuploadNeeded') {
+            if ($res['_'] === 'upload.cdnFileReuploadNeeded') {
                 \danog\MadelineProto\Logger::log(['File is not stored on CDN, requesting reupload!'], \danog\MadelineProto\Logger::NOTICE);
-                $this->method_call('upload.reuploadCdnFile', ['file_token' => $message_media['file_token'], 'request_token' => $res['request_token']], ['heavy' => true, 'datacenter' => $datacenter]);
+                $this->get_config([], ['datacenter' => $this->datacenter->curdc]);
+
+                try {
+                    $this->add_cdn_hashes($message_media['file_token'], $this->method_call('upload.reuploadCdnFile', ['file_token' => $message_media['file_token'], 'request_token' => $res['request_token']], ['heavy' => true, 'datacenter' => $old_dc]));
+                } catch (\danog\MadelineProto\RPCErrorException $e) {
+                    switch ($e->rpc) {
+                        case 'FILE_TOKEN_INVALID':
+                        case 'REQUEST_TOKEN_INVALID':
+                        $cdn = false;
+                        continue 2;
+
+                        default:
+                        throw $e;
+                    }
+                }
                 continue;
             }
-            while ($res['type']['_'] === 'storage.fileUnknown' && $res['bytes'] === '') {
+            if ($cdn === false && $res['type']['_'] === 'storage.fileUnknown' && $res['bytes'] === '') {
                 $datacenter = 1;
+            }
+            while ($cdn === false && $res['type']['_'] === 'storage.fileUnknown' && $res['bytes'] === '') {
                 $res = $this->method_call('upload.getFile', ['location' => $message_media['InputFileLocation'], 'offset' => $offset, 'limit' => $part_size], ['heavy' => true, 'datacenter' => $datacenter]);
                 $datacenter++;
-            }
-            if ($res['bytes'] === '') {
-                break;
+                if (!isset($this->datacenter->sockets[$datacenter])) {
+                    break;
+                }
             }
             if (isset($message_media['cdn_key'])) {
-                $res['bytes'] = $this->encrypt_ctr($res['bytes'], $message_media['cdn_key'], $message_media['cdn_iv'], $offset);
+                $ivec = substr($message_media['cdn_iv'], 0, 12).pack('N', $offset >> 4);
+                $res['bytes'] = $this->ctr_encrypt($res['bytes'], $message_media['cdn_key'], $ivec);
             }
             if (isset($message_media['key'])) {
                 $res['bytes'] = $ige->decrypt($res['bytes']);
+                $this->check_cdn_hash($msssage_media['file_token'], $offset, $res['bytes'], $datacenter);
             }
             if ($start_at) {
                 $res['bytes'] = substr($res['bytes'], $start_at);
@@ -314,6 +357,9 @@ trait Files
                 $res['bytes'] = substr($res['bytes'], 0, $size - $downloaded_size);
                 $theend = true;
             }
+            if ($res['bytes'] === '') {
+                break;
+            }
             $offset += strlen($res['bytes']);
             $downloaded_size += strlen($res['bytes']);
             \danog\MadelineProto\Logger::log([fwrite($stream, $res['bytes'])], \danog\MadelineProto\Logger::ULTRA_VERBOSE);
@@ -321,12 +367,51 @@ trait Files
             if ($theend) {
                 break;
             }
-            //\danog\MadelineProto\Logger::log([$offset, $size, ftell($stream)], \danog\MadelineProto\Logger::ULTRA_VERBOSE);
-            $cb($percent = $downloaded_size * 100 / $size);
+            if ($end !== -1) {
+                $cb($percent = $downloaded_size * 100 / $size);
+            }
         }
         if ($end === -1) {
             $cb(100);
         }
+        if ($cdn) {
+            $this->clear_cdn_hashes($message_media['file_token']);
+        }
+
+        return true;
+    }
+
+    private $cdn_hashes = [];
+
+    private function add_cdn_hashes($file, $hashes)
+    {
+        if (!isset($this->cdn_hashes[$file])) {
+            $this->cdn_hashes = [];
+        }
+        foreach ($hashes as $hash) {
+            $this->cdn_hashes[$file][$hash['offset']] = ['limit' => $hash['limit'], 'hash' => $hash['hash']];
+        }
+    }
+
+    private function check_cdn_hash($file, $offset, $data, &$datacenter)
+    {
+        if (!isset($this->cdn_hashes[$file][$offset])) {
+            $this->add_cdn_hashes($this->method_call('upload.getCdnFileHashes', ['file_token' => $file, 'offset' => $offset], ['datacenter' => &$datacenter]));
+        }
+        if (!isset($this->cdn_hashes[$file][$offset])) {
+            throw new \danog\MadelineProto\Exception('Could not fetch CDN hashes for offset '.$offset);
+        }
+        if (hash('sha256', $data, true) !== $this->cdn_hashes[$file][$offset]['hash']) {
+            throw new \danog\MadelineProto\SecurityException('CDN hashe mismatch for offset '.$offset);
+        }
+        unset($this->cdn_hashes[$file][$offset]);
+
+        return true;
+    }
+
+    private function clear_cdn_hashes($file)
+    {
+        unset($this->cdn_hashes[$file]);
 
         return true;
     }

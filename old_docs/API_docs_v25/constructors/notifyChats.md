@@ -16,14 +16,21 @@ description: notifyChats attributes, type and example
 ### Example:
 
 ```
-$notifyChats = ['_' => 'notifyChats', ];
+$notifyChats = ['_' => 'notifyChats'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "notifyChats"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-notifyChats={_='notifyChats', }
+notifyChats={_='notifyChats'}
 
 ```
 

@@ -16,14 +16,21 @@ description: inputMessagesFilterDocument attributes, type and example
 ### Example:
 
 ```
-$inputMessagesFilterDocument = ['_' => 'inputMessagesFilterDocument', ];
+$inputMessagesFilterDocument = ['_' => 'inputMessagesFilterDocument'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputMessagesFilterDocument"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputMessagesFilterDocument={_='inputMessagesFilterDocument', }
+inputMessagesFilterDocument={_='inputMessagesFilterDocument'}
 
 ```
 

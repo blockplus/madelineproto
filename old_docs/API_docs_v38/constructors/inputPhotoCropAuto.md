@@ -16,14 +16,21 @@ description: inputPhotoCropAuto attributes, type and example
 ### Example:
 
 ```
-$inputPhotoCropAuto = ['_' => 'inputPhotoCropAuto', ];
+$inputPhotoCropAuto = ['_' => 'inputPhotoCropAuto'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputPhotoCropAuto"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputPhotoCropAuto={_='inputPhotoCropAuto', }
+inputPhotoCropAuto={_='inputPhotoCropAuto'}
 
 ```
 

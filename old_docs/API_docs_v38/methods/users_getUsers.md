@@ -9,7 +9,7 @@ description: users.getUsers parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|Array of [InputUser](../types/InputUser.md) | Yes|
 
 
@@ -21,7 +21,7 @@ description: users.getUsers parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -35,6 +35,30 @@ if (isset($number)) { // Login as a user
 
 $Vector_of_User = $MadelineProto->users->getUsers(['id' => [InputUser], ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - users.getUsers
+* params - `{"id": [InputUser], }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/users.getUsers`
+
+Parameters:
+
+id - Json encoded  array of InputUser
+
+
+
 
 Or, if you're into Lua:
 

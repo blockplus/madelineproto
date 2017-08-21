@@ -10,7 +10,7 @@ description: messageGroup attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |min\_id|[int](../types/int.md) | Yes|
 |max\_id|[int](../types/int.md) | Yes|
 |count|[int](../types/int.md) | Yes|
@@ -24,14 +24,21 @@ description: messageGroup attributes, type and example
 ### Example:
 
 ```
-$messageGroup = ['_' => 'messageGroup', 'min_id' => int, 'max_id' => int, 'count' => int, 'date' => int, ];
+$messageGroup = ['_' => 'messageGroup', 'min_id' => int, 'max_id' => int, 'count' => int, 'date' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageGroup", "min_id": int, "max_id": int, "count": int, "date": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageGroup={_='messageGroup', min_id=int, max_id=int, count=int, date=int, }
+messageGroup={_='messageGroup', min_id=int, max_id=int, count=int, date=int}
 
 ```
 

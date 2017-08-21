@@ -10,7 +10,7 @@ description: inputPrivacyValueAllowUsers attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |users|Array of [InputUser](../types/InputUser.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: inputPrivacyValueAllowUsers attributes, type and example
 ### Example:
 
 ```
-$inputPrivacyValueAllowUsers = ['_' => 'inputPrivacyValueAllowUsers', 'users' => [InputUser], ];
+$inputPrivacyValueAllowUsers = ['_' => 'inputPrivacyValueAllowUsers', 'users' => [InputUser]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputPrivacyValueAllowUsers", "users": [InputUser]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputPrivacyValueAllowUsers={_='inputPrivacyValueAllowUsers', users={InputUser}, }
+inputPrivacyValueAllowUsers={_='inputPrivacyValueAllowUsers', users={InputUser}}
 
 ```
 

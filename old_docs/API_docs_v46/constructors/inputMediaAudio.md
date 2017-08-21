@@ -10,7 +10,7 @@ description: inputMediaAudio attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |audio|[InputAudio](../types/InputAudio.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: inputMediaAudio attributes, type and example
 ### Example:
 
 ```
-$inputMediaAudio = ['_' => 'inputMediaAudio', 'audio' => InputAudio, ];
+$inputMediaAudio = ['_' => 'inputMediaAudio', 'audio' => InputAudio];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputMediaAudio", "audio": InputAudio}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputMediaAudio={_='inputMediaAudio', audio=InputAudio, }
+inputMediaAudio={_='inputMediaAudio', audio=InputAudio}
 
 ```
 

@@ -9,7 +9,7 @@ description: channels.getImportantHistory parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |channel|[InputChannel](../types/InputChannel.md) | Yes|
 |offset\_id|[int](../types/int.md) | Yes|
 |offset\_date|[int](../types/int.md) | Yes|
@@ -27,7 +27,7 @@ description: channels.getImportantHistory parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -41,6 +41,42 @@ if (isset($number)) { // Login as a user
 
 $messages_Messages = $MadelineProto->channels->getImportantHistory(['channel' => InputChannel, 'offset_id' => int, 'offset_date' => int, 'add_offset' => int, 'limit' => int, 'max_id' => int, 'min_id' => int, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - channels.getImportantHistory
+* params - `{"channel": InputChannel, "offset_id": int, "offset_date": int, "add_offset": int, "limit": int, "max_id": int, "min_id": int, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/channels.getImportantHistory`
+
+Parameters:
+
+channel - Json encoded InputChannel
+
+offset_id - Json encoded int
+
+offset_date - Json encoded int
+
+add_offset - Json encoded int
+
+limit - Json encoded int
+
+max_id - Json encoded int
+
+min_id - Json encoded int
+
+
+
 
 Or, if you're into Lua:
 

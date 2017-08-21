@@ -12,7 +12,7 @@ User sends geolocation
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ User sends geolocation
 ### Example:
 
 ```
-$sendMessageGeoLocationAction = ['_' => 'sendMessageGeoLocationAction', ];
+$sendMessageGeoLocationAction = ['_' => 'sendMessageGeoLocationAction'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "sendMessageGeoLocationAction"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-sendMessageGeoLocationAction={_='sendMessageGeoLocationAction', }
+sendMessageGeoLocationAction={_='sendMessageGeoLocationAction'}
 
 ```
 

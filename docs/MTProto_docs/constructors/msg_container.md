@@ -10,7 +10,7 @@ description: msg_container attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |messages|Array of [MTmessage](../constructors/MTmessage.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: msg_container attributes, type and example
 ### Example:
 
 ```
-$msg_container = ['_' => 'msg_container', 'messages' => [MTmessage], ];
+$msg_container = ['_' => 'msg_container', 'messages' => [MTmessage]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "msg_container", "messages": [MTmessage]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-msg_container={_='msg_container', messages={MTmessage}, }
+msg_container={_='msg_container', messages={MTmessage}}
 
 ```
 

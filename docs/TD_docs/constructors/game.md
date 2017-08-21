@@ -12,7 +12,7 @@ Describes a game
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |id|[long](../types/long.md) | Yes|Game id|
 |short\_name|[string](../types/string.md) | Yes|Game short name, to share a game use a URL https: telegram.me/{bot_username}?game={game_short_name}|
 |title|[string](../types/string.md) | Yes|Game title|
@@ -30,14 +30,21 @@ Describes a game
 ### Example:
 
 ```
-$game = ['_' => 'game', 'id' => long, 'short_name' => string, 'title' => string, 'text' => string, 'text_entities' => [MessageEntity], 'description' => string, 'photo' => photo, 'animation' => animation, ];
+$game = ['_' => 'game', 'id' => long, 'short_name' => 'string', 'title' => 'string', 'text' => 'string', 'text_entities' => [MessageEntity], 'description' => 'string', 'photo' => photo, 'animation' => animation];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "game", "id": long, "short_name": "string", "title": "string", "text": "string", "text_entities": [MessageEntity], "description": "string", "photo": photo, "animation": animation}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-game={_='game', id=long, short_name=string, title=string, text=string, text_entities={MessageEntity}, description=string, photo=photo, animation=animation, }
+game={_='game', id=long, short_name='string', title='string', text='string', text_entities={MessageEntity}, description='string', photo=photo, animation=animation}
 
 ```
 

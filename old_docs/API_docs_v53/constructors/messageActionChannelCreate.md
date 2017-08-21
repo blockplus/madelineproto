@@ -10,7 +10,7 @@ description: messageActionChannelCreate attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |title|[string](../types/string.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: messageActionChannelCreate attributes, type and example
 ### Example:
 
 ```
-$messageActionChannelCreate = ['_' => 'messageActionChannelCreate', 'title' => string, ];
+$messageActionChannelCreate = ['_' => 'messageActionChannelCreate', 'title' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageActionChannelCreate", "title": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageActionChannelCreate={_='messageActionChannelCreate', title=string, }
+messageActionChannelCreate={_='messageActionChannelCreate', title='string'}
 
 ```
 

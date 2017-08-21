@@ -10,7 +10,7 @@ description: messages_peerDialogs attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |dialogs|Array of [Dialog](../types/Dialog.md) | Yes|
 |messages|Array of [Message](../types/Message.md) | Yes|
 |chats|Array of [Chat](../types/Chat.md) | Yes|
@@ -25,14 +25,21 @@ description: messages_peerDialogs attributes, type and example
 ### Example:
 
 ```
-$messages_peerDialogs = ['_' => 'messages.peerDialogs', 'dialogs' => [Dialog], 'messages' => [Message], 'chats' => [Chat], 'users' => [User], 'state' => updates_State, ];
+$messages_peerDialogs = ['_' => 'messages.peerDialogs', 'dialogs' => [Dialog], 'messages' => [Message], 'chats' => [Chat], 'users' => [User], 'state' => updates_State];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messages.peerDialogs", "dialogs": [Dialog], "messages": [Message], "chats": [Chat], "users": [User], "state": updates_State}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messages_peerDialogs={_='messages.peerDialogs', dialogs={Dialog}, messages={Message}, chats={Chat}, users={User}, state=updates_State, }
+messages_peerDialogs={_='messages.peerDialogs', dialogs={Dialog}, messages={Message}, chats={Chat}, users={User}, state=updates_State}
 
 ```
 

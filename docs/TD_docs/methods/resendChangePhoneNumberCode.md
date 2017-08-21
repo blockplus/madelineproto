@@ -6,12 +6,15 @@ description: Resends authentication code sent to change user's phone number. Wot
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Resends authentication code sent to change user's phone number. Wotks only if in previously received authStateWaitCode next_code_type was not null. Returns authStateWaitCode on success
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 ### Return type: [AuthState](../types/AuthState.md)
@@ -22,7 +25,7 @@ Resends authentication code sent to change user's phone number. Wotks only if in
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -36,6 +39,28 @@ if (isset($number)) { // Login as a user
 
 $AuthState = $MadelineProto->resendChangePhoneNumberCode();
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - resendChangePhoneNumberCode
+* params - `{}`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/resendChangePhoneNumberCode`
+
+Parameters:
+
+
+
 
 Or, if you're into Lua:
 

@@ -12,7 +12,7 @@ Represents list of animations
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |animations|Array of [animation](../constructors/animation.md) | Yes|Animations|
 
 
@@ -23,14 +23,21 @@ Represents list of animations
 ### Example:
 
 ```
-$animations = ['_' => 'animations', 'animations' => [animation], ];
+$animations = ['_' => 'animations', 'animations' => [animation]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "animations", "animations": [animation]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-animations={_='animations', animations={animation}, }
+animations={_='animations', animations={animation}}
 
 ```
 

@@ -12,7 +12,7 @@ Describes user profile photo
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |id|[long](../types/long.md) | Yes|Photo identifier, 0 for empty photo. Can be used to find photo in list of userProfilePhotos|
 |small|[file](../types/file.md) | Yes|Small (160x160) user profile photo|
 |big|[file](../types/file.md) | Yes|Big (640x640) user profile photo|
@@ -25,14 +25,21 @@ Describes user profile photo
 ### Example:
 
 ```
-$profilePhoto = ['_' => 'profilePhoto', 'id' => long, 'small' => file, 'big' => file, ];
+$profilePhoto = ['_' => 'profilePhoto', 'id' => long, 'small' => file, 'big' => file];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "profilePhoto", "id": long, "small": file, "big": file}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-profilePhoto={_='profilePhoto', id=long, small=file, big=file, }
+profilePhoto={_='profilePhoto', id=long, small=file, big=file}
 
 ```
 

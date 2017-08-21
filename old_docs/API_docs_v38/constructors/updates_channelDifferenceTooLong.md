@@ -10,7 +10,7 @@ description: updates_channelDifferenceTooLong attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |pts|[int](../types/int.md) | Yes|
 |timeout|[int](../types/int.md) | Optional|
 |top\_message|[int](../types/int.md) | Yes|
@@ -30,14 +30,21 @@ description: updates_channelDifferenceTooLong attributes, type and example
 ### Example:
 
 ```
-$updates_channelDifferenceTooLong = ['_' => 'updates.channelDifferenceTooLong', 'pts' => int, 'timeout' => int, 'top_message' => int, 'top_important_message' => int, 'read_inbox_max_id' => int, 'unread_count' => int, 'unread_important_count' => int, 'messages' => [Message], 'chats' => [Chat], 'users' => [User], ];
+$updates_channelDifferenceTooLong = ['_' => 'updates.channelDifferenceTooLong', 'pts' => int, 'timeout' => int, 'top_message' => int, 'top_important_message' => int, 'read_inbox_max_id' => int, 'unread_count' => int, 'unread_important_count' => int, 'messages' => [Message], 'chats' => [Chat], 'users' => [User]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updates.channelDifferenceTooLong", "pts": int, "timeout": int, "top_message": int, "top_important_message": int, "read_inbox_max_id": int, "unread_count": int, "unread_important_count": int, "messages": [Message], "chats": [Chat], "users": [User]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updates_channelDifferenceTooLong={_='updates.channelDifferenceTooLong', pts=int, timeout=int, top_message=int, top_important_message=int, read_inbox_max_id=int, unread_count=int, unread_important_count=int, messages={Message}, chats={Chat}, users={User}, }
+updates_channelDifferenceTooLong={_='updates.channelDifferenceTooLong', pts=int, timeout=int, top_message=int, top_important_message=int, read_inbox_max_id=int, unread_count=int, unread_important_count=int, messages={Message}, chats={Chat}, users={User}}
 
 ```
 

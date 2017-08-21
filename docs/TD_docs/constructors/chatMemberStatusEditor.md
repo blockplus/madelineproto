@@ -12,7 +12,7 @@ In broadcast channels, member that can post messages to the broadcast channel an
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ In broadcast channels, member that can post messages to the broadcast channel an
 ### Example:
 
 ```
-$chatMemberStatusEditor = ['_' => 'chatMemberStatusEditor', ];
+$chatMemberStatusEditor = ['_' => 'chatMemberStatusEditor'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "chatMemberStatusEditor"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-chatMemberStatusEditor={_='chatMemberStatusEditor', }
+chatMemberStatusEditor={_='chatMemberStatusEditor'}
 
 ```
 

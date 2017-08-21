@@ -10,7 +10,7 @@ description: inputMediaVideo attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[InputVideo](../types/InputVideo.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: inputMediaVideo attributes, type and example
 ### Example:
 
 ```
-$inputMediaVideo = ['_' => 'inputMediaVideo', 'id' => InputVideo, ];
+$inputMediaVideo = ['_' => 'inputMediaVideo', 'id' => InputVideo];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputMediaVideo", "id": InputVideo}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputMediaVideo={_='inputMediaVideo', id=InputVideo, }
+inputMediaVideo={_='inputMediaVideo', id=InputVideo}
 
 ```
 

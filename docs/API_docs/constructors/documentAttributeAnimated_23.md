@@ -16,14 +16,21 @@ description: documentAttributeAnimated attributes, type and example
 ### Example:
 
 ```
-$documentAttributeAnimated_23 = ['_' => 'documentAttributeAnimated', ];
+$documentAttributeAnimated_23 = ['_' => 'documentAttributeAnimated'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "documentAttributeAnimated"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-documentAttributeAnimated_23={_='documentAttributeAnimated', }
+documentAttributeAnimated_23={_='documentAttributeAnimated'}
 
 ```
 

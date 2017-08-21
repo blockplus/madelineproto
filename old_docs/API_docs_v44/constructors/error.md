@@ -10,7 +10,7 @@ description: error attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |code|[int](../types/int.md) | Yes|
 |text|[string](../types/string.md) | Yes|
 
@@ -22,14 +22,21 @@ description: error attributes, type and example
 ### Example:
 
 ```
-$error = ['_' => 'error', 'code' => int, 'text' => string, ];
+$error = ['_' => 'error', 'code' => int, 'text' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "error", "code": int, "text": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-error={_='error', code=int, text=string, }
+error={_='error', code=int, text='string'}
 
 ```
 

@@ -10,7 +10,7 @@ description: updateNewGeoChatMessage attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |message|[GeoChatMessage](../types/GeoChatMessage.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: updateNewGeoChatMessage attributes, type and example
 ### Example:
 
 ```
-$updateNewGeoChatMessage = ['_' => 'updateNewGeoChatMessage', 'message' => GeoChatMessage, ];
+$updateNewGeoChatMessage = ['_' => 'updateNewGeoChatMessage', 'message' => GeoChatMessage];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateNewGeoChatMessage", "message": GeoChatMessage}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateNewGeoChatMessage={_='updateNewGeoChatMessage', message=GeoChatMessage, }
+updateNewGeoChatMessage={_='updateNewGeoChatMessage', message=GeoChatMessage}
 
 ```
 

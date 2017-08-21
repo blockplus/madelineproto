@@ -12,7 +12,7 @@ Represents link to an animated (i.e. without sound) H.264/MPEG-4 AVC video
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |id|[string](../types/string.md) | Yes|Unique identifier of this result|
 |title|[string](../types/string.md) | Yes|Title of the result|
 |thumb\_url|[string](../types/string.md) | Yes|Url of the static result thumb (jpeg or gif), if exists|
@@ -30,14 +30,21 @@ Represents link to an animated (i.e. without sound) H.264/MPEG-4 AVC video
 ### Example:
 
 ```
-$inputInlineQueryResultAnimatedMpeg4 = ['_' => 'inputInlineQueryResultAnimatedMpeg4', 'id' => string, 'title' => string, 'thumb_url' => string, 'mpeg4_url' => string, 'mpeg4_width' => int, 'mpeg4_height' => int, 'reply_markup' => ReplyMarkup, 'input_message_content' => InputMessageContent, ];
+$inputInlineQueryResultAnimatedMpeg4 = ['_' => 'inputInlineQueryResultAnimatedMpeg4', 'id' => 'string', 'title' => 'string', 'thumb_url' => 'string', 'mpeg4_url' => 'string', 'mpeg4_width' => int, 'mpeg4_height' => int, 'reply_markup' => ReplyMarkup, 'input_message_content' => InputMessageContent];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputInlineQueryResultAnimatedMpeg4", "id": "string", "title": "string", "thumb_url": "string", "mpeg4_url": "string", "mpeg4_width": int, "mpeg4_height": int, "reply_markup": ReplyMarkup, "input_message_content": InputMessageContent}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputInlineQueryResultAnimatedMpeg4={_='inputInlineQueryResultAnimatedMpeg4', id=string, title=string, thumb_url=string, mpeg4_url=string, mpeg4_width=int, mpeg4_height=int, reply_markup=ReplyMarkup, input_message_content=InputMessageContent, }
+inputInlineQueryResultAnimatedMpeg4={_='inputInlineQueryResultAnimatedMpeg4', id='string', title='string', thumb_url='string', mpeg4_url='string', mpeg4_width=int, mpeg4_height=int, reply_markup=ReplyMarkup, input_message_content=InputMessageContent}
 
 ```
 

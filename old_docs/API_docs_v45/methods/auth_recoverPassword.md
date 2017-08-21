@@ -9,7 +9,7 @@ description: auth.recoverPassword parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |code|[string](../types/string.md) | Yes|
 
 
@@ -21,7 +21,7 @@ description: auth.recoverPassword parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -33,12 +33,36 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$auth_Authorization = $MadelineProto->auth->recoverPassword(['code' => string, ]);
+$auth_Authorization = $MadelineProto->auth->recoverPassword(['code' => 'string', ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - auth.recoverPassword
+* params - `{"code": "string", }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/auth.recoverPassword`
+
+Parameters:
+
+code - Json encoded string
+
+
+
 
 Or, if you're into Lua:
 
 ```
-auth_Authorization = auth.recoverPassword({code=string, })
+auth_Authorization = auth.recoverPassword({code='string', })
 ```
 

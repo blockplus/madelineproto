@@ -10,7 +10,7 @@ description: messages_dhConfigNotModified attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |random|[bytes](../types/bytes.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: messages_dhConfigNotModified attributes, type and example
 ### Example:
 
 ```
-$messages_dhConfigNotModified = ['_' => 'messages.dhConfigNotModified', 'random' => bytes, ];
+$messages_dhConfigNotModified = ['_' => 'messages.dhConfigNotModified', 'random' => 'bytes'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messages.dhConfigNotModified", "random": "bytes"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messages_dhConfigNotModified={_='messages.dhConfigNotModified', random=bytes, }
+messages_dhConfigNotModified={_='messages.dhConfigNotModified', random='bytes'}
 
 ```
 

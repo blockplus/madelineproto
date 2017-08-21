@@ -12,7 +12,7 @@ Return only messages containing chat photos
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ Return only messages containing chat photos
 ### Example:
 
 ```
-$searchMessagesFilterChatPhoto = ['_' => 'searchMessagesFilterChatPhoto', ];
+$searchMessagesFilterChatPhoto = ['_' => 'searchMessagesFilterChatPhoto'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "searchMessagesFilterChatPhoto"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-searchMessagesFilterChatPhoto={_='searchMessagesFilterChatPhoto', }
+searchMessagesFilterChatPhoto={_='searchMessagesFilterChatPhoto'}
 
 ```
 

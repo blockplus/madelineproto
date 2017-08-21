@@ -10,7 +10,7 @@ description: updateServiceNotification attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |type|[string](../types/string.md) | Yes|
 |message\_text|[string](../types/string.md) | Yes|
 |media|[MessageMedia](../types/MessageMedia.md) | Yes|
@@ -24,14 +24,21 @@ description: updateServiceNotification attributes, type and example
 ### Example:
 
 ```
-$updateServiceNotification = ['_' => 'updateServiceNotification', 'type' => string, 'message_text' => string, 'media' => MessageMedia, 'popup' => Bool, ];
+$updateServiceNotification = ['_' => 'updateServiceNotification', 'type' => 'string', 'message_text' => 'string', 'media' => MessageMedia, 'popup' => Bool];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateServiceNotification", "type": "string", "message_text": "string", "media": MessageMedia, "popup": Bool}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateServiceNotification={_='updateServiceNotification', type=string, message_text=string, media=MessageMedia, popup=Bool, }
+updateServiceNotification={_='updateServiceNotification', type='string', message_text='string', media=MessageMedia, popup=Bool}
 
 ```
 

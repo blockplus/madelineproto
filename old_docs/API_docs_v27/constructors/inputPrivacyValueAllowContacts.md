@@ -16,14 +16,21 @@ description: inputPrivacyValueAllowContacts attributes, type and example
 ### Example:
 
 ```
-$inputPrivacyValueAllowContacts = ['_' => 'inputPrivacyValueAllowContacts', ];
+$inputPrivacyValueAllowContacts = ['_' => 'inputPrivacyValueAllowContacts'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputPrivacyValueAllowContacts"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputPrivacyValueAllowContacts={_='inputPrivacyValueAllowContacts', }
+inputPrivacyValueAllowContacts={_='inputPrivacyValueAllowContacts'}
 
 ```
 

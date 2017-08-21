@@ -10,7 +10,7 @@ description: keyboardButtonRequestGeoLocation attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |text|[string](../types/string.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: keyboardButtonRequestGeoLocation attributes, type and example
 ### Example:
 
 ```
-$keyboardButtonRequestGeoLocation = ['_' => 'keyboardButtonRequestGeoLocation', 'text' => string, ];
+$keyboardButtonRequestGeoLocation = ['_' => 'keyboardButtonRequestGeoLocation', 'text' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "keyboardButtonRequestGeoLocation", "text": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-keyboardButtonRequestGeoLocation={_='keyboardButtonRequestGeoLocation', text=string, }
+keyboardButtonRequestGeoLocation={_='keyboardButtonRequestGeoLocation', text='string'}
 
 ```
 

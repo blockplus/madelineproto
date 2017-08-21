@@ -12,7 +12,7 @@ Represents a point on the map
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |id|[string](../types/string.md) | Yes|Unique identifier of this result|
 |location|[location](../types/location.md) | Yes|The result|
 |title|[string](../types/string.md) | Yes|Title of the result|
@@ -28,14 +28,21 @@ Represents a point on the map
 ### Example:
 
 ```
-$inlineQueryResultLocation = ['_' => 'inlineQueryResultLocation', 'id' => string, 'location' => location, 'title' => string, 'thumb_url' => string, 'thumb_width' => int, 'thumb_height' => int, ];
+$inlineQueryResultLocation = ['_' => 'inlineQueryResultLocation', 'id' => 'string', 'location' => location, 'title' => 'string', 'thumb_url' => 'string', 'thumb_width' => int, 'thumb_height' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inlineQueryResultLocation", "id": "string", "location": location, "title": "string", "thumb_url": "string", "thumb_width": int, "thumb_height": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inlineQueryResultLocation={_='inlineQueryResultLocation', id=string, location=location, title=string, thumb_url=string, thumb_width=int, thumb_height=int, }
+inlineQueryResultLocation={_='inlineQueryResultLocation', id='string', location=location, title='string', thumb_url='string', thumb_width=int, thumb_height=int}
 
 ```
 

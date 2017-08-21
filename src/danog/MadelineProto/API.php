@@ -14,12 +14,7 @@ namespace danog\MadelineProto;
 
 class API extends APIFactory
 {
-    use \danog\MadelineProto\Wrappers\Login;
-    use \danog\MadelineProto\Wrappers\SettingsManager;
     use \danog\Serializable;
-
-    public $API;
-    public $namespace = '';
 
     public function ___construct($params = [])
     {
@@ -34,7 +29,7 @@ class API extends APIFactory
         \danog\MadelineProto\Logger::log(['Pong: '.$pong['ping_id']], Logger::ULTRA_VERBOSE);
         //\danog\MadelineProto\Logger::log(['Getting future salts...'], Logger::ULTRA_VERBOSE);
         //$this->future_salts = $this->get_future_salts(['num' => 3]);
-        $this->API->v = $this->API->getV();
+        $this->API->v = \danog\MadelineProto\MTProto::V;
         \danog\MadelineProto\Logger::log(['MadelineProto is ready!'], Logger::NOTICE);
     }
 
@@ -56,6 +51,36 @@ class API extends APIFactory
     public function __sleep()
     {
         return ['API'];
+    }
+
+    public function &__get($name)
+    {
+        if ($name === 'settings') {
+            $this->API->setdem = true;
+
+            return $this->API->settings;
+        }
+
+        return $this->API->storage[$name];
+    }
+
+    public function __set($name, $value)
+    {
+        if ($name === 'settings') {
+            return $this->API->__construct($value);
+        }
+
+        return $this->API->storage[$name] = $value;
+    }
+
+    public function __isset($name)
+    {
+        return isset($this->API->storage[$name]);
+    }
+
+    public function __unset($name)
+    {
+        unset($this->API->storage[$name]);
     }
 
     public function APIFactory()

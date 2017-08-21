@@ -10,7 +10,7 @@ description: contactFound attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |user\_id|[int](../types/int.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: contactFound attributes, type and example
 ### Example:
 
 ```
-$contactFound = ['_' => 'contactFound', 'user_id' => int, ];
+$contactFound = ['_' => 'contactFound', 'user_id' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "contactFound", "user_id": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-contactFound={_='contactFound', user_id=int, }
+contactFound={_='contactFound', user_id=int}
 
 ```
 

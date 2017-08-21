@@ -10,7 +10,7 @@ description: updateBotCallbackQuery attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |query\_id|[long](../types/long.md) | Yes|
 |user\_id|[int](../types/int.md) | Yes|
 |peer|[Peer](../types/Peer.md) | Yes|
@@ -27,14 +27,21 @@ description: updateBotCallbackQuery attributes, type and example
 ### Example:
 
 ```
-$updateBotCallbackQuery = ['_' => 'updateBotCallbackQuery', 'query_id' => long, 'user_id' => int, 'peer' => Peer, 'msg_id' => int, 'chat_instance' => long, 'data' => bytes, 'game_short_name' => string, ];
+$updateBotCallbackQuery = ['_' => 'updateBotCallbackQuery', 'query_id' => long, 'user_id' => int, 'peer' => Peer, 'msg_id' => int, 'chat_instance' => long, 'data' => 'bytes', 'game_short_name' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateBotCallbackQuery", "query_id": long, "user_id": int, "peer": Peer, "msg_id": int, "chat_instance": long, "data": "bytes", "game_short_name": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateBotCallbackQuery={_='updateBotCallbackQuery', query_id=long, user_id=int, peer=Peer, msg_id=int, chat_instance=long, data=bytes, game_short_name=string, }
+updateBotCallbackQuery={_='updateBotCallbackQuery', query_id=long, user_id=int, peer=Peer, msg_id=int, chat_instance=long, data='bytes', game_short_name='string'}
 
 ```
 

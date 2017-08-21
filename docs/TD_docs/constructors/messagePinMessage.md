@@ -12,7 +12,7 @@ Some message was pinned
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |message\_id|[long](../types/long.md) | Yes|Identifier of the pinned message, can be identifier of the deleted message|
 
 
@@ -23,14 +23,21 @@ Some message was pinned
 ### Example:
 
 ```
-$messagePinMessage = ['_' => 'messagePinMessage', 'message_id' => long, ];
+$messagePinMessage = ['_' => 'messagePinMessage', 'message_id' => long];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messagePinMessage", "message_id": long}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messagePinMessage={_='messagePinMessage', message_id=long, }
+messagePinMessage={_='messagePinMessage', message_id=long}
 
 ```
 

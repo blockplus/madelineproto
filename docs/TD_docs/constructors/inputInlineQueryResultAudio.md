@@ -12,7 +12,7 @@ Represents link to a mp3 audio file
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |id|[string](../types/string.md) | Yes|Unique identifier of this result|
 |title|[string](../types/string.md) | Yes|Title of the audio|
 |performer|[string](../types/string.md) | Yes|Performer of the audio|
@@ -29,14 +29,21 @@ Represents link to a mp3 audio file
 ### Example:
 
 ```
-$inputInlineQueryResultAudio = ['_' => 'inputInlineQueryResultAudio', 'id' => string, 'title' => string, 'performer' => string, 'audio_url' => string, 'audio_duration' => int, 'reply_markup' => ReplyMarkup, 'input_message_content' => InputMessageContent, ];
+$inputInlineQueryResultAudio = ['_' => 'inputInlineQueryResultAudio', 'id' => 'string', 'title' => 'string', 'performer' => 'string', 'audio_url' => 'string', 'audio_duration' => int, 'reply_markup' => ReplyMarkup, 'input_message_content' => InputMessageContent];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputInlineQueryResultAudio", "id": "string", "title": "string", "performer": "string", "audio_url": "string", "audio_duration": int, "reply_markup": ReplyMarkup, "input_message_content": InputMessageContent}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputInlineQueryResultAudio={_='inputInlineQueryResultAudio', id=string, title=string, performer=string, audio_url=string, audio_duration=int, reply_markup=ReplyMarkup, input_message_content=InputMessageContent, }
+inputInlineQueryResultAudio={_='inputInlineQueryResultAudio', id='string', title='string', performer='string', audio_url='string', audio_duration=int, reply_markup=ReplyMarkup, input_message_content=InputMessageContent}
 
 ```
 

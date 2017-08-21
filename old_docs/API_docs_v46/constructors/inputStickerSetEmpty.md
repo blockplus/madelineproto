@@ -16,14 +16,21 @@ description: inputStickerSetEmpty attributes, type and example
 ### Example:
 
 ```
-$inputStickerSetEmpty = ['_' => 'inputStickerSetEmpty', ];
+$inputStickerSetEmpty = ['_' => 'inputStickerSetEmpty'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputStickerSetEmpty"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputStickerSetEmpty={_='inputStickerSetEmpty', }
+inputStickerSetEmpty={_='inputStickerSetEmpty'}
 
 ```
 

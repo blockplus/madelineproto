@@ -10,7 +10,7 @@ description: updates_channelDifferenceEmpty attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |pts|[int](../types/int.md) | Yes|
 |timeout|[int](../types/int.md) | Optional|
 
@@ -22,14 +22,21 @@ description: updates_channelDifferenceEmpty attributes, type and example
 ### Example:
 
 ```
-$updates_channelDifferenceEmpty = ['_' => 'updates.channelDifferenceEmpty', 'pts' => int, 'timeout' => int, ];
+$updates_channelDifferenceEmpty = ['_' => 'updates.channelDifferenceEmpty', 'pts' => int, 'timeout' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updates.channelDifferenceEmpty", "pts": int, "timeout": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updates_channelDifferenceEmpty={_='updates.channelDifferenceEmpty', pts=int, timeout=int, }
+updates_channelDifferenceEmpty={_='updates.channelDifferenceEmpty', pts=int, timeout=int}
 
 ```
 

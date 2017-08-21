@@ -10,7 +10,7 @@ description: messageActionGeoChatCreate attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |title|[string](../types/string.md) | Yes|
 |address|[string](../types/string.md) | Yes|
 
@@ -22,14 +22,21 @@ description: messageActionGeoChatCreate attributes, type and example
 ### Example:
 
 ```
-$messageActionGeoChatCreate = ['_' => 'messageActionGeoChatCreate', 'title' => string, 'address' => string, ];
+$messageActionGeoChatCreate = ['_' => 'messageActionGeoChatCreate', 'title' => 'string', 'address' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageActionGeoChatCreate", "title": "string", "address": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageActionGeoChatCreate={_='messageActionGeoChatCreate', title=string, address=string, }
+messageActionGeoChatCreate={_='messageActionGeoChatCreate', title='string', address='string'}
 
 ```
 

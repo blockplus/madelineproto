@@ -12,7 +12,7 @@ Describes venue
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |location|[location](../types/location.md) | Yes|Venue location as defined by sender|
 |title|[string](../types/string.md) | Yes|Venue name as defined by sender|
 |address|[string](../types/string.md) | Yes|Venue address as defined by sender|
@@ -27,14 +27,21 @@ Describes venue
 ### Example:
 
 ```
-$venue = ['_' => 'venue', 'location' => location, 'title' => string, 'address' => string, 'provider' => string, 'id' => string, ];
+$venue = ['_' => 'venue', 'location' => location, 'title' => 'string', 'address' => 'string', 'provider' => 'string', 'id' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "venue", "location": location, "title": "string", "address": "string", "provider": "string", "id": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-venue={_='venue', location=location, title=string, address=string, provider=string, id=string, }
+venue={_='venue', location=location, title='string', address='string', provider='string', id='string'}
 
 ```
 

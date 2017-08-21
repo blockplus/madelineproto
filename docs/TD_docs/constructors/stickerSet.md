@@ -12,7 +12,7 @@ Represents sticker set
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |id|[long](../types/long.md) | Yes|Sticker set identifier|
 |title|[string](../types/string.md) | Yes|Title of the sticker set|
 |name|[string](../types/string.md) | Yes|Name of the sticker set|
@@ -32,14 +32,21 @@ Represents sticker set
 ### Example:
 
 ```
-$stickerSet = ['_' => 'stickerSet', 'id' => long, 'title' => string, 'name' => string, 'is_installed' => Bool, 'is_archived' => Bool, 'is_official' => Bool, 'is_masks' => Bool, 'is_viewed' => Bool, 'stickers' => [sticker], 'emojis' => [stickerEmojis], ];
+$stickerSet = ['_' => 'stickerSet', 'id' => long, 'title' => 'string', 'name' => 'string', 'is_installed' => Bool, 'is_archived' => Bool, 'is_official' => Bool, 'is_masks' => Bool, 'is_viewed' => Bool, 'stickers' => [sticker], 'emojis' => [stickerEmojis]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "stickerSet", "id": long, "title": "string", "name": "string", "is_installed": Bool, "is_archived": Bool, "is_official": Bool, "is_masks": Bool, "is_viewed": Bool, "stickers": [sticker], "emojis": [stickerEmojis]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-stickerSet={_='stickerSet', id=long, title=string, name=string, is_installed=Bool, is_archived=Bool, is_official=Bool, is_masks=Bool, is_viewed=Bool, stickers={sticker}, emojis={stickerEmojis}, }
+stickerSet={_='stickerSet', id=long, title='string', name='string', is_installed=Bool, is_archived=Bool, is_official=Bool, is_masks=Bool, is_viewed=Bool, stickers={sticker}, emojis={stickerEmojis}}
 
 ```
 

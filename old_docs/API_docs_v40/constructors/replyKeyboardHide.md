@@ -10,7 +10,7 @@ description: replyKeyboardHide attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 
 
 
@@ -20,14 +20,21 @@ description: replyKeyboardHide attributes, type and example
 ### Example:
 
 ```
-$replyKeyboardHide = ['_' => 'replyKeyboardHide', ];
+$replyKeyboardHide = ['_' => 'replyKeyboardHide'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "replyKeyboardHide"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-replyKeyboardHide={_='replyKeyboardHide', }
+replyKeyboardHide={_='replyKeyboardHide'}
 
 ```
 

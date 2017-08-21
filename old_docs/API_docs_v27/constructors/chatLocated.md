@@ -10,7 +10,7 @@ description: chatLocated attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |chat\_id|[int](../types/int.md) | Yes|
 |distance|[int](../types/int.md) | Yes|
 
@@ -22,14 +22,21 @@ description: chatLocated attributes, type and example
 ### Example:
 
 ```
-$chatLocated = ['_' => 'chatLocated', 'chat_id' => int, 'distance' => int, ];
+$chatLocated = ['_' => 'chatLocated', 'chat_id' => int, 'distance' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "chatLocated", "chat_id": int, "distance": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-chatLocated={_='chatLocated', chat_id=int, distance=int, }
+chatLocated={_='chatLocated', chat_id=int, distance=int}
 
 ```
 

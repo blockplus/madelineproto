@@ -10,7 +10,7 @@ description: chatPhoto attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |photo\_small|[FileLocation](../types/FileLocation.md) | Yes|
 |photo\_big|[FileLocation](../types/FileLocation.md) | Yes|
 
@@ -22,14 +22,21 @@ description: chatPhoto attributes, type and example
 ### Example:
 
 ```
-$chatPhoto = ['_' => 'chatPhoto', 'photo_small' => FileLocation, 'photo_big' => FileLocation, ];
+$chatPhoto = ['_' => 'chatPhoto', 'photo_small' => FileLocation, 'photo_big' => FileLocation];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "chatPhoto", "photo_small": FileLocation, "photo_big": FileLocation}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-chatPhoto={_='chatPhoto', photo_small=FileLocation, photo_big=FileLocation, }
+chatPhoto={_='chatPhoto', photo_small=FileLocation, photo_big=FileLocation}
 
 ```
 

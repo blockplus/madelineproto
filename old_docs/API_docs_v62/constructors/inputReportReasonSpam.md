@@ -16,14 +16,21 @@ description: inputReportReasonSpam attributes, type and example
 ### Example:
 
 ```
-$inputReportReasonSpam = ['_' => 'inputReportReasonSpam', ];
+$inputReportReasonSpam = ['_' => 'inputReportReasonSpam'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputReportReasonSpam"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputReportReasonSpam={_='inputReportReasonSpam', }
+inputReportReasonSpam={_='inputReportReasonSpam'}
 
 ```
 

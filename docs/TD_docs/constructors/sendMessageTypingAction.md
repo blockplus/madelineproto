@@ -12,7 +12,7 @@ User typing message
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ User typing message
 ### Example:
 
 ```
-$sendMessageTypingAction = ['_' => 'sendMessageTypingAction', ];
+$sendMessageTypingAction = ['_' => 'sendMessageTypingAction'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "sendMessageTypingAction"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-sendMessageTypingAction={_='sendMessageTypingAction', }
+sendMessageTypingAction={_='sendMessageTypingAction'}
 
 ```
 

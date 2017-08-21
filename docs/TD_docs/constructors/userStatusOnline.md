@@ -12,7 +12,7 @@ User is online
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |expires|[int](../types/int.md) | Yes|Unix time when user's online status will expire|
 
 
@@ -23,14 +23,21 @@ User is online
 ### Example:
 
 ```
-$userStatusOnline = ['_' => 'userStatusOnline', 'expires' => int, ];
+$userStatusOnline = ['_' => 'userStatusOnline', 'expires' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "userStatusOnline", "expires": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-userStatusOnline={_='userStatusOnline', expires=int, }
+userStatusOnline={_='userStatusOnline', expires=int}
 
 ```
 

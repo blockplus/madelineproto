@@ -10,7 +10,7 @@ description: updateReadHistoryInbox attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |peer|[Peer](../types/Peer.md) | Yes|
 |max\_id|[int](../types/int.md) | Yes|
 |pts|[int](../types/int.md) | Yes|
@@ -24,14 +24,21 @@ description: updateReadHistoryInbox attributes, type and example
 ### Example:
 
 ```
-$updateReadHistoryInbox = ['_' => 'updateReadHistoryInbox', 'peer' => Peer, 'max_id' => int, 'pts' => int, 'pts_count' => int, ];
+$updateReadHistoryInbox = ['_' => 'updateReadHistoryInbox', 'peer' => Peer, 'max_id' => int, 'pts' => int, 'pts_count' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateReadHistoryInbox", "peer": Peer, "max_id": int, "pts": int, "pts_count": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateReadHistoryInbox={_='updateReadHistoryInbox', peer=Peer, max_id=int, pts=int, pts_count=int, }
+updateReadHistoryInbox={_='updateReadHistoryInbox', peer=Peer, max_id=int, pts=int, pts_count=int}
 
 ```
 

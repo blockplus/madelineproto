@@ -10,7 +10,7 @@ description: textUrl attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |text|[RichText](../types/RichText.md) | Yes|
 |url|[string](../types/string.md) | Yes|
 |webpage\_id|[long](../types/long.md) | Yes|
@@ -23,14 +23,21 @@ description: textUrl attributes, type and example
 ### Example:
 
 ```
-$textUrl = ['_' => 'textUrl', 'text' => RichText, 'url' => string, 'webpage_id' => long, ];
+$textUrl = ['_' => 'textUrl', 'text' => RichText, 'url' => 'string', 'webpage_id' => long];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "textUrl", "text": RichText, "url": "string", "webpage_id": long}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-textUrl={_='textUrl', text=RichText, url=string, webpage_id=long, }
+textUrl={_='textUrl', text=RichText, url='string', webpage_id=long}
 
 ```
 

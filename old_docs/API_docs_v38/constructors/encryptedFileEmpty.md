@@ -16,14 +16,21 @@ description: encryptedFileEmpty attributes, type and example
 ### Example:
 
 ```
-$encryptedFileEmpty = ['_' => 'encryptedFileEmpty', ];
+$encryptedFileEmpty = ['_' => 'encryptedFileEmpty'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "encryptedFileEmpty"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-encryptedFileEmpty={_='encryptedFileEmpty', }
+encryptedFileEmpty={_='encryptedFileEmpty'}
 
 ```
 

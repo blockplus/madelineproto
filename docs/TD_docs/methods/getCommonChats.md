@@ -6,12 +6,15 @@ description: Returns list of common chats with an other given user. Chats are so
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Returns list of common chats with an other given user. Chats are sorted by their type and creation date
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |user\_id|[int](../types/int.md) | Yes|User identifier|
 |offset\_chat\_id|[long](../types/long.md) | Yes|Chat identifier to return chats from, use 0 for the first request|
 |limit|[int](../types/int.md) | Yes|Maximum number of chats to be returned, up to 100|
@@ -25,7 +28,7 @@ Returns list of common chats with an other given user. Chats are sorted by their
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -39,6 +42,34 @@ if (isset($number)) { // Login as a user
 
 $Chats = $MadelineProto->getCommonChats(['user_id' => int, 'offset_chat_id' => long, 'limit' => int, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - getCommonChats
+* params - `{"user_id": int, "offset_chat_id": long, "limit": int, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/getCommonChats`
+
+Parameters:
+
+user_id - Json encoded int
+
+offset_chat_id - Json encoded long
+
+limit - Json encoded int
+
+
+
 
 Or, if you're into Lua:
 

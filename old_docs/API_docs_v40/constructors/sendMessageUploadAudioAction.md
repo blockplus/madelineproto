@@ -10,7 +10,7 @@ description: sendMessageUploadAudioAction attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |progress|[int](../types/int.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: sendMessageUploadAudioAction attributes, type and example
 ### Example:
 
 ```
-$sendMessageUploadAudioAction = ['_' => 'sendMessageUploadAudioAction', 'progress' => int, ];
+$sendMessageUploadAudioAction = ['_' => 'sendMessageUploadAudioAction', 'progress' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "sendMessageUploadAudioAction", "progress": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-sendMessageUploadAudioAction={_='sendMessageUploadAudioAction', progress=int, }
+sendMessageUploadAudioAction={_='sendMessageUploadAudioAction', progress=int}
 
 ```
 

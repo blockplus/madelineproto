@@ -10,7 +10,7 @@ description: dh_gen_ok attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |nonce|[int128](../types/int128.md) | Yes|
 |server\_nonce|[int128](../types/int128.md) | Yes|
 |new\_nonce\_hash1|[int128](../types/int128.md) | Yes|
@@ -23,14 +23,21 @@ description: dh_gen_ok attributes, type and example
 ### Example:
 
 ```
-$dh_gen_ok = ['_' => 'dh_gen_ok', 'nonce' => int128, 'server_nonce' => int128, 'new_nonce_hash1' => int128, ];
+$dh_gen_ok = ['_' => 'dh_gen_ok', 'nonce' => int128, 'server_nonce' => int128, 'new_nonce_hash1' => int128];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "dh_gen_ok", "nonce": int128, "server_nonce": int128, "new_nonce_hash1": int128}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-dh_gen_ok={_='dh_gen_ok', nonce=int128, server_nonce=int128, new_nonce_hash1=int128, }
+dh_gen_ok={_='dh_gen_ok', nonce=int128, server_nonce=int128, new_nonce_hash1=int128}
 
 ```
 

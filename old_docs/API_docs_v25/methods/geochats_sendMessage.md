@@ -9,7 +9,7 @@ description: geochats.sendMessage parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |peer|[InputGeoChat](../types/InputGeoChat.md) | Yes|
 |message|[string](../types/string.md) | Yes|
 
@@ -22,7 +22,7 @@ description: geochats.sendMessage parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -34,13 +34,39 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$geochats_StatedMessage = $MadelineProto->geochats->sendMessage(['peer' => InputGeoChat, 'message' => string, ]);
+$geochats_StatedMessage = $MadelineProto->geochats->sendMessage(['peer' => InputGeoChat, 'message' => 'string', ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - geochats.sendMessage
+* params - `{"peer": InputGeoChat, "message": "string", }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/geochats.sendMessage`
+
+Parameters:
+
+peer - Json encoded InputGeoChat
+
+message - Json encoded string
+
+
+
 
 Or, if you're into Lua:
 
 ```
-geochats_StatedMessage = geochats.sendMessage({peer=InputGeoChat, message=string, })
+geochats_StatedMessage = geochats.sendMessage({peer=InputGeoChat, message='string', })
 ```
 
 

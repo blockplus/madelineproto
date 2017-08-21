@@ -10,7 +10,7 @@ description: updateBotShippingQuery attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |query\_id|[long](../types/long.md) | Yes|
 |user\_id|[int](../types/int.md) | Yes|
 |payload|[bytes](../types/bytes.md) | Yes|
@@ -24,14 +24,21 @@ description: updateBotShippingQuery attributes, type and example
 ### Example:
 
 ```
-$updateBotShippingQuery = ['_' => 'updateBotShippingQuery', 'query_id' => long, 'user_id' => int, 'payload' => bytes, 'shipping_address' => PostAddress, ];
+$updateBotShippingQuery = ['_' => 'updateBotShippingQuery', 'query_id' => long, 'user_id' => int, 'payload' => 'bytes', 'shipping_address' => PostAddress];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateBotShippingQuery", "query_id": long, "user_id": int, "payload": "bytes", "shipping_address": PostAddress}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateBotShippingQuery={_='updateBotShippingQuery', query_id=long, user_id=int, payload=bytes, shipping_address=PostAddress, }
+updateBotShippingQuery={_='updateBotShippingQuery', query_id=long, user_id=int, payload='bytes', shipping_address=PostAddress}
 
 ```
 

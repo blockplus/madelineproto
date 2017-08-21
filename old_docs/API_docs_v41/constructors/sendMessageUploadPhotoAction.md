@@ -10,7 +10,7 @@ description: sendMessageUploadPhotoAction attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |progress|[int](../types/int.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: sendMessageUploadPhotoAction attributes, type and example
 ### Example:
 
 ```
-$sendMessageUploadPhotoAction = ['_' => 'sendMessageUploadPhotoAction', 'progress' => int, ];
+$sendMessageUploadPhotoAction = ['_' => 'sendMessageUploadPhotoAction', 'progress' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "sendMessageUploadPhotoAction", "progress": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-sendMessageUploadPhotoAction={_='sendMessageUploadPhotoAction', progress=int, }
+sendMessageUploadPhotoAction={_='sendMessageUploadPhotoAction', progress=int}
 
 ```
 

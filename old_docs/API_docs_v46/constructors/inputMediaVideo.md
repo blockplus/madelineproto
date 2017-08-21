@@ -10,7 +10,7 @@ description: inputMediaVideo attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |video|[InputVideo](../types/InputVideo.md) | Yes|
 |caption|[string](../types/string.md) | Yes|
 
@@ -22,14 +22,21 @@ description: inputMediaVideo attributes, type and example
 ### Example:
 
 ```
-$inputMediaVideo = ['_' => 'inputMediaVideo', 'video' => InputVideo, 'caption' => string, ];
+$inputMediaVideo = ['_' => 'inputMediaVideo', 'video' => InputVideo, 'caption' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputMediaVideo", "video": InputVideo, "caption": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputMediaVideo={_='inputMediaVideo', video=InputVideo, caption=string, }
+inputMediaVideo={_='inputMediaVideo', video=InputVideo, caption='string'}
 
 ```
 

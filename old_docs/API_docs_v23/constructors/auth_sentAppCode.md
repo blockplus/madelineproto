@@ -10,7 +10,7 @@ description: auth_sentAppCode attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |phone\_registered|[Bool](../types/Bool.md) | Yes|
 |phone\_code\_hash|[string](../types/string.md) | Yes|
 |send\_call\_timeout|[int](../types/int.md) | Yes|
@@ -24,14 +24,21 @@ description: auth_sentAppCode attributes, type and example
 ### Example:
 
 ```
-$auth_sentAppCode = ['_' => 'auth.sentAppCode', 'phone_registered' => Bool, 'phone_code_hash' => string, 'send_call_timeout' => int, 'is_password' => Bool, ];
+$auth_sentAppCode = ['_' => 'auth.sentAppCode', 'phone_registered' => Bool, 'phone_code_hash' => 'string', 'send_call_timeout' => int, 'is_password' => Bool];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "auth.sentAppCode", "phone_registered": Bool, "phone_code_hash": "string", "send_call_timeout": int, "is_password": Bool}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-auth_sentAppCode={_='auth.sentAppCode', phone_registered=Bool, phone_code_hash=string, send_call_timeout=int, is_password=Bool, }
+auth_sentAppCode={_='auth.sentAppCode', phone_registered=Bool, phone_code_hash='string', send_call_timeout=int, is_password=Bool}
 
 ```
 

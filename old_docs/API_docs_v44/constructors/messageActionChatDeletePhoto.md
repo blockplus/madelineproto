@@ -16,14 +16,21 @@ description: messageActionChatDeletePhoto attributes, type and example
 ### Example:
 
 ```
-$messageActionChatDeletePhoto = ['_' => 'messageActionChatDeletePhoto', ];
+$messageActionChatDeletePhoto = ['_' => 'messageActionChatDeletePhoto'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageActionChatDeletePhoto"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageActionChatDeletePhoto={_='messageActionChatDeletePhoto', }
+messageActionChatDeletePhoto={_='messageActionChatDeletePhoto'}
 
 ```
 

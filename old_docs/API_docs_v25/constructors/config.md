@@ -10,7 +10,7 @@ description: config attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |date|[int](../types/int.md) | Yes|
 |expires|[int](../types/int.md) | Yes|
 |test\_mode|[Bool](../types/Bool.md) | Yes|
@@ -35,14 +35,21 @@ description: config attributes, type and example
 ### Example:
 
 ```
-$config = ['_' => 'config', 'date' => int, 'expires' => int, 'test_mode' => Bool, 'this_dc' => int, 'dc_options' => [DcOption], 'chat_size_max' => int, 'broadcast_size_max' => int, 'online_update_period_ms' => int, 'offline_blur_timeout_ms' => int, 'offline_idle_timeout_ms' => int, 'online_cloud_timeout_ms' => int, 'notify_cloud_delay_ms' => int, 'notify_default_delay_ms' => int, 'chat_big_size' => int, 'disabled_features' => [DisabledFeature], ];
+$config = ['_' => 'config', 'date' => int, 'expires' => int, 'test_mode' => Bool, 'this_dc' => int, 'dc_options' => [DcOption], 'chat_size_max' => int, 'broadcast_size_max' => int, 'online_update_period_ms' => int, 'offline_blur_timeout_ms' => int, 'offline_idle_timeout_ms' => int, 'online_cloud_timeout_ms' => int, 'notify_cloud_delay_ms' => int, 'notify_default_delay_ms' => int, 'chat_big_size' => int, 'disabled_features' => [DisabledFeature]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "config", "date": int, "expires": int, "test_mode": Bool, "this_dc": int, "dc_options": [DcOption], "chat_size_max": int, "broadcast_size_max": int, "online_update_period_ms": int, "offline_blur_timeout_ms": int, "offline_idle_timeout_ms": int, "online_cloud_timeout_ms": int, "notify_cloud_delay_ms": int, "notify_default_delay_ms": int, "chat_big_size": int, "disabled_features": [DisabledFeature]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-config={_='config', date=int, expires=int, test_mode=Bool, this_dc=int, dc_options={DcOption}, chat_size_max=int, broadcast_size_max=int, online_update_period_ms=int, offline_blur_timeout_ms=int, offline_idle_timeout_ms=int, online_cloud_timeout_ms=int, notify_cloud_delay_ms=int, notify_default_delay_ms=int, chat_big_size=int, disabled_features={DisabledFeature}, }
+config={_='config', date=int, expires=int, test_mode=Bool, this_dc=int, dc_options={DcOption}, chat_size_max=int, broadcast_size_max=int, online_update_period_ms=int, offline_blur_timeout_ms=int, offline_idle_timeout_ms=int, online_cloud_timeout_ms=int, notify_cloud_delay_ms=int, notify_default_delay_ms=int, chat_big_size=int, disabled_features={DisabledFeature}}
 
 ```
 

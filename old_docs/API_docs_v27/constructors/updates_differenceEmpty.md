@@ -10,7 +10,7 @@ description: updates_differenceEmpty attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |date|[int](../types/int.md) | Yes|
 |seq|[int](../types/int.md) | Yes|
 
@@ -22,14 +22,21 @@ description: updates_differenceEmpty attributes, type and example
 ### Example:
 
 ```
-$updates_differenceEmpty = ['_' => 'updates.differenceEmpty', 'date' => int, 'seq' => int, ];
+$updates_differenceEmpty = ['_' => 'updates.differenceEmpty', 'date' => int, 'seq' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updates.differenceEmpty", "date": int, "seq": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updates_differenceEmpty={_='updates.differenceEmpty', date=int, seq=int, }
+updates_differenceEmpty={_='updates.differenceEmpty', date=int, seq=int}
 
 ```
 

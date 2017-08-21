@@ -10,7 +10,7 @@ description: inputPaymentCredentials attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |save|[Bool](../types/Bool.md) | Optional|
 |data|[DataJSON](../types/DataJSON.md) | Yes|
 
@@ -22,14 +22,21 @@ description: inputPaymentCredentials attributes, type and example
 ### Example:
 
 ```
-$inputPaymentCredentials = ['_' => 'inputPaymentCredentials', 'save' => Bool, 'data' => DataJSON, ];
+$inputPaymentCredentials = ['_' => 'inputPaymentCredentials', 'save' => Bool, 'data' => DataJSON];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputPaymentCredentials", "save": Bool, "data": DataJSON}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputPaymentCredentials={_='inputPaymentCredentials', save=Bool, data=DataJSON, }
+inputPaymentCredentials={_='inputPaymentCredentials', save=Bool, data=DataJSON}
 
 ```
 

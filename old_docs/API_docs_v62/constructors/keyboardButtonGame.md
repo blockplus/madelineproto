@@ -10,7 +10,7 @@ description: keyboardButtonGame attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |text|[string](../types/string.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: keyboardButtonGame attributes, type and example
 ### Example:
 
 ```
-$keyboardButtonGame = ['_' => 'keyboardButtonGame', 'text' => string, ];
+$keyboardButtonGame = ['_' => 'keyboardButtonGame', 'text' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "keyboardButtonGame", "text": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-keyboardButtonGame={_='keyboardButtonGame', text=string, }
+keyboardButtonGame={_='keyboardButtonGame', text='string'}
 
 ```
 

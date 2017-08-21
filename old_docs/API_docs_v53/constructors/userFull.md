@@ -10,7 +10,7 @@ description: userFull attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |blocked|[Bool](../types/Bool.md) | Optional|
 |user|[User](../types/User.md) | Yes|
 |about|[string](../types/string.md) | Optional|
@@ -27,14 +27,21 @@ description: userFull attributes, type and example
 ### Example:
 
 ```
-$userFull = ['_' => 'userFull', 'blocked' => Bool, 'user' => User, 'about' => string, 'link' => contacts_Link, 'profile_photo' => Photo, 'notify_settings' => PeerNotifySettings, 'bot_info' => BotInfo, ];
+$userFull = ['_' => 'userFull', 'blocked' => Bool, 'user' => User, 'about' => 'string', 'link' => contacts_Link, 'profile_photo' => Photo, 'notify_settings' => PeerNotifySettings, 'bot_info' => BotInfo];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "userFull", "blocked": Bool, "user": User, "about": "string", "link": contacts_Link, "profile_photo": Photo, "notify_settings": PeerNotifySettings, "bot_info": BotInfo}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-userFull={_='userFull', blocked=Bool, user=User, about=string, link=contacts_Link, profile_photo=Photo, notify_settings=PeerNotifySettings, bot_info=BotInfo, }
+userFull={_='userFull', blocked=Bool, user=User, about='string', link=contacts_Link, profile_photo=Photo, notify_settings=PeerNotifySettings, bot_info=BotInfo}
 
 ```
 

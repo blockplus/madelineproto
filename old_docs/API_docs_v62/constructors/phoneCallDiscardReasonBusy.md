@@ -16,14 +16,21 @@ description: phoneCallDiscardReasonBusy attributes, type and example
 ### Example:
 
 ```
-$phoneCallDiscardReasonBusy = ['_' => 'phoneCallDiscardReasonBusy', ];
+$phoneCallDiscardReasonBusy = ['_' => 'phoneCallDiscardReasonBusy'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "phoneCallDiscardReasonBusy"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-phoneCallDiscardReasonBusy={_='phoneCallDiscardReasonBusy', }
+phoneCallDiscardReasonBusy={_='phoneCallDiscardReasonBusy'}
 
 ```
 

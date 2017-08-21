@@ -16,14 +16,21 @@ description: channelParticipantsBots attributes, type and example
 ### Example:
 
 ```
-$channelParticipantsBots = ['_' => 'channelParticipantsBots', ];
+$channelParticipantsBots = ['_' => 'channelParticipantsBots'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "channelParticipantsBots"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-channelParticipantsBots={_='channelParticipantsBots', }
+channelParticipantsBots={_='channelParticipantsBots'}
 
 ```
 

@@ -12,7 +12,7 @@ Represents a document cached on the telegram server
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |id|[string](../types/string.md) | Yes|Unique identifier of this result|
 |document|[document](../types/document.md) | Yes|The document|
 |title|[string](../types/string.md) | Yes|Document title|
@@ -26,14 +26,21 @@ Represents a document cached on the telegram server
 ### Example:
 
 ```
-$inlineQueryResultDocument = ['_' => 'inlineQueryResultDocument', 'id' => string, 'document' => document, 'title' => string, 'description' => string, ];
+$inlineQueryResultDocument = ['_' => 'inlineQueryResultDocument', 'id' => 'string', 'document' => document, 'title' => 'string', 'description' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inlineQueryResultDocument", "id": "string", "document": document, "title": "string", "description": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inlineQueryResultDocument={_='inlineQueryResultDocument', id=string, document=document, title=string, description=string, }
+inlineQueryResultDocument={_='inlineQueryResultDocument', id='string', document=document, title='string', description='string'}
 
 ```
 

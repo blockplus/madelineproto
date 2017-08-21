@@ -16,14 +16,21 @@ description: true attributes, type and example
 ### Example:
 
 ```
-$true = ['_' => 'true', ];
+$true = ['_' => 'true'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "true"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-true={_='true', }
+true={_='true'}
 
 ```
 

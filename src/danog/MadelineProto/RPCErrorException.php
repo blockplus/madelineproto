@@ -14,15 +14,23 @@ namespace danog\MadelineProto;
 
 class RPCErrorException extends \Exception
 {
+    use TL\PrettyException;
+
+    public function __toString()
+    {
+        return 'Telegram returned an RPC error: '.$this->message.' ('.$this->rpc.'), caused by '.$this->file.':'.$this->line.PHP_EOL.PHP_EOL.'TL trace:'.PHP_EOL.$this->getTLTrace().PHP_EOL;
+    }
+
     public function __construct($message = null, $code = 0, Exception $previous = null)
     {
         $this->rpc = $message;
         switch ($message) {
             case 'RPC_MCGET_FAIL':
             case 'RPC_CALL_FAIL': $message = 'Telegram is having internal issues, please try again later.'; break;
+            case 'USER_PRIVACY_RESTRICTED':$message = "The user's privacy settings do not allow you to do this"; break;
             case 'CHANNEL_PRIVATE':$message = "You haven't joined this channel/supergroup"; break;
             case 'FLOOD_WAIT_666':$message = 'Spooky af m8'; break;
-            case 'USER_IS_BOT':
+            case 'USER_IS_BOT':$message = "Bots can't send messages to other bots"; break;
             case 'BOT_METHOD_INVALID':$message = 'This method cannot be run by a bot'; break;
             case 'PHONE_CODE_EXPIRED': $message = 'The phone code you provided has expired, this may happen if it was sent to any chat on telegram (if the code is sent through a telegram chat (not the official account) to avoid it append or prepend to the code some chars)'; break;
             case 'USERNAME_INVALID': $message = 'The provided username is not valid'; break;
@@ -57,22 +65,37 @@ class RPCErrorException extends \Exception
             case 'PEER_ID_INVALID': $message = 'The provided peer id is invalid'; break;
             case 'CHAT_ID_INVALID': $message = 'The provided chat id is invalid'; break;
             case 'MESSAGE_DELETE_FORBIDDEN': $message = "You can't delete one of the messages you tried to delete, most likely because it is a service message."; break;
-            case -429: $message = 'Too many requests'; break;
+            case 'CHAT_ADMIN_REQUIRED': $message = 'You must be an admin in this chat to do this'; break;
+            case -429:
+            case 'PEER_FLOOD': $message = 'Too many requests'; break;
+        }
+        if ($this->rpc === $message) {
+            $res = json_decode(@file_get_contents('https://rpc.pwrtelegram.xyz/?description_for='.$this->rpc), true);
+            if (isset($res['ok']) && $res['ok']) {
+                $message = $res['result'];
+            }
         }
         parent::__construct($message, $code, $previous);
-        if (in_array($this->rpc, ['CHANNEL_PRIVATE', -404, -429, 'USERNAME_NOT_OCCUPIED', 'ACCESS_TOKEN_INVALID', 'AUTH_KEY_UNREGISTERED'])) {
+        $this->prettify_tl();
+
+        $additional = [];
+        foreach ($this->getTrace() as $level) {
+            if (isset($level['function']) && $level['function'] === 'method_call') {
+                $this->line = $level['line'];
+                $this->file = $level['file'];
+                $additional = $level['args'];
+                break;
+            }
+        }
+        @file_get_contents('https://rpc.pwrtelegram.xyz/?method='.$additional[0].'&code='.$code.'&error='.$this->rpc);
+        /*
+        if (in_array($this->rpc, ['CHANNEL_PRIVATE', -404, -429, 'USERNAME_NOT_OCCUPIED', 'ACCESS_TOKEN_INVALID', 'AUTH_KEY_UNREGISTERED', 'SESSION_PASSWORD_NEEDED', 'PHONE_NUMBER_UNOCCUPIED', 'PEER_ID_INVALID', 'CHAT_ID_INVALID', 'USERNAME_INVALID', 'CHAT_WRITE_FORBIDDEN', 'CHAT_ADMIN_REQUIRED', 'PEER_FLOOD'])) {
             return;
         }
         if (strpos($this->rpc, 'FLOOD_WAIT_') !== false) {
             return;
         }
-        $additional = [];
-        foreach (debug_backtrace() as $level) {
-            if (isset($level['function']) && $level['function'] === 'method_call') {
-                $additional = $level['args'];
-                break;
-            }
-        }
-        \Rollbar\Rollbar::log(\Rollbar\Payload\Level::error(), $this, $additional);
+        $message === 'Telegram is having internal issues, please try again later.' ? \Rollbar\Rollbar::log(\Rollbar\Payload\Level::critical(), $message) : \Rollbar\Rollbar::log(\Rollbar\Payload\Level::error(), $this, $additional);
+        */
     }
 }

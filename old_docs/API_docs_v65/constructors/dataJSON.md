@@ -10,7 +10,7 @@ description: dataJSON attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |data|[string](../types/string.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: dataJSON attributes, type and example
 ### Example:
 
 ```
-$dataJSON = ['_' => 'dataJSON', 'data' => string, ];
+$dataJSON = ['_' => 'dataJSON', 'data' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "dataJSON", "data": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-dataJSON={_='dataJSON', data=string, }
+dataJSON={_='dataJSON', data='string'}
 
 ```
 

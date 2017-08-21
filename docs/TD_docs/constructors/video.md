@@ -12,7 +12,7 @@ Describes video file
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |duration|[int](../types/int.md) | Yes|Duration of the video in seconds as defined by sender|
 |width|[int](../types/int.md) | Yes|Video width as defined by sender|
 |height|[int](../types/int.md) | Yes|Video height as defined by sender|
@@ -30,14 +30,21 @@ Describes video file
 ### Example:
 
 ```
-$video = ['_' => 'video', 'duration' => int, 'width' => int, 'height' => int, 'file_name' => string, 'mime_type' => string, 'has_stickers' => Bool, 'thumb' => photoSize, 'video' => file, ];
+$video = ['_' => 'video', 'duration' => int, 'width' => int, 'height' => int, 'file_name' => 'string', 'mime_type' => 'string', 'has_stickers' => Bool, 'thumb' => photoSize, 'video' => file];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "video", "duration": int, "width": int, "height": int, "file_name": "string", "mime_type": "string", "has_stickers": Bool, "thumb": photoSize, "video": file}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-video={_='video', duration=int, width=int, height=int, file_name=string, mime_type=string, has_stickers=Bool, thumb=photoSize, video=file, }
+video={_='video', duration=int, width=int, height=int, file_name='string', mime_type='string', has_stickers=Bool, thumb=photoSize, video=file}
 
 ```
 

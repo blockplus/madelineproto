@@ -6,12 +6,15 @@ description: Returns information about a file by its persistent id, offline requ
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Returns information about a file by its persistent id, offline request
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |persistent\_file\_id|[string](../types/string.md) | Yes|Persistent identifier of the file to get|
 
 
@@ -23,7 +26,7 @@ Returns information about a file by its persistent id, offline request
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -35,12 +38,36 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$File = $MadelineProto->getFilePersistent(['persistent_file_id' => string, ]);
+$File = $MadelineProto->getFilePersistent(['persistent_file_id' => 'string', ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - getFilePersistent
+* params - `{"persistent_file_id": "string", }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/getFilePersistent`
+
+Parameters:
+
+persistent_file_id - Json encoded string
+
+
+
 
 Or, if you're into Lua:
 
 ```
-File = getFilePersistent({persistent_file_id=string, })
+File = getFilePersistent({persistent_file_id='string', })
 ```
 

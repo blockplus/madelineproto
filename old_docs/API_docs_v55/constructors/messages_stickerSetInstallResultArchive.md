@@ -10,7 +10,7 @@ description: messages_stickerSetInstallResultArchive attributes, type and exampl
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |sets|Array of [StickerSetCovered](../types/StickerSetCovered.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: messages_stickerSetInstallResultArchive attributes, type and exampl
 ### Example:
 
 ```
-$messages_stickerSetInstallResultArchive = ['_' => 'messages.stickerSetInstallResultArchive', 'sets' => [StickerSetCovered], ];
+$messages_stickerSetInstallResultArchive = ['_' => 'messages.stickerSetInstallResultArchive', 'sets' => [StickerSetCovered]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messages.stickerSetInstallResultArchive", "sets": [StickerSetCovered]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messages_stickerSetInstallResultArchive={_='messages.stickerSetInstallResultArchive', sets={StickerSetCovered}, }
+messages_stickerSetInstallResultArchive={_='messages.stickerSetInstallResultArchive', sets={StickerSetCovered}}
 
 ```
 

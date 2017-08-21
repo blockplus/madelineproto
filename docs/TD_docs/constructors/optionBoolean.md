@@ -12,7 +12,7 @@ Boolean option
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |value|[Bool](../types/Bool.md) | Yes|Value of an option|
 
 
@@ -23,14 +23,21 @@ Boolean option
 ### Example:
 
 ```
-$optionBoolean = ['_' => 'optionBoolean', 'value' => Bool, ];
+$optionBoolean = ['_' => 'optionBoolean', 'value' => Bool];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "optionBoolean", "value": Bool}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-optionBoolean={_='optionBoolean', value=Bool, }
+optionBoolean={_='optionBoolean', value=Bool}
 
 ```
 

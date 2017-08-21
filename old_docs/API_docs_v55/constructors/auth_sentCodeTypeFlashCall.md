@@ -10,7 +10,7 @@ description: auth_sentCodeTypeFlashCall attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |pattern|[string](../types/string.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: auth_sentCodeTypeFlashCall attributes, type and example
 ### Example:
 
 ```
-$auth_sentCodeTypeFlashCall = ['_' => 'auth.sentCodeTypeFlashCall', 'pattern' => string, ];
+$auth_sentCodeTypeFlashCall = ['_' => 'auth.sentCodeTypeFlashCall', 'pattern' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "auth.sentCodeTypeFlashCall", "pattern": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-auth_sentCodeTypeFlashCall={_='auth.sentCodeTypeFlashCall', pattern=string, }
+auth_sentCodeTypeFlashCall={_='auth.sentCodeTypeFlashCall', pattern='string'}
 
 ```
 

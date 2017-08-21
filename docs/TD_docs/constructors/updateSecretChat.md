@@ -12,7 +12,7 @@ Some data about a secret chat has been changed
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |secret\_chat|[secretChat](../types/secretChat.md) | Yes|New data about the secret chat|
 
 
@@ -23,14 +23,21 @@ Some data about a secret chat has been changed
 ### Example:
 
 ```
-$updateSecretChat = ['_' => 'updateSecretChat', 'secret_chat' => secretChat, ];
+$updateSecretChat = ['_' => 'updateSecretChat', 'secret_chat' => secretChat];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateSecretChat", "secret_chat": secretChat}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateSecretChat={_='updateSecretChat', secret_chat=secretChat, }
+updateSecretChat={_='updateSecretChat', secret_chat=secretChat}
 
 ```
 

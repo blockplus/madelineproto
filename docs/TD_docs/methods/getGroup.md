@@ -6,12 +6,15 @@ description: Returns information about a group by its identifier, offline reques
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Returns information about a group by its identifier, offline request if current user is not a bot
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |group\_id|[int](../types/int.md) | Yes|Group identifier|
 
 
@@ -23,7 +26,7 @@ Returns information about a group by its identifier, offline request if current 
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,6 +40,30 @@ if (isset($number)) { // Login as a user
 
 $Group = $MadelineProto->getGroup(['group_id' => int, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - getGroup
+* params - `{"group_id": int, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/getGroup`
+
+Parameters:
+
+group_id - Json encoded int
+
+
+
 
 Or, if you're into Lua:
 

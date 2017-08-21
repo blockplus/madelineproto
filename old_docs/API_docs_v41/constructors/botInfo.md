@@ -10,7 +10,7 @@ description: botInfo attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |user\_id|[int](../types/int.md) | Yes|
 |version|[int](../types/int.md) | Yes|
 |share\_text|[string](../types/string.md) | Yes|
@@ -25,14 +25,21 @@ description: botInfo attributes, type and example
 ### Example:
 
 ```
-$botInfo = ['_' => 'botInfo', 'user_id' => int, 'version' => int, 'share_text' => string, 'description' => string, 'commands' => [BotCommand], ];
+$botInfo = ['_' => 'botInfo', 'user_id' => int, 'version' => int, 'share_text' => 'string', 'description' => 'string', 'commands' => [BotCommand]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "botInfo", "user_id": int, "version": int, "share_text": "string", "description": "string", "commands": [BotCommand]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-botInfo={_='botInfo', user_id=int, version=int, share_text=string, description=string, commands={BotCommand}, }
+botInfo={_='botInfo', user_id=int, version=int, share_text='string', description='string', commands={BotCommand}}
 
 ```
 

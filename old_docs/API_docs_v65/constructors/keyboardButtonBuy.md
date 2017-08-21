@@ -10,7 +10,7 @@ description: keyboardButtonBuy attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |text|[string](../types/string.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: keyboardButtonBuy attributes, type and example
 ### Example:
 
 ```
-$keyboardButtonBuy = ['_' => 'keyboardButtonBuy', 'text' => string, ];
+$keyboardButtonBuy = ['_' => 'keyboardButtonBuy', 'text' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "keyboardButtonBuy", "text": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-keyboardButtonBuy={_='keyboardButtonBuy', text=string, }
+keyboardButtonBuy={_='keyboardButtonBuy', text='string'}
 
 ```
 

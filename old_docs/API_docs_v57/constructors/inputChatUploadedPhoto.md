@@ -10,7 +10,7 @@ description: inputChatUploadedPhoto attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |file|[InputFile](../types/InputFile.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: inputChatUploadedPhoto attributes, type and example
 ### Example:
 
 ```
-$inputChatUploadedPhoto = ['_' => 'inputChatUploadedPhoto', 'file' => InputFile, ];
+$inputChatUploadedPhoto = ['_' => 'inputChatUploadedPhoto', 'file' => InputFile];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputChatUploadedPhoto", "file": InputFile}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputChatUploadedPhoto={_='inputChatUploadedPhoto', file=InputFile, }
+inputChatUploadedPhoto={_='inputChatUploadedPhoto', file=InputFile}
 
 ```
 

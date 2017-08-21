@@ -12,7 +12,7 @@ Message is orifinally a channel post
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |chat\_id|[long](../types/long.md) | Yes|Identifier of a chat from which message is forwarded|
 |sender\_user\_id|[int](../types/int.md) | Yes|User identifier of the original message sender, 0 if unknown|
 |date|[int](../types/int.md) | Yes|Date when message was originally sent|
@@ -26,14 +26,21 @@ Message is orifinally a channel post
 ### Example:
 
 ```
-$messageForwardedPost = ['_' => 'messageForwardedPost', 'chat_id' => long, 'sender_user_id' => int, 'date' => int, 'message_id' => long, ];
+$messageForwardedPost = ['_' => 'messageForwardedPost', 'chat_id' => long, 'sender_user_id' => int, 'date' => int, 'message_id' => long];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageForwardedPost", "chat_id": long, "sender_user_id": int, "date": int, "message_id": long}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageForwardedPost={_='messageForwardedPost', chat_id=long, sender_user_id=int, date=int, message_id=long, }
+messageForwardedPost={_='messageForwardedPost', chat_id=long, sender_user_id=int, date=int, message_id=long}
 
 ```
 

@@ -10,7 +10,7 @@ description: messageActionGameScore attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |game\_id|[long](../types/long.md) | Yes|
 |score|[int](../types/int.md) | Yes|
 
@@ -22,14 +22,21 @@ description: messageActionGameScore attributes, type and example
 ### Example:
 
 ```
-$messageActionGameScore = ['_' => 'messageActionGameScore', 'game_id' => long, 'score' => int, ];
+$messageActionGameScore = ['_' => 'messageActionGameScore', 'game_id' => long, 'score' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageActionGameScore", "game_id": long, "score": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageActionGameScore={_='messageActionGameScore', game_id=long, score=int, }
+messageActionGameScore={_='messageActionGameScore', game_id=long, score=int}
 
 ```
 

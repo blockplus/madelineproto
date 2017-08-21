@@ -10,7 +10,7 @@ description: contacts_contacts attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |contacts|Array of [Contact](../types/Contact.md) | Yes|
 |users|Array of [User](../types/User.md) | Yes|
 
@@ -22,14 +22,21 @@ description: contacts_contacts attributes, type and example
 ### Example:
 
 ```
-$contacts_contacts = ['_' => 'contacts.contacts', 'contacts' => [Contact], 'users' => [User], ];
+$contacts_contacts = ['_' => 'contacts.contacts', 'contacts' => [Contact], 'users' => [User]];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "contacts.contacts", "contacts": [Contact], "users": [User]}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-contacts_contacts={_='contacts.contacts', contacts={Contact}, users={User}, }
+contacts_contacts={_='contacts.contacts', contacts={Contact}, users={User}}
 
 ```
 

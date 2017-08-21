@@ -12,7 +12,7 @@ User uploads a photo
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |progress|[int](../types/int.md) | Yes|Upload progress in percents|
 
 
@@ -23,14 +23,21 @@ User uploads a photo
 ### Example:
 
 ```
-$sendMessageUploadPhotoAction = ['_' => 'sendMessageUploadPhotoAction', 'progress' => int, ];
+$sendMessageUploadPhotoAction = ['_' => 'sendMessageUploadPhotoAction', 'progress' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "sendMessageUploadPhotoAction", "progress": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-sendMessageUploadPhotoAction={_='sendMessageUploadPhotoAction', progress=int, }
+sendMessageUploadPhotoAction={_='sendMessageUploadPhotoAction', progress=int}
 
 ```
 

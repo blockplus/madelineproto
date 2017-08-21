@@ -10,7 +10,7 @@ description: decryptedMessageMediaAudio attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |duration|[int](../types/int.md) | Yes|
 |size|[int](../types/int.md) | Yes|
 |key|[bytes](../types/bytes.md) | Yes|
@@ -24,14 +24,21 @@ description: decryptedMessageMediaAudio attributes, type and example
 ### Example:
 
 ```
-$decryptedMessageMediaAudio_8 = ['_' => 'decryptedMessageMediaAudio', 'duration' => int, 'size' => int, 'key' => bytes, 'iv' => bytes, ];
+$decryptedMessageMediaAudio_8 = ['_' => 'decryptedMessageMediaAudio', 'duration' => int, 'size' => int, 'key' => 'bytes', 'iv' => 'bytes'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "decryptedMessageMediaAudio", "duration": int, "size": int, "key": "bytes", "iv": "bytes"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-decryptedMessageMediaAudio_8={_='decryptedMessageMediaAudio', duration=int, size=int, key=bytes, iv=bytes, }
+decryptedMessageMediaAudio_8={_='decryptedMessageMediaAudio', duration=int, size=int, key='bytes', iv='bytes'}
 
 ```
 

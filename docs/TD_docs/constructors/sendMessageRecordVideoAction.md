@@ -12,7 +12,7 @@ User records a video
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ User records a video
 ### Example:
 
 ```
-$sendMessageRecordVideoAction = ['_' => 'sendMessageRecordVideoAction', ];
+$sendMessageRecordVideoAction = ['_' => 'sendMessageRecordVideoAction'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "sendMessageRecordVideoAction"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-sendMessageRecordVideoAction={_='sendMessageRecordVideoAction', }
+sendMessageRecordVideoAction={_='sendMessageRecordVideoAction'}
 
 ```
 

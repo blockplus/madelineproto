@@ -10,7 +10,7 @@ description: peerChannel attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |channel\_id|[int](../types/int.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: peerChannel attributes, type and example
 ### Example:
 
 ```
-$peerChannel = ['_' => 'peerChannel', 'channel_id' => int, ];
+$peerChannel = ['_' => 'peerChannel', 'channel_id' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "peerChannel", "channel_id": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-peerChannel={_='peerChannel', channel_id=int, }
+peerChannel={_='peerChannel', channel_id=int}
 
 ```
 

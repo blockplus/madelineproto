@@ -10,7 +10,7 @@ description: botInlineMediaResultPhoto attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[string](../types/string.md) | Yes|
 |type|[string](../types/string.md) | Yes|
 |photo|[Photo](../types/Photo.md) | Yes|
@@ -24,14 +24,21 @@ description: botInlineMediaResultPhoto attributes, type and example
 ### Example:
 
 ```
-$botInlineMediaResultPhoto = ['_' => 'botInlineMediaResultPhoto', 'id' => string, 'type' => string, 'photo' => Photo, 'send_message' => BotInlineMessage, ];
+$botInlineMediaResultPhoto = ['_' => 'botInlineMediaResultPhoto', 'id' => 'string', 'type' => 'string', 'photo' => Photo, 'send_message' => BotInlineMessage];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "botInlineMediaResultPhoto", "id": "string", "type": "string", "photo": Photo, "send_message": BotInlineMessage}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-botInlineMediaResultPhoto={_='botInlineMediaResultPhoto', id=string, type=string, photo=Photo, send_message=BotInlineMessage, }
+botInlineMediaResultPhoto={_='botInlineMediaResultPhoto', id='string', type='string', photo=Photo, send_message=BotInlineMessage}
 
 ```
 

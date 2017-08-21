@@ -10,7 +10,7 @@ description: inputGeoPoint attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |lat|[double](../types/double.md) | Yes|
 |long|[double](../types/double.md) | Yes|
 
@@ -22,14 +22,21 @@ description: inputGeoPoint attributes, type and example
 ### Example:
 
 ```
-$inputGeoPoint = ['_' => 'inputGeoPoint', 'lat' => double, 'long' => double, ];
+$inputGeoPoint = ['_' => 'inputGeoPoint', 'lat' => double, 'long' => double];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputGeoPoint", "lat": double, "long": double}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputGeoPoint={_='inputGeoPoint', lat=double, long=double, }
+inputGeoPoint={_='inputGeoPoint', lat=double, long=double}
 
 ```
 

@@ -9,7 +9,7 @@ description: messages.getInlineBotResults parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |bot|[InputUser](../types/InputUser.md) | Yes|
 |peer|[InputPeer](../types/InputPeer.md) | Yes|
 |geo\_point|[InputGeoPoint](../types/InputGeoPoint.md) | Optional|
@@ -25,7 +25,7 @@ description: messages.getInlineBotResults parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,12 +37,44 @@ if (isset($number)) { // Login as a user
     $MadelineProto->complete_phone_login($code);
 }
 
-$messages_BotResults = $MadelineProto->messages->getInlineBotResults(['bot' => InputUser, 'peer' => InputPeer, 'geo_point' => InputGeoPoint, 'query' => string, 'offset' => string, ]);
+$messages_BotResults = $MadelineProto->messages->getInlineBotResults(['bot' => InputUser, 'peer' => InputPeer, 'geo_point' => InputGeoPoint, 'query' => 'string', 'offset' => 'string', ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - messages.getInlineBotResults
+* params - `{"bot": InputUser, "peer": InputPeer, "geo_point": InputGeoPoint, "query": "string", "offset": "string", }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/messages.getInlineBotResults`
+
+Parameters:
+
+bot - Json encoded InputUser
+
+peer - Json encoded InputPeer
+
+geo_point - Json encoded InputGeoPoint
+
+query - Json encoded string
+
+offset - Json encoded string
+
+
+
 
 Or, if you're into Lua:
 
 ```
-messages_BotResults = messages.getInlineBotResults({bot=InputUser, peer=InputPeer, geo_point=InputGeoPoint, query=string, offset=string, })
+messages_BotResults = messages.getInlineBotResults({bot=InputUser, peer=InputPeer, geo_point=InputGeoPoint, query='string', offset='string', })
 ```
 

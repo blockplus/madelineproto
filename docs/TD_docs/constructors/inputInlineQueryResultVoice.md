@@ -12,7 +12,7 @@ Represents link to a opus encoded audio file in ogg container
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |id|[string](../types/string.md) | Yes|Unique identifier of this result|
 |title|[string](../types/string.md) | Yes|Title of the voice file|
 |voice\_url|[string](../types/string.md) | Yes|Url of the voice file|
@@ -28,14 +28,21 @@ Represents link to a opus encoded audio file in ogg container
 ### Example:
 
 ```
-$inputInlineQueryResultVoice = ['_' => 'inputInlineQueryResultVoice', 'id' => string, 'title' => string, 'voice_url' => string, 'voice_duration' => int, 'reply_markup' => ReplyMarkup, 'input_message_content' => InputMessageContent, ];
+$inputInlineQueryResultVoice = ['_' => 'inputInlineQueryResultVoice', 'id' => 'string', 'title' => 'string', 'voice_url' => 'string', 'voice_duration' => int, 'reply_markup' => ReplyMarkup, 'input_message_content' => InputMessageContent];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputInlineQueryResultVoice", "id": "string", "title": "string", "voice_url": "string", "voice_duration": int, "reply_markup": ReplyMarkup, "input_message_content": InputMessageContent}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputInlineQueryResultVoice={_='inputInlineQueryResultVoice', id=string, title=string, voice_url=string, voice_duration=int, reply_markup=ReplyMarkup, input_message_content=InputMessageContent, }
+inputInlineQueryResultVoice={_='inputInlineQueryResultVoice', id='string', title='string', voice_url='string', voice_duration=int, reply_markup=ReplyMarkup, input_message_content=InputMessageContent}
 
 ```
 

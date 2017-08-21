@@ -10,7 +10,7 @@ description: help_support attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |phone\_number|[string](../types/string.md) | Yes|
 |user|[User](../types/User.md) | Yes|
 
@@ -22,14 +22,21 @@ description: help_support attributes, type and example
 ### Example:
 
 ```
-$help_support = ['_' => 'help.support', 'phone_number' => string, 'user' => User, ];
+$help_support = ['_' => 'help.support', 'phone_number' => 'string', 'user' => User];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "help.support", "phone_number": "string", "user": User}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-help_support={_='help.support', phone_number=string, user=User, }
+help_support={_='help.support', phone_number='string', user=User}
 
 ```
 

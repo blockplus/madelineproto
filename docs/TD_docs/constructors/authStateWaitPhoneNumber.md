@@ -12,7 +12,7 @@ TDLib needs user's phone number to authorize
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ TDLib needs user's phone number to authorize
 ### Example:
 
 ```
-$authStateWaitPhoneNumber = ['_' => 'authStateWaitPhoneNumber', ];
+$authStateWaitPhoneNumber = ['_' => 'authStateWaitPhoneNumber'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "authStateWaitPhoneNumber"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-authStateWaitPhoneNumber={_='authStateWaitPhoneNumber', }
+authStateWaitPhoneNumber={_='authStateWaitPhoneNumber'}
 
 ```
 

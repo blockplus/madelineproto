@@ -10,7 +10,7 @@ description: inputFileBig attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |id|[long](../types/long.md) | Yes|
 |parts|[int](../types/int.md) | Yes|
 |name|[string](../types/string.md) | Yes|
@@ -23,14 +23,21 @@ description: inputFileBig attributes, type and example
 ### Example:
 
 ```
-$inputFileBig = ['_' => 'inputFileBig', 'id' => long, 'parts' => int, 'name' => string, ];
+$inputFileBig = ['_' => 'inputFileBig', 'id' => long, 'parts' => int, 'name' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputFileBig", "id": long, "parts": int, "name": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputFileBig={_='inputFileBig', id=long, parts=int, name=string, }
+inputFileBig={_='inputFileBig', id=long, parts=int, name='string'}
 
 ```
 

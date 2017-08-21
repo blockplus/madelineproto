@@ -12,7 +12,7 @@ Screenshot of messages in secret chat was taken
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 
 
 
@@ -22,14 +22,21 @@ Screenshot of messages in secret chat was taken
 ### Example:
 
 ```
-$messageScreenshotTaken = ['_' => 'messageScreenshotTaken', ];
+$messageScreenshotTaken = ['_' => 'messageScreenshotTaken'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageScreenshotTaken"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageScreenshotTaken={_='messageScreenshotTaken', }
+messageScreenshotTaken={_='messageScreenshotTaken'}
 
 ```
 

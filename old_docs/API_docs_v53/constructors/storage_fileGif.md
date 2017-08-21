@@ -16,14 +16,21 @@ description: storage_fileGif attributes, type and example
 ### Example:
 
 ```
-$storage_fileGif = ['_' => 'storage.fileGif', ];
+$storage_fileGif = ['_' => 'storage.fileGif'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "storage.fileGif"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-storage_fileGif={_='storage.fileGif', }
+storage_fileGif={_='storage.fileGif'}
 
 ```
 

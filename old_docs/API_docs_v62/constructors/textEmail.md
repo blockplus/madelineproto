@@ -10,7 +10,7 @@ description: textEmail attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |text|[RichText](../types/RichText.md) | Yes|
 |email|[string](../types/string.md) | Yes|
 
@@ -22,14 +22,21 @@ description: textEmail attributes, type and example
 ### Example:
 
 ```
-$textEmail = ['_' => 'textEmail', 'text' => RichText, 'email' => string, ];
+$textEmail = ['_' => 'textEmail', 'text' => RichText, 'email' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "textEmail", "text": RichText, "email": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-textEmail={_='textEmail', text=RichText, email=string, }
+textEmail={_='textEmail', text=RichText, email='string'}
 
 ```
 

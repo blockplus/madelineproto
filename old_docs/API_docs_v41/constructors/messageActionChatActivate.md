@@ -16,14 +16,21 @@ description: messageActionChatActivate attributes, type and example
 ### Example:
 
 ```
-$messageActionChatActivate = ['_' => 'messageActionChatActivate', ];
+$messageActionChatActivate = ['_' => 'messageActionChatActivate'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "messageActionChatActivate"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-messageActionChatActivate={_='messageActionChatActivate', }
+messageActionChatActivate={_='messageActionChatActivate'}
 
 ```
 

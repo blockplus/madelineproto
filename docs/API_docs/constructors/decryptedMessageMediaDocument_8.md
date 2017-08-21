@@ -10,7 +10,7 @@ description: decryptedMessageMediaDocument attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |thumb|[bytes](../types/bytes.md) | Yes|
 |thumb\_w|[int](../types/int.md) | Yes|
 |thumb\_h|[int](../types/int.md) | Yes|
@@ -28,14 +28,21 @@ description: decryptedMessageMediaDocument attributes, type and example
 ### Example:
 
 ```
-$decryptedMessageMediaDocument_8 = ['_' => 'decryptedMessageMediaDocument', 'thumb' => bytes, 'thumb_w' => int, 'thumb_h' => int, 'file_name' => string, 'mime_type' => string, 'size' => int, 'key' => bytes, 'iv' => bytes, ];
+$decryptedMessageMediaDocument_8 = ['_' => 'decryptedMessageMediaDocument', 'thumb' => 'bytes', 'thumb_w' => int, 'thumb_h' => int, 'file_name' => 'string', 'mime_type' => 'string', 'size' => int, 'key' => 'bytes', 'iv' => 'bytes'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "decryptedMessageMediaDocument", "thumb": "bytes", "thumb_w": int, "thumb_h": int, "file_name": "string", "mime_type": "string", "size": int, "key": "bytes", "iv": "bytes"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-decryptedMessageMediaDocument_8={_='decryptedMessageMediaDocument', thumb=bytes, thumb_w=int, thumb_h=int, file_name=string, mime_type=string, size=int, key=bytes, iv=bytes, }
+decryptedMessageMediaDocument_8={_='decryptedMessageMediaDocument', thumb='bytes', thumb_w=int, thumb_h=int, file_name='string', mime_type='string', size=int, key='bytes', iv='bytes'}
 
 ```
 

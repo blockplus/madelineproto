@@ -9,7 +9,7 @@ description: messages.setGameScore parameters, return type and example
 ### Parameters:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |edit\_message|[Bool](../types/Bool.md) | Optional|
 |force|[Bool](../types/Bool.md) | Optional|
 |peer|[InputPeer](../types/InputPeer.md) | Yes|
@@ -26,7 +26,7 @@ description: messages.setGameScore parameters, return type and example
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -40,6 +40,40 @@ if (isset($number)) { // Login as a user
 
 $Updates = $MadelineProto->messages->setGameScore(['edit_message' => Bool, 'force' => Bool, 'peer' => InputPeer, 'id' => int, 'user_id' => InputUser, 'score' => int, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - messages.setGameScore
+* params - `{"edit_message": Bool, "force": Bool, "peer": InputPeer, "id": int, "user_id": InputUser, "score": int, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/messages.setGameScore`
+
+Parameters:
+
+edit_message - Json encoded Bool
+
+force - Json encoded Bool
+
+peer - Json encoded InputPeer
+
+id - Json encoded int
+
+user_id - Json encoded InputUser
+
+score - Json encoded int
+
+
+
 
 Or, if you're into Lua:
 

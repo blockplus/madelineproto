@@ -6,12 +6,15 @@ description: Adds chat to the list of recently found chats. The chat is added to
 [Back to methods index](index.md)
 
 
+YOU CANNOT USE THIS METHOD IN MADELINEPROTO
+
+
 Adds chat to the list of recently found chats. The chat is added to the beginning of the list. If the chat is already in the list, at first it is removed from the list
 
 ### Params:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |chat\_id|[InputPeer](../types/InputPeer.md) | Yes|Identifier of the chat to add|
 
 
@@ -23,7 +26,7 @@ Adds chat to the list of recently found chats. The chat is added to the beginnin
 ```
 $MadelineProto = new \danog\MadelineProto\API();
 if (isset($token)) { // Login as a bot
-    $this->bot_login($token);
+    $MadelineProto->bot_login($token);
 }
 if (isset($number)) { // Login as a user
     $sentCode = $MadelineProto->phone_login($number);
@@ -37,6 +40,30 @@ if (isset($number)) { // Login as a user
 
 $Ok = $MadelineProto->addRecentlyFoundChat(['chat_id' => InputPeer, ]);
 ```
+
+Or, if you're using the [PWRTelegram HTTP API](https://pwrtelegram.xyz):
+
+### As a bot:
+
+POST/GET to `https://api.pwrtelegram.xyz/botTOKEN/madeline`
+
+Parameters:
+
+* method - addRecentlyFoundChat
+* params - `{"chat_id": InputPeer, }`
+
+
+
+### As a user:
+
+POST/GET to `https://api.pwrtelegram.xyz/userTOKEN/addRecentlyFoundChat`
+
+Parameters:
+
+chat_id - Json encoded InputPeer
+
+
+
 
 Or, if you're into Lua:
 

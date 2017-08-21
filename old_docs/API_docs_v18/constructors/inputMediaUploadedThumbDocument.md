@@ -10,7 +10,7 @@ description: inputMediaUploadedThumbDocument attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |file|[InputFile](../types/InputFile.md) | Yes|
 |thumb|[InputFile](../types/InputFile.md) | Yes|
 |file\_name|[string](../types/string.md) | Yes|
@@ -24,14 +24,21 @@ description: inputMediaUploadedThumbDocument attributes, type and example
 ### Example:
 
 ```
-$inputMediaUploadedThumbDocument = ['_' => 'inputMediaUploadedThumbDocument', 'file' => InputFile, 'thumb' => InputFile, 'file_name' => string, 'mime_type' => string, ];
+$inputMediaUploadedThumbDocument = ['_' => 'inputMediaUploadedThumbDocument', 'file' => InputFile, 'thumb' => InputFile, 'file_name' => 'string', 'mime_type' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "inputMediaUploadedThumbDocument", "file": InputFile, "thumb": InputFile, "file_name": "string", "mime_type": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-inputMediaUploadedThumbDocument={_='inputMediaUploadedThumbDocument', file=InputFile, thumb=InputFile, file_name=string, mime_type=string, }
+inputMediaUploadedThumbDocument={_='inputMediaUploadedThumbDocument', file=InputFile, thumb=InputFile, file_name='string', mime_type='string'}
 
 ```
 

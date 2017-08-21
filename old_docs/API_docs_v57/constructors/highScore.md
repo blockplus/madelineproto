@@ -10,7 +10,7 @@ description: highScore attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |pos|[int](../types/int.md) | Yes|
 |user\_id|[int](../types/int.md) | Yes|
 |score|[int](../types/int.md) | Yes|
@@ -23,14 +23,21 @@ description: highScore attributes, type and example
 ### Example:
 
 ```
-$highScore = ['_' => 'highScore', 'pos' => int, 'user_id' => int, 'score' => int, ];
+$highScore = ['_' => 'highScore', 'pos' => int, 'user_id' => int, 'score' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "highScore", "pos": int, "user_id": int, "score": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-highScore={_='highScore', pos=int, user_id=int, score=int, }
+highScore={_='highScore', pos=int, user_id=int, score=int}
 
 ```
 

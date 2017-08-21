@@ -10,7 +10,7 @@ description: updateShort attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |update|[Update](../types/Update.md) | Yes|
 |date|[int](../types/int.md) | Yes|
 
@@ -22,14 +22,21 @@ description: updateShort attributes, type and example
 ### Example:
 
 ```
-$updateShort = ['_' => 'updateShort', 'update' => Update, 'date' => int, ];
+$updateShort = ['_' => 'updateShort', 'update' => Update, 'date' => int];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "updateShort", "update": Update, "date": int}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-updateShort={_='updateShort', update=Update, date=int, }
+updateShort={_='updateShort', update=Update, date=int}
 
 ```
 

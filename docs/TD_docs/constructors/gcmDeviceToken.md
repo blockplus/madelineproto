@@ -12,7 +12,7 @@ Token for GCM
 ### Attributes:
 
 | Name     |    Type       | Required | Description |
-|----------|:-------------:|:--------:|------------:|
+|----------|---------------|----------|-------------|
 |token|[string](../types/string.md) | Yes|The token|
 
 
@@ -23,14 +23,21 @@ Token for GCM
 ### Example:
 
 ```
-$gcmDeviceToken = ['_' => 'gcmDeviceToken', 'token' => string, ];
+$gcmDeviceToken = ['_' => 'gcmDeviceToken', 'token' => 'string'];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "gcmDeviceToken", "token": "string"}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-gcmDeviceToken={_='gcmDeviceToken', token=string, }
+gcmDeviceToken={_='gcmDeviceToken', token='string'}
 
 ```
 

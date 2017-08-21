@@ -10,7 +10,7 @@ description: notifyPeer attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |peer|[Peer](../types/Peer.md) | Yes|
 
 
@@ -21,14 +21,21 @@ description: notifyPeer attributes, type and example
 ### Example:
 
 ```
-$notifyPeer = ['_' => 'notifyPeer', 'peer' => Peer, ];
+$notifyPeer = ['_' => 'notifyPeer', 'peer' => Peer];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "notifyPeer", "peer": Peer}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-notifyPeer={_='notifyPeer', peer=Peer, }
+notifyPeer={_='notifyPeer', peer=Peer}
 
 ```
 

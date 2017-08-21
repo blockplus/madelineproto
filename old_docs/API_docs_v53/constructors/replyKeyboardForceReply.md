@@ -10,7 +10,7 @@ description: replyKeyboardForceReply attributes, type and example
 ### Attributes:
 
 | Name     |    Type       | Required |
-|----------|:-------------:|---------:|
+|----------|---------------|----------|
 |single\_use|[Bool](../types/Bool.md) | Optional|
 |selective|[Bool](../types/Bool.md) | Optional|
 
@@ -22,14 +22,21 @@ description: replyKeyboardForceReply attributes, type and example
 ### Example:
 
 ```
-$replyKeyboardForceReply = ['_' => 'replyKeyboardForceReply', 'single_use' => Bool, 'selective' => Bool, ];
+$replyKeyboardForceReply = ['_' => 'replyKeyboardForceReply', 'single_use' => Bool, 'selective' => Bool];
 ```  
+
+[PWRTelegram](https://pwrtelegram.xyz) json-encoded version:
+
+```
+{"_": "replyKeyboardForceReply", "single_use": Bool, "selective": Bool}
+```
+
 
 Or, if you're into Lua:  
 
 
 ```
-replyKeyboardForceReply={_='replyKeyboardForceReply', single_use=Bool, selective=Bool, }
+replyKeyboardForceReply={_='replyKeyboardForceReply', single_use=Bool, selective=Bool}
 
 ```
 
